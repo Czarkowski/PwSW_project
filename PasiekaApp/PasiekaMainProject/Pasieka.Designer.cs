@@ -1,0 +1,72 @@
+﻿namespace PasiekaMainProject
+{
+    partial class Pasieka
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            btnAdd = new Button();
+            btnRemove = new Button();
+            SuspendLayout();
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(98, 87);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "Dodaj";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnRemove
+            // 
+            btnRemove.Location = new Point(236, 87);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(75, 23);
+            btnRemove.TabIndex = 1;
+            btnRemove.Text = "Usuń";
+            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
+            // 
+            // Pasieka
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnRemove);
+            Controls.Add(btnAdd);
+            Name = "Pasieka";
+            Text = "Pasieka";
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Button btnAdd;
+        private Button btnRemove;
+    }
+}

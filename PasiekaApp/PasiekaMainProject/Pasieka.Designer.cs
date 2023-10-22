@@ -30,11 +30,12 @@
         {
             btnAdd = new Button();
             btnRemove = new Button();
+            btnShow = new Button();
             SuspendLayout();
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(98, 87);
+            btnAdd.Location = new Point(484, 100);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // btnRemove
             // 
-            btnRemove.Location = new Point(236, 87);
+            btnRemove.Location = new Point(596, 50);
             btnRemove.Name = "btnRemove";
             btnRemove.Size = new Size(75, 23);
             btnRemove.TabIndex = 1;
@@ -52,11 +53,22 @@
             btnRemove.UseVisualStyleBackColor = true;
             btnRemove.Click += btnRemove_Click;
             // 
+            // btnShow
+            // 
+            btnShow.Location = new Point(145, 74);
+            btnShow.Name = "btnShow";
+            btnShow.Size = new Size(152, 23);
+            btnShow.TabIndex = 2;
+            btnShow.Text = "Pokaż Stan Pasieki";
+            btnShow.UseVisualStyleBackColor = true;
+            btnShow.Click += btnShow_Click;
+            // 
             // Pasieka
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnShow);
             Controls.Add(btnRemove);
             Controls.Add(btnAdd);
             Name = "Pasieka";
@@ -68,5 +80,6 @@
 
         private Button btnAdd;
         private Button btnRemove;
+        private Button btnShow;
     }
 }

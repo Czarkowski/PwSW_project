@@ -11,7 +11,7 @@ namespace PasiekaMainProject.Repositories
     public class MyDbContext : DbContext
     {
         private static readonly string ConnectionString = "server=localhost;uid=root;database=PasiekaSchema;password=zaq12wsx;port=3306";
-        private static MyDbContext instance;
+        private static MyDbContext? instance = null;
         public static MyDbContext Instance
         {
             get
@@ -24,15 +24,25 @@ namespace PasiekaMainProject.Repositories
             }
         }
 
+        private MyDbContext() { }
         //protected MyDbContext(DbContextOptions<MyDbContext> contextOptions) : base(contextOptions)
         //{
         //}
 
         public DbSet<UlModel> Ul { get; set; }
+        public DbSet<OpisUlPrzegladModel> OpisUlPrzeglad { get; set; }
+        public DbSet<PrzegladModel> Przeglad { get; set; }
+        public DbSet<RasaModel> Rasa { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(ConnectionString);
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UlModel>()
+                .ToTable("Ul");
         }
     }
 }

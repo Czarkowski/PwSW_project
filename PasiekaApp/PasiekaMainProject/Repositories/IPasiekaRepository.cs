@@ -13,9 +13,10 @@ namespace PasiekaMainProject.Repositories
         UlModel GetUlModel(long id);
         IQueryable<UlModel> GatAllUl();
         long AddUl(UlModel model);
-        UlModel UpdateUl(UlModel model, long id = default);
+        UlModel UpdateUl(UlModel model, int id = default);
         bool DeleteUl(UlModel model) { return DeleteUl(model.Id); }   
-        bool DeleteUl(long id);   
+        bool DeleteUl(long id);
+        public List<UlModel> GetUlModels();
 
     }
 }

@@ -38,9 +38,21 @@ namespace PasiekaMainProject.Repositories
             throw new NotImplementedException();
         }
 
-        public UlModel UpdateUl(UlModel model, long id = 0)
+        public UlModel UpdateUl(UlModel model, int id = default)
         {
-            throw new NotImplementedException();
+            if (id != default)
+            {
+                model = new UlModel(id, model);
+            }
+            model = context.Ul.Update(model).Entity;
+            context.SaveChanges();
+            return model;
+
+        }
+
+        public List<UlModel> GetUlModels()
+        {
+            return context.Ul.ToList();
         }
     }
 }

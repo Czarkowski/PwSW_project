@@ -1,4 +1,5 @@
-﻿using PasiekaMainProject.Repositories;
+﻿using Google.Protobuf.WellKnownTypes;
+using PasiekaMainProject.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,8 +54,18 @@ namespace PasiekaMainProject.Model
         public bool CzyWyrojone { get; set; }
         [ForeignKey("Rasa"), DefaultValue(1)]
         public int RasaId { get; set; } = 1;
-        public RasaModel Rasa { get; set; } = new RasaModel(); // MyDbContext.Instance.Rasa.Where(r => r.Id == 1).FirstOrDefault() ?? new RasaModel();
-        public int RamkiGniazdo { get; set; }     
+
+        private RasaModel rasa;
+        public RasaModel Rasa
+        {
+            get => rasa;
+            set
+            {
+                rasa = value;
+                RasaNazwa = value.Nazwa;
+            }
+}
+public int RamkiGniazdo { get; set; }     
         public int RamkiNadStawka { get; set; }     
         public string OpisZaPlanowane { get; set; } = string.Empty;
         public string OpisRamki { get; set; } = string.Empty;

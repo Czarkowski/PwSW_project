@@ -25,15 +25,11 @@ namespace PasiekaMainProject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void PasiekaGrid_Load(object sender, EventArgs e)
         {
 
-            var ulModels = repository.GetUlModels(); // Pobierz dane z bazy danych
+            var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
 
             dataGridView.DataSource = ulModels; // Przypisz dane do DataGridView
 
@@ -47,18 +43,13 @@ namespace PasiekaMainProject
 
                 if (row.DataBoundItem is UlModel value)
                 {
-                    setModelFieldsEnable(false);
-
-                    model = value;
-                    rtbState.Text = model.OpisStanu;
-                    rtbFuture.Text = model.OpisZaPlanowane;
-                    rtbFuture.Text = model.OpisRamki;
-                    setCheckedForCLB(clbStan, model);
-                    nudGniazdo.Value = model.RamkiGniazdo;
-                    nudNadStawka.Value = model.RamkiNadStawka;
-
+                    ChangeSelectedModel(value);
                 }
 
+            }
+            else
+            {
+                ChangeSelectedModel();
             }
         }
 
@@ -102,7 +93,7 @@ namespace PasiekaMainProject
 
         #region Struct, Dict, etc:
 
-        internal struct ClbIndexesStruct
+        private struct ClbIndexesStruct
         {
             internal static readonly string Odklad = "Odkład";
             internal static readonly string NowaMatka = "Nowa Matka";
@@ -133,7 +124,65 @@ namespace PasiekaMainProject
             model.CzyOdklad = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.Odklad));
             model.CzyNowaMatka = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.NowaMatka));
             model.CzyWyrojone = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.Wyrojone));
+            model.WiekMatki = int.Parse(lblWiekMatki.Text);
             repository.UpdateUl(model);
+            ChangeSelectedModel();
+        }
+
+        private void btnChangeQueen_Click(object sender, EventArgs e)
+        {
+            if (model == null)
+                return;
+
+            ChagneQueen chagneQueen = new ChagneQueen();
+            chagneQueen.chagneQueenEventHandler = (race, age) =>
+            {
+                model.RasaId = race.Id;
+                model.WiekMatki = age;
+                model.WiekMatkiData = DateTime.Now;
+                model.CzyNowaMatka = race.Id != 7;
+                //model.RasaNazwa = race.Nazwa;
+                model.Rasa = race;
+                repository.UpdateUl(model);
+                dataGridView.Refresh();
+            };
+            chagneQueen.Show();
+        }
+
+        private void ChangeSelectedModel(UlModel ulModel = null)
+        {
+            model = ulModel;
+            setModelFieldsEnable(false);
+
+            if (model != null)
+            {
+                btnChangeQueen.Enabled = true;
+                rtbState.Text = model.OpisStanu;
+                rtbFuture.Text = model.OpisZaPlanowane;
+                rtbFuture.Text = model.OpisRamki;
+                setCheckedForCLB(clbStan, model);
+                nudGniazdo.Value = model.RamkiGniazdo;
+                nudNadStawka.Value = model.RamkiNadStawka;
+                lblWiekMatki.Text = (DateTime.Now.Year - model.WiekMatkiData.Year + model.WiekMatki).ToString();
+                lblNr.Text = model.Numer.ToString();
+                dtpPrzeglad.Value = model.DataOstatniegoPrzegladu;
+            }
+            else
+            {
+                btnChangeQueen.Enabled = false;
+                rtbState.Text = default;
+                rtbFuture.Text = default;
+                rtbFuture.Text = default;
+                for (int i = 0; i < clbStan.Items.Count; i++)
+                    clbStan.SetItemChecked(i, false);
+                nudGniazdo.Value = default;
+                nudNadStawka.Value = default;
+                lblWiekMatki.Text = default;
+                lblNr.Text = default;
+                dtpPrzeglad.Value = dtpPrzeglad.MinDate;
+            }
+
+
         }
     }
 }

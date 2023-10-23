@@ -56,6 +56,10 @@
             label10 = new Label();
             nudGniazdo = new NumericUpDown();
             nudNadStawka = new NumericUpDown();
+            dtpPrzeglad = new DateTimePicker();
+            lblWiekMatki = new Label();
+            btnChangeQueen = new Button();
+            lblRaceName = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ulModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudGniazdo).BeginInit();
@@ -64,22 +68,27 @@
             // 
             // dataGridView
             // 
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AutoGenerateColumns = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { numerDataGridViewTextBoxColumn, rasaNazwaDataGridViewTextBoxColumn, dataOstatniegoPrzegladuDataGridViewTextBoxColumn });
             dataGridView.DataSource = ulModelBindingSource;
             dataGridView.Location = new Point(12, 151);
             dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
             dataGridView.RowTemplate.Height = 25;
             dataGridView.Size = new Size(344, 287);
             dataGridView.TabIndex = 0;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
+            dataGridView.CellDoubleClick += dataGridView_CellContentClick;
             // 
             // numerDataGridViewTextBoxColumn
             // 
             numerDataGridViewTextBoxColumn.DataPropertyName = "Numer";
             numerDataGridViewTextBoxColumn.HeaderText = "Numer";
             numerDataGridViewTextBoxColumn.Name = "numerDataGridViewTextBoxColumn";
+            numerDataGridViewTextBoxColumn.ReadOnly = true;
             numerDataGridViewTextBoxColumn.Width = 50;
             // 
             // rasaNazwaDataGridViewTextBoxColumn
@@ -87,12 +96,14 @@
             rasaNazwaDataGridViewTextBoxColumn.DataPropertyName = "RasaNazwa";
             rasaNazwaDataGridViewTextBoxColumn.HeaderText = "RasaNazwa";
             rasaNazwaDataGridViewTextBoxColumn.Name = "rasaNazwaDataGridViewTextBoxColumn";
+            rasaNazwaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataOstatniegoPrzegladuDataGridViewTextBoxColumn
             // 
             dataOstatniegoPrzegladuDataGridViewTextBoxColumn.DataPropertyName = "DataOstatniegoPrzegladu";
             dataOstatniegoPrzegladuDataGridViewTextBoxColumn.HeaderText = "DataOstatniegoPrzegladu";
             dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Name = "dataOstatniegoPrzegladuDataGridViewTextBoxColumn";
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.ReadOnly = true;
             dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Width = 150;
             // 
             // ulModelBindingSource
@@ -167,11 +178,11 @@
             // 
             // label1
             // 
-            label1.Location = new Point(373, 297);
+            label1.Location = new Point(362, 297);
             label1.Name = "label1";
-            label1.Size = new Size(69, 57);
+            label1.Size = new Size(80, 57);
             label1.TabIndex = 9;
-            label1.Text = "Za planowane czynności";
+            label1.Text = "Zaplanowane czynności";
             // 
             // label2
             // 
@@ -193,19 +204,20 @@
             // lblNr
             // 
             lblNr.AutoSize = true;
-            lblNr.Location = new Point(448, 151);
+            lblNr.Location = new Point(426, 151);
             lblNr.Name = "lblNr";
-            lblNr.Size = new Size(0, 15);
+            lblNr.Size = new Size(12, 15);
             lblNr.TabIndex = 12;
+            lblNr.Text = "_";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(485, 151);
             label4.Name = "label4";
-            label4.Size = new Size(31, 15);
+            label4.Size = new Size(34, 15);
             label4.TabIndex = 13;
-            label4.Text = "Rasa";
+            label4.Text = "Rasa:";
             // 
             // clbStan
             // 
@@ -228,20 +240,20 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(597, 151);
+            label6.Location = new Point(730, 151);
             label6.Name = "label6";
-            label6.Size = new Size(86, 15);
+            label6.Size = new Size(89, 15);
             label6.TabIndex = 16;
-            label6.Text = "Data Przeglądu";
+            label6.Text = "Data Przeglądu:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(731, 151);
+            label7.Location = new Point(616, 151);
             label7.Name = "label7";
-            label7.Size = new Size(66, 15);
+            label7.Size = new Size(69, 15);
             label7.TabIndex = 17;
-            label7.Text = "Wiek Matki";
+            label7.Text = "Wiek Matki:";
             // 
             // label8
             // 
@@ -292,11 +304,55 @@
             nudNadStawka.Size = new Size(120, 23);
             nudNadStawka.TabIndex = 23;
             // 
+            // dtpPrzeglad
+            // 
+            dtpPrzeglad.Enabled = false;
+            dtpPrzeglad.Format = DateTimePickerFormat.Short;
+            dtpPrzeglad.Location = new Point(825, 145);
+            dtpPrzeglad.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            dtpPrzeglad.Name = "dtpPrzeglad";
+            dtpPrzeglad.Size = new Size(78, 23);
+            dtpPrzeglad.TabIndex = 24;
+            dtpPrzeglad.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
+            // lblWiekMatki
+            // 
+            lblWiekMatki.AutoSize = true;
+            lblWiekMatki.Location = new Point(691, 151);
+            lblWiekMatki.Name = "lblWiekMatki";
+            lblWiekMatki.Size = new Size(12, 15);
+            lblWiekMatki.TabIndex = 25;
+            lblWiekMatki.Text = "_";
+            // 
+            // btnChangeQueen
+            // 
+            btnChangeQueen.Enabled = false;
+            btnChangeQueen.Location = new Point(448, 110);
+            btnChangeQueen.Name = "btnChangeQueen";
+            btnChangeQueen.Size = new Size(317, 23);
+            btnChangeQueen.TabIndex = 26;
+            btnChangeQueen.Text = "Wymiana Matki Pszczelej";
+            btnChangeQueen.UseVisualStyleBackColor = true;
+            btnChangeQueen.Click += btnChangeQueen_Click;
+            // 
+            // lblRaceName
+            // 
+            lblRaceName.AutoSize = true;
+            lblRaceName.Location = new Point(522, 151);
+            lblRaceName.Name = "lblRaceName";
+            lblRaceName.Size = new Size(12, 15);
+            lblRaceName.TabIndex = 27;
+            lblRaceName.Text = "_";
+            // 
             // PasiekaGrid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1171, 681);
+            Controls.Add(lblRaceName);
+            Controls.Add(btnChangeQueen);
+            Controls.Add(lblWiekMatki);
+            Controls.Add(dtpPrzeglad);
             Controls.Add(nudNadStawka);
             Controls.Add(nudGniazdo);
             Controls.Add(label10);
@@ -361,5 +417,9 @@
         private Label label10;
         private NumericUpDown nudGniazdo;
         private NumericUpDown nudNadStawka;
+        private DateTimePicker dtpPrzeglad;
+        private Label lblWiekMatki;
+        private Button btnChangeQueen;
+        private Label lblRaceName;
     }
 }

@@ -28,12 +28,12 @@ namespace PasiekaMainProject.Repositories
             throw new NotImplementedException();
         }
 
-        public IQueryable<UlModel> GatAllUl()
+        public IQueryable<UlModel> GatAllUls()
         {
             throw new NotImplementedException();
         }
 
-        public UlModel GetUlModel(long id)
+        public UlModel GetUl(long id)
         {
             throw new NotImplementedException();
         }
@@ -50,9 +50,14 @@ namespace PasiekaMainProject.Repositories
 
         }
 
-        public List<UlModel> GetUlModels()
+        public List<UlModel> GetUls()
         {
             return context.Ul.ToList();
+        }
+
+        public List<RasaModel> GetAllRasas()
+        {
+            return context.Rasa.ToList();
         }
     }
 }

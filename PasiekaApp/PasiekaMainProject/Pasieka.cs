@@ -20,7 +20,7 @@ namespace PasiekaMainProject
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var x = repository.GetUlModels();
+            var x = repository.GetUls();
             x.ForEach(x => { Console.WriteLine(x.Id); });
 
         }

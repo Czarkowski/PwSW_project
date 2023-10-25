@@ -30,8 +30,9 @@ namespace PasiekaMainProject
         {
 
             var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
-
+            var ulModel = repository.GetUl(1);
             dataGridView.DataSource = ulModels; // Przypisz dane do DataGridView
+            var x = ulModels[1].Rasa.Nazwa;
 
         }
 
@@ -78,7 +79,8 @@ namespace PasiekaMainProject
 
         private void btnNewUl_Click(object sender, EventArgs e)
         {
-
+            NewHive newHive = new NewHive();
+            newHive.Show();
         }
 
         private void btnUpdateUl_Click(object sender, EventArgs e)
@@ -139,7 +141,7 @@ namespace PasiekaMainProject
             {
                 model.RasaId = race.Id;
                 model.WiekMatki = age;
-                model.WiekMatkiData = DateTime.Now;
+                model.DataPoddaniaMatki = DateTime.Now;
                 model.CzyNowaMatka = race.Id != 7;
                 //model.RasaNazwa = race.Nazwa;
                 model.Rasa = race;
@@ -163,9 +165,10 @@ namespace PasiekaMainProject
                 setCheckedForCLB(clbStan, model);
                 nudGniazdo.Value = model.RamkiGniazdo;
                 nudNadStawka.Value = model.RamkiNadStawka;
-                lblWiekMatki.Text = (DateTime.Now.Year - model.WiekMatkiData.Year + model.WiekMatki).ToString();
+                lblWiekMatki.Text = (DateTime.Now.Year - model.DataPoddaniaMatki.Year + model.WiekMatki).ToString();
                 lblNr.Text = model.Numer.ToString();
-                dtpPrzeglad.Value = model.DataOstatniegoPrzegladu;
+                dtpPrzeglad.Value = model?.DataOstatniegoPrzegladu != null ? model.DataOstatniegoPrzegladu : dtpPrzeglad.MinDate;
+                dtpQueenAge.Value = model?.DataPoddaniaMatki != null ? model.DataPoddaniaMatki : dtpQueenAge.MaxDate;
             }
             else
             {
@@ -180,6 +183,7 @@ namespace PasiekaMainProject
                 lblWiekMatki.Text = default;
                 lblNr.Text = default;
                 dtpPrzeglad.Value = dtpPrzeglad.MinDate;
+                dtpQueenAge.Value = dtpQueenAge.MaxDate;
             }
 
 

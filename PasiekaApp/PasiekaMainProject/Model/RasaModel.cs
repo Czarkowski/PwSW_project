@@ -13,7 +13,7 @@ namespace PasiekaMainProject.Model
         public RasaModel()
         {
         }
-        public RasaModel(int id)
+        private RasaModel(int id)
         {
             this.Id = id;
         }

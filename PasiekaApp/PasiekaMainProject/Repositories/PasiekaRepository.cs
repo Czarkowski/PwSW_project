@@ -35,7 +35,7 @@ namespace PasiekaMainProject.Repositories
 
         public UlModel GetUl(long id)
         {
-            throw new NotImplementedException();
+            return context.Ul.First(x => x.Id == id);
         }
 
         public UlModel UpdateUl(UlModel model, int id = default)
@@ -58,6 +58,11 @@ namespace PasiekaMainProject.Repositories
         public List<RasaModel> GetAllRasas()
         {
             return context.Rasa.ToList();
+        }
+
+        public List<int> GetAllLockNumber()
+        {
+            return GetUls().Select(x => x.Numer).ToList();
         }
     }
 }

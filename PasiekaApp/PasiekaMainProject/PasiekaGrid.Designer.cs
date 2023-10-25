@@ -60,6 +60,8 @@
             lblWiekMatki = new Label();
             btnChangeQueen = new Button();
             lblRaceName = new Label();
+            label11 = new Label();
+            dtpQueenAge = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ulModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudGniazdo).BeginInit();
@@ -112,7 +114,7 @@
             // 
             // btnNewUl
             // 
-            btnNewUl.Location = new Point(12, 83);
+            btnNewUl.Location = new Point(12, 110);
             btnNewUl.Name = "btnNewUl";
             btnNewUl.Size = new Size(75, 23);
             btnNewUl.TabIndex = 1;
@@ -122,7 +124,7 @@
             // 
             // btnUpdateUl
             // 
-            btnUpdateUl.Location = new Point(93, 83);
+            btnUpdateUl.Location = new Point(1037, 628);
             btnUpdateUl.Name = "btnUpdateUl";
             btnUpdateUl.Size = new Size(75, 23);
             btnUpdateUl.TabIndex = 2;
@@ -132,7 +134,7 @@
             // 
             // btnRemoveUl
             // 
-            btnRemoveUl.Location = new Point(174, 83);
+            btnRemoveUl.Location = new Point(199, 110);
             btnRemoveUl.Name = "btnRemoveUl";
             btnRemoveUl.Size = new Size(75, 23);
             btnRemoveUl.TabIndex = 3;
@@ -223,7 +225,7 @@
             // 
             clbStan.FormattingEnabled = true;
             clbStan.Items.AddRange(new object[] { "Odkład ", "Nowa Matka", "Wyrojone" });
-            clbStan.Location = new Point(781, 330);
+            clbStan.Location = new Point(783, 434);
             clbStan.Name = "clbStan";
             clbStan.Size = new Size(120, 58);
             clbStan.TabIndex = 14;
@@ -231,7 +233,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(783, 302);
+            label5.Location = new Point(783, 396);
             label5.Name = "label5";
             label5.Size = new Size(33, 15);
             label5.TabIndex = 15;
@@ -240,7 +242,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(730, 151);
+            label6.Location = new Point(783, 195);
             label6.Name = "label6";
             label6.Size = new Size(89, 15);
             label6.TabIndex = 16;
@@ -258,7 +260,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(783, 199);
+            label8.Location = new Point(783, 294);
             label8.Name = "label8";
             label8.Size = new Size(86, 15);
             label8.TabIndex = 18;
@@ -267,7 +269,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(783, 245);
+            label9.Location = new Point(783, 349);
             label9.Name = "label9";
             label9.Size = new Size(105, 15);
             label9.TabIndex = 19;
@@ -292,27 +294,29 @@
             // 
             // nudGniazdo
             // 
-            nudGniazdo.Location = new Point(783, 217);
+            nudGniazdo.Location = new Point(783, 313);
             nudGniazdo.Name = "nudGniazdo";
             nudGniazdo.Size = new Size(120, 23);
             nudGniazdo.TabIndex = 22;
             // 
             // nudNadStawka
             // 
-            nudNadStawka.Location = new Point(783, 263);
+            nudNadStawka.Location = new Point(783, 367);
             nudNadStawka.Name = "nudNadStawka";
             nudNadStawka.Size = new Size(120, 23);
             nudNadStawka.TabIndex = 23;
             // 
             // dtpPrzeglad
             // 
+            dtpPrzeglad.Checked = false;
             dtpPrzeglad.Enabled = false;
             dtpPrzeglad.Format = DateTimePickerFormat.Short;
-            dtpPrzeglad.Location = new Point(825, 145);
+            dtpPrzeglad.Location = new Point(783, 221);
             dtpPrzeglad.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpPrzeglad.Name = "dtpPrzeglad";
-            dtpPrzeglad.Size = new Size(78, 23);
+            dtpPrzeglad.Size = new Size(120, 23);
             dtpPrzeglad.TabIndex = 24;
+            dtpPrzeglad.TabStop = false;
             dtpPrzeglad.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // lblWiekMatki
@@ -344,11 +348,35 @@
             lblRaceName.TabIndex = 27;
             lblRaceName.Text = "_";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(783, 247);
+            label11.Name = "label11";
+            label11.Size = new Size(120, 15);
+            label11.TabIndex = 28;
+            label11.Text = "Data Poddania Matki:";
+            // 
+            // dtpQueenAge
+            // 
+            dtpQueenAge.Checked = false;
+            dtpQueenAge.Enabled = false;
+            dtpQueenAge.Format = DateTimePickerFormat.Short;
+            dtpQueenAge.Location = new Point(782, 265);
+            dtpQueenAge.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            dtpQueenAge.Name = "dtpQueenAge";
+            dtpQueenAge.Size = new Size(121, 23);
+            dtpQueenAge.TabIndex = 29;
+            dtpQueenAge.TabStop = false;
+            dtpQueenAge.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
             // PasiekaGrid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1171, 681);
+            Controls.Add(dtpQueenAge);
+            Controls.Add(label11);
             Controls.Add(lblRaceName);
             Controls.Add(btnChangeQueen);
             Controls.Add(lblWiekMatki);
@@ -421,5 +449,7 @@
         private Label lblWiekMatki;
         private Button btnChangeQueen;
         private Label lblRaceName;
+        private Label label11;
+        private DateTimePicker dtpQueenAge;
     }
 }

@@ -16,8 +16,9 @@ namespace PasiekaMainProject.Repositories
         UlModel UpdateUl(UlModel model, int id = default);
         bool DeleteUl(UlModel model) { return DeleteUl(model.Id); }   
         bool DeleteUl(long id);
-        public List<UlModel> GetUls();
-        public List<RasaModel> GetAllRasas();
+        List<UlModel> GetUls();
+        List<RasaModel> GetAllRasas();
+        List<int> GetAllLockNumber();
 
     }
 }

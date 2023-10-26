@@ -13,5 +13,10 @@ namespace PasiekaMainProject.Helpers
         {
             return ul1.Numer.CompareTo(ul2.Numer);
         }
+
+        public static DateTime MaxDate(DateTime dt1, DateTime dt2)
+        {
+            return dt1 > dt2 ? dt1 : dt2;
+        }
     }
 }

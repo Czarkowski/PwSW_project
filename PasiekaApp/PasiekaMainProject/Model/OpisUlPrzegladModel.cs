@@ -10,11 +10,14 @@ namespace PasiekaMainProject.Model
     public class OpisUlPrzegladModel
     {
         public int Id { get; private set; }
-        public DateTime DataPrzegladu { get; set; }
+        public DateTime? DataPrzegladu { get; set; }
         public string Opis { get; set; } = string.Empty;
         public int UlId { get; set; }
         public UlModel Ul { get; set; }
         public int PrzegladId { get; set; }
         public PrzegladModel Przeglad { get; set; }
+
+        [NotMapped]
+        public int Numer => Ul?.Numer ?? default;
     }
 }

@@ -21,7 +21,7 @@ namespace PasiekaMainProject.Repositories
         List<int> GetAllLockNumber();
         RasaModel GetRasa(string name);
         int SavePrzeglad(PrzegladModel model);
-        List<PrzegladModel> GetAllPrzedlads(); 
+        List<PrzegladModel> GetAllPrzeglads(); 
 
     }
 }

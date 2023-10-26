@@ -12,10 +12,13 @@ namespace PasiekaMainProject.Model
         public int Id { get; private set; }
         public DateTime DataUtworzenia { get; set; }
         public DateTime DataZaPlanowana { get; set; }
-        public DateTime DataWykonania { get; set; }
+        public DateTime? DataWykonania { get; set; }
         public string Cel { get; set; } = string.Empty;
         public string Opis { get; set; } = string.Empty;
         public int CelEnum { get; set; }
         public List<OpisUlPrzegladModel> OpisUlPrzegladModels { get; set; } = new List<OpisUlPrzegladModel>();
+
+        [NotMapped]
+        public bool IsCopleted => DataWykonania != null;
     }
 }

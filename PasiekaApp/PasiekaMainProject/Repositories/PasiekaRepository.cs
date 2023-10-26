@@ -84,9 +84,9 @@ namespace PasiekaMainProject.Repositories
             return model.Id;
         }
 
-        public List<PrzegladModel> GetAllPrzedlads()
+        public List<PrzegladModel> GetAllPrzeglads()
         {
-            return context.Przeglad.Include(p => p.OpisUlPrzegladModels).ToList();
+            return context.Przeglad.Include(p => p.OpisUlPrzegladModels).ThenInclude(po => po.Ul) .ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasiekaMainProject.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -15,10 +16,10 @@ namespace PasiekaMainProject.Model
         public DateTime? DataWykonania { get; set; }
         public string Cel { get; set; } = string.Empty;
         public string Opis { get; set; } = string.Empty;
-        public int CelEnum { get; set; }
+        public CelEnum CelEnum { get; set; }
         public List<OpisUlPrzegladModel> OpisUlPrzegladModels { get; set; } = new List<OpisUlPrzegladModel>();
 
         [NotMapped]
-        public bool IsCopleted => DataWykonania != null;
+        public bool IsCompleted => DataWykonania != null;
     }
 }

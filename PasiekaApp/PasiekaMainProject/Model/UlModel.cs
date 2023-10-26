@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using PasiekaMainProject.Helpers;
 using PasiekaMainProject.Repositories;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace PasiekaMainProject.Model
             Id = id;
             Numer = model.Numer;
             DataDodania = model.DataDodania;
-            DataOstatniegoPrzegladu = model.DataOstatniegoPrzegladu;
+            DataOstatniejModyfikacji = model.DataOstatniejModyfikacji;
             WiekMatki = model.WiekMatki;
             DataPoddaniaMatki = model.DataPoddaniaMatki;
             OpisStanu = model.OpisStanu;
@@ -38,7 +39,7 @@ namespace PasiekaMainProject.Model
             Rasa = model.Rasa;
             RamkiGniazdo = model.RamkiGniazdo;
             RamkiNadStawka = model.RamkiNadStawka;
-            OpisZaPlanowane = model.OpisZaPlanowane;
+            OpisZaplanowane = model.OpisZaplanowane;
             OpisRamki = model.OpisRamki;
             OpisUlPrzegladModels = model.OpisUlPrzegladModels;
         }
@@ -48,7 +49,8 @@ namespace PasiekaMainProject.Model
         public int Id { get; private set; }
         public int Numer { get; set; }
         public DateTime DataDodania { get; set; }
-        public DateTime DataOstatniegoPrzegladu { get; set; }
+        [Column("DataOstatniegoPrzegladu")]
+        public DateTime DataOstatniejModyfikacji { get; set; }
         [Column("WiekMatki")]
         public int WiekMatki { get; set; }
         [Column("WiekMatkiData")]
@@ -73,9 +75,29 @@ namespace PasiekaMainProject.Model
         //}
         public int RamkiGniazdo { get; set; }
         public int RamkiNadStawka { get; set; }
-        public string OpisZaPlanowane { get; set; } = string.Empty;
+        public string OpisZaplanowane { get; set; } = string.Empty;
         public string OpisRamki { get; set; } = string.Empty;
         public List<OpisUlPrzegladModel> OpisUlPrzegladModels { get; set; } = new List<OpisUlPrzegladModel>();
+
+        public DateTime? GetDataOstatniegoPrzegladu()
+        {
+            List<OpisUlPrzegladModel> oupm;
+            if (OpisUlPrzegladModels.IsNullOrEmpty())
+            {
+                oupm = MyDbContext.Instance.OpisUlPrzeglad.Where(x => x.UlId == this.Id).OrderByDescending(x => x.DataPrzegladu).ToList();
+            }
+            else
+            {
+                oupm = OpisUlPrzegladModels.OrderByDescending(x => x.DataPrzegladu).ToList();
+            }
+
+            if (oupm.IsNullOrEmpty())
+            {
+                return null;
+            }
+
+            return oupm[0].DataPrzegladu;
+        }
 
     }
 }

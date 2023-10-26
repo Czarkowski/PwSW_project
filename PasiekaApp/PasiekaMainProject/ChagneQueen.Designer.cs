@@ -282,6 +282,7 @@
             // tbDescription
             // 
             tbDescription.Dock = DockStyle.Fill;
+            tbDescription.Enabled = false;
             tbDescription.Location = new Point(355, 153);
             tbDescription.Multiline = true;
             tbDescription.Name = "tbDescription";

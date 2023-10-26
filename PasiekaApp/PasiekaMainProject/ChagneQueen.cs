@@ -32,7 +32,12 @@ namespace PasiekaMainProject
             if (cbRace.SelectedValue != null && !cbRace.SelectedValue.Equals(defaultValueForcbRace.Id))
             {
                 chagneQueenEventHandler?.Invoke((RasaModel)cbRace.SelectedItem, (int)nudAge.Value, dtpDate.Value);
+                DialogResult = DialogResult.OK;
                 Close();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz poprawną rasę", "Bład!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -59,6 +64,7 @@ namespace PasiekaMainProject
                 pb3.Value = rasa.Produktywnosc * 10;
                 pb4.Value = rasa.Higienicznosc * 10;
                 pb5.Value = rasa.Licznosc * 10;
+                tbDescription.Text = rasa.Opis;
             }
         }
     }

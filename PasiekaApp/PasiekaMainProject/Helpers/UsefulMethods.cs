@@ -18,5 +18,14 @@ namespace PasiekaMainProject.Helpers
         {
             return dt1 > dt2 ? dt1 : dt2;
         }
+
+        public static bool IsAllOverviewComplete(List<OpisUlPrzegladModel> models)
+        {
+            if (models == null)
+            {
+                return false;
+            }
+            return models.All(x => x.DataPrzegladu != null && x.DataPrzegladu > SpecialValues.MinDateTime);
+        }
     }
 }

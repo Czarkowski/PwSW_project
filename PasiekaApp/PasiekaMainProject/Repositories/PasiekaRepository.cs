@@ -77,16 +77,45 @@ namespace PasiekaMainProject.Repositories
             return context.Rasa.Include(r => r.Uls).FirstOrDefault(x => x.Nazwa == name);
         }
 
-        public int SavePrzeglad(PrzegladModel model)
+        public PrzegladModel SavePrzeglad(PrzegladModel model)
         {
-            context.Przeglad.Add(model);
+            model = context.Przeglad.Add(model).Entity;
             context.SaveChanges();
-            return model.Id;
+            return model;
         }
 
         public List<PrzegladModel> GetAllPrzeglads()
         {
-            return context.Przeglad.Include(p => p.OpisUlPrzegladModels).ThenInclude(po => po.Ul) .ToList();
+            return context.Przeglad.Include(p => p.OpisUlPrzegladModels).ThenInclude(po => po.Ul).ToList();
+        }
+
+        public OpisUlPrzegladModel UpdateOpisUlPrzeglad(OpisUlPrzegladModel model)
+        {
+            model = context.OpisUlPrzeglad.Update(model).Entity;
+            context.SaveChanges();
+            return model;   
+        }
+
+        public PrzegladModel UpdatePrzeglad(PrzegladModel model)
+        {
+            model = context.Przeglad.Update(model).Entity;
+            context.SaveChanges();
+            return model;
+        }
+
+        public bool DeletePrzeglad(PrzegladModel model)
+        {
+            //var model = context.Ul.FirstOrDefault(x => x.Id == id);
+            if (model == null)
+                return false;
+
+            var x = context.Przeglad.Remove(model);
+            foreach (var item in model.OpisUlPrzegladModels)
+            {
+            context.OpisUlPrzeglad.Remove(item);
+            }
+            int ret = context.SaveChanges();
+            return ret > 0;
         }
     }
 }

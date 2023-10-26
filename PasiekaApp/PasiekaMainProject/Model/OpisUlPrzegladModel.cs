@@ -19,5 +19,7 @@ namespace PasiekaMainProject.Model
 
         [NotMapped]
         public int Numer => Ul?.Numer ?? default;
+        [NotMapped]
+        public bool IsCompleted => DataPrzegladu != null;
     }
 }

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PasiekaMainProject
 {
-    public partial class PasiekaGrid : Form
+    public partial class PasiekaGrid : UserControl
     {
         private IPasiekaRepository repository;
         private UlModel model;
@@ -50,12 +50,14 @@ namespace PasiekaMainProject
                 {
                     ChangeSelectedModel(value);
                     btnRemoveUl.Enabled = true;
+                    btnSave.Enabled = false;
                 }
 
             }
             else
             {
                 btnRemoveUl.Enabled = false;
+                btnSave.Enabled = false;
                 ChangeSelectedModel();
             }
         }
@@ -87,7 +89,7 @@ namespace PasiekaMainProject
         {
             NewHive newHive = new NewHive();
             newHive.refreshPasiekaGrid = () => refreshDGV();
-            newHive.Show();
+            newHive.ShowDialog();
         }
 
         private void btnUpdateUl_Click(object sender, EventArgs e)
@@ -135,12 +137,15 @@ namespace PasiekaMainProject
         private void btnUnlock_Click(object sender, EventArgs e)
         {
             setModelFieldsEnable(true);
+            btnSave.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            btnSave.Enabled = false;
+            if (model.IsNull()) { return; }
             model.OpisStanu = rtbState.Text;
-            model.OpisZaPlanowane = rtbFuture.Text;
+            model.OpisZaplanowane = rtbFuture.Text;
             model.OpisRamki = rtbFrame.Text;
             model.RamkiNadStawka = (int)nudNadStawka.Value;
             model.RamkiGniazdo = (int)nudGniazdo.Value;
@@ -171,7 +176,11 @@ namespace PasiekaMainProject
                 repository.UpdateUl(model);
                 dataGridView.Refresh();
             };
-            chagneQueen.Show();
+            DialogResult dialogResult = chagneQueen.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ChangeSelectedModel(model);
+            }
         }
 
         private void ChangeSelectedModel(UlModel ulModel = null)
@@ -183,16 +192,18 @@ namespace PasiekaMainProject
             {
                 btnChangeQueen.Enabled = true;
                 rtbState.Text = model.OpisStanu;
-                rtbFuture.Text = model.OpisZaPlanowane;
-                rtbFuture.Text = model.OpisRamki;
+                rtbFuture.Text = model.OpisZaplanowane;
+                rtbFrame.Text = model.OpisRamki;
                 setCheckedForCLB(clbStan, model);
                 nudGniazdo.Value = model.RamkiGniazdo;
                 nudNadStawka.Value = model.RamkiNadStawka;
                 lblWiekMatki.Text = (DateTime.Now.Year - model.DataPoddaniaMatki.Year + model.WiekMatki).ToString();
                 lblNr.Text = model.Numer.ToString();
                 lblRaceName.Text = model.Rasa.Nazwa;
-                dtpPrzeglad.Value = model.DataOstatniegoPrzegladu >= SpecialValues.MinDateTime ? model.DataOstatniegoPrzegladu : dtpPrzeglad.MinDate;
+                dtpPrzeglad.Value = model.GetDataOstatniegoPrzegladu() ?? SpecialValues.MinDateTime;
+                dtpPrzeglad.Visible = dtpPrzeglad.Value > SpecialValues.MinDateTime;
                 dtpQueenAge.Value = model.DataPoddaniaMatki >= SpecialValues.MinDateTime ? model.DataPoddaniaMatki : dtpQueenAge.MinDate;
+                dtpQueenAge.Visible = dtpQueenAge.Value > SpecialValues.MinDateTime;
             }
             else
             {
@@ -208,7 +219,7 @@ namespace PasiekaMainProject
                 lblNr.Text = default;
                 lblRaceName.Text = default;
                 dtpPrzeglad.Value = dtpPrzeglad.MinDate;
-                dtpQueenAge.Value = dtpQueenAge.MaxDate;
+                dtpQueenAge.Value = dtpQueenAge.MinDate;
             }
 
 

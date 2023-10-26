@@ -18,6 +18,9 @@ namespace PasiekaMainProject
         IPasiekaRepository repository;
         List<UlModel> availableUl = new List<UlModel>();
         List<UlModel> selectedUl = new List<UlModel>();
+        public bool IsEditMode { get; set; }
+        public PrzegladModel EditedPrzeglad { get; set; }
+        public PrzegladModel NewPrzeglad { get; set; }
         public NewOverview()
         {
             InitializeComponent();
@@ -29,10 +32,18 @@ namespace PasiekaMainProject
             cbCelEnum.Items.Clear();
             cbCelEnum.DataSource = Enum.GetValues(typeof(CelEnum)).Cast<CelEnum>().ToList();
             availableUl = new List<UlModel>(repository.GetUls()).OrderBy(x => x.Numer).ToList();
+            if (IsEditMode)
+            {
+                availableUl = availableUl.Except(EditedPrzeglad.OpisUlPrzegladModels.Select(x => x.Ul)).ToList();
+                selectedUl = EditedPrzeglad.OpisUlPrzegladModels.Select(x => x.Ul).ToList();
+                btnOk.Text = "Aktualizuj";
+            }
+            else
+            {
+            }
             dgvAvailable.DataSource = new List<UlModel>(availableUl);
             dgvSelected.DataSource = new List<UlModel>(selectedUl);
             //dgvAvailable.Sort(dgvAvailable.Columns[0], ListSortDirection.Ascending);
-
         }
 
         private void dgvAvailable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -75,11 +86,21 @@ namespace PasiekaMainProject
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var overview = new PrzegladModel();
+            PrzegladModel overview;
+            if (IsEditMode)
+            {
+                overview = EditedPrzeglad;
+            }
+            else
+            {
+                overview = new PrzegladModel();
+                overview.DataUtworzenia = DateTime.Now;
+            }
+
+
             overview.DataZaPlanowana = dtpDate.Value;
-            overview.DataUtworzenia = DateTime.Now;
             overview.Cel = tbCel.Text;
-            overview.CelEnum = (int)cbCelEnum.SelectedItem;
+            overview.CelEnum = (CelEnum)cbCelEnum.SelectedItem;
             overview.Opis = rtbOpis.Text;
             var opisUlPrzegladModels = new List<OpisUlPrzegladModel>();
             var selected = (List<UlModel>)dgvSelected.DataSource;
@@ -90,7 +111,18 @@ namespace PasiekaMainProject
                 opisUlPrzegladModels.Add(oupm);
             });
             overview.OpisUlPrzegladModels = opisUlPrzegladModels;
-            repository.SavePrzeglad(overview);
+
+            if (IsEditMode)
+            {
+                repository.UpdatePrzeglad(overview);
+            }
+            else
+            {
+                repository.SavePrzeglad(overview);
+                NewPrzeglad = overview;
+            }
+
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 

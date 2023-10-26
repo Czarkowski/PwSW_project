@@ -30,7 +30,6 @@ namespace PasiekaMainProject.Model
             DataOstatniegoPrzegladu = model.DataOstatniegoPrzegladu;
             WiekMatki = model.WiekMatki;
             DataPoddaniaMatki = model.DataPoddaniaMatki;
-            RasaNazwa = model.RasaNazwa;
             OpisStanu = model.OpisStanu;
             CzyOdklad = model.CzyOdklad;
             CzyNowaMatka = model.CzyNowaMatka;
@@ -54,13 +53,13 @@ namespace PasiekaMainProject.Model
         public int WiekMatki { get; set; }
         [Column("WiekMatkiData")]
         public DateTime DataPoddaniaMatki { get; set; }
-        public string RasaNazwa { get; set; } = string.Empty;
+        public string RasaNazwa => Rasa?.Nazwa ?? String.Empty;
         public string OpisStanu { get; set; } = string.Empty;
         public bool CzyOdklad { get; set; }
         public bool CzyNowaMatka { get; set; }
         public bool CzyWyrojone { get; set; }
         //[ForeignKey("RasaId")]
-        public int RasaId { get; set; } = 1;
+        public int RasaId { get; set; }
         public RasaModel Rasa { get; set; }
         //private RasaModel rasa;
         //public RasaModel Rasa

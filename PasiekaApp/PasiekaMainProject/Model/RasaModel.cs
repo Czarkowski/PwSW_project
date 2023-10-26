@@ -26,7 +26,7 @@ namespace PasiekaMainProject.Model
         public int Rojliwosc { get; set; }
         public int Higienicznosc { get; set; }
         public int Lagodnosc { get; set; }
-
+        public List<UlModel> Uls {  get; set; } = new List<UlModel>();
         public static RasaModel GetPlaceHolder(string nazwa)
         {
             var race =  new RasaModel(0);

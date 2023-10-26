@@ -41,8 +41,12 @@ namespace PasiekaMainProject.Repositories
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UlModel>()
-                .ToTable("Ul");
+            modelBuilder.Entity<UlModel>(ul =>
+            {
+                ul.ToTable("Ul");
+                ul.HasOne(u => u.Rasa).WithMany(r => r.Uls).HasForeignKey(u => u.RasaId);
+            });
+                
         }
     }
 }

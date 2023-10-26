@@ -1,4 +1,5 @@
-﻿using PasiekaMainProject.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using PasiekaMainProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,15 @@ namespace PasiekaMainProject.Repositories
             return model.Id;
         }
 
-        public bool DeleteUl(long id)
+        public bool DeleteUl(int id)
         {
-            throw new NotImplementedException();
+            var model = context.Ul.FirstOrDefault(x => x.Id == id);
+            if (model == null)
+                return false;
+
+            context.Ul.Remove(model);
+            context.SaveChanges() ;
+            return true;
         }
 
         public IQueryable<UlModel> GatAllUls()
@@ -52,7 +59,7 @@ namespace PasiekaMainProject.Repositories
 
         public List<UlModel> GetUls()
         {
-            return context.Ul.ToList();
+            return context.Ul.Include(ul => ul.Rasa).ToList();
         }
 
         public List<RasaModel> GetAllRasas()
@@ -63,6 +70,23 @@ namespace PasiekaMainProject.Repositories
         public List<int> GetAllLockNumber()
         {
             return GetUls().Select(x => x.Numer).ToList();
+        }
+
+        public RasaModel GetRasa(string name)
+        {
+            return context.Rasa.Include(r => r.Uls).FirstOrDefault(x => x.Nazwa == name);
+        }
+
+        public int SavePrzeglad(PrzegladModel model)
+        {
+            context.Przeglad.Add(model);
+            context.SaveChanges();
+            return model.Id;
+        }
+
+        public List<PrzegladModel> GetAllPrzedlads()
+        {
+            return context.Przeglad.Include(p => p.OpisUlPrzegladModels).ToList();
         }
     }
 }

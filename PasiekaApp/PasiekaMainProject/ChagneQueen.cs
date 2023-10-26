@@ -15,7 +15,7 @@ namespace PasiekaMainProject
     public partial class ChagneQueen : Form
     {
         IPasiekaRepository repository;
-        public delegate void ChagneQueenEventHandler(RasaModel race, int age);
+        public delegate void ChagneQueenEventHandler(RasaModel race, int age, DateTime data);
         private static RasaModel defaultValueForcbRace => RasaModel.GetPlaceHolder("");
 
         public ChagneQueenEventHandler chagneQueenEventHandler { get; set; }
@@ -31,7 +31,7 @@ namespace PasiekaMainProject
         {
             if (cbRace.SelectedValue != null && !cbRace.SelectedValue.Equals(defaultValueForcbRace.Id))
             {
-                chagneQueenEventHandler?.Invoke((RasaModel)cbRace.SelectedItem, (int)nudAge.Value);
+                chagneQueenEventHandler?.Invoke((RasaModel)cbRace.SelectedItem, (int)nudAge.Value, dtpDate.Value);
                 Close();
             }
         }
@@ -42,6 +42,7 @@ namespace PasiekaMainProject
             ds.RemoveAll(x => x.Nazwa.Contains("test", StringComparison.OrdinalIgnoreCase));
             ds.Add(defaultValueForcbRace);
             cbRace.DataSource = ds.OrderBy(x => x.Id).ToList();
+            dtpDate.Value = DateTime.Now;
         }
 
         private void btnCancle_Click(object sender, EventArgs e)

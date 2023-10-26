@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView = new DataGridView();
-            numerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            rasaNazwaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ulModelBindingSource = new BindingSource(components);
             btnNewUl = new Button();
             btnUpdateUl = new Button();
@@ -62,6 +59,9 @@
             lblRaceName = new Label();
             label11 = new Label();
             dtpQueenAge = new DateTimePicker();
+            Numer = new DataGridViewTextBoxColumn();
+            RasaNazwa = new DataGridViewTextBoxColumn();
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ulModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudGniazdo).BeginInit();
@@ -74,7 +74,7 @@
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AutoGenerateColumns = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { numerDataGridViewTextBoxColumn, rasaNazwaDataGridViewTextBoxColumn, dataOstatniegoPrzegladuDataGridViewTextBoxColumn });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { Numer, RasaNazwa, dataOstatniegoPrzegladuDataGridViewTextBoxColumn });
             dataGridView.DataSource = ulModelBindingSource;
             dataGridView.Location = new Point(12, 151);
             dataGridView.Name = "dataGridView";
@@ -84,29 +84,6 @@
             dataGridView.TabIndex = 0;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
             dataGridView.CellDoubleClick += dataGridView_CellContentClick;
-            // 
-            // numerDataGridViewTextBoxColumn
-            // 
-            numerDataGridViewTextBoxColumn.DataPropertyName = "Numer";
-            numerDataGridViewTextBoxColumn.HeaderText = "Numer";
-            numerDataGridViewTextBoxColumn.Name = "numerDataGridViewTextBoxColumn";
-            numerDataGridViewTextBoxColumn.ReadOnly = true;
-            numerDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // rasaNazwaDataGridViewTextBoxColumn
-            // 
-            rasaNazwaDataGridViewTextBoxColumn.DataPropertyName = "RasaNazwa";
-            rasaNazwaDataGridViewTextBoxColumn.HeaderText = "RasaNazwa";
-            rasaNazwaDataGridViewTextBoxColumn.Name = "rasaNazwaDataGridViewTextBoxColumn";
-            rasaNazwaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataOstatniegoPrzegladuDataGridViewTextBoxColumn
-            // 
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.DataPropertyName = "DataOstatniegoPrzegladu";
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.HeaderText = "DataOstatniegoPrzegladu";
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Name = "dataOstatniegoPrzegladuDataGridViewTextBoxColumn";
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.ReadOnly = true;
-            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Width = 150;
             // 
             // ulModelBindingSource
             // 
@@ -134,6 +111,7 @@
             // 
             // btnRemoveUl
             // 
+            btnRemoveUl.Enabled = false;
             btnRemoveUl.Location = new Point(199, 110);
             btnRemoveUl.Name = "btnRemoveUl";
             btnRemoveUl.Size = new Size(75, 23);
@@ -370,6 +348,29 @@
             dtpQueenAge.TabStop = false;
             dtpQueenAge.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
+            // Numer
+            // 
+            Numer.DataPropertyName = "Numer";
+            Numer.HeaderText = "Numer";
+            Numer.Name = "Numer";
+            Numer.ReadOnly = true;
+            Numer.Width = 50;
+            // 
+            // RasaNazwa
+            // 
+            RasaNazwa.DataPropertyName = "RasaNazwa";
+            RasaNazwa.HeaderText = "RasaNazwa";
+            RasaNazwa.Name = "RasaNazwa";
+            RasaNazwa.ReadOnly = true;
+            // 
+            // dataOstatniegoPrzegladuDataGridViewTextBoxColumn
+            // 
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.DataPropertyName = "DataOstatniegoPrzegladu";
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.HeaderText = "DataOstatniegoPrzegladu";
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Name = "dataOstatniegoPrzegladuDataGridViewTextBoxColumn";
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.ReadOnly = true;
+            dataOstatniegoPrzegladuDataGridViewTextBoxColumn.Width = 150;
+            // 
             // PasiekaGrid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -420,9 +421,7 @@
         private DataGridView dataGridView;
         private BindingSource ulModelBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numerDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn rasaNazwaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataOstatniegoPrzegladuDataGridViewTextBoxColumn;
         private Button btnNewUl;
         private Button btnUpdateUl;
         private Button btnRemoveUl;
@@ -451,5 +450,8 @@
         private Label lblRaceName;
         private Label label11;
         private DateTimePicker dtpQueenAge;
+        private DataGridViewTextBoxColumn Numer;
+        private DataGridViewTextBoxColumn RasaNazwa;
+        private DataGridViewTextBoxColumn dataOstatniegoPrzegladuDataGridViewTextBoxColumn;
     }
 }

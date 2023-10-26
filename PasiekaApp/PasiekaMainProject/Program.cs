@@ -18,6 +18,7 @@ namespace PasiekaMainProject
             if (!MyDbContext.Instance.Database.CanConnect())
                 throw new Exception("Nie uda³o po³aczyæ siê z baz¹ danych");
 
+
             Application.Run(new Pasieka());
         }
     }

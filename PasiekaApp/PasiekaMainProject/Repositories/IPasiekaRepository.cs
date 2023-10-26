@@ -15,10 +15,13 @@ namespace PasiekaMainProject.Repositories
         long AddUl(UlModel model);
         UlModel UpdateUl(UlModel model, int id = default);
         bool DeleteUl(UlModel model) { return DeleteUl(model.Id); }   
-        bool DeleteUl(long id);
+        bool DeleteUl(int id);
         List<UlModel> GetUls();
         List<RasaModel> GetAllRasas();
         List<int> GetAllLockNumber();
+        RasaModel GetRasa(string name);
+        int SavePrzeglad(PrzegladModel model);
+        List<PrzegladModel> GetAllPrzedlads(); 
 
     }
 }

@@ -31,6 +31,7 @@
             btnAdd = new Button();
             btnRemove = new Button();
             btnShow = new Button();
+            btnPrzeglady = new Button();
             SuspendLayout();
             // 
             // btnAdd
@@ -55,7 +56,7 @@
             // 
             // btnShow
             // 
-            btnShow.Location = new Point(145, 74);
+            btnShow.Location = new Point(33, 50);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(152, 23);
             btnShow.TabIndex = 2;
@@ -63,11 +64,22 @@
             btnShow.UseVisualStyleBackColor = true;
             btnShow.Click += btnShow_Click;
             // 
+            // btnPrzeglady
+            // 
+            btnPrzeglady.Location = new Point(222, 51);
+            btnPrzeglady.Name = "btnPrzeglady";
+            btnPrzeglady.Size = new Size(173, 23);
+            btnPrzeglady.TabIndex = 3;
+            btnPrzeglady.Text = "Zarządzaj Przeglądami";
+            btnPrzeglady.UseVisualStyleBackColor = true;
+            btnPrzeglady.Click += btnPrzeglady_Click;
+            // 
             // Pasieka
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnPrzeglady);
             Controls.Add(btnShow);
             Controls.Add(btnRemove);
             Controls.Add(btnAdd);
@@ -81,5 +93,6 @@
         private Button btnAdd;
         private Button btnRemove;
         private Button btnShow;
+        private Button btnPrzeglady;
     }
 }

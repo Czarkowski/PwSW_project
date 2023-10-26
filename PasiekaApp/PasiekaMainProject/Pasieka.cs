@@ -10,6 +10,7 @@ namespace PasiekaMainProject
         {
             InitializeComponent();
             repository = new PasiekaRepository(MyDbContext.Instance);
+            var x = repository.GetRasa("Test");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -28,8 +29,15 @@ namespace PasiekaMainProject
         private void btnShow_Click(object sender, EventArgs e)
         {
             PasiekaGrid pasiekaGrid = new PasiekaGrid();
-            
+
             pasiekaGrid.Show();
+        }
+
+        private void btnPrzeglady_Click(object sender, EventArgs e)
+        {
+            PasiekaOverview pasiekaOverview = new PasiekaOverview();
+
+            pasiekaOverview.Show();
         }
     }
 }

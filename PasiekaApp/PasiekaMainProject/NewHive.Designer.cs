@@ -118,6 +118,7 @@ namespace PasiekaMainProject
             Controls.Add(tableLayoutPanel1);
             Name = "NewHive";
             Text = "NewHive";
+            FormClosed += NewHive_FormClosed;
             Load += NewHive_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

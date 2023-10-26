@@ -19,6 +19,10 @@ namespace PasiekaMainProject
     {
 
         private IPasiekaRepository repository;
+
+        public delegate void RefreshPasiekaGrid();
+
+        public RefreshPasiekaGrid refreshPasiekaGrid { get; set; }
         private List<int> lockNumber => repository.GetAllLockNumber();
         public NewHive()
         {
@@ -67,6 +71,7 @@ namespace PasiekaMainProject
             UlModel ul = new UlModel(nr);
 
             ul.DataDodania = DateTime.Now;
+            ul.DataPoddaniaMatki = SpecialValues.MinDateTime;
             ul.RasaId = SpecialValues.NoBeeQueenID;
             repository.AddUl(ul);
             this.Close();
@@ -75,6 +80,11 @@ namespace PasiekaMainProject
         private void btnCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void NewHive_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            refreshPasiekaGrid?.Invoke();
         }
     }
 }

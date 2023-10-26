@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using PasiekaMainProject.Helpers;
 using PasiekaMainProject.Model;
 using PasiekaMainProject.Repositories;
 using System;
@@ -18,6 +19,7 @@ namespace PasiekaMainProject
     {
         private IPasiekaRepository repository;
         private UlModel model;
+        private bool IsModelSelected => model != null;
         public PasiekaGrid()
         {
             InitializeComponent();
@@ -30,9 +32,11 @@ namespace PasiekaMainProject
         {
 
             var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
-            var ulModel = repository.GetUl(1);
-            dataGridView.DataSource = ulModels; // Przypisz dane do DataGridView
-            var x = ulModels[1].Rasa.Nazwa;
+            dataGridView.DataSource = ulModels.OrderBy(x => x.Numer).ToList();
+            //BindingList<UlModel> bindingList = new BindingList<UlModel>(ulModels);
+            //BindingSource bindingSource = new BindingSource(bindingList, null);
+            //dataGridView.DataSource = bindingSource;
+            //dataGridView.Sort(dataGridView.Columns[0], ListSortDirection.Ascending);
 
         }
 
@@ -45,11 +49,13 @@ namespace PasiekaMainProject
                 if (row.DataBoundItem is UlModel value)
                 {
                     ChangeSelectedModel(value);
+                    btnRemoveUl.Enabled = true;
                 }
 
             }
             else
             {
+                btnRemoveUl.Enabled = false;
                 ChangeSelectedModel();
             }
         }
@@ -80,6 +86,7 @@ namespace PasiekaMainProject
         private void btnNewUl_Click(object sender, EventArgs e)
         {
             NewHive newHive = new NewHive();
+            newHive.refreshPasiekaGrid = () => refreshDGV();
             newHive.Show();
         }
 
@@ -90,7 +97,21 @@ namespace PasiekaMainProject
 
         private void btnRemoveUl_Click(object sender, EventArgs e)
         {
+            if (IsModelSelected)
+            {
+                DialogResult result = MessageBox.Show($"Czy na pewno chcesz Usunąć ul nr: {model.Numer}?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    repository.DeleteUl(model);
+                    refreshDGV();
+                    ChangeSelectedModel();
+                }
+                else
+                {
+
+                }
+            }
         }
 
         #region Struct, Dict, etc:
@@ -128,7 +149,8 @@ namespace PasiekaMainProject
             model.CzyWyrojone = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.Wyrojone));
             model.WiekMatki = int.Parse(lblWiekMatki.Text);
             repository.UpdateUl(model);
-            ChangeSelectedModel();
+            setModelFieldsEnable(false);
+            //ChangeSelectedModel();
         }
 
         private void btnChangeQueen_Click(object sender, EventArgs e)
@@ -137,7 +159,7 @@ namespace PasiekaMainProject
                 return;
 
             ChagneQueen chagneQueen = new ChagneQueen();
-            chagneQueen.chagneQueenEventHandler = (race, age) =>
+            chagneQueen.chagneQueenEventHandler = (race, age, date) =>
             {
                 model.RasaId = race.Id;
                 model.WiekMatki = age;
@@ -145,6 +167,7 @@ namespace PasiekaMainProject
                 model.CzyNowaMatka = race.Id != 7;
                 //model.RasaNazwa = race.Nazwa;
                 model.Rasa = race;
+                model.DataPoddaniaMatki = date;
                 repository.UpdateUl(model);
                 dataGridView.Refresh();
             };
@@ -167,8 +190,9 @@ namespace PasiekaMainProject
                 nudNadStawka.Value = model.RamkiNadStawka;
                 lblWiekMatki.Text = (DateTime.Now.Year - model.DataPoddaniaMatki.Year + model.WiekMatki).ToString();
                 lblNr.Text = model.Numer.ToString();
-                dtpPrzeglad.Value = model?.DataOstatniegoPrzegladu != null ? model.DataOstatniegoPrzegladu : dtpPrzeglad.MinDate;
-                dtpQueenAge.Value = model?.DataPoddaniaMatki != null ? model.DataPoddaniaMatki : dtpQueenAge.MaxDate;
+                lblRaceName.Text = model.Rasa.Nazwa;
+                dtpPrzeglad.Value = model.DataOstatniegoPrzegladu >= SpecialValues.MinDateTime ? model.DataOstatniegoPrzegladu : dtpPrzeglad.MinDate;
+                dtpQueenAge.Value = model.DataPoddaniaMatki >= SpecialValues.MinDateTime ? model.DataPoddaniaMatki : dtpQueenAge.MinDate;
             }
             else
             {
@@ -182,11 +206,18 @@ namespace PasiekaMainProject
                 nudNadStawka.Value = default;
                 lblWiekMatki.Text = default;
                 lblNr.Text = default;
+                lblRaceName.Text = default;
                 dtpPrzeglad.Value = dtpPrzeglad.MinDate;
                 dtpQueenAge.Value = dtpQueenAge.MaxDate;
             }
 
 
+        }
+
+        private void refreshDGV()
+        {
+            var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
+            dataGridView.DataSource = ulModels.OrderBy(x => x.Numer).ToList();
         }
     }
 }

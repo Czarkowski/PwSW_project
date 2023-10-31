@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasiekaMainProject.Helpers
+namespace PasiekaMainProject.MyEnums
 {
     public enum CelEnum
     {

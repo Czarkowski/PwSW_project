@@ -14,16 +14,21 @@ namespace PasiekaMainProject
             var x = repository.GetRasa("Test");
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnCalculator_Click(object sender, EventArgs e)
         {
-            var x = repository.AddUl(new UlModel { Numer = 12 });
-            Console.WriteLine(x);
+            PasiekaCalculator pasiekaCalculator = new PasiekaCalculator();
+
+            Panel panel = panelMain;
+
+            panel.Controls.Clear();
+
+            panel.Controls.Add(pasiekaCalculator);
+
+            enableOtherButton(sender as Button);
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnMap_Click(object sender, EventArgs e)
         {
-            var x = repository.GetUls();
-            x.ForEach(x => { Console.WriteLine(x.Id); });
 
         }
 
@@ -57,10 +62,9 @@ namespace PasiekaMainProject
         {
             List<Button> buttons = new List<Button>
             {
-                btnAdd, btnRemove, btnShow, btnPrzeglady
+                btnCalculator, btnMap, btnShow, btnPrzeglady
             };
             foreach (Button item in buttons)
-            //foreach (Control item in Controls["tableLayoutPanel1"]?.Controls["tableLayoutPanel2"]?.Controls)
             {
                 if (item is Button btn)
                 {
@@ -68,5 +72,8 @@ namespace PasiekaMainProject
                 }
             }
         }
+
+
+
     }
 }

@@ -392,7 +392,7 @@
             Controls.Add(btnNewUl);
             Controls.Add(dataGridView);
             Name = "PasiekaGrid";
-            Size = new Size(914, 443);
+            Size = new Size(971, 506);
             Load += PasiekaGrid_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ulModelBindingSource).EndInit();

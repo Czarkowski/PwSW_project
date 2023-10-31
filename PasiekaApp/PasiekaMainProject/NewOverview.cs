@@ -1,5 +1,6 @@
 ﻿using PasiekaMainProject.Helpers;
 using PasiekaMainProject.Model;
+using PasiekaMainProject.MyEnums;
 using PasiekaMainProject.Repositories;
 using System;
 using System.Collections.Generic;

@@ -112,6 +112,7 @@ namespace PasiekaMainProject
             btnUpdate.Enabled = currentPrzeglad != null;
             btnDelete.Enabled = currentPrzeglad != null;
             btnForce.Enabled = currentPrzeglad != null;
+            dgvPrzeglad.Refresh();
             ChangeSelectedUlOpis();
         }
 
@@ -129,6 +130,7 @@ namespace PasiekaMainProject
                 lblSelectedUl.Text = $"Przegląd \"{currentPrzeglad.Cel}\", Zaplanowany na: {currentPrzeglad.DataZaPlanowana.ToString("dd.MM.yyyy")}, dla ula Nr: {currentUlOpis.Numer}";
             }
             setEnableBtnComplete(currentUlOpis != null && (currentUlOpis.DataPrzegladu == null || currentUlOpis.DataPrzegladu.Value <= SpecialValues.MinDateTime));
+            dgvDescriptionUl.Refresh();
         }
 
         private void setEnableBtnComplete(bool isEnable = true)
@@ -210,14 +212,41 @@ namespace PasiekaMainProject
 
         private void btnForce_Click(object sender, EventArgs e)
         {
+            if (currentPrzeglad != null)
+            {
+                DialogResult result = MessageBox.Show($"Czy na pewno chcesz zakonczyć przeglad nr: {currentPrzeglad.Id}?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    currentPrzeglad.OpisUlPrzegladModels.ForEach(x =>
+                    {
+                        if (!x.IsCompleted)
+                        {
+                            x.Opis = "Wymuszono Zakonczenie";
+                            x.DataPrzegladu = DateTime.Now;
+                            repository.UpdateOpisUlPrzeglad(x);
+                        }
+                    });
+                    if (UsefulMethods.IsAllOverviewComplete(currentPrzeglad.OpisUlPrzegladModels))
+                    {
+                        currentPrzeglad.DataWykonania = DateTime.Now;
+                        repository.UpdatePrzeglad(currentPrzeglad);
+                        dgvPrzeglad.Refresh();
+                        ChangeSelectedPrzeglad(currentPrzeglad);
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (currentPrzeglad != null)
             {
-                DialogResult result = MessageBox.Show($"Czy na pewno chcesz Usunąć ul nr: {currentPrzeglad.Id}?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć przeglad nr: {currentPrzeglad.Id}?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {

@@ -99,5 +99,10 @@ namespace PasiekaMainProject.Model
             return oupm[0].DataPrzegladu;
         }
 
+        public int GetRelQueenAge()
+        {
+            return WiekMatki + DateTime.Now.Year - DataDodania.Year;
+        }
+
     }
 }

@@ -41,18 +41,20 @@ namespace PasiekaMainProject
         private void cbCalcType_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcTypeEnum? selected = cbCalcType.SelectedValue as CalcTypeEnum?;
-
+            chbAllHive.Enabled = true;
             UserControl? uc = null;
             switch (selected)
             {
                 case CalcTypeEnum.Syrop:
                     uc = new SugarCalc(this.GetUlsCount);
-                    uc.Dock = DockStyle.Fill;
                     break;
                 case CalcTypeEnum.KwasMrowkowy:
                     uc = new FormAcidCalc();
                     break;
                 case CalcTypeEnum.WymianaMatek:
+                    uc = new QueenCalc();
+                    chbAllHive.Checked = true;
+                    chbAllHive.Enabled = false;
                     break;
                 case CalcTypeEnum.None:
                 case null:

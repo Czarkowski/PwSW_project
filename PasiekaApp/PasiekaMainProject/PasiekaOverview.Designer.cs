@@ -34,7 +34,6 @@
             CelEnum = new DataGridViewTextBoxColumn();
             celDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             IsComplete = new DataGridViewCheckBoxColumn();
-            dataZaPlanowanaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             przegladModelBindingSource = new BindingSource(components);
             tbOpis = new TextBox();
             btnNew = new Button();
@@ -78,7 +77,7 @@
             dgvPrzeglad.AllowUserToDeleteRows = false;
             dgvPrzeglad.AutoGenerateColumns = false;
             dgvPrzeglad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPrzeglad.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, CelEnum, celDataGridViewTextBoxColumn, IsComplete, dataZaPlanowanaDataGridViewTextBoxColumn });
+            dgvPrzeglad.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, CelEnum, celDataGridViewTextBoxColumn, IsComplete });
             dgvPrzeglad.DataSource = przegladModelBindingSource;
             dgvPrzeglad.Location = new Point(3, 32);
             dgvPrzeglad.Name = "dgvPrzeglad";
@@ -117,14 +116,6 @@
             IsComplete.ReadOnly = true;
             IsComplete.Resizable = DataGridViewTriState.True;
             IsComplete.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataZaPlanowanaDataGridViewTextBoxColumn
-            // 
-            dataZaPlanowanaDataGridViewTextBoxColumn.DataPropertyName = "DataZaPlanowana";
-            dataZaPlanowanaDataGridViewTextBoxColumn.HeaderText = "DataZaPlanowana";
-            dataZaPlanowanaDataGridViewTextBoxColumn.Name = "dataZaPlanowanaDataGridViewTextBoxColumn";
-            dataZaPlanowanaDataGridViewTextBoxColumn.ReadOnly = true;
-            dataZaPlanowanaDataGridViewTextBoxColumn.Width = 150;
             // 
             // przegladModelBindingSource
             // 

@@ -61,6 +61,7 @@
             lblRaceName = new Label();
             label11 = new Label();
             dtpQueenAge = new DateTimePicker();
+            btnShowHistory = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ulModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudGniazdo).BeginInit();
@@ -359,10 +360,22 @@
             dtpQueenAge.TabStop = false;
             dtpQueenAge.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
+            // btnShowHistory
+            // 
+            btnShowHistory.Enabled = false;
+            btnShowHistory.Location = new Point(3, 441);
+            btnShowHistory.Name = "btnShowHistory";
+            btnShowHistory.Size = new Size(344, 23);
+            btnShowHistory.TabIndex = 30;
+            btnShowHistory.Text = "Pokaż historię przeglądów";
+            btnShowHistory.UseVisualStyleBackColor = true;
+            btnShowHistory.Click += btnShowHistory_Click;
+            // 
             // PasiekaGrid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnShowHistory);
             Controls.Add(label7);
             Controls.Add(dtpQueenAge);
             Controls.Add(label11);
@@ -439,5 +452,6 @@
         private DataGridViewTextBoxColumn Numer;
         private DataGridViewTextBoxColumn RasaNazwa;
         private DataGridViewTextBoxColumn DataOstatniejModyfikacji;
+        private Button btnShowHistory;
     }
 }

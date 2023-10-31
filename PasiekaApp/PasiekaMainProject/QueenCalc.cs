@@ -31,11 +31,11 @@ namespace PasiekaMainProject
             ListView listView = lvMain;
             listView.View = View.Details;
 
-            listView.Columns.Add("Rasa",150);
-            listView.Columns.Add("Do Wymiany [szt.]",200);
+            listView.Columns.Add("Rasa", 150);
+            listView.Columns.Add("Do Wymiany [szt.]", 200);
 
             List<RasaModel> rasaModels = repository.GetAllRasas().Where(x => !x.Nazwa.Contains("test", StringComparison.OrdinalIgnoreCase)).ToList();
-            Dictionary<string,int> dict = new Dictionary<string,int>();
+            Dictionary<string, int> dict = new Dictionary<string, int>();
             List<UlModel> ulModels = repository.GetUls();
 
 

@@ -117,5 +117,10 @@ namespace PasiekaMainProject.Repositories
             int ret = context.SaveChanges();
             return ret > 0;
         }
+
+        public List<OpisUlPrzegladModel> GetOpisUlPrzegladsWithPrzeglad(UlModel model)
+        {
+            return context.OpisUlPrzeglad.Where(x => x.UlId == model.Id).Include(x => x.Przeglad).ToList();
+        }
     }
 }

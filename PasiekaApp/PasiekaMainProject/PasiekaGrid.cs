@@ -49,15 +49,12 @@ namespace PasiekaMainProject
                 if (row.DataBoundItem is UlModel value)
                 {
                     ChangeSelectedModel(value);
-                    btnRemoveUl.Enabled = true;
-                    btnSave.Enabled = false;
                 }
 
             }
             else
             {
-                btnRemoveUl.Enabled = false;
-                btnSave.Enabled = false;
+
                 ChangeSelectedModel();
             }
         }
@@ -204,6 +201,9 @@ namespace PasiekaMainProject
                 dtpPrzeglad.Visible = dtpPrzeglad.Value > SpecialValues.MinDateTime;
                 dtpQueenAge.Value = model.DataPoddaniaMatki >= SpecialValues.MinDateTime ? model.DataPoddaniaMatki : dtpQueenAge.MinDate;
                 dtpQueenAge.Visible = dtpQueenAge.Value > SpecialValues.MinDateTime;
+                btnRemoveUl.Enabled = true;
+                btnSave.Enabled = false;
+                btnShowHistory.Enabled = true;
             }
             else
             {
@@ -220,6 +220,10 @@ namespace PasiekaMainProject
                 lblRaceName.Text = default;
                 dtpPrzeglad.Value = dtpPrzeglad.MinDate;
                 dtpQueenAge.Value = dtpQueenAge.MinDate;
+                btnRemoveUl.Enabled = false;
+                btnSave.Enabled = false;
+                btnShowHistory.Enabled = false;
+
             }
 
 
@@ -229,6 +233,13 @@ namespace PasiekaMainProject
         {
             var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
             dataGridView.DataSource = ulModels.OrderBy(x => x.Numer).ToList();
+        }
+
+        private void btnShowHistory_Click(object sender, EventArgs e)
+        {
+            if (model.IsNull()) return;
+            OverviewHistory overviewHistory = new OverviewHistory(model);
+            overviewHistory.ShowDialog();
         }
     }
 }

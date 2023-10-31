@@ -12,7 +12,7 @@ namespace PasiekaMainProject.Model
     {
         public int Id { get; private set; }
         public DateTime DataUtworzenia { get; set; }
-        public DateTime DataZaPlanowana { get; set; }
+        public DateTime DataZaplanowana { get; set; }
         public DateTime? DataWykonania { get; set; }
         public string Cel { get; set; } = string.Empty;
         public string Opis { get; set; } = string.Empty;

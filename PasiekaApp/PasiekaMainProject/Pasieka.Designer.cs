@@ -134,7 +134,6 @@
             // 
             // panelMain
             // 
-            panelMain.AutoScroll = true;
             panelMain.AutoSize = true;
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(3, 153);
@@ -162,8 +161,10 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(867, 181);
             Controls.Add(tableLayoutPanel3);
+            MaximizeBox = false;
             Name = "Pasieka";
             Text = "Pasieka";
             tableLayoutPanel1.ResumeLayout(false);

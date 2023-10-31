@@ -38,6 +38,11 @@ namespace PasiekaMainProject
                 availableUl = availableUl.Except(EditedPrzeglad.OpisUlPrzegladModels.Select(x => x.Ul)).ToList();
                 selectedUl = EditedPrzeglad.OpisUlPrzegladModels.Select(x => x.Ul).ToList();
                 btnOk.Text = "Aktualizuj";
+                dtpDate.Value = EditedPrzeglad.DataZaplanowana;
+                tbCel.Text = EditedPrzeglad.Cel;
+                cbCelEnum.SelectedItem = EditedPrzeglad.CelEnum;
+                rtbOpis.Text = EditedPrzeglad.Opis;
+
             }
             else
             {
@@ -99,26 +104,43 @@ namespace PasiekaMainProject
             }
 
 
-            overview.DataZaPlanowana = dtpDate.Value;
+            overview.DataZaplanowana = dtpDate.Value;
             overview.Cel = tbCel.Text;
             overview.CelEnum = (CelEnum)cbCelEnum.SelectedItem;
             overview.Opis = rtbOpis.Text;
             var opisUlPrzegladModels = new List<OpisUlPrzegladModel>();
             var selected = (List<UlModel>)dgvSelected.DataSource;
-            selected.ForEach(o =>
-            {
-                var oupm = new OpisUlPrzegladModel();
-                oupm.UlId = o.Id;
-                opisUlPrzegladModels.Add(oupm);
-            });
-            overview.OpisUlPrzegladModels = opisUlPrzegladModels;
 
             if (IsEditMode)
             {
+                var opisUlPrzegladModelsIds = EditedPrzeglad.OpisUlPrzegladModels.Select(x => x.UlId).ToList();
+                selected.ForEach(o =>
+                {
+                    var oupm = new OpisUlPrzegladModel();
+                    if (opisUlPrzegladModelsIds.Contains(o.Id))
+                    {
+                        oupm = EditedPrzeglad.OpisUlPrzegladModels.FirstOrDefault(x => x.UlId == o.Id);
+                    }
+                    else
+                    {
+                        oupm.UlId = o.Id;
+                    }
+                    opisUlPrzegladModels.Add(oupm);
+                });
+
+                overview.OpisUlPrzegladModels = opisUlPrzegladModels;
+
                 repository.UpdatePrzeglad(overview);
             }
             else
             {
+                selected.ForEach(o =>
+                {
+                    var oupm = new OpisUlPrzegladModel();
+                    oupm.UlId = o.Id;
+                    opisUlPrzegladModels.Add(oupm);
+                });
+                overview.OpisUlPrzegladModels = opisUlPrzegladModels;
                 repository.SavePrzeglad(overview);
                 NewPrzeglad = overview;
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasiekaMainProject.MyEnums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -21,5 +22,10 @@ namespace PasiekaMainProject.Model
         public int Numer => Ul?.Numer ?? default;
         [NotMapped]
         public bool IsCompleted => DataPrzegladu != null;
+        [NotMapped]
+        public CelEnum? CelEnum => Przeglad?.CelEnum;
+        [NotMapped]
+        public DateTime? DataZaplanowana => Przeglad?.DataZaplanowana;
+
     }
 }

@@ -104,7 +104,7 @@ namespace PasiekaMainProject
                 lblPrzegladId.Text = currentPrzeglad.Id.ToString();
                 tbOpis.Text = currentPrzeglad.Opis;
                 dtpDataUtworzenia.Value = UsefulMethods.MaxDate(SpecialValues.MinDateTime, currentPrzeglad.DataUtworzenia);
-                dtpDataZaPlanowana.Value = UsefulMethods.MaxDate(SpecialValues.MinDateTime, currentPrzeglad.DataZaPlanowana);
+                dtpDataZaPlanowana.Value = UsefulMethods.MaxDate(SpecialValues.MinDateTime, currentPrzeglad.DataZaplanowana);
                 dtpDataWykonania.Value = UsefulMethods.MaxDate(SpecialValues.MinDateTime, currentPrzeglad.DataWykonania ?? DateTime.MinValue);
                 dtpDataWykonania.Visible = dtpDataWykonania.Value > SpecialValues.MinDateTime;
                 dgvDescriptionUl.DataSource = currentPrzeglad.OpisUlPrzegladModels;
@@ -127,7 +127,7 @@ namespace PasiekaMainProject
             else
             {
                 tbOpisUl.Text = currentUlOpis.Opis;
-                lblSelectedUl.Text = $"Przegląd \"{currentPrzeglad.Cel}\", Zaplanowany na: {currentPrzeglad.DataZaPlanowana.ToString("dd.MM.yyyy")}, dla ula Nr: {currentUlOpis.Numer}";
+                lblSelectedUl.Text = $"Przegląd \"{currentPrzeglad.Cel}\", Zaplanowany na: {currentPrzeglad.DataZaplanowana.ToString("dd.MM.yyyy")}, dla ula Nr: {currentUlOpis.Numer}";
             }
             setEnableBtnComplete(currentUlOpis != null && (currentUlOpis.DataPrzegladu == null || currentUlOpis.DataPrzegladu.Value <= SpecialValues.MinDateTime));
             dgvDescriptionUl.Refresh();

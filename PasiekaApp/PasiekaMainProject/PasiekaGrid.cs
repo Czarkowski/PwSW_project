@@ -2,6 +2,7 @@
 using PasiekaMainProject.Helpers;
 using PasiekaMainProject.Model;
 using PasiekaMainProject.Repositories;
+using SingletonLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,25 @@ using System.Windows.Forms;
 
 namespace PasiekaMainProject
 {
-    public partial class PasiekaGrid : UserControl
+    public partial class PasiekaGrid : UserControl, IObservable<UlModel>, ISingleton<PasiekaGrid>
     {
+        private readonly HashSet<IObserver<UlModel>> _observers = new();
         private IPasiekaRepository repository;
-        private UlModel model;
+        private UlModel _model;
+        private UlModel model
+        {
+            get => _model;
+            set
+            {
+                _model = value;
+                foreach (var item in _observers)
+                {
+                    item.OnNext(model);
+                }
+            }
+        }
         private bool IsModelSelected => model != null;
+        public Delegate SelectedModelChangedEventHandler;
         public PasiekaGrid()
         {
             InitializeComponent();
@@ -33,6 +48,17 @@ namespace PasiekaMainProject
 
             var ulModels = repository.GetUls(); // Pobierz dane z bazy danych
             dataGridView.DataSource = ulModels.OrderBy(x => x.Numer).ToList();
+            clbStan.Items.Clear();
+
+            FieldInfo[] fields = typeof(ClbIndexesStruct).GetFields(BindingFlags.Public | BindingFlags.Static);
+            string[] values = new string[fields.Length];
+
+            for (int i = 0; i < fields.Length; i++)
+            {
+                values[i] = (string)fields[i].GetValue(null);
+                clbStan.Items.Add(values[i]);
+            }
+
             //BindingList<UlModel> bindingList = new BindingList<UlModel>(ulModels);
             //BindingSource bindingSource = new BindingSource(bindingList, null);
             //dataGridView.DataSource = bindingSource;
@@ -75,7 +101,7 @@ namespace PasiekaMainProject
             {
                 if (clbStringIndexes.TryGetValue(clb.Items[i].ToString(), out PropertyInfo prop))
                 {
-                    bool value = (bool?)prop.GetValue(model) ?? false;
+                    bool value = (bool?)prop?.GetValue(model) ?? false;
                     clb.SetItemChecked(i, value);
                 }
             }
@@ -87,11 +113,6 @@ namespace PasiekaMainProject
             NewHive newHive = new NewHive();
             newHive.refreshPasiekaGrid = () => refreshDGV();
             newHive.ShowDialog();
-        }
-
-        private void btnUpdateUl_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRemoveUl_Click(object sender, EventArgs e)
@@ -115,18 +136,11 @@ namespace PasiekaMainProject
 
         #region Struct, Dict, etc:
 
-        private struct ClbIndexesStruct
-        {
-            internal static readonly string Odklad = "Odkład";
-            internal static readonly string NowaMatka = "Nowa Matka";
-            internal static readonly string Wyrojone = "Wyrojone";
-        }
-
         private Dictionary<string, PropertyInfo> clbStringIndexes = new Dictionary<string, PropertyInfo>
         {
-            {ClbIndexesStruct.Odklad ,typeof(UlModel).GetProperty("CzyOdklad")},
-            {ClbIndexesStruct.NowaMatka,typeof(UlModel).GetProperty("CzyNowaMatka") },
-            {ClbIndexesStruct.Wyrojone,typeof(UlModel).GetProperty("CzyWyrojone") }
+            {ClbIndexesStruct.Odklad ,typeof(UlModel).GetPropertyByDescription(ClbIndexesStruct.Odklad)},
+            {ClbIndexesStruct.NowaMatka,typeof(UlModel).GetPropertyByDescription(ClbIndexesStruct.NowaMatka)},
+            {ClbIndexesStruct.Wyrojone,typeof(UlModel).GetPropertyByDescription(ClbIndexesStruct.Wyrojone)}
         };
 
         #endregion
@@ -180,7 +194,11 @@ namespace PasiekaMainProject
             }
         }
 
-        private void ChangeSelectedModel(UlModel ulModel = null)
+        public void ChangeSelectedModel(int id)
+        {
+            ChangeSelectedModel((dataGridView.DataSource as List<UlModel>).Find(x => x.Id == id));
+        }
+        public void ChangeSelectedModel(UlModel? ulModel = null)
         {
             model = ulModel;
             setModelFieldsEnable(false);
@@ -204,6 +222,18 @@ namespace PasiekaMainProject
                 btnRemoveUl.Enabled = true;
                 btnSave.Enabled = false;
                 btnShowHistory.Enabled = true;
+
+                var targetModel = model;
+                var rowIndex = dataGridView.Rows.Cast<DataGridViewRow>()
+                    .Select((row, index) => new { Row = row, Index = index })
+                    .FirstOrDefault(item => item.Row.DataBoundItem == targetModel)?.Index;
+
+                if (rowIndex.HasValue)
+                {
+                    dataGridView.ClearSelection();
+                    dataGridView.Rows[rowIndex.Value].Selected = true;
+                }
+
             }
             else
             {
@@ -223,10 +253,8 @@ namespace PasiekaMainProject
                 btnRemoveUl.Enabled = false;
                 btnSave.Enabled = false;
                 btnShowHistory.Enabled = false;
-
+                dataGridView.ClearSelection();
             }
-
-
         }
 
         private void refreshDGV()
@@ -241,6 +269,36 @@ namespace PasiekaMainProject
             OverviewHistory overviewHistory = new OverviewHistory(model);
             overviewHistory.ShowDialog();
         }
+
+        public IDisposable Subscribe(IObserver<UlModel> observer)
+        {
+            _observers.Add(observer);
+            return new Unsubscriber(() => _observers.Remove(observer));
+        }
+
+        static PasiekaGrid ISingleton<PasiekaGrid>.initilize()
+        {
+            return new();
+        }
+
+        private class Unsubscriber : IDisposable
+        {
+            private readonly Action action;
+            public Unsubscriber(Action action)
+            {
+                this.action = action;
+            }
+            public void Dispose()
+            {
+                action();
+            }
+        }
+    }
+    public struct ClbIndexesStruct
+    {
+        public const string Odklad = "Odkład";
+        public const string NowaMatka = "Nowa Matka";
+        public const string Wyrojone = "Wyrojone";
     }
 }
 

@@ -122,5 +122,28 @@ namespace PasiekaMainProject.Repositories
         {
             return context.OpisUlPrzeglad.Where(x => x.UlId == model.Id).Include(x => x.Przeglad).ToList();
         }
+
+        public List<PoseModel> GetPoseModels()
+        {
+            return context.Pose.Include(x => x.UlModel).ToList();
+        }
+
+        public void UpdatePoseModel(PoseModel model)
+        {
+            context.Pose.Update(model);
+            context.SaveChanges();
+        }
+
+        public void SavePoseModel(PoseModel model)
+        {
+            context.Pose.Add(model);
+            context.SaveChanges();
+        }
+
+        public void DeletePoseModel(PoseModel model)
+        {
+            context.Pose.Remove(model);
+            context.SaveChanges();
+        }
     }
 }

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace PasiekaMainProject.MyEnums
 {
-    public enum CelEnum
+    public enum ColorEnum
     {
-        None = 0,
-        Przeglad,
-        Karmienie,
-        WymianaMatki,
-        Miodobranie,
-        Interwencyjny
+        Szary = KnownColor.Gray,
+        Czerwony = KnownColor.Red,
+        Zulty = KnownColor.Yellow,
+        Zielony = KnownColor.Green,
+        Niebieski = KnownColor.Blue,
     }
 }

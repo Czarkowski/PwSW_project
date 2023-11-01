@@ -53,6 +53,7 @@ namespace PasiekaMainProject
             cbFilterCel.Items.Clear();
             cbFilterCel.DisplayMember = "Name";
             cbFilterCel.DataSource = extEnumValues;
+            lblMain.Text = $"Historia przeglądów dla Ul nr : {_model.Numer}";
         }
 
         private void cbFilterCel_SelectedIndexChanged(object sender, EventArgs e)

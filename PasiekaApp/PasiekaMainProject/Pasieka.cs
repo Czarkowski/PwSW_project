@@ -1,4 +1,5 @@
 using PasiekaMainProject.Model;
+using PasiekaMainProject.MyClassAndInterface;
 using PasiekaMainProject.Repositories;
 using System.Windows.Forms;
 
@@ -16,46 +17,43 @@ namespace PasiekaMainProject
 
         private void btnCalculator_Click(object sender, EventArgs e)
         {
-            PasiekaCalculator pasiekaCalculator = new PasiekaCalculator();
-
+            PasiekaCalculator pasiekaCalculator = SingletonPasiekaCalculator.Instance;
             Panel panel = panelMain;
-
             panel.Controls.Clear();
-
             panel.Controls.Add(pasiekaCalculator);
-
             enableOtherButton(sender as Button);
+            lblMain.Text = "Klakulator Pasieczny";
         }
 
         private void btnMap_Click(object sender, EventArgs e)
         {
-
+            PasiekaMap pasiekaMap = SingletonPasiekaMap.Instance;
+            Panel panel = panelMain;
+            panel.Controls.Clear();
+            panel.Controls.Add(pasiekaMap);
+            enableOtherButton(sender as Button);
+            pasiekaMap.RefreshSingletonControls();
+            lblMain.Text = "Interaktywna mapa Pasieki";
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            PasiekaGrid pasiekaGrid = new PasiekaGrid();
-
+            PasiekaGrid pasiekaGrid = SingletonPasiekaGrid.Instance;
             Panel panel = panelMain;
-
             panel.Controls.Clear();
-
             panel.Controls.Add(pasiekaGrid);
-
             enableOtherButton(sender as Button);
+            lblMain.Text = "Stan Pasieki";
         }
 
         private void btnPrzeglady_Click(object sender, EventArgs e)
         {
-            PasiekaOverview pasiekaOverview = new PasiekaOverview();
-
+            PasiekaOverview pasiekaOverview = SingletonPasiekaOverview.Instance;
             Panel panel = panelMain;
-
             panel.Controls.Clear();
-
             panel.Controls.Add(pasiekaOverview);
-
             enableOtherButton(sender as Button);
+            lblMain.Text = "Planowanie i zarz¹dzanie przegl¹dami";
         }
 
         private void enableOtherButton(Button button)

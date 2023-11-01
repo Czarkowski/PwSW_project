@@ -22,6 +22,8 @@ namespace PasiekaMainProject.Helpers
         public static readonly decimal TwoToOneWaterToSugarpMultiply = 2M;
 
         public static readonly decimal FormAcidMultiply = 15M;
+        public static readonly Size UlDisplaySize = new Size(50,50);
+        public static readonly Size MapSize = new Size(2000,1000);
 
     }
 }

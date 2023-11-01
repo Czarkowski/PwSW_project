@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using PasiekaMainProject.Annotations;
 using PasiekaMainProject.Helpers;
 using PasiekaMainProject.Repositories;
 using System;
@@ -57,8 +58,11 @@ namespace PasiekaMainProject.Model
         public DateTime DataPoddaniaMatki { get; set; }
         public string RasaNazwa => Rasa?.Nazwa ?? String.Empty;
         public string OpisStanu { get; set; } = string.Empty;
+        [DescriptionForForm(ClbIndexesStruct.Odklad)]
         public bool CzyOdklad { get; set; }
+        [DescriptionForForm(ClbIndexesStruct.NowaMatka)]
         public bool CzyNowaMatka { get; set; }
+        [DescriptionForForm(ClbIndexesStruct.Wyrojone)]
         public bool CzyWyrojone { get; set; }
         //[ForeignKey("RasaId")]
         public int RasaId { get; set; }
@@ -78,6 +82,8 @@ namespace PasiekaMainProject.Model
         public string OpisZaplanowane { get; set; } = string.Empty;
         public string OpisRamki { get; set; } = string.Empty;
         public List<OpisUlPrzegladModel> OpisUlPrzegladModels { get; set; } = new List<OpisUlPrzegladModel>();
+        //public int PoseId { get; set; }
+        public PoseModel Pose { get; set; }
 
         public DateTime? GetDataOstatniegoPrzegladu()
         {

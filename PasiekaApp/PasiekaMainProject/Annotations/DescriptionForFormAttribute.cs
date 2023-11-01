@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PasiekaMainProject.Annotations
 {
-    [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public class DescriptionForFormAttribute: Attribute
     {
         public string Description { get; }

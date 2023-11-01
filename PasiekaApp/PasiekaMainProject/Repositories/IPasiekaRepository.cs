@@ -26,6 +26,9 @@ namespace PasiekaMainProject.Repositories
         OpisUlPrzegladModel UpdateOpisUlPrzeglad(OpisUlPrzegladModel model);
         List<OpisUlPrzegladModel> GetOpisUlPrzegladsWithPrzeglad(UlModel model);
         PrzegladModel UpdatePrzeglad(PrzegladModel model);
-        //List<OpisUlPrzegladModel> GetA
+        List<PoseModel> GetPoseModels();
+        void UpdatePoseModel(PoseModel model);
+        void SavePoseModel(PoseModel model);
+        void DeletePoseModel(PoseModel model);
     }
 }

@@ -2,6 +2,7 @@
 using PasiekaMainProject.Model;
 using PasiekaMainProject.MyEnums;
 using PasiekaMainProject.Repositories;
+using SingletonLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PasiekaMainProject
 {
-    public partial class PasiekaOverview : UserControl
+    public partial class PasiekaOverview : UserControl, ISingleton<PasiekaOverview>
     {
         private IPasiekaRepository repository;
 
@@ -260,6 +261,11 @@ namespace PasiekaMainProject
 
                 }
             }
+        }
+
+        static PasiekaOverview ISingleton<PasiekaOverview>.initilize()
+        {
+            return new();
         }
     }
 }

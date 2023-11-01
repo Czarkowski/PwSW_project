@@ -23,7 +23,7 @@ namespace PasiekaMainProject
         public delegate void RefreshPasiekaGrid();
 
         public RefreshPasiekaGrid refreshPasiekaGrid { get; set; }
-        private List<int> lockNumber => repository.GetAllLockNumber();
+        private List<int> lockNumbers => repository.GetAllLockNumber();
         public NewHive()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace PasiekaMainProject
         private int nextValue(int val, int last)
         {
             bool isNotSmaller = last <= val;
-            var ln = lockNumber;
+            var ln = lockNumbers;
             while (ln.Contains(val))
             {
                 val = isNotSmaller ? ++val : --val;
@@ -63,7 +63,7 @@ namespace PasiekaMainProject
         private void btnOK_Click(object sender, EventArgs e)
         {
             int nr = (int)nudNr.Value;
-            if (lockNumber.Contains(nr))
+            if (lockNumbers.Contains(nr))
             {
                 nudNr.Value = nextValue((int)nudNr.Value, lastValue);
                 return;

@@ -33,6 +33,7 @@ namespace PasiekaMainProject.Repositories
         public DbSet<OpisUlPrzegladModel> OpisUlPrzeglad { get; set; }
         public DbSet<PrzegladModel> Przeglad { get; set; }
         public DbSet<RasaModel> Rasa { get; set; }
+        public DbSet<PoseModel> Pose { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

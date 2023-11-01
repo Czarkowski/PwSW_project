@@ -2,6 +2,7 @@
 using PasiekaMainProject.MyClassAndInterface;
 using PasiekaMainProject.MyEnums;
 using PasiekaMainProject.Repositories;
+using SingletonLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PasiekaMainProject
 {
-    public partial class PasiekaCalculator : UserControl
+    public partial class PasiekaCalculator : UserControl, ISingleton<PasiekaCalculator>
     {
 
         private IRefreshCalcUserControl currentControl;
@@ -101,6 +102,11 @@ namespace PasiekaMainProject
         private void nudHalf_ValueChanged(object sender, EventArgs e)
         {
             currentControl?.RefreshCalc();
+        }
+
+        static PasiekaCalculator ISingleton<PasiekaCalculator>.initilize()
+        {
+            return new();
         }
     }
 }

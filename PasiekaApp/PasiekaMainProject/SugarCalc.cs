@@ -33,7 +33,7 @@ namespace PasiekaMainProject
 
             var enumValuesSyurp = Enum.GetValues(typeof(SyurpTypeEnum)).Cast<SyurpTypeEnum>().ToList();
 
-            cbSyurpType.DataSource = DSModelForComboBox<SyurpTypeEnum>.GetDSList(enumValuesSyurp, x => StaticExtensions.GetDescription(x));
+            cbSyurpType.DataSource = DSModelForComboBox<SyurpTypeEnum>.GetDSList(enumValuesSyurp, x => x.GetDescription());
 
             cbSyurpType.ValueMember = "Value";
             cbSyurpType.DisplayMember = "Name";

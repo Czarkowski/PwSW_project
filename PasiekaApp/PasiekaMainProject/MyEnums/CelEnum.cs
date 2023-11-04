@@ -10,7 +10,7 @@ namespace PasiekaMainProject.MyEnums
     {
         Szary = KnownColor.Gray,
         Czerwony = KnownColor.Red,
-        Zulty = KnownColor.Yellow,
+        Zolty = KnownColor.Yellow,
         Zielony = KnownColor.Green,
         Niebieski = KnownColor.Blue,
     }

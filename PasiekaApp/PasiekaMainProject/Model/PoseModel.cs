@@ -24,7 +24,7 @@ namespace PasiekaMainProject.Model
         public int y { get; set; }
         [ForeignKey("UlModel")]
         public int UlId { get; set; }
-        public UlModel UlModel { get; set; }
+        public UlModel Ul { get; set; }
         public ColorEnum ColorEnum { get; set; }
     }
 }

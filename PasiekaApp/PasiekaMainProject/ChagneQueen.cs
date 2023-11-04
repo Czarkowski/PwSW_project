@@ -16,8 +16,6 @@ namespace PasiekaMainProject
     {
         IPasiekaRepository repository;
         public delegate void ChagneQueenEventHandler(RasaModel race, int age, DateTime data);
-        private static RasaModel defaultValueForcbRace => RasaModel.GetPlaceHolder("");
-
         public ChagneQueenEventHandler chagneQueenEventHandler { get; set; }
         public ChagneQueen()
         {
@@ -29,7 +27,7 @@ namespace PasiekaMainProject
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (cbRace.SelectedValue != null && !cbRace.SelectedValue.Equals(defaultValueForcbRace.Id))
+            if (cbRace.SelectedValue != null)
             {
                 chagneQueenEventHandler?.Invoke((RasaModel)cbRace.SelectedItem, (int)nudAge.Value, dtpDate.Value);
                 DialogResult = DialogResult.OK;
@@ -45,7 +43,6 @@ namespace PasiekaMainProject
         {
             var ds = repository.GetAllRasas();
             ds.RemoveAll(x => x.Nazwa.Contains("test", StringComparison.OrdinalIgnoreCase));
-            ds.Add(defaultValueForcbRace);
             cbRace.DataSource = ds.OrderBy(x => x.Id).ToList();
             dtpDate.Value = DateTime.Now;
         }

@@ -125,7 +125,7 @@ namespace PasiekaMainProject.Repositories
 
         public List<PoseModel> GetPoseModels()
         {
-            return context.Pose.Include(x => x.UlModel).ToList();
+            return context.Pose.Include(x => x.Ul).ToList();
         }
 
         public void UpdatePoseModel(PoseModel model)

@@ -12,7 +12,6 @@ namespace PasiekaMainProject.MyException
         public NoOrBadModelValueException(string name, object? value = null)
         : base(String.Format("No or bad valuew in model. Model: {0}, Value: {1}", name, value))
         {
-
         }
     }
 }

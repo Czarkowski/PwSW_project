@@ -9,18 +9,14 @@ namespace PasiekaMainProject.MyClassAndInterface
 {
     public class SingletonPasiekaGrid : Singleton<PasiekaGrid>
     {
-
     }
     public class SingletonPasiekaMap : Singleton<PasiekaMap>
     {
-
     }
     public class SingletonPasiekaOverview : Singleton<PasiekaOverview>
     {
-
     }
     public class SingletonPasiekaCalculator : Singleton<PasiekaCalculator>
     {
-
     }
 }

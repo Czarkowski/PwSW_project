@@ -10,13 +10,11 @@ namespace PasiekaMainProject
 {
     public class MapControler : PictureBox
     {
-        private readonly Size maxSize;
         public int SelectedUlId { get; set; }
         public List<PoseModel> PoseModels { get; set; }
         public MapControler()
         {
             DoubleBuffered = true;
-            maxSize = this.Size;
         }
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -25,7 +23,7 @@ namespace PasiekaMainProject
 
             Graphics g = e.Graphics;
 
-
+            bool isNoUlModel = false;
             foreach (var pose in PoseModels)
             {
                 try
@@ -33,7 +31,7 @@ namespace PasiekaMainProject
 
                     Rectangle rect = new Rectangle(pose.x, pose.y, 50, 50);
                     Color kolorWypelnienia = Color.FromKnownColor((KnownColor)pose.ColorEnum);
-                    string numer = pose.UlModel?.Numer.ToString() ?? throw new NoOrBadModelValueException("Ulmodel.Name", pose);
+                    string numer = pose.Ul?.Numer.ToString() ?? throw new NoOrBadModelValueException("Ulmodel.Name", pose);
                     //if (numer == string.Empty) {
                     //    PoseModels.Remove(pose);
                     //    continue;
@@ -64,11 +62,13 @@ namespace PasiekaMainProject
                 catch (NoOrBadModelValueException ex)
                 {
                     DialogResult result = MessageBox.Show($"{ex.Message}", "Rozumiem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    isNoUlModel = true;
                 }
-
-
             }
-
+            if (isNoUlModel)
+            {
+                PoseModels.RemoveAll(x => x.Ul == null);
+            }
         }
     }
 }

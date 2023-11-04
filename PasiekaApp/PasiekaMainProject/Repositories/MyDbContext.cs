@@ -25,9 +25,6 @@ namespace PasiekaMainProject.Repositories
         }
 
         private MyDbContext() { }
-        //protected MyDbContext(DbContextOptions<MyDbContext> contextOptions) : base(contextOptions)
-        //{
-        //}
 
         public DbSet<UlModel> Ul { get; set; }
         public DbSet<OpisUlPrzegladModel> OpisUlPrzeglad { get; set; }

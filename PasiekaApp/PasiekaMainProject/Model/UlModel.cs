@@ -85,6 +85,9 @@ namespace PasiekaMainProject.Model
         //public int PoseId { get; set; }
         public PoseModel Pose { get; set; }
 
+        [NotMapped]
+        public DateTime? DataOstatniegoPrzegladu { get => GetDataOstatniegoPrzegladu(); }
+
         public DateTime? GetDataOstatniegoPrzegladu()
         {
             List<OpisUlPrzegladModel> oupm;

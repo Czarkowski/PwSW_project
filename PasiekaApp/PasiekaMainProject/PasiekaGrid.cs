@@ -163,6 +163,7 @@ namespace PasiekaMainProject
             model.CzyOdklad = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.Odklad));
             model.CzyNowaMatka = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.NowaMatka));
             model.CzyWyrojone = clbStan.GetItemChecked(clbStan.FindString(ClbIndexesStruct.Wyrojone));
+            model.DataOstatniejModyfikacji = DateTime.Now;
             model.WiekMatki = int.Parse(lblWiekMatki.Text);
             repository.UpdateUl(model);
             setModelFieldsEnable(false);

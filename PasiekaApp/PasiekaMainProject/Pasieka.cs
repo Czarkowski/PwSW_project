@@ -22,6 +22,7 @@ namespace PasiekaMainProject
             panel.Controls.Clear();
             panel.Controls.Add(pasiekaCalculator);
             enableOtherButton(sender as Button);
+            pasiekaCalculator.Location = new Point(0, 0);
             lblMain.Text = "Klakulator Pasieczny";
         }
 
@@ -33,6 +34,7 @@ namespace PasiekaMainProject
             panel.Controls.Add(pasiekaMap);
             enableOtherButton(sender as Button);
             pasiekaMap.RefreshSingletonControls();
+            pasiekaMap.Location = new Point(0, 0);
             lblMain.Text = "Interaktywna mapa Pasieki";
         }
 
@@ -43,6 +45,7 @@ namespace PasiekaMainProject
             panel.Controls.Clear();
             panel.Controls.Add(pasiekaGrid);
             enableOtherButton(sender as Button);
+            pasiekaGrid.Location = new Point(0, 0); 
             lblMain.Text = "Stan Pasieki";
         }
 
@@ -53,6 +56,7 @@ namespace PasiekaMainProject
             panel.Controls.Clear();
             panel.Controls.Add(pasiekaOverview);
             enableOtherButton(sender as Button);
+            pasiekaOverview.Location = new Point(0, 0);
             lblMain.Text = "Planowanie i zarz¹dzanie przegl¹dami";
         }
 

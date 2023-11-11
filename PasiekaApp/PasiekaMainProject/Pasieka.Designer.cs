@@ -45,9 +45,9 @@
             // btnCalculator
             // 
             btnCalculator.Dock = DockStyle.Fill;
-            btnCalculator.Location = new Point(489, 3);
+            btnCalculator.Location = new Point(539, 3);
             btnCalculator.Name = "btnCalculator";
-            btnCalculator.Size = new Size(237, 60);
+            btnCalculator.Size = new Size(262, 60);
             btnCalculator.TabIndex = 0;
             btnCalculator.Text = "Kalkulator";
             btnCalculator.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // btnMap
             // 
             btnMap.Dock = DockStyle.Fill;
-            btnMap.Location = new Point(732, 3);
+            btnMap.Location = new Point(807, 3);
             btnMap.Name = "btnMap";
-            btnMap.Size = new Size(237, 60);
+            btnMap.Size = new Size(262, 60);
             btnMap.TabIndex = 1;
             btnMap.Text = "Mapa";
             btnMap.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             btnShow.Dock = DockStyle.Fill;
             btnShow.Location = new Point(3, 3);
             btnShow.Name = "btnShow";
-            btnShow.Size = new Size(237, 60);
+            btnShow.Size = new Size(262, 60);
             btnShow.TabIndex = 2;
             btnShow.Text = "Pokaż Stan Pasieki";
             btnShow.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@
             // btnPrzeglady
             // 
             btnPrzeglady.Dock = DockStyle.Fill;
-            btnPrzeglady.Location = new Point(246, 3);
+            btnPrzeglady.Location = new Point(271, 3);
             btnPrzeglady.Name = "btnPrzeglady";
-            btnPrzeglady.Size = new Size(237, 60);
+            btnPrzeglady.Size = new Size(262, 60);
             btnPrzeglady.TabIndex = 3;
             btnPrzeglady.Text = "Zarządzaj Przeglądami";
             btnPrzeglady.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(978, 144);
+            tableLayoutPanel1.Size = new Size(1078, 144);
             tableLayoutPanel1.TabIndex = 5;
             // 
             // lblMain
@@ -109,7 +109,7 @@
             lblMain.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblMain.Location = new Point(3, 72);
             lblMain.Name = "lblMain";
-            lblMain.Size = new Size(972, 72);
+            lblMain.Size = new Size(1072, 72);
             lblMain.TabIndex = 1;
             lblMain.Text = "_";
             // 
@@ -129,7 +129,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(972, 66);
+            tableLayoutPanel2.Size = new Size(1072, 66);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // panelMain
@@ -141,7 +141,7 @@
             panelMain.Location = new Point(3, 153);
             panelMain.MaximumSize = new Size(0, 650);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(978, 105);
+            panelMain.Size = new Size(1078, 105);
             panelMain.TabIndex = 6;
             // 
             // tableLayoutPanel3
@@ -157,7 +157,7 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(984, 261);
+            tableLayoutPanel3.Size = new Size(1084, 261);
             tableLayoutPanel3.TabIndex = 7;
             // 
             // Pasieka
@@ -165,11 +165,11 @@
             AutoScaleMode = AutoScaleMode.None;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(984, 261);
+            ClientSize = new Size(1084, 261);
             Controls.Add(tableLayoutPanel3);
             MaximizeBox = false;
             MaximumSize = new Size(1400, 1000);
-            MinimumSize = new Size(1000, 300);
+            MinimumSize = new Size(1100, 300);
             Name = "Pasieka";
             Text = "Pasieka";
             tableLayoutPanel1.ResumeLayout(false);

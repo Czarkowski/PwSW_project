@@ -45,7 +45,7 @@ namespace PasiekaMainProject
             panel.Controls.Clear();
             panel.Controls.Add(pasiekaGrid);
             enableOtherButton(sender as Button);
-            pasiekaGrid.Location = new Point(0, 0); 
+            pasiekaGrid.Location = new Point(0, 0);
             lblMain.Text = "Stan Pasieki";
         }
 

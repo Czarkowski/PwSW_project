@@ -147,6 +147,10 @@ namespace PasiekaMainProject
 
         private void btnUnlock_Click(object sender, EventArgs e)
         {
+            if (model == null)
+            {
+                return;
+            }
             setModelFieldsEnable(true);
             btnSave.Enabled = true;
         }
@@ -241,7 +245,7 @@ namespace PasiekaMainProject
                 btnChangeQueen.Enabled = false;
                 rtbState.Text = default;
                 rtbFuture.Text = default;
-                rtbFuture.Text = default;
+                rtbFrame.Text = default;
                 for (int i = 0; i < clbStan.Items.Count; i++)
                     clbStan.SetItemChecked(i, false);
                 nudGniazdo.Value = default;

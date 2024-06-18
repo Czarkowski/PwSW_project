@@ -10,7 +10,7 @@ namespace PasiekaMainProject.Repositories
 {
     public class MyDbContext : DbContext
     {
-        private static readonly string ConnectionString = "server=localhost;uid=root;database=PasiekaSchema;password=1234;port=3306";
+        private static readonly string ConnectionString = "server=localhost;uid=root;database=PasiekaSchema;password=zaq12wsx;port=3306";
         private static MyDbContext? instance = null;
         public static MyDbContext Instance
         {
@@ -43,8 +43,7 @@ namespace PasiekaMainProject.Repositories
             {
                 ul.ToTable("Ul");
                 ul.HasOne(u => u.Rasa).WithMany(r => r.Uls).HasForeignKey(u => u.RasaId);
-            });
-                
+            });    
         }
     }
 }

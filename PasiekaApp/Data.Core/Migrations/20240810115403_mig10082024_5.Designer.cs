@@ -3,6 +3,7 @@ using System;
 using Data.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Core.Migrations
 {
     [DbContext(typeof(BeeDbContext))]
-    partial class BeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240810115403_mig10082024_5")]
+    partial class mig10082024_5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -152,9 +155,6 @@ namespace Data.Core.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("CzyOdklad")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime?>("DataPoddaniaMatki")
                         .HasColumnType("TEXT");
 
@@ -163,9 +163,6 @@ namespace Data.Core.Migrations
 
                     b.Property<int>("Numer")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Opis")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

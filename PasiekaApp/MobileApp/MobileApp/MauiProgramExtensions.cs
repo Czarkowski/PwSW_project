@@ -1,5 +1,9 @@
 ﻿using Data.Core;
+using Data.Core.Services;
+using Data.Core.Services.Interfaces;
 using Microsoft.Extensions.Logging;
+using MobileApp.Factories;
+using MobileApp.Factories.Interfaces;
 
 namespace MobileApp
 {
@@ -18,6 +22,12 @@ namespace MobileApp
             {
                 return new BeeService();
             });
+            //builder.Services.AddSingleton<IViewModelsFactories>(provider =>
+            //{
+            //    IBeeService? beeService = provider.GetService<IBeeService>();
+            //    return new ViewModelsFactories(beeService);
+            //});
+            builder.Services.AddSingleton<IViewModelsFactories, ViewModelsFactories>();
             //builder.Services.AddSingleton<ISqlitePlatformPath>(provider =>
             //{
             //    if (Device.RuntimePlatform == Device.Android)

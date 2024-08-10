@@ -1,14 +1,15 @@
-﻿using Data.Core;
-using System.Xml.Linq;
+﻿using Data.Core.Services.Interfaces;
+using MobileApp.Factories.Interfaces;
 
 namespace MobileApp
 {
     public partial class App : Application
     {
-        public App(IBeeService beeService)
+        public static IBeeService Database { get; private set; }
+        public App(IBeeService beeService, IViewModelsFactories viewModelsFactories)
         {
             InitializeComponent();
-            //DependencyService.Get<IBeeService>().Get();
+            Database = beeService;  
             MainPage = new AppShell();
         }
     }

@@ -16,5 +16,8 @@ namespace Data.Core.Models
         public Rasa Rasa { get; set; }
         public int RasaId { get; set; }
         public Ul Ul { get; set; }
+
+        public string? Opis { get; set; }
+        public DateTime DataUrodzenia { get; set; }
     }
 }

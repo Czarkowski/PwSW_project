@@ -3,6 +3,7 @@ using System;
 using Data.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Core.Migrations
 {
     [DbContext(typeof(BeeDbContext))]
-    partial class BeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240810114207_mig10082024_2")]
+    partial class mig10082024_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -27,6 +30,7 @@ namespace Data.Core.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("RasaId")
@@ -45,9 +49,6 @@ namespace Data.Core.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Tresc")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("Opiss");
@@ -55,27 +56,24 @@ namespace Data.Core.Migrations
 
             modelBuilder.Entity("Data.Core.Models.OpisUlPrzeglad", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("OpisId")
+                    b.Property<int>("UlId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PrzegladId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UlId")
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("OpisId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UlId", "PrzegladId");
 
                     b.HasIndex("OpisId")
                         .IsUnique();
 
                     b.HasIndex("PrzegladId");
-
-                    b.HasIndex("UlId");
 
                     b.ToTable("OpisUlPrzeglad", (string)null);
                 });
@@ -111,6 +109,7 @@ namespace Data.Core.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Produktywnosc")
@@ -152,9 +151,6 @@ namespace Data.Core.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("CzyOdklad")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime?>("DataPoddaniaMatki")
                         .HasColumnType("TEXT");
 
@@ -163,9 +159,6 @@ namespace Data.Core.Migrations
 
                     b.Property<int>("Numer")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Opis")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

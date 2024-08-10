@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MobileApp.Pages"
+             x:Class="MobileApp.Pages.ItemListPage">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Add Item" Clicked="OnAddItemClicked" />
+
+            <ListView x:Name="itemsCollectionView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Vertical">
+                                <!--<Label Text="{Binding Id}" FontAttributes="Bold"/>-->
+                                <Label Text="{Binding Number}" FontAttributes="Bold" />
+                                <Label Text="{Binding Race}" />
+                                <Label Text="{Binding Description}" />
+                                <!--<Label Text="{Binding DataPoddaniaMatki, StringFormat='{0:yyyy-MM-dd}'}" />-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!--<Grid Padding="10" ColumnSpacing="10" RowSpacing="5">
+                --><!-- Definiowanie kolumn --><!--
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                --><!-- Nagłówki kolumn --><!--
+                <Label Text="ID" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="LightGray"/>
+                <Label Text="Numer" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" BackgroundColor="LightGray"/>
+                <Label Text="Matka Pszczela ID" FontAttributes="Bold" Grid.Row="0" Grid.Column="2" BackgroundColor="LightGray"/>
+                <Label Text="Data Poddania Matki" FontAttributes="Bold" Grid.Row="0" Grid.Column="3" BackgroundColor="LightGray"/>
+                <Label Text="Czy Odklad" FontAttributes="Bold" Grid.Row="0" Grid.Column="4" BackgroundColor="LightGray"/>
+
+                --><!-- Dane --><!--
+                <CollectionView x:Name="itemsCollectionView" Grid.Row="1" Grid.ColumnSpan="5" ItemsLayout="VerticalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="10" RowSpacing="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Id}" Grid.Column="0" />
+                                <Label Text="{Binding Numer}" Grid.Column="1" />
+                                <Label Text="{Binding MatkaPszczelaId}" Grid.Column="2" />
+                                <Label Text="{Binding DataPoddaniaMatki, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="3" />
+                                <Label Text="{Binding CzyOdklad}" Grid.Column="4" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>-->
+            <!--<Grid Padding="10" ColumnSpacing="10" RowSpacing="5" BackgroundColor="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="ID" FontAttributes="Bold" Grid.Column="0" />
+                <Label Text="Numer" FontAttributes="Bold" Grid.Column="1" />
+                <Label Text="Matka Pszczela ID" FontAttributes="Bold" Grid.Column="2" />
+                <Label Text="Data Poddania Matki" FontAttributes="Bold" Grid.Column="3" />
+                <Label Text="Czy Odklad" FontAttributes="Bold" Grid.Column="4" />
+            </Grid>
+
+            --><!-- Dane --><!--
+            <CollectionView x:Name="itemsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnSpacing="10" RowSpacing="5">
+                            --><!-- Definiowanie kolumn --><!--
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            --><!-- Wartości danych --><!--
+                            <Label Text="{Binding Id}" Grid.Column="0" />
+                            <Label Text="{Binding Numer}" Grid.Column="1" />
+                            <Label Text="{Binding MatkaPszczelaId}" Grid.Column="2" />
+                            <Label Text="{Binding DataPoddaniaMatki, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="3" />
+                            <Label Text="{Binding CzyOdklad}" Grid.Column="4" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

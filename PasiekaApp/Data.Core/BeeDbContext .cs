@@ -48,12 +48,14 @@ namespace Data.Core
             {
                 mp.ToTable("MatkaPszczela");
                 mp.HasOne(m => m.Rasa).WithMany(r => r.MatkaPszczelas).HasForeignKey(m => m.RasaId);
+                mp.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<OpisUlPrzeglad>(oul =>
             {
                 oul.ToTable("OpisUlPrzeglad");
-                oul.HasKey(up => new { up.UlId, up.PrzegladId });
+                //oul.HasKey(up => new { up.UlId, up.PrzegladId });
+                oul.HasKey(up => up.Id);
                 oul.HasOne(up => up.Ul).WithMany(u => u.OpisUlPrzeglads).HasForeignKey(up => up.UlId);
                 oul.HasOne(up => up.Przeglad).WithMany(p => p.OpisUlPrzeglads).HasForeignKey(up => up.PrzegladId);
                 oul.HasOne(op => op.Opis).WithOne(up => up.OpisUlPrzeglad).HasForeignKey<OpisUlPrzeglad>(up => up.OpisId).IsRequired(false);

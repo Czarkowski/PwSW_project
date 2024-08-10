@@ -19,5 +19,9 @@ namespace Data.Core.Models
         public MatkaPszczela? MatkaPszczela { get; set; }
         public int? MatkaPszczelaId { get; set; }
         public List<OpisUlPrzeglad> OpisUlPrzeglads { get; set; } = new List<OpisUlPrzeglad>();
+        public DateTime? DataPoddaniaMatki { get; set; }
+        public string? Opis { get; set; }
+
+        public bool CzyOdklad { get; set; }
     }
 }

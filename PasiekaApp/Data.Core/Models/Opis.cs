@@ -11,5 +11,7 @@ namespace Data.Core.Models
         public Opis() { }
         public int Id { get; private set; }
         public OpisUlPrzeglad OpisUlPrzeglad { get; set; }
+
+        public string? Tresc { get; set; }
     }
 }

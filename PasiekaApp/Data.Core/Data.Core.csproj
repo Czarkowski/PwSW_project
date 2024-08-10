@@ -22,4 +22,12 @@
     <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\ProgramingUTP\PwSW\PasiekaApp\Data.Core\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\ProgramingUTP\PwSW\PasiekaApp\Data.Core\.editorconfig" />
+  </ItemGroup>
+
 </Project>

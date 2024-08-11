@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:MobileApp.Controls.CustomControls"
+             xmlns:compositeControls="clr-namespace:MobileApp.Controls.CompositeControls"
+             xmlns:viewModels="clr-namespace:MobileApp.ViewModels"
+             x:Class="MobileApp.Pages.AddQueenPage"
+             x:DataType="viewModels:QueenDetailsVM">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Dodaj Nową Matkę" FontSize="24" FontAttributes="Bold" />
+
+            <compositeControls:LabelEntry LabelText="Rasa:" EntryText="{Binding RaceId}" />
+            <compositeControls:LabelEntry LabelText="Opis:" EntryText="{Binding Description}" />
+            
+            <Entry x:Name="NumberEntry" Placeholder="Numer" />
+            <Entry x:Name="RaceEntry" Placeholder="Rasa" />
+            <Entry x:Name="DescriptionEntry" Placeholder="Opis" />
+            <DatePicker x:Name="DatePicker" />
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Zapisz" Clicked="OnSaveClicked" />
+                <Button Text="Anuluj" Clicked="OnCancelClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

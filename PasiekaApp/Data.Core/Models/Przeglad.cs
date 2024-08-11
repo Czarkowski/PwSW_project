@@ -13,6 +13,6 @@ namespace Data.Core.Models
         {
         }
         public int Id { get; private set; }
-        public List<OpisUlPrzeglad> OpisUlPrzeglads{ get; set; } = new List<OpisUlPrzeglad>();
+        public  virtual List<OpisUlPrzeglad> OpisUlPrzeglads{ get; set; } = new List<OpisUlPrzeglad>();
     }
 }

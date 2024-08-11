@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileApp.Controls.CompositeControls"
+             x:Class="MobileApp.Controls.CompositeControls.LabelEntry"
+             x:DataType="local:LabelEntry">
+    <StackLayout Orientation="Horizontal" Spacing="5">
+        <!--<Label Text="{Binding LabelText, Source={RelativeSource AncestorType={x:Type local:LabelEntry}}}" 
+               VerticalOptions="Center" />
+        <Entry Text="{Binding EntryText, Source={RelativeSource AncestorType={x:Type local:LabelEntry}}}"
+               VerticalOptions="Center" />-->
+        <Label Text="{Binding LabelText}" 
+               VerticalOptions="Center" />
+        <Entry Text="{Binding EntryText}"
+               VerticalOptions="Center" />
+    </StackLayout>
+</ContentView>

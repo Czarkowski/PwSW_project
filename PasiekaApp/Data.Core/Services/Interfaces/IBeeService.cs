@@ -10,8 +10,13 @@ namespace Data.Core.Services.Interfaces
     public interface IBeeService
     {
 
-        public List<Ul> GetAllUls();
+        List<Ul> GetAllUls();
 
-        public Rasa GetRaceByBeeQueenId(int id);
+        Ul GetUlById(int id);
+
+        Rasa GetRaceByBeeQueenId(int id);
+        MatkaPszczela GetQueenById(int matkaPszczelaId);
+
+        List<MatkaPszczela> GetAllQueens();
     }
 }

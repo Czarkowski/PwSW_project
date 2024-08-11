@@ -13,7 +13,7 @@ namespace Data.Core.Models
         public Rasa()
         {
         }
-        public List<MatkaPszczela> MatkaPszczelas { get; set; } = new List<MatkaPszczela>();
+        public virtual List<MatkaPszczela> MatkaPszczelas { get; set; } = new List<MatkaPszczela>();
         public int Id { get; private set; }
         public string Nazwa { get; set; } = string.Empty;
         public string? Opis { get; set; } = string.Empty;

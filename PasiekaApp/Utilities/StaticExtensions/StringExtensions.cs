@@ -1,8 +1,8 @@
 ﻿using System.Numerics;
 
-namespace Utilities
+namespace Utilities.StaticExtensions
 {
-    public static class StringExtension
+    public static class StringExtensions
     {
         public static bool IsNEoWS(this string @this)
         {

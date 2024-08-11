@@ -13,9 +13,9 @@ namespace Data.Core.Models
         }
 
         public int Id { get; private set; }
-        public Rasa Rasa { get; set; }
+        public virtual Rasa Rasa { get; set; }
         public int RasaId { get; set; }
-        public Ul Ul { get; set; }
+        public virtual Ul Ul { get; set; }
 
         public string? Opis { get; set; }
         public DateTime DataUrodzenia { get; set; }

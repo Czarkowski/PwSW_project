@@ -31,15 +31,46 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\ItemListPage.xaml">
+	  <Compile Update="Controls\CompositeControls\CustomPicker.xaml.cs">
+	    <DependentUpon>CustomPicker.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\AddQueen\AddQueenPage.xaml.cs">
+	    <DependentUpon>AddQueenPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\HiveList\HiveListMainPage.xaml.cs">
+	    <DependentUpon>HiveListMainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\QueenList\QueenListMainPage.xaml.cs">
+	    <DependentUpon>QueenListMainPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Controls\CompositeControls\CustomPicker.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\CompositeControls\LabelEntry.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\HiveList\HiveListMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\MenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Tab1Page.xaml">
+	  <MauiXaml Update="Pages\QueenList\QueenListMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\AddQueen\AddQueenPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\QueenList\Views\QueenList.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Pages\HiveList\Views\" />
 	</ItemGroup>
 
 </Project>

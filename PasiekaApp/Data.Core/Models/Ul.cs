@@ -16,9 +16,9 @@ namespace Data.Core.Models
         }
         public int Id { get; private set; }
         public int Numer { get; set; }
-        public MatkaPszczela? MatkaPszczela { get; set; }
+        public virtual MatkaPszczela? MatkaPszczela { get; set; }
         public int? MatkaPszczelaId { get; set; }
-        public List<OpisUlPrzeglad> OpisUlPrzeglads { get; set; } = new List<OpisUlPrzeglad>();
+        public virtual List<OpisUlPrzeglad> OpisUlPrzeglads { get; set; } = new List<OpisUlPrzeglad>();
         public DateTime? DataPoddaniaMatki { get; set; }
         public string? Opis { get; set; }
 

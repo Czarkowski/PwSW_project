@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MobileApp.Pages.QueenList.Views"
+             x:Class="MobileApp.Pages.QueenListMainPage" >
+    <!--AutomationProperties.IsInAccessibleTree="True"-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Button Text="Nowa Matka" Clicked="OnAddQueenClicked" />
+
+            <views:QueenList x:Name="queenListView" SelectionChanged="OnQueenSelectionChanged"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

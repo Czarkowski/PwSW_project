@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Maui.Devices;
-using Utilities;
 using Data.Core.Models;
+using Utilities.StaticExtensions;
 
 namespace Data.Core
 {
@@ -33,7 +33,9 @@ namespace Data.Core
             if (!optionsBuilder.IsConfigured)
             {
                 var dbPath = GetDataSourceFilePath();
-                optionsBuilder.UseSqlite($"Data Source={dbPath}");
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseSqlite($"Data Source={dbPath}");
             }
         }
 

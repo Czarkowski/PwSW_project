@@ -33,7 +33,7 @@ namespace Data.Core.Repositories
 
         public List<Rasa> GetAll()
         {
-            throw new NotImplementedException();
+            return _db.Rasas.ToList();
         }
 
         public Rasa Update(Rasa ul)

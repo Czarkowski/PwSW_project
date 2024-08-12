@@ -4,6 +4,7 @@
              xmlns:customControls="clr-namespace:MobileApp.Controls.CustomControls"
              xmlns:compositeControls="clr-namespace:MobileApp.Controls.CompositeControls"
              xmlns:viewModels="clr-namespace:MobileApp.ViewModels"
+             xmlns:ResourcesKey="clr-namespace:MobileApp.StaticResources"
              x:Class="MobileApp.Pages.AddQueenPage"
              x:DataType="viewModels:QueenDetailsVM">
     
@@ -12,6 +13,7 @@
             <Label Text="Dodaj Nową Matkę" FontSize="24" FontAttributes="Bold" />
 
             <compositeControls:LabelEntry LabelText="Rasa:" EntryText="{Binding RaceId}" />
+            <compositeControls:CustomPicker Title="{StaticResource Test}" OptionList="{StaticResource {x:Static ResourcesKey:StaticResourceKeys.AvailableRaces}}" />
             <compositeControls:LabelEntry LabelText="Opis:" EntryText="{Binding Description}" />
             
             <Entry x:Name="NumberEntry" Placeholder="Numer" />

@@ -35,6 +35,11 @@ namespace Data.Core.Services
             return _matkaPszczelaRepository.GetAll();
         }
 
+        public List<Rasa> GetAllRaces()
+        {
+            return _rasaRepository.GetAll();
+        }
+
         public List<Ul> GetAllUls()
         {
             return _ulRepository.GetAll();

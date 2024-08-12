@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using MobileApp.Factories;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Pages;
+using MobileApp.StaticResources;
 
 namespace MobileApp
 {
@@ -25,7 +26,8 @@ namespace MobileApp
             builder
                 .RegisterRepositories()
                 .RegisterFactories()
-                .RegisterPages();
+                .RegisterPages()
+                .RegisterServices();
             //builder.Services.AddSingleton<IViewModelsFactories>(provider =>
             //{
             //    IBeeService? beeService = provider.GetService<IBeeService>();
@@ -56,13 +58,20 @@ namespace MobileApp
             builder.Services.AddSingleton<IUlRepository, UlRepository>();
             builder.Services.AddSingleton<IMatkaPszczelaRepository, MatkaPszczelaRepostory>();
             builder.Services.AddSingleton<IRasaRepository, RasaRepostory>();
+            return builder;
+        }
+
+        private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
+        {
             builder.Services.AddSingleton<IBeeService, BeeService>();
+            builder.Services.AddSingleton<IStaticResourcesServices, StaticResourcesServices>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterFactories(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<IViewModelsFactories, ViewModelsFactories>();
+            builder.Services.AddSingleton<IPickerItemFactories, PickerItemFactories>();
             return builder;
         }
 

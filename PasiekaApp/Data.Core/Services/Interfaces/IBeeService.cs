@@ -18,5 +18,7 @@ namespace Data.Core.Services.Interfaces
         MatkaPszczela GetQueenById(int matkaPszczelaId);
 
         List<MatkaPszczela> GetAllQueens();
+
+        List<Rasa> GetAllRaces();
     }
 }

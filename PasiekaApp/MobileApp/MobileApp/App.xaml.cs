@@ -1,16 +1,22 @@
 ﻿using Data.Core.Services.Interfaces;
+using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
+using MobileApp.StaticResources;
 
 namespace MobileApp
 {
     public partial class App : Application
     {
-        public static IBeeService Database { get; private set; }
-        public App(IBeeService beeService, IViewModelsFactories viewModelsFactories)
+        public App(IStaticResourcesServices staticResourcesServices)
         {
             InitializeComponent();
-            Database = beeService;  
+            staticResourcesServices.InitializeResourcesAsync(Resources).Wait();
+            AddBaseResources();
             MainPage = new AppShell();
+        }
+
+        private void AddBaseResources()
+        {
         }
     }
 }

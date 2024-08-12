@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Controls.CompositeControls.CustomPicker">
-    <Picker x:Name="myPicker" SelectedIndexChanged="OnPickerSelectedIndexChanged">
-    </Picker>
+             xmlns:local="clr-namespace:MobileApp.Controls.CompositeControls"
+             x:Class="MobileApp.Controls.CompositeControls.CustomPicker"
+             x:DataType="local:CustomPicker">
+
+    <StackLayout Orientation="Vertical" Spacing="10">
+        <Label Text="{Binding Title}" FontAttributes="Bold" />
+        <Picker x:Name="picker"
+                ItemsSource="{Binding OptionList}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndexChanged="OnPickerSelectedIndexChanged" />
+    </StackLayout>
+    <!--<Picker x:Name="myPicker" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+    </Picker>-->
 </ContentView>

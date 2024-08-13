@@ -1,6 +1,6 @@
 ﻿using Data.Core.Models;
 using MobileApp.Factories.Interfaces;
-using MobileApp.PickerItems.Interfaces;
+using MobileApp.PickerItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,12 @@ namespace MobileApp.Factories
 {
     public class PickerItemFactories : IPickerItemFactories
     {
-        public IEnumerable<RacePickerItem> CreateRacePickerItems(IEnumerable<Rasa> races)
+        public List<RacePickerItem> CreateRacePickerItems(IEnumerable<Rasa> races)
         {
             return races.Select(r => new RacePickerItem()
             {
-                Id = r.Id,
+                Value = r,
                 Name = r.Nazwa,
-                Value = r
             }).ToList();
         }
     }

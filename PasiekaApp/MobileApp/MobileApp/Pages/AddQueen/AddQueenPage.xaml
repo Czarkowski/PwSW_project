@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:customControls="clr-namespace:MobileApp.Controls.CustomControls"
-             xmlns:compositeControls="clr-namespace:MobileApp.Controls.CompositeControls"
-             xmlns:viewModels="clr-namespace:MobileApp.ViewModels"
-             xmlns:ResourcesKey="clr-namespace:MobileApp.StaticResources"
+             xmlns:cc="using:MobileApp.Controls.CompositeControls"
+             xmlns:viewModels="using:MobileApp.ViewModels"
+             xmlns:sr="using:MobileApp.StaticResources"
              x:Class="MobileApp.Pages.AddQueenPage"
              x:DataType="viewModels:QueenDetailsVM">
     
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Label Text="Dodaj Nową Matkę" FontSize="24" FontAttributes="Bold" />
-
-            <compositeControls:LabelEntry LabelText="Rasa:" EntryText="{Binding RaceId}" />
-            <compositeControls:CustomPicker Title="{StaticResource Test}" OptionList="{StaticResource {x:Static ResourcesKey:StaticResourceKeys.AvailableRaces}}" />
-            <compositeControls:LabelEntry LabelText="Opis:" EntryText="{Binding Description}" />
+            <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" />
+            <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
             
-            <Entry x:Name="NumberEntry" Placeholder="Numer" />
-            <Entry x:Name="RaceEntry" Placeholder="Rasa" />
-            <Entry x:Name="DescriptionEntry" Placeholder="Opis" />
             <DatePicker x:Name="DatePicker" />
 
             <StackLayout Orientation="Horizontal" Spacing="10">

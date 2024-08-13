@@ -22,5 +22,10 @@ namespace Data.Core.Models
         public int Rojliwosc { get; set; }
         public int Higienicznosc { get; set; }
         public int Lagodnosc { get; set; }
+
+        public override string ToString()
+        {
+            return Nazwa;
+        }
     }
 }

@@ -5,16 +5,16 @@ namespace MobileApp.Pages.QueenList.Views;
 public partial class QueenList : ContentView
 {
     public static readonly BindableProperty QueenListVMsProperty =
-        BindableProperty.Create(nameof(QueenListVMs), typeof(IEnumerable<QueenListVM>), typeof(QueenList), propertyChanged: OnQueenListVMsChanged);
+        BindableProperty.Create(nameof(QueenListVMs), typeof(IList<QueenListVM>), typeof(QueenList), propertyChanged: OnQueenListVMsChanged);
     private static void OnQueenListVMsChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var control = (QueenList)bindable;
-        control.listVMs.ItemsSource = (IEnumerable<QueenListVM>)newValue;
+        control.listVMs.ItemsSource = (IList<QueenListVM>)newValue;
     }
 
-    public IEnumerable<QueenListVM> QueenListVMs
+    public IList<QueenListVM> QueenListVMs
     {
-        get => (IEnumerable<QueenListVM>)GetValue(QueenListVMsProperty);
+        get => (IList<QueenListVM>)GetValue(QueenListVMsProperty);
         set => SetValue(QueenListVMsProperty, value);
     }
 

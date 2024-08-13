@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MobileApp.Controls.CompositeControls"
              xmlns:pi="using:MobileApp.PickerItems.Interfaces"
-             x:Class="MobileApp.Controls.CompositeControls.CustomPicker"
-             x:DataType="local:CustomPicker"
+             x:Class="MobileApp.Controls.CompositeControls.CustomPicker2"
+             x:DataType="local:CustomPicker2"
              x:Name="this">
 
     <StackLayout Orientation="Vertical" Spacing="10">
         <Label x:Name="Label" FontAttributes="Bold" />
         <Picker x:Name="Picker"
-                ItemsSource="{Binding OptionList, Source={x:Reference this}}"
-                SelectedItem="{Binding SelectedItem, Source={x:Reference this}}"
+                x:DataType="pi:IPickerItem"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedPickerItem, Source={x:Reference this}}"
                 SelectedIndexChanged="OnPickerSelectedIndexChanged" />
     </StackLayout>
-    <!--<Picker x:Name="myPicker" SelectedIndexChanged="OnPickerSelectedIndexChanged" />
-               ItemDisplayBinding="{Binding Path=DisplayMember, Source={x:Reference this}}"-->
-
+    <!--<Picker x:Name="myPicker" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+    </Picker>-->
 </ContentView>

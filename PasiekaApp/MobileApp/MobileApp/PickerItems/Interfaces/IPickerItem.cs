@@ -9,9 +9,7 @@ namespace MobileApp.PickerItems.Interfaces
 {
     public interface IPickerItem
     {
-        int Id { get; set; }
         object Value { get; set; }
         string Name { get; set; }
-
     }
 }

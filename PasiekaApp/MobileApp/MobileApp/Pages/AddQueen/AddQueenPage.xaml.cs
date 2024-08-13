@@ -1,3 +1,4 @@
+using Data.Core.Models;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using MobileApp.ViewModels;
 
@@ -5,23 +6,28 @@ namespace MobileApp.Pages;
 
 public partial class AddQueenPage : ContentPage
 {
-	public AddQueenPage()
+    private QueenDetailsVM _queenDetailsVM;
+    public AddQueenPage()
 	{
-		InitializeComponent();
-        this.BindingContext = new QueenDetailsVM()
+
+        InitializeComponent();
+        InitializeData();
+    }
+
+    private void InitializeData()
+    {
+        _queenDetailsVM = new QueenDetailsVM()
         {
             Description = "Nowa matka",
+            Race = (Application.Current.Resources[StaticResources.StaticResourceKeys.AvailableRaces] as List<Rasa>)[0],
+            RaceId = 1,
         };
-
+        BindingContext = _queenDetailsVM;
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        // Pobierz dane z formularza
-        string number = NumberEntry.Text;
-        string race = RaceEntry.Text;
-        string description = DescriptionEntry.Text;
-        DateTime? date = DatePicker.Date;
+        
 
         // Logika zapisywania danych
         // TODO: Dodaj kod do zapisywania matki
@@ -32,7 +38,8 @@ public partial class AddQueenPage : ContentPage
 
     private async void OnCancelClicked(object sender, EventArgs e)
     {
-        // Powrót do poprzedniej strony bez zapisywania
-        await Navigation.PopAsync();
+        _queenDetailsVM.Race = (Application.Current.Resources[StaticResources.StaticResourceKeys.AvailableRaces] as List<Rasa>)[0];
+        _queenDetailsVM.Description = "jisudfh";
+        //await Navigation.PopAsync();
     }
 }

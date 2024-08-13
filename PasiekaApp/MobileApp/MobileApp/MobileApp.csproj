@@ -31,6 +31,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\CompositeControls\CustomPicker - Copy.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
 	  <Compile Update="Controls\CompositeControls\CustomPicker.xaml.cs">
 	    <DependentUpon>CustomPicker.xaml</DependentUpon>
 	  </Compile>
@@ -46,6 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\CompositeControls\CustomPicker - Copy.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\CompositeControls\CustomPicker.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

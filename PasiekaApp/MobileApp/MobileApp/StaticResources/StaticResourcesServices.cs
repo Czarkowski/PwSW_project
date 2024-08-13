@@ -20,17 +20,16 @@ namespace MobileApp.StaticResources
 
         public async Task InitializeResourcesAsync(ResourceDictionary resourceDictionary)
         {
-            var newResourceDictionary = new ResourceDictionary();
             var raceOptions = new Lazy<object>(() =>
             {
                 var races = _beeService.GetAllRaces();
-                return _pickerItemFactories.CreateRacePickerItems(races);
+                return races;
+                //return _pickerItemFactories.CreateRacePickerItems(races);
 
             });
-            newResourceDictionary.Add(StaticResourceKeys.AvailableRaces, raceOptions.Value);
-            newResourceDictionary.Add(StaticResourceKeys.Test, "TEST");
+            resourceDictionary.Add(StaticResourceKeys.AvailableRaces, raceOptions.Value);
+            resourceDictionary.Add(StaticResourceKeys.Test, "TEST");
 
-            resourceDictionary.MergedDictionaries.Add(newResourceDictionary);
         }
 
     }

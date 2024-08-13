@@ -7,16 +7,21 @@ namespace MobileApp
 {
     public partial class App : Application
     {
+        private readonly IStaticResourcesServices _staticResourcesServices;
         public App(IStaticResourcesServices staticResourcesServices)
         {
+            _staticResourcesServices = staticResourcesServices;
+
             InitializeComponent();
-            staticResourcesServices.InitializeResourcesAsync(Resources).Wait();
-            AddBaseResources();
+            InitializeStaticResources();
             MainPage = new AppShell();
         }
 
-        private void AddBaseResources()
+        private void InitializeStaticResources()
         {
+            var newResourceDictionary = new ResourceDictionary();
+            _staticResourcesServices.InitializeResourcesAsync(newResourceDictionary).Wait();
+            Resources.MergedDictionaries.Add(newResourceDictionary);
         }
     }
 }

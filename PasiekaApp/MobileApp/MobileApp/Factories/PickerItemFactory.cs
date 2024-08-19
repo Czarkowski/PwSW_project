@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Factories
 {
-    public class PickerItemFactories : IPickerItemFactories
+    public class PickerItemFactory : IPickerItemFactories
     {
         public List<RacePickerItem> CreateRacePickerItems(IEnumerable<Rasa> races)
         {

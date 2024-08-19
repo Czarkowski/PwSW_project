@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Factories.Interfaces
 {
-    public interface IViewModelsFactories
+    public interface IViewModelsFactory
     {
         List<UlListVM> CreateUlListVMs();
-        UlDetailsVM CreateUlDetailsVM(int ulId);
+        HiveDetailsVM CreateUlDetailsVM(int ulId);
         List<QueenListVM> CreateQueenListVM(List<MatkaPszczela> matkaPszczelas);
     }
 }

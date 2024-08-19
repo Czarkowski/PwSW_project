@@ -30,6 +30,13 @@ namespace Data.Core.Services
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
         }
 
+        public MatkaPszczela AddNewQueen(MatkaPszczela matkaPszczela)
+        {
+            _matkaPszczelaRepository.Add(matkaPszczela);
+
+            return matkaPszczela;
+        }
+
         public List<MatkaPszczela> GetAllQueens()
         {
             return _matkaPszczelaRepository.GetAll();

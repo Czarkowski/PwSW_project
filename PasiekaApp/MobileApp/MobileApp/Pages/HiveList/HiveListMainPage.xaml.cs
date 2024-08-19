@@ -8,8 +8,8 @@ namespace MobileApp.Pages;
 public partial class HiveListMainPage : ContentPage
 {
     private readonly IBeeService _beeService;
-    private readonly IViewModelsFactories _viewModelsFactories;
-    public HiveListMainPage(IViewModelsFactories viewModelsFactories)
+    private readonly IViewModelsFactory _viewModelsFactories;
+    public HiveListMainPage(IViewModelsFactory viewModelsFactories)
     {
         InitializeComponent();
         _viewModelsFactories = viewModelsFactories;
@@ -35,7 +35,7 @@ public partial class HiveListMainPage : ContentPage
 
         if (selectedItem != null)
         {
-            UlDetailsVM ulDetailsVMM = _viewModelsFactories.CreateUlDetailsVM(selectedItem.Id);
+            HiveDetailsVM ulDetailsVMM = _viewModelsFactories.CreateUlDetailsVM(selectedItem.Id);
             ulDetailsModel.BindingContext = ulDetailsVMM;
             ulDetailsModel.IsVisible = true;
         }

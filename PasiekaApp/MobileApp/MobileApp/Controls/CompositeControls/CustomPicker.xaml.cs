@@ -30,14 +30,48 @@ public partial class CustomPicker : ContentView
         set => SetValue(OptionListProperty, value);
     }
 
-    public static readonly BindableProperty DisplayMemberProperty =
-    BindableProperty.Create(nameof(DisplayMember), typeof(Func<object, string>), typeof(CustomPicker), null);
+    public static readonly BindableProperty DisplayPropertyProperty =
+        BindableProperty.Create(
+            nameof(DisplayProperty),
+            typeof(string),
+            typeof(CustomPicker),
+            null, // Domyœlnie null
+            propertyChanged: OnDisplayPropertyChanged);
 
-    public Func<object, string> DisplayMember
+    public string DisplayProperty
     {
-        get => (Func<object, string>)GetValue(DisplayMemberProperty) ?? ((x) => x?.ToString() ?? string.Empty);
-        set => SetValue(DisplayMemberProperty, value);
+        get => (string)GetValue(DisplayPropertyProperty);
+        set => SetValue(DisplayPropertyProperty, value);
     }
+
+    private static void OnDisplayPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var picker = (CustomPicker)bindable;
+        picker.UpdateItemDisplayBinding();
+    }
+
+    private void UpdateItemDisplayBinding()
+    {
+        if (string.IsNullOrWhiteSpace(DisplayProperty))
+        {
+            // Reset ItemDisplayBinding to null, to use ToString()
+            Picker.ItemDisplayBinding = null;
+        }
+        else
+        {
+            // Set ItemDisplayBinding to the specified property
+            Picker.ItemDisplayBinding = new Binding(DisplayProperty);
+        }
+    }
+
+    //public static readonly BindableProperty DisplayMemberProperty =
+    //BindableProperty.Create(nameof(DisplayMember), typeof(Func<object, string>), typeof(CustomPicker), null);
+
+    //public Func<object, string> DisplayMember
+    //{
+    //    get => (Func<object, string>)GetValue(DisplayMemberProperty) ?? ((x) => x?.ToString() ?? string.Empty);
+    //    set => SetValue(DisplayMemberProperty, value);
+    //}
 
 
     public static readonly BindableProperty LabelTextProperty =
@@ -68,6 +102,7 @@ public partial class CustomPicker : ContentView
     public CustomPicker()
 	{
 		InitializeComponent();
+        //Picker.ItemDisplayBinding = new Binding(nameof(DisplayMember));
 	}
 	public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
     {

@@ -12,10 +12,10 @@ using Utilities.StaticExtensions;
 
 namespace MobileApp.Factories
 {
-    internal class ViewModelsFactories : IViewModelsFactories
+    internal class ViewModelsFactory : IViewModelsFactory
     {
         private readonly IBeeService _beeService;
-        public ViewModelsFactories(IBeeService beeService) 
+        public ViewModelsFactory(IBeeService beeService) 
         {
             _beeService = beeService;
         }
@@ -37,10 +37,10 @@ namespace MobileApp.Factories
             }).ToList();
         }
 
-        public UlDetailsVM CreateUlDetailsVM(int ulId)
+        public HiveDetailsVM CreateUlDetailsVM(int ulId)
         {
             var ul = _beeService.GetUlById(ulId);
-            var model = new UlDetailsVM
+            var model = new HiveDetailsVM
             {
                 Id = ul.Id,
                 Number = ul.Numer,

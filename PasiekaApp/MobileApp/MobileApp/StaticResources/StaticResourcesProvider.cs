@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MobileApp.StaticResources
 {
-    public class StaticResourcesServices : IStaticResourcesServices
+    public class StaticResourcesProvider : IStaticResourcesProvider
     {
         private readonly IBeeService _beeService;
         private readonly IPickerItemFactories _pickerItemFactories;
-        public StaticResourcesServices(IBeeService beeService, IPickerItemFactories pickerItemFactories)
+        public StaticResourcesProvider(IBeeService beeService, IPickerItemFactories pickerItemFactories)
         {
             _beeService = beeService;
             _pickerItemFactories = pickerItemFactories;

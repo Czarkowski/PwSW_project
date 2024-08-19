@@ -20,5 +20,6 @@ namespace Data.Core.Services.Interfaces
         List<MatkaPszczela> GetAllQueens();
 
         List<Rasa> GetAllRaces();
+        MatkaPszczela AddNewQueen(MatkaPszczela matkaPszczela);
     }
 }

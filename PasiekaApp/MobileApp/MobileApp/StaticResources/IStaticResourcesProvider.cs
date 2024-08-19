@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.StaticResources
 {
-    public interface IStaticResourcesServices
+    public interface IStaticResourcesProvider
     {
         Task InitializeResourcesAsync(ResourceDictionary resourceDictionary);
     }

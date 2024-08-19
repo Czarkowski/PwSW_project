@@ -10,12 +10,26 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <!-- Główna zawartość, która może się przewijać -->
+                <RowDefinition Height="Auto" />
+                <!-- Przyciski na dole -->
+            </Grid.RowDefinitions>
 
-            <Button Text="Nowa Matka" Clicked="OnAddQueenClicked" />
+            <ScrollView Grid.Row="0">
+                <StackLayout>
+                    <!-- Lista, która może być przewijana -->
+                    <views:QueenList x:Name="QueenListView" SelectionChanged="OnQueenSelectionChanged"/>
+                </StackLayout>
+            </ScrollView>
 
-            <views:QueenList x:Name="queenListView" SelectionChanged="OnQueenSelectionChanged"/>
-        </StackLayout>
-
+            <!-- Stałe przyciski na dole strony -->
+            <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Button Text="Nowa Matka" Clicked="OnAddQueenClicked" />
+            </StackLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

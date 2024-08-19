@@ -19,6 +19,8 @@ public partial class QueenList : ContentView
     }
 
     public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
+
+    public event EventHandler<SelectionChangedEventArgs> ItemSelected;
     public QueenList()
 	{
 		InitializeComponent();
@@ -35,6 +37,5 @@ public partial class QueenList : ContentView
     {
         SelectionChanged?.Invoke(this, e);
     }
-
 
 }

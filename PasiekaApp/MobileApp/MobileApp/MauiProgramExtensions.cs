@@ -3,6 +3,7 @@ using Data.Core.Repositories;
 using Data.Core.Repositories.Interfaces;
 using Data.Core.Services;
 using Data.Core.Services.Interfaces;
+using Microsoft.EntityFrameworkCore.Scaffolding;
 using Microsoft.Extensions.Logging;
 using MobileApp.Factories;
 using MobileApp.Factories.Interfaces;
@@ -64,22 +65,24 @@ namespace MobileApp
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<IBeeService, BeeService>();
-            builder.Services.AddSingleton<IStaticResourcesServices, StaticResourcesServices>();
+            builder.Services.AddSingleton<IStaticResourcesProvider, StaticResourcesProvider>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterFactories(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<IViewModelsFactories, ViewModelsFactories>();
-            builder.Services.AddSingleton<IPickerItemFactories, PickerItemFactories>();
+            builder.Services.AddSingleton<IViewModelsFactory, ViewModelsFactory>();
+            builder.Services.AddSingleton<IPickerItemFactories, PickerItemFactory>();
+            builder.Services.AddSingleton<IDataToSaveFactory, DataToSaveFactory>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterPages(this MauiAppBuilder builder)
         {
-            builder.Services.AddTransient<HiveListMainPage>();
-            builder.Services.AddTransient<QueenListMainPage>();
-            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<HiveListMainPage>();
+            builder.Services.AddSingleton<QueenListMainPage>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<AddQueenPage>();
             return builder;
         }
     }

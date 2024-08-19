@@ -7,11 +7,13 @@ namespace MobileApp
 {
     public partial class App : Application
     {
-        private readonly IStaticResourcesServices _staticResourcesServices;
-        public App(IStaticResourcesServices staticResourcesServices)
+        public static new App Current => (App)Application.Current;
+        public readonly IServiceProvider Services;
+        private readonly IStaticResourcesProvider _staticResourcesServices;
+        public App(IStaticResourcesProvider staticResourcesServices, IServiceProvider serviceProvider)
         {
             _staticResourcesServices = staticResourcesServices;
-
+            Services = serviceProvider;
             InitializeComponent();
             InitializeStaticResources();
             MainPage = new AppShell();

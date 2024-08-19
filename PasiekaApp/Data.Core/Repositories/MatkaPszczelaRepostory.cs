@@ -17,14 +17,18 @@ namespace Data.Core.Repositories
             _db = beeDbContext;
         }
 
-        public MatkaPszczela Add(MatkaPszczela ul)
+        public MatkaPszczela Add(MatkaPszczela beeQueen)
         {
-            throw new NotImplementedException();
+            _db.MatkaPszczelas.Add(beeQueen);
+            _db.SaveChanges();
+            return beeQueen;
         }
 
-        public bool Delete(int id)
+        public bool Delete(MatkaPszczela beeQueen)
         {
-            throw new NotImplementedException();
+            _db.MatkaPszczelas.Remove(beeQueen);
+            var changes = _db.SaveChanges();
+            return changes == 1;
         }
 
         public MatkaPszczela Get(int id, bool includeRelations = false)
@@ -44,9 +48,11 @@ namespace Data.Core.Repositories
             return _db.MatkaPszczelas.ToList();
         }
 
-        public MatkaPszczela Update(MatkaPszczela ul)
+        public MatkaPszczela Update(MatkaPszczela beeQueen)
         {
-            throw new NotImplementedException();
+            _db.MatkaPszczelas.Update(beeQueen);
+            _db.SaveChanges();
+            return beeQueen;
         }
     }
 }

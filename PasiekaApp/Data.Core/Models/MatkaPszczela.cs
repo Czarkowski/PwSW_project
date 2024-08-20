@@ -12,7 +12,7 @@ namespace Data.Core.Models
         {
         }
 
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public virtual Rasa Rasa { get; set; }
         public int RasaId { get; set; }
         public virtual Ul Ul { get; set; }

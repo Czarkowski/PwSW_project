@@ -10,18 +10,20 @@ namespace MobileApp.ViewModels
 {
     public class QueenDetailsVM : INotifyPropertyChanged
     {
-        //private int _raceId;
-        //public int RaceId { 
-        //    get
-        //    {
-        //        return _raceId;
-        //    } 
-        //    set 
-        //    {
-        //        _raceId = value;
-        //        OnPropertyChanged(nameof(RaceId));
-        //    } 
-        //}
+        private int _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+                OnPropertyChanged(nameof(Id));
+            }
+        }
+
         private string _description;
         public string Description
         {
@@ -36,17 +38,31 @@ namespace MobileApp.ViewModels
             }
         }
 
-        private Rasa _rasa;
+        private Rasa _race;
         public Rasa Race
         {
             get
             {
-                return _rasa;
+                return _race;
             }
             set
             {
-                _rasa = value;
+                _race = value;
                 OnPropertyChanged(nameof(Rasa));
+            }
+        }
+
+        private Ul _hive;
+        public Ul Hive
+        {
+            get
+            {
+                return _hive;
+            }
+            set
+            {
+                _hive = value;
+                OnPropertyChanged(nameof(Hive));
             }
         }
 

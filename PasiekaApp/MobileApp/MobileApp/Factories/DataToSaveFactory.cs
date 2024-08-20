@@ -15,6 +15,7 @@ namespace MobileApp.Factories
         {
             return new MatkaPszczela()
             {
+                Id = queenDetailsVM.Id,
                 Rasa = queenDetailsVM.Race,
                 DataUrodzenia = queenDetailsVM.BirthDate,
                 Opis = queenDetailsVM.Description,

@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Scaffolding;
 using Microsoft.Extensions.Logging;
 using MobileApp.Factories;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers;
+using MobileApp.Helpers.Interfaces;
 using MobileApp.Pages;
 using MobileApp.StaticResources;
 
@@ -28,6 +30,7 @@ namespace MobileApp
                 .RegisterRepositories()
                 .RegisterFactories()
                 .RegisterPages()
+                .RegisterHelpers()
                 .RegisterServices();
             //builder.Services.AddSingleton<IViewModelsFactories>(provider =>
             //{
@@ -69,6 +72,12 @@ namespace MobileApp
             return builder;
         }
 
+        private static MauiAppBuilder RegisterHelpers(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<IUpdateDataHelper, UpdateDataHelper>();
+            return builder;
+        }
+
         private static MauiAppBuilder RegisterFactories(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<IViewModelsFactory, ViewModelsFactory>();
@@ -83,6 +92,7 @@ namespace MobileApp
             builder.Services.AddSingleton<QueenListMainPage>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
+            builder.Services.AddTransient<EditQueenPage>();
             return builder;
         }
     }

@@ -20,6 +20,18 @@ namespace MobileApp.Factories
             _beeService = beeService;
         }
 
+        public QueenDetailsVM CreateQueenDetailsVM(MatkaPszczela matkaPszczela)
+        {
+            return new QueenDetailsVM()
+            {
+                Id = matkaPszczela.Id,
+                BirthDate = matkaPszczela.DataUrodzenia,
+                Description = matkaPszczela.Opis ?? string.Empty,
+                Hive = matkaPszczela.Ul,
+                Race = matkaPszczela.Rasa,
+            };
+        }
+
         public List<QueenListVM> CreateQueenListVM(List<MatkaPszczela> matkaPszczelas)
         {
             return matkaPszczelas.Select(x => {

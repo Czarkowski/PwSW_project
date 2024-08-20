@@ -13,6 +13,7 @@ namespace MobileApp.StaticProviders
         private static IServiceProvider serviceProvider  => App.Current.Services;
 
         public static AddQueenPage AddQueen => (AddQueenPage)serviceProvider.GetService(typeof(AddQueenPage));
+        public static EditQueenPage EditQueen => (EditQueenPage)serviceProvider.GetService(typeof(EditQueenPage));
         public static QueenListMainPage QueenListMain => (QueenListMainPage)serviceProvider.GetService(typeof(QueenListMainPage));
     }
 }

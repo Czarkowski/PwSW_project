@@ -37,6 +37,11 @@ namespace Data.Core.Services
             return matkaPszczela;
         }
 
+        public bool DeleteQueen(MatkaPszczela matkaPszczela)
+        {
+            return _matkaPszczelaRepository.Delete(matkaPszczela);
+        }
+
         public List<MatkaPszczela> GetAllQueens()
         {
             return _matkaPszczelaRepository.GetAll();
@@ -52,6 +57,11 @@ namespace Data.Core.Services
             return _ulRepository.GetAll();
         }
 
+        public List<Ul> GetAllHiveWithoutQueens()
+        {
+            return _ulRepository.GetAll().Where(x => x.MatkaPszczela == null).ToList();
+        }
+
         public MatkaPszczela GetQueenById(int matkaPszczelaId)
         {
             return _matkaPszczelaRepository.Get(matkaPszczelaId);
@@ -65,6 +75,11 @@ namespace Data.Core.Services
         public Ul GetUlById(int id)
         {
             return _ulRepository.Get(id);
+        }
+
+        public MatkaPszczela UpdateQueen(MatkaPszczela matkaPszczela)
+        {
+            return _matkaPszczelaRepository.Update(matkaPszczela);
         }
     }
 }

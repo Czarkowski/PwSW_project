@@ -14,7 +14,7 @@ public partial class AddQueenPage : ContentPage
 {
     public event EventHandler<EventArgs> OnSave;
 
-    private QueenDetailsVM _queenDetailsVM;
+    private QueenDetailsVM QueenDetailsVM;
     private readonly IBeeService _beeService;
     private readonly IDataToSaveFactory _dataToSaveFactories;
     public AddQueenPage(IBeeService beeService, IDataToSaveFactory dataToSaveFactories)
@@ -27,18 +27,18 @@ public partial class AddQueenPage : ContentPage
 
     private void InitializeData()
     {
-        _queenDetailsVM = new QueenDetailsVM()
+        QueenDetailsVM = new QueenDetailsVM()
         {
             Description = "Nowa matka",
             Race = (Application.Current.Resources[StaticResourceKeys.AvailableRaces] as List<Rasa>)[0],
             BirthDate = DateTime.Now.Date,
         };
-        BindingContext = _queenDetailsVM;
+        BindingContext = QueenDetailsVM;
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        var queen = _dataToSaveFactories.CreateMatkaPszczela(_queenDetailsVM);
+        var queen = _dataToSaveFactories.CreateMatkaPszczela(QueenDetailsVM);
         _beeService.AddNewQueen(queen);
         OnSave?.Invoke(this, EventArgs.Empty);
         // Powrót do poprzedniej strony

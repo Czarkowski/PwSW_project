@@ -38,9 +38,15 @@ public partial class QueenListMainPage : ContentPage
         await Navigation.PushAsync(page);
     }
 
-    private void OnQueenSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void OnQueenSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        // Logika dla zmiany wyboru
+        var page = PagesProvider.EditQueen;
+        int? id = (e.CurrentSelection.ElementAt(0) as QueenListVM)?.Id;
+        if (!id.HasValue)
+            return;
+        page.InitializeData(_beeService.GetQueenById(id.Value));
+        page.OnSave += (s, e) => RefreshList();
+        await Navigation.PushAsync(page);
     }
 
     public void RefreshList()

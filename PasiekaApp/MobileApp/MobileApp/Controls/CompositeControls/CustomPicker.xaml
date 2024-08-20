@@ -8,7 +8,7 @@
              x:Name="this">
 
     <StackLayout Orientation="Vertical" Spacing="10">
-        <Label x:Name="Label" FontAttributes="Bold" />
+        <Label x:Name="Label" Text="{Binding LabelText, Source={x:Reference this}}" FontAttributes="Bold" />
         <Picker x:Name="Picker"
                 ItemsSource="{Binding OptionList, Source={x:Reference this}}"
                 SelectedItem="{Binding SelectedItem, Source={x:Reference this}}"

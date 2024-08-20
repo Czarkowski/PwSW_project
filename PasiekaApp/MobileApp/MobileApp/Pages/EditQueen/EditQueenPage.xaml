@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cc="using:MobileApp.Controls.CompositeControls"
+             xmlns:vm="using:MobileApp.ViewModels"
+             xmlns:sr="using:MobileApp.StaticResources"
+             x:Class="MobileApp.Pages.EditQueenPage"
+             x:DataType="vm:QueenDetailsVM"
+             x:Name="this">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout IsEnabled="False" Opacity="0.9">
+                <Label Text="Parametry" FontSize="24" FontAttributes="Bold" />
+                <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Nazwa" />
+                <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
+                <cc:CustomDatePicker x:Name="DatePicker" LabelText="Data Urodzenia:" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
+            </StackLayout>
+
+            <cc:CustomPicker LabelText="Ul:" SelectedItem="{Binding Hive, Mode=TwoWay}" OptionList="{Binding AvailableHives, Source={x:Reference this}}" DisplayProperty="Numer" />
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Zapisz" Clicked="OnSaveClicked" />
+                <Button Text="Usuń" Clicked="OnDeleteClicked" />
+                <Button Text="Anuluj" Clicked="OnCancelClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

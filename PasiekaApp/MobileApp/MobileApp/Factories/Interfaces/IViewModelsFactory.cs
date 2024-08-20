@@ -12,6 +12,7 @@ namespace MobileApp.Factories.Interfaces
     {
         List<UlListVM> CreateUlListVMs();
         HiveDetailsVM CreateUlDetailsVM(int ulId);
+        QueenDetailsVM CreateQueenDetailsVM(MatkaPszczela matkaPszczela);
         List<QueenListVM> CreateQueenListVM(List<MatkaPszczela> matkaPszczelas);
     }
 }

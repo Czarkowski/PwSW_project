@@ -37,6 +37,10 @@
 	  <Compile Update="Controls\CompositeControls\CustomPicker.xaml.cs">
 	    <DependentUpon>CustomPicker.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\EditQueen\EditQueenPage.xaml.cs">
+	    <SubType>Code</SubType>
+	    <DependentUpon>EditQueenPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\AddQueen\AddQueenPage.xaml.cs">
 	    <DependentUpon>AddQueenPage.xaml</DependentUpon>
 	  </Compile>
@@ -59,6 +63,10 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\CompositeControls\LabelEntry.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\EditQueen\EditQueenPage.xaml">
+	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\HiveList\HiveListMainPage.xaml">

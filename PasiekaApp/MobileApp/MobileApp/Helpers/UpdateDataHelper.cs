@@ -11,6 +11,14 @@ namespace MobileApp.Helpers
 {
     public class UpdateDataHelper : IUpdateDataHelper
     {
+        public void UpdateHiveDetails(ref Ul ul, HiveDetailsVM hive)
+        {
+            ul.Opis = hive.Description;
+            ul.Numer = hive.Number;
+            ul.DataPoddaniaMatki = hive.QueenAddDate;
+            ul.MatkaPszczela = hive.BeeQueen;
+        }
+
         public void UpdateQueenDetails(ref MatkaPszczela matkaPszczela, QueenDetailsVM queenDetailsVM)
         {
             matkaPszczela.Opis = queenDetailsVM.Description;

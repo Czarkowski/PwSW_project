@@ -51,7 +51,7 @@ namespace MobileApp.Factories
 
         public HiveDetailsVM CreateUlDetailsVM(int ulId)
         {
-            var ul = _beeService.GetUlById(ulId);
+            var ul = _beeService.GetHiveById(ulId);
             var model = new HiveDetailsVM
             {
                 Id = ul.Id,
@@ -63,6 +63,7 @@ namespace MobileApp.Factories
             var queen = _beeService.GetQueenById(ul.MatkaPszczelaId.Value);
                 if (!queen.IsNull())
                 {
+                    model.BeeQueen = queen;
                     model.QueenAddDate = ul.DataPoddaniaMatki ?? DateTime.MinValue;
                     model.QueenAge = DateTime.Now - queen.DataUrodzenia;
                     model.QueenDescription = queen.Opis ?? string.Empty;

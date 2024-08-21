@@ -1,4 +1,5 @@
-﻿using Data.Core;
+﻿using CommunityToolkit.Maui;
+using Data.Core;
 using Data.Core.Repositories;
 using Data.Core.Repositories.Interfaces;
 using Data.Core.Services;
@@ -10,6 +11,7 @@ using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers;
 using MobileApp.Helpers.Interfaces;
 using MobileApp.Pages;
+using MobileApp.Pages.HiveList.Views;
 using MobileApp.StaticResources;
 
 namespace MobileApp
@@ -20,6 +22,7 @@ namespace MobileApp
         {
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -93,6 +96,7 @@ namespace MobileApp
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();
+            builder.Services.AddTransient<ChangeQueenPopup>();
             return builder;
         }
     }

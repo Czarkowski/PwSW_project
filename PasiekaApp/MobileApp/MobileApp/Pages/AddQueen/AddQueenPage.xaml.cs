@@ -30,7 +30,7 @@ public partial class AddQueenPage : ContentPage
         QueenDetailsVM = new QueenDetailsVM()
         {
             Description = "Nowa matka",
-            Race = (Application.Current.Resources[StaticResourceKeys.AvailableRaces] as List<Rasa>)[0],
+            Race = (App.Current.Resources[StaticResourceKeys.AvailableRaces] as List<Rasa>)[0],
             BirthDate = DateTime.Now.Date,
         };
         BindingContext = QueenDetailsVM;

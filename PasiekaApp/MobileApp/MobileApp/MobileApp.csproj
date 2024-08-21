@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
@@ -28,6 +29,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Data.Core\Data.Core.csproj" />
+	  <ProjectReference Include="..\..\MobileApp.Core\MobileApp.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -49,6 +51,9 @@
 	  </Compile>
 	  <Compile Update="Pages\QueenList\QueenListMainPage.xaml.cs">
 	    <DependentUpon>QueenListMainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\HiveList\Views\ChangeQueenPopup.xaml.cs">
+	    <DependentUpon>ChangeQueenPopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -81,13 +86,12 @@
 	  <MauiXaml Update="Pages\AddQueen\AddQueenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\HiveList\Views\ChangeQueenPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\QueenList\Views\QueenList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Pages\HiveList\Views\" />
 	</ItemGroup>
 
 </Project>

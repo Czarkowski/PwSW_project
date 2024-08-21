@@ -48,7 +48,7 @@ namespace MobileApp.ViewModels
             set
             {
                 _race = value;
-                OnPropertyChanged(nameof(Rasa));
+                OnPropertyChanged(nameof(Race));
             }
         }
 

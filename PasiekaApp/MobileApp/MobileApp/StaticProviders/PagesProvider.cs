@@ -1,4 +1,5 @@
 ﻿using MobileApp.Pages;
+using MobileApp.Pages.HiveList.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace MobileApp.StaticProviders
         public static AddQueenPage AddQueen => (AddQueenPage)serviceProvider.GetService(typeof(AddQueenPage));
         public static EditQueenPage EditQueen => (EditQueenPage)serviceProvider.GetService(typeof(EditQueenPage));
         public static QueenListMainPage QueenListMain => (QueenListMainPage)serviceProvider.GetService(typeof(QueenListMainPage));
+        public static ChangeQueenPopup ChangeQueenPopup => (ChangeQueenPopup)serviceProvider.GetService(typeof(ChangeQueenPopup));
     }
 }

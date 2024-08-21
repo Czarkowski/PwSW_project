@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:MobileApp.Pages.HiveList.Views"
+    xmlns:cc="using:MobileApp.Controls.CompositeControls"
+    x:Class="MobileApp.Pages.HiveList.Views.ChangeQueenPopup"
+    x:DataType="local:ChangeQueenPopup"
+    x:Name="this">
+
+    <VerticalStackLayout Padding="20" BackgroundColor="DarkGreen" 
+                         WidthRequest="400" HeightRequest="300"
+                         HorizontalOptions="Center" VerticalOptions="Center">
+        <cc:CustomPicker x:Name="QueenPicker" LabelText="Select Queen" SelectedItem="{Binding BeeQueen, Source={x:Reference this}}" 
+                         OptionList="{Binding AvailableQueens, Source={x:Reference this}}" ItemDisplayConverter="{StaticResource BeeQueenNameConverter}"/>
+        <cc:CustomDatePicker x:Name="DatePicker" LabelText="Add Date" SelectedDate="{Binding Date, Source={x:Reference this}}"/> 
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="OK" Clicked="OnOkClicked" BackgroundColor="GreenYellow" />
+            <Button Text="Cancel" Clicked="OnCancelClicked" BackgroundColor="GreenYellow" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</toolkit:Popup>

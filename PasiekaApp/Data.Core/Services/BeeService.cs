@@ -72,7 +72,7 @@ namespace Data.Core.Services
             return _matkaPszczelaRepository.Get(id, true)?.Rasa;
         }
 
-        public Ul GetUlById(int id)
+        public Ul GetHiveById(int id)
         {
             return _ulRepository.Get(id);
         }
@@ -80,6 +80,16 @@ namespace Data.Core.Services
         public MatkaPszczela UpdateQueen(MatkaPszczela matkaPszczela)
         {
             return _matkaPszczelaRepository.Update(matkaPszczela);
+        }
+
+        public Ul UpdateHive(Ul ul)
+        {
+            return _ulRepository.Update(ul);
+        }
+
+        public List<MatkaPszczela> GetAllQueensWithoutHive()
+        {
+            return _matkaPszczelaRepository.GetAll().Where(x => x.Ul == null).ToList();
         }
     }
 }

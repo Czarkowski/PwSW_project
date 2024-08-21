@@ -38,8 +38,10 @@ public partial class EditQueenPage : ContentPage
     public void InitializeData(MatkaPszczela matkaPszczela)
     {
         _queen = matkaPszczela;
+        var availableHives = _beeService.GetAllHiveWithoutQueens();
+        availableHives.Add(_queen.Ul);
+        AvailableHives = availableHives;
         BindingContext = QueenDetailsVM = _viewModelsFactory.CreateQueenDetailsVM(matkaPszczela);
-        AvailableHives = _beeService.GetAllHiveWithoutQueens();
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)

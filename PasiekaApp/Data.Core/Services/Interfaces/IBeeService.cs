@@ -10,7 +10,8 @@ namespace Data.Core.Services.Interfaces
     public interface IBeeService
     {
         List<Ul> GetAllUls();
-        Ul GetUlById(int id);
+        Ul GetHiveById(int id);
+        Ul UpdateHive(Ul ul);
         Rasa GetRaceByBeeQueenId(int id);
         MatkaPszczela GetQueenById(int matkaPszczelaId);
         List<MatkaPszczela> GetAllQueens();
@@ -19,5 +20,6 @@ namespace Data.Core.Services.Interfaces
         MatkaPszczela UpdateQueen(MatkaPszczela matkaPszczela);
         bool DeleteQueen(MatkaPszczela matkaPszczela);
         List<Ul> GetAllHiveWithoutQueens();
+        List<MatkaPszczela> GetAllQueensWithoutHive();
     }
 }

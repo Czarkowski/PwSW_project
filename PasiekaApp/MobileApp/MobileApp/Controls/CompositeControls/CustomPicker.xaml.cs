@@ -2,6 +2,7 @@ using Data.Core.Models;
 using MobileApp.PickerItems.Interfaces;
 using MobileApp.StaticResources;
 using System.Collections.Generic;
+using Utilities.StaticExtensions;
 
 namespace MobileApp.Controls.CompositeControls;
 
@@ -36,7 +37,7 @@ public partial class CustomPicker : ContentView
             typeof(string),
             typeof(CustomPicker),
             null, // Domyœlnie null
-            propertyChanged: OnDisplayPropertyChanged);
+            propertyChanged: OnItemDisplayBindingPropertyChanged);
 
     public string DisplayProperty
     {
@@ -44,7 +45,56 @@ public partial class CustomPicker : ContentView
         set => SetValue(DisplayPropertyProperty, value);
     }
 
-    private static void OnDisplayPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    //private static void OnDisplayPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    //{
+    //    var picker = (CustomPicker)bindable;
+    //    //picker.UpdateItemDisplayBinding();
+    //}
+
+    //private void UpdateItemDisplayBinding()
+    //{
+    //    if (string.IsNullOrWhiteSpace(DisplayProperty))
+    //    {
+    //        // Reset ItemDisplayBinding to null, to use ToString()
+    //        Picker.ItemDisplayBinding = null;
+    //    }
+    //    else
+    //    {
+    //        // Set ItemDisplayBinding to the specified property
+    //        Picker.ItemDisplayBinding = new Binding(DisplayProperty);
+    //    }
+    //}
+
+    public static readonly BindableProperty ItemDisplayBindingProperty =
+        BindableProperty.Create(
+        nameof(ItemDisplayBinding),
+        typeof(BindingBase),
+        typeof(CustomPicker),
+        null, // Domyœlnie null
+        propertyChanged: OnItemDisplayBindingPropertyChanged);
+
+    public BindingBase ItemDisplayBinding
+    {
+        get => (BindingBase)GetValue(ItemDisplayBindingProperty);
+        set => SetValue(ItemDisplayBindingProperty, value);
+    }
+
+
+    public static readonly BindableProperty ItemDisplayConverterProperty =
+        BindableProperty.Create(
+            nameof(ItemDisplayConverter),
+            typeof(IValueConverter),
+            typeof(CustomPicker),
+            null, // Domyœlnie null
+            propertyChanged: OnItemDisplayBindingPropertyChanged);
+
+    public IValueConverter ItemDisplayConverter
+    {
+        get => (IValueConverter)GetValue(ItemDisplayConverterProperty);
+        set => SetValue(ItemDisplayConverterProperty, value);
+    }
+
+    private static void OnItemDisplayBindingPropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var picker = (CustomPicker)bindable;
         picker.UpdateItemDisplayBinding();
@@ -52,16 +102,7 @@ public partial class CustomPicker : ContentView
 
     private void UpdateItemDisplayBinding()
     {
-        if (string.IsNullOrWhiteSpace(DisplayProperty))
-        {
-            // Reset ItemDisplayBinding to null, to use ToString()
-            Picker.ItemDisplayBinding = null;
-        }
-        else
-        {
-            // Set ItemDisplayBinding to the specified property
-            Picker.ItemDisplayBinding = new Binding(DisplayProperty);
-        }
+        Picker.ItemDisplayBinding = new Binding(DisplayProperty.IsNEoWS() ? "." : DisplayProperty, converter: ItemDisplayConverter);
     }
 
     //public static readonly BindableProperty DisplayMemberProperty =

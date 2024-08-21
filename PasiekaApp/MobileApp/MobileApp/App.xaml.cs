@@ -1,6 +1,7 @@
 ﻿using Data.Core.Services.Interfaces;
 using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Pages;
 using MobileApp.StaticResources;
 
 namespace MobileApp

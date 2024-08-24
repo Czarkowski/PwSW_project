@@ -21,10 +21,10 @@ public partial class HiveListMainPage : ScrollablePage
         _viewModelsFactories = viewModelsFactories;
         _updateDataHelper = updateDataHelper;
         InitializeComponent();
-        LoadItems();
+        LoadData();
     }
 
-    private async void LoadItems()
+    private async void LoadData()
     {
         UlListModel.ItemsSource = _viewModelsFactories.CreateUlListVMs();
     }
@@ -33,7 +33,7 @@ public partial class HiveListMainPage : ScrollablePage
     {
         //var newItem = new Item { Name = "New Item" };
         //await App.Database.SaveItemAsync(newItem);
-        LoadItems();
+        LoadData();
     }
 
     private void OnItemSelected(object sender, SelectionChangedEventArgs e)

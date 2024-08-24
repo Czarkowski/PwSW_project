@@ -20,6 +20,15 @@ namespace MobileApp.Factories
             _beeService = beeService;
         }
 
+        public List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Ul> hives)
+        {
+            return hives.Select(x => new HiveListToCreateReviewVM
+            {
+                Hive = x,
+                IsSelected = false,
+            }).ToList();
+        }
+
         public QueenDetailsVM CreateQueenDetailsVM(MatkaPszczela matkaPszczela)
         {
             return new QueenDetailsVM()
@@ -75,7 +84,7 @@ namespace MobileApp.Factories
 
         public List<UlListVM> CreateUlListVMs()
         {
-            List<Data.Core.Models.Ul> uls = _beeService.GetAllUls();
+            List<Data.Core.Models.Ul> uls = _beeService.GetAllHive();
 
             return uls.Select(x => {
                 var race = x.MatkaPszczelaId.HasValue ?

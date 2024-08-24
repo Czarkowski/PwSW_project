@@ -13,6 +13,11 @@ namespace Data.Core.Models
         {
         }
         public int Id { get; private set; }
+        public string Description { get; set; }
+        public DateTime PlannedDate { get; set; }
+        public DateTime? RealizedDate { get; set; }
+        public int ReviewTypeId { get; set; }
+        public virtual ReviewType ReviewType { get; set; }
         public  virtual List<OpisUlPrzeglad> OpisUlPrzeglads{ get; set; } = new List<OpisUlPrzeglad>();
     }
 }

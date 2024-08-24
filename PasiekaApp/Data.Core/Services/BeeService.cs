@@ -52,7 +52,7 @@ namespace Data.Core.Services
             return _rasaRepository.GetAll();
         }
 
-        public List<Ul> GetAllUls()
+        public List<Ul> GetAllHive()
         {
             return _ulRepository.GetAll();
         }

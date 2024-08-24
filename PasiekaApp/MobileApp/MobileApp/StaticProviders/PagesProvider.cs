@@ -17,5 +17,7 @@ namespace MobileApp.StaticProviders
         public static EditQueenPage EditQueen => (EditQueenPage)serviceProvider.GetService(typeof(EditQueenPage));
         public static QueenListMainPage QueenListMain => (QueenListMainPage)serviceProvider.GetService(typeof(QueenListMainPage));
         public static ChangeQueenPopup ChangeQueenPopup => (ChangeQueenPopup)serviceProvider.GetService(typeof(ChangeQueenPopup));
+        public static ReviewCreatorMainPage ReviewCreatorMain => (ReviewCreatorMainPage)serviceProvider.GetService(typeof(ReviewCreatorMainPage));
+        public static ReviewMainPage ReviewMain => (ReviewMainPage)serviceProvider.GetService(typeof(ReviewMainPage));
     }
 }

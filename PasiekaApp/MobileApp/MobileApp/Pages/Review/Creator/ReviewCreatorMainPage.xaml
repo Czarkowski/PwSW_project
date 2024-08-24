@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="using:MobileApp.ViewModels"
+             xmlns:pages="clr-namespace:MobileApp.Pages"
+             xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+             x:Class="MobileApp.Pages.ReviewCreatorMainPage"
+             BindingContext="{Binding Source={RelativeSource Self}}"
+             x:DataType="pages:ReviewCreatorMainPage">
+
+    <StackLayout Orientation="Vertical">
+
+        <ScrollView>
+            <CollectionView x:Name="HiveListCV" ItemsSource="{Binding HiveList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10" x:DataType="vm:HiveListToCreateReviewVM">
+                            <Label Text="{Binding .}" VerticalOptions="Center" />
+                            <CheckBox IsChecked="{Binding IsSelected}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <cc:CustomDatePicker LabelText="Planned Date" SelectedDate="{Binding }"/>
+        <cc:CustomPicker LabelText="Review Type" OptionList ="{Binding }"/>
+        <cc:LabelEntry LabelText="Review Description" EntryText="{Binding}" />
+
+
+        <Button Text="Create Review" Clicked="OnCreateReviewClicked"/>
+    </StackLayout>
+</ContentPage>

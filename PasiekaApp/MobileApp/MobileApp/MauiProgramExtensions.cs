@@ -93,10 +93,12 @@ namespace MobileApp
         {
             builder.Services.AddSingleton<HiveListMainPage>();
             builder.Services.AddSingleton<QueenListMainPage>();
+            builder.Services.AddSingleton<ReviewMainPage>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();
             builder.Services.AddTransient<ChangeQueenPopup>();
+            builder.Services.AddTransient<ReviewCreatorMainPage>();
             return builder;
         }
     }

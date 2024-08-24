@@ -9,7 +9,7 @@ namespace Data.Core.Services.Interfaces
 {
     public interface IBeeService
     {
-        List<Ul> GetAllUls();
+        List<Ul> GetAllHive();
         Ul GetHiveById(int id);
         Ul UpdateHive(Ul ul);
         Rasa GetRaceByBeeQueenId(int id);

@@ -19,6 +19,7 @@ namespace Data.Core
         public DbSet<MatkaPszczela> MatkaPszczelas { get; set; }
         public DbSet<Opis> Opiss { get; set; }
         public DbSet<StanMagazynowy> StanMagazynowys { get; set; }
+        public DbSet<ReviewType> ReviewTypes { get; set; }
 
         public BeeDbContext()
         {
@@ -62,6 +63,13 @@ namespace Data.Core
                 oul.HasOne(up => up.Przeglad).WithMany(p => p.OpisUlPrzeglads).HasForeignKey(up => up.PrzegladId);
                 oul.HasOne(op => op.Opis).WithOne(up => up.OpisUlPrzeglad).HasForeignKey<OpisUlPrzeglad>(up => up.OpisId).IsRequired(false);
             });
+
+            modelBuilder.Entity<Przeglad>(p =>
+            {
+                p.ToTable(nameof(Przeglad));
+                p.HasOne(p => p.ReviewType).WithMany(rw => rw.Reviews).HasForeignKey(p => p.ReviewTypeId);
+            });
+
         }
 
         internal static string GetDataSourceFilePath()

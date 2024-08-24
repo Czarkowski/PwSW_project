@@ -33,7 +33,7 @@ namespace Data.Core.Repositories
 
         public List<Race> GetAll()
         {
-            return _db.Rasas.ToList();
+            return _db.Races.ToList();
         }
 
         public Race Update(Race ul)

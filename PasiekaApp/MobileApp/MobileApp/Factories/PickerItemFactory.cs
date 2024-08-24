@@ -16,7 +16,7 @@ namespace MobileApp.Factories
             return races.Select(r => new RacePickerItem()
             {
                 Value = r,
-                Name = r.Nazwa,
+                Name = r.Name,
             }).ToList();
         }
     }

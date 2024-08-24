@@ -10,6 +10,7 @@ namespace MobileApp.Factories.Interfaces
 {
     public interface IDataToSaveFactory
     {
-        BeeQueen CreateMatkaPszczela(QueenDetailsVM queenDetailsVM);
+        BeeQueen CreateBeeGueen(QueenDetailsVM queenDetailsVM);
+        Review CreateReview(ReviewCreatorVM queenDetailsVM);
     }
 }

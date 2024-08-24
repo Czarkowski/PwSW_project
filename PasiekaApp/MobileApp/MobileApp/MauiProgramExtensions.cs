@@ -65,6 +65,8 @@ namespace MobileApp
             builder.Services.AddSingleton<IUlRepository, UlRepository>();
             builder.Services.AddSingleton<IMatkaPszczelaRepository, MatkaPszczelaRepostory>();
             builder.Services.AddSingleton<IRasaRepository, RasaRepostory>();
+            builder.Services.AddSingleton<IReviewTypeRepository, ReviewTypeRepository>();
+            builder.Services.AddSingleton<IReviewRepository, ReviewRepository>();
             return builder;
         }
 

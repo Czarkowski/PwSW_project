@@ -13,7 +13,7 @@
             <StackLayout IsEnabled="False" Opacity="0.9">
                 <Label Text="Parametry" FontSize="24" FontAttributes="Bold" />
                 <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" 
-                                 OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Nazwa" />
+                                 OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
                 <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
                 <cc:CustomDatePicker x:Name="DatePicker" LabelText="Data Urodzenia:" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
             </StackLayout>

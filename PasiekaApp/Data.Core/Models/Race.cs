@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class Race
+    public class Race : BaseModel
     {
         public Race()
         {
         }
-        public virtual List<BeeQueen> MatkaPszczelas { get; set; } = new List<BeeQueen>();
-        public int Id { get; private set; }
-        public string Nazwa { get; set; } = string.Empty;
-        public string? Opis { get; set; } = string.Empty;
+        public virtual List<BeeQueen> BeeQueens { get; set; } = new List<BeeQueen>();
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; } = string.Empty;
         public int Licznosc { get; set; }
         public int Produktywnosc { get; set; }
         public int Rojliwosc { get; set; }
@@ -25,7 +24,7 @@ namespace Data.Core.Models
 
         public override string ToString()
         {
-            return Nazwa;
+            return Name;
         }
     }
 }

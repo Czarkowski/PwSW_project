@@ -11,14 +11,29 @@ namespace MobileApp.Factories
 {
     public class DataToSaveFactory : IDataToSaveFactory
     {
-        public BeeQueen CreateMatkaPszczela(QueenDetailsVM queenDetailsVM)
+        public BeeQueen CreateBeeGueen(QueenDetailsVM queenDetailsVM)
         {
             return new BeeQueen()
             {
-                Id = queenDetailsVM.Id,
                 Race = queenDetailsVM.Race,
                 BirthDate = queenDetailsVM.BirthDate,
                 Description = queenDetailsVM.Description,
+            };
+        }
+
+        public Review CreateReview(ReviewCreatorVM reviewCreatorVM)
+        {
+            var descriptionHiveReviewList = reviewCreatorVM.SelectedHive.Select(x =>
+                new DescriptionHiveReview()
+                {
+                    Hive = x
+                }).ToList();
+            return new Review()
+            {
+                Description = reviewCreatorVM.Description,
+                PlannedDate = reviewCreatorVM.Date,
+                ReviewType = reviewCreatorVM.ReviewType,
+                DescriptionHiveReviews= descriptionHiveReviewList,
             };
         }
     }

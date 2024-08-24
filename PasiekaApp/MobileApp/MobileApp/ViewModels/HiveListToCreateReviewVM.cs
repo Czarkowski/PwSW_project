@@ -25,7 +25,7 @@ namespace MobileApp.ViewModels
 
         public override string ToString()
         {
-            return $"{Hive.Number} - {Hive.BeeQueen?.Race?.Nazwa ?? "Without Queen!"}";  
+            return $"{Hive.Number} - {Hive.BeeQueen?.Race?.Name ?? "Without Queen!"}";  
         }
     }
 }

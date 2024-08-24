@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class Review
+    public class Review : BaseModel
     {
         public Review()
         {
         }
-        public int Id { get; private set; }
         public string Description { get; set; }
         public DateTime PlannedDate { get; set; }
         public DateTime? RealizedDate { get; set; }

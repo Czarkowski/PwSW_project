@@ -1,8 +1,12 @@
 ﻿using Data.Core.Services.Interfaces;
+using Microsoft.Extensions.Localization;
 using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Localizations;
 using MobileApp.Pages;
 using MobileApp.StaticResources;
+using System.Globalization;
+using System.Resources;
 
 namespace MobileApp
 {
@@ -17,7 +21,15 @@ namespace MobileApp
             Services = serviceProvider;
             InitializeComponent();
             InitializeStaticResources();
+            InitializeLocalizer();
+
             MainPage = new AppShell();
+        }
+
+        private void InitializeLocalizer()
+        {
+            ResourceManager resourceManager = new ResourceManager("MobileApp.Resources.Languages.Strings", typeof(App).Assembly);
+            LocalizeManager.Initialize(resourceManager);
         }
 
         private void InitializeStaticResources()

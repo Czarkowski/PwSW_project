@@ -52,10 +52,22 @@ namespace MobileApp.Factories
                     Description = x.Description ?? string.Empty,
                     BirthDate = x.BirthDate,
                     Age = DateTime.Now - x.BirthDate,
-                    Race = x.Race.Nazwa,
+                    Race = x.Race.Name,
                     HiveNumber = x.Hive?.Number,
                 };
             }).ToList();
+        }
+
+        public ReviewCreatorVM CreateReviewCreatorVM(List<HiveListToCreateReviewVM> hiveListToCreateReviewVMs, List<ReviewType> reviewType)
+        {
+            return new ReviewCreatorVM()
+            {
+                HiveList = hiveListToCreateReviewVMs,
+                ReviewTypeList = reviewType,
+                Date = DateTime.Now.Date,
+                Description = string.Empty,
+                ReviewType = reviewType?.FirstOrDefault(),
+            };
         }
 
         public HiveDetailsVM CreateUlDetailsVM(int ulId)
@@ -95,7 +107,7 @@ namespace MobileApp.Factories
                     Id = x.Id,
                     Number = x.Number,
                     Description = x.Description ?? string.Empty,
-                    Race = race?.Nazwa ?? string.Empty,
+                    Race = race?.Name ?? string.Empty,
                 };
             }
             ).ToList();

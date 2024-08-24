@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class ReviewType : BaseModel
+    public class StockAvailability : BaseModel
     {
+        public StockAvailability()
+        {
+        }
         public string Name { get; set; }
-        public virtual List<Review> Reviews { get; set; }
+        public double Quantity { get; set; }
+        public string Unit { get; set; }
     }
 }

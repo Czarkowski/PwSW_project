@@ -5,8 +5,8 @@
              xmlns:pages="clr-namespace:MobileApp.Pages"
              xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
              x:Class="MobileApp.Pages.ReviewCreatorMainPage"
-             BindingContext="{Binding Source={RelativeSource Self}}"
-             x:DataType="pages:ReviewCreatorMainPage">
+             BindingContext="{Binding ReviewCreatorVM, Source={RelativeSource Self}}"
+             x:DataType="vm:ReviewCreatorVM">
 
     <StackLayout Orientation="Vertical">
 
@@ -22,9 +22,9 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
-        <cc:CustomDatePicker LabelText="Planned Date" SelectedDate="{Binding }"/>
-        <cc:CustomPicker LabelText="Review Type" OptionList ="{Binding }"/>
-        <cc:LabelEntry LabelText="Review Description" EntryText="{Binding}" />
+        <cc:CustomDatePicker LabelText="Planned Date" SelectedDate="{Binding Date}"/>
+        <cc:CustomPicker LabelText="Review Type" OptionList ="{Binding ReviewTypeList}" SelectedItem="{Binding ReviewType}" DisplayProperty="Name"/>
+        <cc:LabelEntry LabelText="Review Description" EntryText="{Binding Description}" />
 
 
         <Button Text="Create Review" Clicked="OnCreateReviewClicked"/>

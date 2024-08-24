@@ -17,7 +17,7 @@ namespace MobileApp.Converters
 
             if (value is BeeQueen item)
             {
-                return $"{item.Id}:{item.Race.Nazwa}:{item.BirthDate.ToShortDateString()}";
+                return $"{item.Id}:{item.Race.Name}:{item.BirthDate.ToShortDateString()}";
             }
             return value.ToString();
         }

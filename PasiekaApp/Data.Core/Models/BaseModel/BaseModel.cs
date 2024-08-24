@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class ReviewType : BaseModel
+    public abstract class BaseModel
     {
-        public string Name { get; set; }
-        public virtual List<Review> Reviews { get; set; }
+        public int Id { get; protected set; }
     }
 }

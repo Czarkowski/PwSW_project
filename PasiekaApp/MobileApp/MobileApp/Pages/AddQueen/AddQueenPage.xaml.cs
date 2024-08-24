@@ -38,8 +38,8 @@ public partial class AddQueenPage : ContentPage
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        var queen = _dataToSaveFactories.CreateMatkaPszczela(QueenDetailsVM);
-        _beeService.AddNewQueen(queen);
+        var queen = _dataToSaveFactories.CreateBeeGueen(QueenDetailsVM);
+        _beeService.AddQueen(queen);
         OnSave?.Invoke(this, EventArgs.Empty);
         // Powrót do poprzedniej strony
         await Navigation.PopAsync();

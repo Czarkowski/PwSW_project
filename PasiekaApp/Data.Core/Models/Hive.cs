@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class Hive
+    public class Hive : BaseModel
     {
         public Hive()
         {
         }
-        public int Id { get; private set; }
         public int Number { get; set; }
         public virtual BeeQueen? BeeQueen { get; set; }
         public int? BeeQueenId { get; set; }

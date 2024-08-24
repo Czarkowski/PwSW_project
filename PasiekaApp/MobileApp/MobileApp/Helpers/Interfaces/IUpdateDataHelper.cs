@@ -10,7 +10,7 @@ namespace MobileApp.Helpers.Interfaces
 {
     public interface IUpdateDataHelper
     {
-        void UpdateQueenDetails(ref BeeQueen matkaPszczela, QueenDetailsVM queenDetailsVM);
-        void UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive);
+        ref BeeQueen UpdateQueenDetails(ref BeeQueen matkaPszczela, QueenDetailsVM queenDetailsVM);
+        ref Hive UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive);
     }
 }

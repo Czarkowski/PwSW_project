@@ -3,6 +3,7 @@ using System;
 using Data.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Core.Migrations
 {
     [DbContext(typeof(BeeDbContext))]
-    partial class BeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240824112023_mig10082024_10")]
+    partial class mig10082024_10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -53,7 +56,7 @@ namespace Data.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Descriptions");
+                    b.ToTable("Opiss");
                 });
 
             modelBuilder.Entity("Data.Core.Models.DescriptionHiveReview", b =>
@@ -62,23 +65,23 @@ namespace Data.Core.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("DescriptionId")
+                    b.Property<int?>("OpisId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("HiveId")
+                    b.Property<int>("PrzegladId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ReviewId")
+                    b.Property<int>("UlId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DescriptionId")
+                    b.HasIndex("OpisId")
                         .IsUnique();
 
-                    b.HasIndex("HiveId");
+                    b.HasIndex("PrzegladId");
 
-                    b.HasIndex("ReviewId");
+                    b.HasIndex("UlId");
 
                     b.ToTable("DescriptionHiveReview", (string)null);
                 });
@@ -118,9 +121,6 @@ namespace Data.Core.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Higienicznosc")
                         .HasColumnType("INTEGER");
 
@@ -130,8 +130,11 @@ namespace Data.Core.Migrations
                     b.Property<int>("Licznosc")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Nazwa")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Opis")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Produktywnosc")
@@ -142,7 +145,7 @@ namespace Data.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Races");
+                    b.ToTable("Rasas");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Review", b =>
@@ -186,20 +189,20 @@ namespace Data.Core.Migrations
                     b.ToTable("ReviewTypes");
                 });
 
-            modelBuilder.Entity("Data.Core.Models.StockAvailability", b =>
+            modelBuilder.Entity("Data.Core.Models.StanMagazynowy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<double>("Ilosc")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Jednostka")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Quantity")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Unit")
+                    b.Property<string>("Nazwa")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -211,7 +214,7 @@ namespace Data.Core.Migrations
             modelBuilder.Entity("Data.Core.Models.BeeQueen", b =>
                 {
                     b.HasOne("Data.Core.Models.Race", "Race")
-                        .WithMany("BeeQueens")
+                        .WithMany("MatkaPszczelas")
                         .HasForeignKey("RaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -221,27 +224,27 @@ namespace Data.Core.Migrations
 
             modelBuilder.Entity("Data.Core.Models.DescriptionHiveReview", b =>
                 {
-                    b.HasOne("Data.Core.Models.Description", "Description")
+                    b.HasOne("Data.Core.Models.Description", "Opis")
                         .WithOne("DescriptionHiveReview")
-                        .HasForeignKey("Data.Core.Models.DescriptionHiveReview", "DescriptionId");
+                        .HasForeignKey("Data.Core.Models.DescriptionHiveReview", "OpisId");
 
-                    b.HasOne("Data.Core.Models.Hive", "Hive")
+                    b.HasOne("Data.Core.Models.Review", "Przeglad")
                         .WithMany("DescriptionHiveReviews")
-                        .HasForeignKey("HiveId")
+                        .HasForeignKey("PrzegladId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Core.Models.Review", "Review")
+                    b.HasOne("Data.Core.Models.Hive", "Ul")
                         .WithMany("DescriptionHiveReviews")
-                        .HasForeignKey("ReviewId")
+                        .HasForeignKey("UlId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Description");
+                    b.Navigation("Opis");
 
-                    b.Navigation("Hive");
+                    b.Navigation("Przeglad");
 
-                    b.Navigation("Review");
+                    b.Navigation("Ul");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Hive", b =>
@@ -284,7 +287,7 @@ namespace Data.Core.Migrations
 
             modelBuilder.Entity("Data.Core.Models.Race", b =>
                 {
-                    b.Navigation("BeeQueens");
+                    b.Navigation("MatkaPszczelas");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Review", b =>

@@ -12,6 +12,7 @@
         <Picker x:Name="Picker"
                 ItemsSource="{Binding OptionList, Source={x:Reference this}}"
                 SelectedItem="{Binding SelectedItem, Source={x:Reference this}}"
+                ItemDisplayBinding="{Binding ItemDisplayBinding, Source={x:Reference this}}"
                 SelectedIndexChanged="OnPickerSelectedIndexChanged" />
                 <!--ItemDisplayBinding="{Binding ., Converter={ItemDisplayConverter, Source={x:Reference this}}}"-->
     </StackLayout>

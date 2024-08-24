@@ -51,7 +51,7 @@
                 <Button Text="Change Queen" Clicked="OnChangeQueenClicked" />
                 
                 <StackLayout Orientation="Horizontal" Spacing="5">
-                    <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Nazwa}" />
+                    <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" Spacing="5">

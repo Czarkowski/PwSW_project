@@ -18,30 +18,30 @@ namespace Data.Core.Repositories
 
         public Hive Add(Hive ul)
         {
-            _db.Uls.Add(ul);
+            _db.Hives.Add(ul);
             _db.SaveChanges();
             return ul;
         }
 
         public bool Delete(int id)
         {
-            _db.Uls.Remove(_db.Uls.FirstOrDefault(x => x.Id == id));
+            _db.Hives.Remove(_db.Hives.FirstOrDefault(x => x.Id == id));
             return _db.SaveChanges() == 1;
         }
 
         public Hive Get(int id)
         {
-            return _db.Uls.FirstOrDefault(x => x.Id == id);
+            return _db.Hives.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Hive> GetAll()
         {
-            return _db.Uls.ToList();
+            return _db.Hives.ToList();
         }
 
         public Hive Update(Hive ul)
         {
-            _db.Uls.Update(ul);
+            _db.Hives.Update(ul);
             _db.SaveChanges();
             return ul;
         }

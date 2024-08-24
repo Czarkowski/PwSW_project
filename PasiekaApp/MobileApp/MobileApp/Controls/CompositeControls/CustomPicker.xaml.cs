@@ -25,6 +25,7 @@ public partial class CustomPicker : ContentView
     //    }
     //}
 
+
     public IEnumerable<object> OptionList
     {
         get => (IEnumerable<object>)GetValue(OptionListProperty);

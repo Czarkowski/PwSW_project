@@ -20,17 +20,24 @@ namespace Data.Core.Services
         private readonly IUlRepository _ulRepository;
         private readonly IMatkaPszczelaRepository _matkaPszczelaRepository;
         private readonly IRasaRepository _rasaRepository;
+        private readonly IReviewTypeRepository _reviewTypeRepository;
+        private readonly IReviewRepository _reviewRepository;
+        
 
-        public BeeService(IUlRepository ulRepository, IRasaRepository rasaRepository, IMatkaPszczelaRepository matkaPszczelaRepository)
+        public BeeService(IUlRepository ulRepository, IRasaRepository rasaRepository,
+            IMatkaPszczelaRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
+            IReviewRepository reviewRepository)
         {
             _ulRepository = ulRepository;
             _matkaPszczelaRepository = matkaPszczelaRepository;
             _rasaRepository = rasaRepository;
+            _reviewTypeRepository = reviewTypeRepository;
+            _reviewRepository = reviewRepository;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
         }
 
-        public BeeQueen AddNewQueen(BeeQueen matkaPszczela)
+        public BeeQueen AddQueen(BeeQueen matkaPszczela)
         {
             _matkaPszczelaRepository.Add(matkaPszczela);
 
@@ -90,6 +97,16 @@ namespace Data.Core.Services
         public List<BeeQueen> GetAllQueensWithoutHive()
         {
             return _matkaPszczelaRepository.GetAll().Where(x => x.Hive == null).ToList();
+        }
+
+        public List<ReviewType> GetAllReviewType()
+        {
+            return _reviewTypeRepository.GetAll();
+        }
+
+        public Review AddReview(Review review)
+        {
+            return _reviewRepository.Add(review);
         }
     }
 }

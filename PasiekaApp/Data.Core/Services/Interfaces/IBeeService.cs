@@ -16,10 +16,12 @@ namespace Data.Core.Services.Interfaces
         BeeQueen GetQueenById(int matkaPszczelaId);
         List<BeeQueen> GetAllQueens();
         List<Race> GetAllRaces();
-        BeeQueen AddNewQueen(BeeQueen matkaPszczela);
+        BeeQueen AddQueen(BeeQueen matkaPszczela);
         BeeQueen UpdateQueen(BeeQueen matkaPszczela);
         bool DeleteQueen(BeeQueen matkaPszczela);
         List<Hive> GetAllHiveWithoutQueens();
         List<BeeQueen> GetAllQueensWithoutHive();
+        List<ReviewType> GetAllReviewType();
+        Review AddReview(Review review);
     }
 }

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Core.Models;
 
 namespace Data.Core.Models
 {
-    public class BeeQueen
+    public class BeeQueen : BaseModel
     {
         public BeeQueen()
         {
         }
 
-        public int Id { get; set; }
         public virtual Race Race { get; set; }
         public int RaceId { get; set; }
         public virtual Hive Hive { get; set; }

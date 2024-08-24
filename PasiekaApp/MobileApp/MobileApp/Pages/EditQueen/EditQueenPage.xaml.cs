@@ -15,10 +15,10 @@ public partial class EditQueenPage : ContentPage
 {
     public event EventHandler<EventArgs> OnSave;
 
-    private MatkaPszczela _queen;
+    private BeeQueen _queen;
 
-    private List<Ul> _availableHives;
-    public List<Ul> AvailableHives { get => _availableHives; set { _availableHives = value; OnPropertyChanged(nameof(AvailableHives)); } }
+    private List<Hive> _availableHives;
+    public List<Hive> AvailableHives { get => _availableHives; set { _availableHives = value; OnPropertyChanged(nameof(AvailableHives)); } }
     private QueenDetailsVM QueenDetailsVM;
 
     private readonly IBeeService _beeService;
@@ -35,11 +35,11 @@ public partial class EditQueenPage : ContentPage
         InitializeComponent();
     }
 
-    public void InitializeData(MatkaPszczela matkaPszczela)
+    public void InitializeData(BeeQueen matkaPszczela)
     {
         _queen = matkaPszczela;
         var availableHives = _beeService.GetAllHiveWithoutQueens();
-        availableHives.Add(_queen.Ul);
+        availableHives.Add(_queen.Hive);
         AvailableHives = availableHives;
         BindingContext = QueenDetailsVM = _viewModelsFactory.CreateQueenDetailsVM(matkaPszczela);
     }

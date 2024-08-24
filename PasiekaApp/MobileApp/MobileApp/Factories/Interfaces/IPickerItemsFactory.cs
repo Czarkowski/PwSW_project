@@ -10,6 +10,6 @@ namespace MobileApp.Factories.Interfaces
 {
     public interface IPickerItemFactories
     {
-        List<RacePickerItem> CreateRacePickerItems(IEnumerable<Rasa> races);
+        List<RacePickerItem> CreateRacePickerItems(IEnumerable<Race> races);
     }
 }

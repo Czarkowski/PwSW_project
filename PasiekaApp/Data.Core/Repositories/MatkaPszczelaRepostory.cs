@@ -17,25 +17,25 @@ namespace Data.Core.Repositories
             _db = beeDbContext;
         }
 
-        public MatkaPszczela Add(MatkaPszczela beeQueen)
+        public BeeQueen Add(BeeQueen beeQueen)
         {
             _db.MatkaPszczelas.Add(beeQueen);
             _db.SaveChanges();
             return beeQueen;
         }
 
-        public bool Delete(MatkaPszczela beeQueen)
+        public bool Delete(BeeQueen beeQueen)
         {
             _db.MatkaPszczelas.Remove(beeQueen);
             var changes = _db.SaveChanges();
             return changes == 1;
         }
 
-        public MatkaPszczela Get(int id, bool includeRelations = false)
+        public BeeQueen Get(int id, bool includeRelations = false)
         {
             if (includeRelations)
             {
-                return _db.MatkaPszczelas.Include(x => x.Rasa).Include(x => x.Ul).FirstOrDefault(x => x.Id == id);
+                return _db.MatkaPszczelas.Include(x => x.Race).Include(x => x.Hive).FirstOrDefault(x => x.Id == id);
             }
             else
             {
@@ -43,12 +43,12 @@ namespace Data.Core.Repositories
             }
         }
 
-        public List<MatkaPszczela> GetAll()
+        public List<BeeQueen> GetAll()
         {
             return _db.MatkaPszczelas.ToList();
         }
 
-        public MatkaPszczela Update(MatkaPszczela beeQueen)
+        public BeeQueen Update(BeeQueen beeQueen)
         {
             _db.MatkaPszczelas.Update(beeQueen);
             _db.SaveChanges();

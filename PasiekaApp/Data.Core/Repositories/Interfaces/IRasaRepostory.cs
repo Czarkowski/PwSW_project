@@ -9,10 +9,10 @@ namespace Data.Core.Repositories.Interfaces
 {
     public interface IRasaRepository
     {
-        Rasa Get(int id);
-        List<Rasa> GetAll();
-        Rasa Add(Rasa ul);
-        Rasa Update(Rasa ul);
+        Race Get(int id);
+        List<Race> GetAll();
+        Race Add(Race ul);
+        Race Update(Race ul);
         bool Delete(int id);
     }
 }

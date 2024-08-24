@@ -12,12 +12,12 @@ namespace Data.Core
 {
     public class BeeDbContext : DbContext
     {
-        public DbSet<Ul> Uls { get; set; }
-        public DbSet<Przeglad> Przeglads { get; set; }
-        public DbSet<OpisUlPrzeglad> OpisUlPrzeglads { get; set; }
-        public DbSet<Rasa> Rasas { get; set; }
-        public DbSet<MatkaPszczela> MatkaPszczelas { get; set; }
-        public DbSet<Opis> Opiss { get; set; }
+        public DbSet<Hive> Uls { get; set; }
+        public DbSet<Review> Przeglads { get; set; }
+        public DbSet<DescriptionHiveReview> OpisUlPrzeglads { get; set; }
+        public DbSet<Race> Rasas { get; set; }
+        public DbSet<BeeQueen> MatkaPszczelas { get; set; }
+        public DbSet<Description> Opiss { get; set; }
         public DbSet<StanMagazynowy> StanMagazynowys { get; set; }
         public DbSet<ReviewType> ReviewTypes { get; set; }
 
@@ -42,31 +42,31 @@ namespace Data.Core
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Ul>(ul =>
+            modelBuilder.Entity<Hive>(ul =>
             {
                 ul.ToTable("Ul");
-                ul.HasOne(u => u.MatkaPszczela).WithOne(m => m.Ul).HasForeignKey<Ul>(u => u.MatkaPszczelaId).IsRequired(false).OnDelete(DeleteBehavior.SetNull); ;
+                ul.HasOne(u => u.BeeQueen).WithOne(m => m.Hive).HasForeignKey<Hive>(u => u.BeeQueenId).IsRequired(false).OnDelete(DeleteBehavior.SetNull); ;
             });
-            modelBuilder.Entity<MatkaPszczela>(mp =>
+            modelBuilder.Entity<BeeQueen>(mp =>
             {
                 mp.ToTable("MatkaPszczela");
-                mp.HasOne(m => m.Rasa).WithMany(r => r.MatkaPszczelas).HasForeignKey(m => m.RasaId);
+                mp.HasOne(m => m.Race).WithMany(r => r.MatkaPszczelas).HasForeignKey(m => m.RaceId);
                 mp.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<OpisUlPrzeglad>(oul =>
+            modelBuilder.Entity<DescriptionHiveReview>(oul =>
             {
                 oul.ToTable("OpisUlPrzeglad");
                 //oul.HasKey(up => new { up.UlId, up.PrzegladId });
                 oul.HasKey(up => up.Id);
-                oul.HasOne(up => up.Ul).WithMany(u => u.OpisUlPrzeglads).HasForeignKey(up => up.UlId);
-                oul.HasOne(up => up.Przeglad).WithMany(p => p.OpisUlPrzeglads).HasForeignKey(up => up.PrzegladId);
-                oul.HasOne(op => op.Opis).WithOne(up => up.OpisUlPrzeglad).HasForeignKey<OpisUlPrzeglad>(up => up.OpisId).IsRequired(false);
+                oul.HasOne(up => up.Ul).WithMany(u => u.DescriptionHiveReviews).HasForeignKey(up => up.UlId);
+                oul.HasOne(up => up.Przeglad).WithMany(p => p.DescriptionHiveReviews).HasForeignKey(up => up.PrzegladId);
+                oul.HasOne(op => op.Opis).WithOne(up => up.DescriptionHiveReview).HasForeignKey<DescriptionHiveReview>(up => up.OpisId).IsRequired(false);
             });
 
-            modelBuilder.Entity<Przeglad>(p =>
+            modelBuilder.Entity<Review>(p =>
             {
-                p.ToTable(nameof(Przeglad));
+                p.ToTable(nameof(Review));
                 p.HasOne(p => p.ReviewType).WithMany(rw => rw.Reviews).HasForeignKey(p => p.ReviewTypeId);
             });
 

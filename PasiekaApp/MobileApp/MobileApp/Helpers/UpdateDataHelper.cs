@@ -11,20 +11,20 @@ namespace MobileApp.Helpers
 {
     public class UpdateDataHelper : IUpdateDataHelper
     {
-        public void UpdateHiveDetails(ref Ul ul, HiveDetailsVM hive)
+        public void UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive)
         {
-            ul.Opis = hive.Description;
-            ul.Numer = hive.Number;
-            ul.DataPoddaniaMatki = hive.QueenAddDate;
-            ul.MatkaPszczela = hive.BeeQueen;
+            ul.Description = hive.Description;
+            ul.Number = hive.Number;
+            ul.AddBeeQueenDate = hive.QueenAddDate;
+            ul.BeeQueen = hive.BeeQueen;
         }
 
-        public void UpdateQueenDetails(ref MatkaPszczela matkaPszczela, QueenDetailsVM queenDetailsVM)
+        public void UpdateQueenDetails(ref BeeQueen matkaPszczela, QueenDetailsVM queenDetailsVM)
         {
-            matkaPszczela.Opis = queenDetailsVM.Description;
-            matkaPszczela.Rasa = queenDetailsVM.Race;
-            matkaPszczela.DataUrodzenia = queenDetailsVM.BirthDate;
-            matkaPszczela.Ul = queenDetailsVM.Hive;
+            matkaPszczela.Description = queenDetailsVM.Description;
+            matkaPszczela.Race = queenDetailsVM.Race;
+            matkaPszczela.BirthDate = queenDetailsVM.BirthDate;
+            matkaPszczela.Hive = queenDetailsVM.Hive;
         }
     }
 }

@@ -62,7 +62,7 @@ public partial class HiveListMainPage : ScrollablePage
     private async void OnChangeQueenClicked(object sender, EventArgs e)
     {
         var popup = PagesProvider.ChangeQueenPopup;
-        var result = await this.ShowPopupAsync(popup) as Tuple<DateTime, MatkaPszczela>;
+        var result = await this.ShowPopupAsync(popup) as Tuple<DateTime, BeeQueen>;
         if (result.IsNull())
             return;
         SelectedHive.QueenAddDate = result.Item1;

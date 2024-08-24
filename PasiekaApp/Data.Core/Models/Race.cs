@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class Rasa
+    public class Race
     {
-        public Rasa()
+        public Race()
         {
         }
-        public virtual List<MatkaPszczela> MatkaPszczelas { get; set; } = new List<MatkaPszczela>();
+        public virtual List<BeeQueen> MatkaPszczelas { get; set; } = new List<BeeQueen>();
         public int Id { get; private set; }
         public string Nazwa { get; set; } = string.Empty;
         public string? Opis { get; set; } = string.Empty;

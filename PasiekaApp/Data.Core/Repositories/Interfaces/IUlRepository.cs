@@ -9,10 +9,10 @@ namespace Data.Core.Repositories.Interfaces
 {
     public interface IUlRepository
     {
-        Ul Get(int id);
-        List<Ul> GetAll();
-        Ul Add(Ul ul);
-        Ul Update(Ul ul);
+        Hive Get(int id);
+        List<Hive> GetAll();
+        Hive Add(Hive ul);
+        Hive Update(Hive ul);
         bool Delete(int id);
     }
 }

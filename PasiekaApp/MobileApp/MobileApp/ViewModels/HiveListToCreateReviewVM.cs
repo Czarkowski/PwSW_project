@@ -16,8 +16,8 @@ namespace MobileApp.ViewModels
             get => _isSelected;
             set => SetProperty(ref _isSelected, value);
         }
-        private Ul _hive;
-        public Ul Hive 
+        private Hive _hive;
+        public Hive Hive 
         { 
             get => _hive;
             set => SetProperty(ref _hive, value);
@@ -25,7 +25,7 @@ namespace MobileApp.ViewModels
 
         public override string ToString()
         {
-            return $"{Hive.Numer} - {Hive.MatkaPszczela?.Rasa?.Nazwa ?? "Without Queen!"}";  
+            return $"{Hive.Number} - {Hive.BeeQueen?.Race?.Nazwa ?? "Without Queen!"}";  
         }
     }
 }

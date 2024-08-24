@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class Przeglad
+    public class Review
     {
-        public Przeglad()
+        public Review()
         {
         }
         public int Id { get; private set; }
@@ -18,6 +18,6 @@ namespace Data.Core.Models
         public DateTime? RealizedDate { get; set; }
         public int ReviewTypeId { get; set; }
         public virtual ReviewType ReviewType { get; set; }
-        public  virtual List<OpisUlPrzeglad> OpisUlPrzeglads{ get; set; } = new List<OpisUlPrzeglad>();
+        public  virtual List<DescriptionHiveReview> DescriptionHiveReviews { get; set; } = new List<DescriptionHiveReview>();
     }
 }

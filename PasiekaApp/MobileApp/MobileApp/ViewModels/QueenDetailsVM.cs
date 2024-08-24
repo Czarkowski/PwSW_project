@@ -38,8 +38,8 @@ namespace MobileApp.ViewModels
             }
         }
 
-        private Rasa _race;
-        public Rasa Race
+        private Race _race;
+        public Race Race
         {
             get
             {
@@ -52,8 +52,8 @@ namespace MobileApp.ViewModels
             }
         }
 
-        private Ul _hive;
-        public Ul Hive
+        private Hive _hive;
+        public Hive Hive
         {
             get
             {

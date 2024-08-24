@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Models
 {
-    public class OpisUlPrzeglad
+    public class DescriptionHiveReview
     {
-        public OpisUlPrzeglad()
+        public DescriptionHiveReview()
         {
         }
         public int Id { get; private set; }
-        public virtual Ul Ul { get; set; }
+        public virtual Hive Ul { get; set; }
         public int UlId { get; set; }
-        public virtual Przeglad Przeglad { get; set; }
+        public virtual Review Przeglad { get; set; }
         public int PrzegladId { get; set; }
-        public virtual Opis Opis { get; set; }
+        public virtual Description Opis { get; set; }
         public int? OpisId { get; set; }
     }
 }

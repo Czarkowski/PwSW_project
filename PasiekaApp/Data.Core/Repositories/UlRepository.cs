@@ -16,7 +16,7 @@ namespace Data.Core.Repositories
             _db = beeDbContext;
         }
 
-        public Ul Add(Ul ul)
+        public Hive Add(Hive ul)
         {
             _db.Uls.Add(ul);
             _db.SaveChanges();
@@ -29,17 +29,17 @@ namespace Data.Core.Repositories
             return _db.SaveChanges() == 1;
         }
 
-        public Ul Get(int id)
+        public Hive Get(int id)
         {
             return _db.Uls.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<Ul> GetAll()
+        public List<Hive> GetAll()
         {
             return _db.Uls.ToList();
         }
 
-        public Ul Update(Ul ul)
+        public Hive Update(Hive ul)
         {
             _db.Uls.Update(ul);
             _db.SaveChanges();

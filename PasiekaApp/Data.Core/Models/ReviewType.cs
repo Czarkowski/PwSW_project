@@ -10,6 +10,6 @@ namespace Data.Core.Models
     {
         public int Id { get; private set; }
         public string Name { get; set; }
-        public virtual List<Przeglad> Reviews { get; set; }
+        public virtual List<Review> Reviews { get; set; }
     }
 }

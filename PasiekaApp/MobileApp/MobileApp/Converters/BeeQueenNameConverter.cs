@@ -15,9 +15,9 @@ namespace MobileApp.Converters
             if (value == null)
                 return "Brak";
 
-            if (value is MatkaPszczela item)
+            if (value is BeeQueen item)
             {
-                return $"{item.Id}:{item.Rasa.Nazwa}:{item.DataUrodzenia.ToShortDateString()}";
+                return $"{item.Id}:{item.Race.Nazwa}:{item.BirthDate.ToShortDateString()}";
             }
             return value.ToString();
         }

@@ -9,17 +9,17 @@ namespace Data.Core.Services.Interfaces
 {
     public interface IBeeService
     {
-        List<Ul> GetAllHive();
-        Ul GetHiveById(int id);
-        Ul UpdateHive(Ul ul);
-        Rasa GetRaceByBeeQueenId(int id);
-        MatkaPszczela GetQueenById(int matkaPszczelaId);
-        List<MatkaPszczela> GetAllQueens();
-        List<Rasa> GetAllRaces();
-        MatkaPszczela AddNewQueen(MatkaPszczela matkaPszczela);
-        MatkaPszczela UpdateQueen(MatkaPszczela matkaPszczela);
-        bool DeleteQueen(MatkaPszczela matkaPszczela);
-        List<Ul> GetAllHiveWithoutQueens();
-        List<MatkaPszczela> GetAllQueensWithoutHive();
+        List<Hive> GetAllHive();
+        Hive GetHiveById(int id);
+        Hive UpdateHive(Hive ul);
+        Race GetRaceByBeeQueenId(int id);
+        BeeQueen GetQueenById(int matkaPszczelaId);
+        List<BeeQueen> GetAllQueens();
+        List<Race> GetAllRaces();
+        BeeQueen AddNewQueen(BeeQueen matkaPszczela);
+        BeeQueen UpdateQueen(BeeQueen matkaPszczela);
+        bool DeleteQueen(BeeQueen matkaPszczela);
+        List<Hive> GetAllHiveWithoutQueens();
+        List<BeeQueen> GetAllQueensWithoutHive();
     }
 }

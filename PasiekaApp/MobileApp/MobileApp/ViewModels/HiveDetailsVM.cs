@@ -12,7 +12,7 @@ namespace MobileApp.ViewModels
         public int Id { get; set; }
         public int Number { get; set; }
         public string Description { get; set; }
-        public MatkaPszczela BeeQueen { get; set; }
+        public BeeQueen BeeQueen { get; set; }
         public DateTime? QueenAddDate { get; set; }
         public TimeSpan? QueenAge { get; set; }
         public string QueenDescription { get; set; }

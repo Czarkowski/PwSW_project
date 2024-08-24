@@ -11,7 +11,7 @@ namespace MobileApp.Factories
 {
     public class PickerItemFactory : IPickerItemFactories
     {
-        public List<RacePickerItem> CreateRacePickerItems(IEnumerable<Rasa> races)
+        public List<RacePickerItem> CreateRacePickerItems(IEnumerable<Race> races)
         {
             return races.Select(r => new RacePickerItem()
             {

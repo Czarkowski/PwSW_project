@@ -30,66 +30,66 @@ namespace Data.Core.Services
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
         }
 
-        public MatkaPszczela AddNewQueen(MatkaPszczela matkaPszczela)
+        public BeeQueen AddNewQueen(BeeQueen matkaPszczela)
         {
             _matkaPszczelaRepository.Add(matkaPszczela);
 
             return matkaPszczela;
         }
 
-        public bool DeleteQueen(MatkaPszczela matkaPszczela)
+        public bool DeleteQueen(BeeQueen matkaPszczela)
         {
             return _matkaPszczelaRepository.Delete(matkaPszczela);
         }
 
-        public List<MatkaPszczela> GetAllQueens()
+        public List<BeeQueen> GetAllQueens()
         {
             return _matkaPszczelaRepository.GetAll();
         }
 
-        public List<Rasa> GetAllRaces()
+        public List<Race> GetAllRaces()
         {
             return _rasaRepository.GetAll();
         }
 
-        public List<Ul> GetAllHive()
+        public List<Hive> GetAllHive()
         {
             return _ulRepository.GetAll();
         }
 
-        public List<Ul> GetAllHiveWithoutQueens()
+        public List<Hive> GetAllHiveWithoutQueens()
         {
-            return _ulRepository.GetAll().Where(x => x.MatkaPszczela == null).ToList();
+            return _ulRepository.GetAll().Where(x => x.BeeQueen == null).ToList();
         }
 
-        public MatkaPszczela GetQueenById(int matkaPszczelaId)
+        public BeeQueen GetQueenById(int matkaPszczelaId)
         {
             return _matkaPszczelaRepository.Get(matkaPszczelaId);
         }
 
-        public Rasa GetRaceByBeeQueenId(int id)
+        public Race GetRaceByBeeQueenId(int id)
         {
-            return _matkaPszczelaRepository.Get(id, true)?.Rasa;
+            return _matkaPszczelaRepository.Get(id, true)?.Race;
         }
 
-        public Ul GetHiveById(int id)
+        public Hive GetHiveById(int id)
         {
             return _ulRepository.Get(id);
         }
 
-        public MatkaPszczela UpdateQueen(MatkaPszczela matkaPszczela)
+        public BeeQueen UpdateQueen(BeeQueen matkaPszczela)
         {
             return _matkaPszczelaRepository.Update(matkaPszczela);
         }
 
-        public Ul UpdateHive(Ul ul)
+        public Hive UpdateHive(Hive ul)
         {
             return _ulRepository.Update(ul);
         }
 
-        public List<MatkaPszczela> GetAllQueensWithoutHive()
+        public List<BeeQueen> GetAllQueensWithoutHive()
         {
-            return _matkaPszczelaRepository.GetAll().Where(x => x.Ul == null).ToList();
+            return _matkaPszczelaRepository.GetAll().Where(x => x.Hive == null).ToList();
         }
     }
 }

@@ -11,14 +11,14 @@ namespace MobileApp.Factories
 {
     public class DataToSaveFactory : IDataToSaveFactory
     {
-        public MatkaPszczela CreateMatkaPszczela(QueenDetailsVM queenDetailsVM)
+        public BeeQueen CreateMatkaPszczela(QueenDetailsVM queenDetailsVM)
         {
-            return new MatkaPszczela()
+            return new BeeQueen()
             {
                 Id = queenDetailsVM.Id,
-                Rasa = queenDetailsVM.Race,
-                DataUrodzenia = queenDetailsVM.BirthDate,
-                Opis = queenDetailsVM.Description,
+                Race = queenDetailsVM.Race,
+                BirthDate = queenDetailsVM.BirthDate,
+                Description = queenDetailsVM.Description,
             };
         }
     }

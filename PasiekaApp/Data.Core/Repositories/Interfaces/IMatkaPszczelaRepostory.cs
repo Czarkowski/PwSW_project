@@ -9,10 +9,10 @@ namespace Data.Core.Repositories.Interfaces
 {
     public interface IMatkaPszczelaRepository
     {
-        MatkaPszczela Get(int id, bool includeRelations = false);
-        List<MatkaPszczela> GetAll();
-        MatkaPszczela Add(MatkaPszczela beeQueen);
-        MatkaPszczela Update(MatkaPszczela beeQueen);
-        bool Delete(MatkaPszczela beeQueen);
+        BeeQueen Get(int id, bool includeRelations = false);
+        List<BeeQueen> GetAll();
+        BeeQueen Add(BeeQueen beeQueen);
+        BeeQueen Update(BeeQueen beeQueen);
+        bool Delete(BeeQueen beeQueen);
     }
 }

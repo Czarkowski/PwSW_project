@@ -16,7 +16,7 @@ namespace Data.Core.Repositories
             _db = beeDbContext;
         }
 
-        public Rasa Add(Rasa ul)
+        public Race Add(Race ul)
         {
             throw new NotImplementedException();
         }
@@ -26,17 +26,17 @@ namespace Data.Core.Repositories
             throw new NotImplementedException();
         }
 
-        public Rasa Get(int id)
+        public Race Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Rasa> GetAll()
+        public List<Race> GetAll()
         {
             return _db.Rasas.ToList();
         }
 
-        public Rasa Update(Rasa ul)
+        public Race Update(Race ul)
         {
             throw new NotImplementedException();
         }

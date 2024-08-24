@@ -20,7 +20,7 @@ namespace MobileApp.Factories
             _beeService = beeService;
         }
 
-        public List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Ul> hives)
+        public List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives)
         {
             return hives.Select(x => new HiveListToCreateReviewVM
             {
@@ -29,19 +29,19 @@ namespace MobileApp.Factories
             }).ToList();
         }
 
-        public QueenDetailsVM CreateQueenDetailsVM(MatkaPszczela matkaPszczela)
+        public QueenDetailsVM CreateQueenDetailsVM(BeeQueen matkaPszczela)
         {
             return new QueenDetailsVM()
             {
                 Id = matkaPszczela.Id,
-                BirthDate = matkaPszczela.DataUrodzenia,
-                Description = matkaPszczela.Opis ?? string.Empty,
-                Hive = matkaPszczela.Ul,
-                Race = matkaPszczela.Rasa,
+                BirthDate = matkaPszczela.BirthDate,
+                Description = matkaPszczela.Description ?? string.Empty,
+                Hive = matkaPszczela.Hive,
+                Race = matkaPszczela.Race,
             };
         }
 
-        public List<QueenListVM> CreateQueenListVM(List<MatkaPszczela> matkaPszczelas)
+        public List<QueenListVM> CreateQueenListVM(List<BeeQueen> matkaPszczelas)
         {
             return matkaPszczelas.Select(x => {
 
@@ -49,11 +49,11 @@ namespace MobileApp.Factories
                 return new QueenListVM()
                 {
                     Id = x.Id,
-                    Description = x.Opis ?? string.Empty,
-                    BirthDate = x.DataUrodzenia,
-                    Age = DateTime.Now - x.DataUrodzenia,
-                    Race = x.Rasa.Nazwa,
-                    HiveNumber = x.Ul?.Numer,
+                    Description = x.Description ?? string.Empty,
+                    BirthDate = x.BirthDate,
+                    Age = DateTime.Now - x.BirthDate,
+                    Race = x.Race.Nazwa,
+                    HiveNumber = x.Hive?.Number,
                 };
             }).ToList();
         }
@@ -64,18 +64,18 @@ namespace MobileApp.Factories
             var model = new HiveDetailsVM
             {
                 Id = ul.Id,
-                Number = ul.Numer,
-                Description = ul.Opis ?? string.Empty,
+                Number = ul.Number,
+                Description = ul.Description ?? string.Empty,
             };
-            if (ul.MatkaPszczelaId.HasValue)
+            if (ul.BeeQueenId.HasValue)
             {
-            var queen = _beeService.GetQueenById(ul.MatkaPszczelaId.Value);
+            var queen = _beeService.GetQueenById(ul.BeeQueenId.Value);
                 if (!queen.IsNull())
                 {
                     model.BeeQueen = queen;
-                    model.QueenAddDate = ul.DataPoddaniaMatki ?? DateTime.MinValue;
-                    model.QueenAge = DateTime.Now - queen.DataUrodzenia;
-                    model.QueenDescription = queen.Opis ?? string.Empty;
+                    model.QueenAddDate = ul.AddBeeQueenDate ?? DateTime.MinValue;
+                    model.QueenAge = DateTime.Now - queen.BirthDate;
+                    model.QueenDescription = queen.Description ?? string.Empty;
                 }
             }
 
@@ -84,17 +84,17 @@ namespace MobileApp.Factories
 
         public List<UlListVM> CreateUlListVMs()
         {
-            List<Data.Core.Models.Ul> uls = _beeService.GetAllHive();
+            List<Data.Core.Models.Hive> uls = _beeService.GetAllHive();
 
             return uls.Select(x => {
-                var race = x.MatkaPszczelaId.HasValue ?
-                    _beeService.GetRaceByBeeQueenId(x.MatkaPszczelaId.Value)
+                var race = x.BeeQueenId.HasValue ?
+                    _beeService.GetRaceByBeeQueenId(x.BeeQueenId.Value)
                     : null;
                 return new ViewModels.UlListVM
                 {
                     Id = x.Id,
-                    Number = x.Numer,
-                    Description = x.Opis ?? string.Empty,
+                    Number = x.Number,
+                    Description = x.Description ?? string.Empty,
                     Race = race?.Nazwa ?? string.Empty,
                 };
             }

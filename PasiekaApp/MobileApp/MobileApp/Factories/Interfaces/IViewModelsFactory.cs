@@ -16,5 +16,8 @@ namespace MobileApp.Factories.Interfaces
         List<QueenListVM> CreateQueenListVM(List<BeeQueen> matkaPszczelas);
         List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives);
         ReviewCreatorVM CreateReviewCreatorVM(List<HiveListToCreateReviewVM> hiveListToCreateReviewVMs, List<ReviewType> reviewType);
+        ReviewListFilterVM CreateReviewListFilterVM();
+        ReviewListVM CreateReviewListVM(List<Review> reviews, ReviewListFilterVM filterVM);
+        ReviewListItemVM CreateReviewListItemVM(Review review);
     }
 }

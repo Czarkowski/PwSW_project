@@ -26,7 +26,7 @@ namespace MobileApp.Localizations
 
         public static string Translate(string key)
         {
-            return _resourceManager?.GetString(key, _currentCulture);
+            return _resourceManager?.GetString(key, _currentCulture) ?? key;
         }
 
         public static void SetCulture(CultureInfo culture)

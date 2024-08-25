@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.StaticResources
+namespace MobileApp.Helpers.Interfaces
 {
-    public interface IStaticResourcesProvider
+    public interface IStaticResourcesHelper
     {
         Task InitializeResourcesAsync(ResourceDictionary resourceDictionary);
     }

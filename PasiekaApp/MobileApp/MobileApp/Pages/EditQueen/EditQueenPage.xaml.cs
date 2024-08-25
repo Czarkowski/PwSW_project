@@ -3,8 +3,6 @@ using Data.Core.Services;
 using Data.Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using MobileApp.Factories.Interfaces;
-using MobileApp.StaticProviders;
-using MobileApp.StaticResources;
 using MobileApp.ViewModels;
 using MobileApp.ActionSubscriber;
 using MobileApp.Helpers.Interfaces;

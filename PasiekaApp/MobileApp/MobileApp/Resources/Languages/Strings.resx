@@ -120,4 +120,7 @@
   <data name="Test" xml:space="preserve">
     <value>Test_default</value>
   </data>
+  <data name="txt_NoDate" xml:space="preserve">
+    <value>txt_NoDate</value>
+  </data>
 </root>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             xmlns:lan="clr-namespace:MobileApp.Resources.Languages"
+             xmlns:tem="clr-namespace:MobileApp.Pages.Review.List.Templates"
+             x:Class="MobileApp.Pages.ReviewListMainPage"
+             x:DataType="vm:ReviewListVM"
+             BindingContext="{Binding ReviewListVM, Source={RelativeSource Self}}"
+             Title="ReviewListMainPage">
+    
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <!--Filtr-->
+        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}">
+            
+        </StackLayout>
+        <!-- Główna zawartość strony -->
+        <CollectionView x:Name="ReviewListCV" BindingContext="{Binding ReviewVMs}" ItemsSource="{Binding .}" x:DataType="vm:ReviewListItemVM" 
+                        ItemTemplate="{StaticResource ReviewListDataTemplate}"  >
+        </CollectionView>
+
+        <!-- Stały footer -->
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Padding="10" VerticalOptions="End">
+            <Button Text="Przycisk 1" HorizontalOptions="StartAndExpand" />
+            <Button Text="Przycisk 2" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cc="using:MobileApp.Controls.CompositeControls"
              xmlns:viewModels="using:MobileApp.ViewModels"
-             xmlns:sr="using:MobileApp.StaticResources"
+             xmlns:sr="clr-namespace:MobileApp.Helpers.StaticResources"
              x:Class="MobileApp.Pages.AddQueenPage"
              x:DataType="viewModels:QueenDetailsVM">
     

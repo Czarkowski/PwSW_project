@@ -70,6 +70,39 @@ namespace MobileApp.Factories
             };
         }
 
+        public ReviewListFilterVM CreateReviewListFilterVM()
+        {
+            var reviewTypes = _beeService.GetAllReviewType();
+            return new ReviewListFilterVM()
+            {
+                FromDate = null,
+                ToDate = null,
+                ReviewType = null,
+                Uncompleted = null,
+                ReviewTypes = reviewTypes,
+            };
+        }
+
+        public ReviewListItemVM CreateReviewListItemVM(Review review)
+        {
+            return new ReviewListItemVM()
+            {
+                ReviewDescription = review.Description,
+                ReviewType = review.ReviewType,
+                RealizedDate = review.RealizedDate,
+                PlannedDate = review.PlannedDate,
+            };
+        }
+
+        public ReviewListVM CreateReviewListVM(List<Review> reviews, ReviewListFilterVM filterVM)
+        {
+            return new ReviewListVM()
+            {
+                ReviewVMs = reviews.Select(CreateReviewListItemVM).ToList(),
+                ReviewListFilterVM = filterVM,
+            };
+        }
+
         public HiveDetailsVM CreateUlDetailsVM(int ulId)
         {
             var ul = _beeService.GetHiveById(ulId);

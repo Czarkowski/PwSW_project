@@ -23,5 +23,6 @@ namespace Data.Core.Services.Interfaces
         List<BeeQueen> GetAllQueensWithoutHive();
         List<ReviewType> GetAllReviewType();
         Review AddReview(Review review);
+        List<Review> GetFiltratedReviews(ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? Uncompleted = default);
     }
 }

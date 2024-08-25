@@ -1,6 +1,5 @@
 using Data.Core.Models;
-using MobileApp.PickerItems.Interfaces;
-using MobileApp.StaticResources;
+using MobileApp.ViewModels.PickerItems.Interfaces;
 using System.Collections.Generic;
 
 namespace MobileApp.Controls.CompositeControls;

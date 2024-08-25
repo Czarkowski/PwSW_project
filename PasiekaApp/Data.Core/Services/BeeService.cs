@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Core.Models;
+using Data.Core.Predicates;
 using Data.Core.Repositories.Interfaces;
 using Data.Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -22,9 +24,10 @@ namespace Data.Core.Services
         private readonly IRasaRepository _rasaRepository;
         private readonly IReviewTypeRepository _reviewTypeRepository;
         private readonly IReviewRepository _reviewRepository;
+        private readonly BeeDbContext _db;
         
 
-        public BeeService(IUlRepository ulRepository, IRasaRepository rasaRepository,
+        public BeeService(BeeDbContext beeDbContext, IUlRepository ulRepository, IRasaRepository rasaRepository,
             IMatkaPszczelaRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
             IReviewRepository reviewRepository)
         {
@@ -33,6 +36,7 @@ namespace Data.Core.Services
             _rasaRepository = rasaRepository;
             _reviewTypeRepository = reviewTypeRepository;
             _reviewRepository = reviewRepository;
+            _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
         }
@@ -107,6 +111,21 @@ namespace Data.Core.Services
         public Review AddReview(Review review)
         {
             return _reviewRepository.Add(review);
+        }
+
+        public List<Review> GetFiltratedReviews(ReviewType reviewType, DateTime? fromDate, DateTime? toDate, bool? uncompleted)
+        {
+            SqlPredicate<Review> sqlPredicate = new SqlPredicate<Review>();
+            if (reviewType != null)
+                sqlPredicate.AddPredicate(reviewType, x => x.ReviewType, (x, y) => x.Equals(y), ConcatType.And);
+            if (fromDate.HasValue)
+                sqlPredicate.AddPredicate(fromDate, x => x.PlannedDate, (x, y) => x >= y, ConcatType.And);
+            if (toDate.HasValue)
+                sqlPredicate.AddPredicate(toDate, x => x.PlannedDate, (x, y) => x <= y, ConcatType.And);
+            if (uncompleted.HasValue)
+                sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => !x.Equals(y), ConcatType.And);
+
+            return  _db.Reviews .Where(sqlPredicate.Predicate).ToList();
         }
     }
 }

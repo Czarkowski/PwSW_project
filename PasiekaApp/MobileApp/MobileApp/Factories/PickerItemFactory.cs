@@ -1,6 +1,6 @@
 ﻿using Data.Core.Models;
 using MobileApp.Factories.Interfaces;
-using MobileApp.PickerItems;
+using MobileApp.ViewModels.PickerItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;

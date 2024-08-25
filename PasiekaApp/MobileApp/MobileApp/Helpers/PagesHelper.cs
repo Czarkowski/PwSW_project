@@ -7,17 +7,17 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.StaticProviders
+namespace MobileApp.Helpers
 {
-    public static class PagesProvider
+    public static class PagesHelper
     {
-        private static IServiceProvider serviceProvider  => App.Current.Services;
+        private static IServiceProvider serviceProvider => App.Current.Services;
 
         public static AddQueenPage AddQueen => (AddQueenPage)serviceProvider.GetService(typeof(AddQueenPage));
         public static EditQueenPage EditQueen => (EditQueenPage)serviceProvider.GetService(typeof(EditQueenPage));
         public static QueenListMainPage QueenListMain => (QueenListMainPage)serviceProvider.GetService(typeof(QueenListMainPage));
         public static ChangeQueenPopup ChangeQueenPopup => (ChangeQueenPopup)serviceProvider.GetService(typeof(ChangeQueenPopup));
         public static ReviewCreatorMainPage ReviewCreatorMain => (ReviewCreatorMainPage)serviceProvider.GetService(typeof(ReviewCreatorMainPage));
-        public static ReviewMainPage ReviewMain => (ReviewMainPage)serviceProvider.GetService(typeof(ReviewMainPage));
+        public static ReviewListMainPage ReviewMain => (ReviewListMainPage)serviceProvider.GetService(typeof(ReviewListMainPage));
     }
 }

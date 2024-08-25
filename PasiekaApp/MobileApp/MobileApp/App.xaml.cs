@@ -2,9 +2,9 @@
 using Microsoft.Extensions.Localization;
 using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers.Interfaces;
 using MobileApp.Localizations;
 using MobileApp.Pages;
-using MobileApp.StaticResources;
 using System.Globalization;
 using System.Resources;
 
@@ -14,8 +14,8 @@ namespace MobileApp
     {
         public static new App Current => (App)Application.Current;
         public readonly IServiceProvider Services;
-        private readonly IStaticResourcesProvider _staticResourcesServices;
-        public App(IStaticResourcesProvider staticResourcesServices, IServiceProvider serviceProvider)
+        private readonly IStaticResourcesHelper _staticResourcesServices;
+        public App(IStaticResourcesHelper staticResourcesServices, IServiceProvider serviceProvider)
         {
             _staticResourcesServices = staticResourcesServices;
             Services = serviceProvider;

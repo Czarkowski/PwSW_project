@@ -1,18 +1,21 @@
 ﻿using Data.Core.Services.Interfaces;
+using MobileApp.Converters;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers.Interfaces;
+using MobileApp.Pages.Review.List.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.StaticResources
+namespace MobileApp.Helpers.StaticResources
 {
-    public class StaticResourcesProvider : IStaticResourcesProvider
+    public class StaticResourcesHelper : IStaticResourcesHelper
     {
         private readonly IBeeService _beeService;
         private readonly IPickerItemFactories _pickerItemFactories;
-        public StaticResourcesProvider(IBeeService beeService, IPickerItemFactories pickerItemFactories)
+        public StaticResourcesHelper(IBeeService beeService, IPickerItemFactories pickerItemFactories)
         {
             _beeService = beeService;
             _pickerItemFactories = pickerItemFactories;
@@ -28,7 +31,10 @@ namespace MobileApp.StaticResources
 
             });
             resourceDictionary.Add(StaticResourceKeys.AvailableRaces, raceOptions.Value);
+            resourceDictionary.Add(StaticResourceKeys.BeeQueenNameConverter, new BeeQueenNameConverter());
+            resourceDictionary.Add(StaticResourceKeys.QueenAgeConverter, new QueenAgeConverter());
             resourceDictionary.Add(StaticResourceKeys.Test, "TEST");
+            resourceDictionary.Add(nameof(ReviewListDataTemplate), new ReviewListDataTemplate());
 
         }
 

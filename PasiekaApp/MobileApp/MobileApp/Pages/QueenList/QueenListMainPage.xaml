@@ -13,9 +13,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <!-- Główna zawartość, która może się przewijać -->
                 <RowDefinition Height="Auto" />
-                <!-- Przyciski na dole -->
             </Grid.RowDefinitions>
 
             <ScrollView Grid.Row="0">

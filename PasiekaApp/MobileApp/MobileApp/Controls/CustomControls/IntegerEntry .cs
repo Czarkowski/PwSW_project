@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.Controls.CustomControls
+namespace MobileApp.Controls.CompositeControls
 {
     public class IntegerEntry : Entry
     {

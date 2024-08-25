@@ -1,9 +1,9 @@
 using Data.Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using MobileApp.Factories.Interfaces;
-using MobileApp.StaticProviders;
 using MobileApp.ViewModels;
 using MobileApp.ActionSubscriber;
+using MobileApp.Helpers;
 
 namespace MobileApp.Pages;
 
@@ -33,14 +33,14 @@ public partial class QueenListMainPage : ContentPage
 
     private async void OnAddQueenClicked(object sender, EventArgs e)
     {
-        var page = PagesProvider.AddQueen;
+        var page = PagesHelper.AddQueen;
         page.OnSave += (s, e) => RefreshList();
         await Navigation.PushAsync(page);
     }
 
     private async void OnQueenSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var page = PagesProvider.EditQueen;
+        var page = PagesHelper.EditQueen;
         int? id = (e.CurrentSelection.ElementAt(0) as QueenListVM)?.Id;
         if (!id.HasValue)
             return;

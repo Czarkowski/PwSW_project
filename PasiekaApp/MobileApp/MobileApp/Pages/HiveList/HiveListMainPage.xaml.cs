@@ -3,8 +3,8 @@ using Data.Core.Models;
 using Data.Core.Services.Interfaces;
 using MobileApp.Core.BasePages;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers;
 using MobileApp.Helpers.Interfaces;
-using MobileApp.StaticProviders;
 using MobileApp.ViewModels;
 using Utilities.StaticExtensions;
 
@@ -16,10 +16,11 @@ public partial class HiveListMainPage : ScrollablePage
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactories;
     private readonly IUpdateDataHelper _updateDataHelper;
-    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper)
+    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper, IBeeService beeService)
     {
         _viewModelsFactories = viewModelsFactories;
         _updateDataHelper = updateDataHelper;
+        _beeService = beeService;
         InitializeComponent();
         LoadData();
     }
@@ -61,7 +62,7 @@ public partial class HiveListMainPage : ScrollablePage
 
     private async void OnChangeQueenClicked(object sender, EventArgs e)
     {
-        var popup = PagesProvider.ChangeQueenPopup;
+        var popup = PagesHelper.ChangeQueenPopup;
         var result = await this.ShowPopupAsync(popup) as Tuple<DateTime, BeeQueen>;
         if (result.IsNull())
             return;

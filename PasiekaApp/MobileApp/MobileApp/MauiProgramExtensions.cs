@@ -10,9 +10,9 @@ using MobileApp.Factories;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers;
 using MobileApp.Helpers.Interfaces;
+using MobileApp.Helpers.StaticResources;
 using MobileApp.Pages;
 using MobileApp.Pages.HiveList.Views;
-using MobileApp.StaticResources;
 
 namespace MobileApp
 {
@@ -73,13 +73,14 @@ namespace MobileApp
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<IBeeService, BeeService>();
-            builder.Services.AddSingleton<IStaticResourcesProvider, StaticResourcesProvider>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterHelpers(this MauiAppBuilder builder)
         {
+            builder.Services.AddSingleton<IStaticResourcesHelper, StaticResourcesHelper>();
             builder.Services.AddSingleton<IUpdateDataHelper, UpdateDataHelper>();
+            builder.Services.AddSingleton<IFilterDataHelper, FilterDataHelper>();
             return builder;
         }
 
@@ -95,7 +96,7 @@ namespace MobileApp
         {
             builder.Services.AddSingleton<HiveListMainPage>();
             builder.Services.AddSingleton<QueenListMainPage>();
-            builder.Services.AddSingleton<ReviewMainPage>();
+            builder.Services.AddSingleton<ReviewListMainPage>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MobileApp.Localizations
 {
     [ContentProperty(nameof(Key))] 
-    public class LocalizeExtension : IMarkupExtension
+    public class TranslateExtension : IMarkupExtension
     {
         public string Key { get; set; }
 

@@ -120,4 +120,13 @@
   <data name="Test" xml:space="preserve">
     <value>Test_pl</value>
   </data>
+  <data name="txt_NoDate" xml:space="preserve">
+    <value>Brak Daty</value>
+  </data>
+  <data name="txt_Planned" xml:space="preserve">
+    <value>Planowane:</value>
+  </data>
+  <data name="txt_Realized" xml:space="preserve">
+    <value>Zrealizowane:</value>
+  </data>
 </root>

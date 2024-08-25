@@ -57,6 +57,14 @@
 	  <Compile Update="Pages\HiveList\Views\ChangeQueenPopup.xaml.cs">
 	    <DependentUpon>ChangeQueenPopup.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\Review\List\ReviewListMainPage.xaml.cs">
+	    <DependentUpon>ReviewListMainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Languages\Strings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Strings.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -97,7 +105,13 @@
 	  <MauiXaml Update="Pages\Review\Creator\ReviewCreatorMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Review\List\ReviewMainPage.xaml">
+	  <MauiXaml Update="Pages\Review\List\ReviewListMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Review\List\Templates\NewContent1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Review\List\Templates\ReviewListDataTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Review\List\Views\ReviewDetailsView.xaml">

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Controls.CompositeControls.CustomDatePicker"
              xmlns:local="clr-namespace:MobileApp.Controls.CompositeControls"
-             xmlns:pi="using:MobileApp.PickerItems.Interfaces"
              x:DataType="local:CustomDatePicker"
              x:Name="this">
     <StackLayout Orientation="Vertical" Spacing="10">

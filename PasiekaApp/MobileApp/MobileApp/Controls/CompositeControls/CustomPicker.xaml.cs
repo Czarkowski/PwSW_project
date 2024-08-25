@@ -1,6 +1,4 @@
 using Data.Core.Models;
-using MobileApp.PickerItems.Interfaces;
-using MobileApp.StaticResources;
 using System.Collections.Generic;
 using Utilities.StaticExtensions;
 

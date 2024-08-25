@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Core.Models;
-using MobileApp.PickerItems.Interfaces;
+using MobileApp.ViewModels.PickerItems.Interfaces;
 
-namespace MobileApp.PickerItems
+namespace MobileApp.ViewModels.PickerItems
 {
     public class RacePickerItem : IPickerItem
     {

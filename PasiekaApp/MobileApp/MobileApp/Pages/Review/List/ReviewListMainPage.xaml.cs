@@ -1,14 +1,19 @@
+using CommunityToolkit.Mvvm.Messaging;
 using Data.Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using MobileApp.CommunicationMessages;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers;
 using MobileApp.Helpers.Interfaces;
+using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
 
 namespace MobileApp.Pages;
 
 public partial class ReviewListMainPage : ContentPage
 {
-	public ReviewListVM ReviewListVM { get; set; }
+    private ReviewListVM _reviewListVM;
+    public ReviewListVM ReviewListVM { get => _reviewListVM; set { _reviewListVM = value; OnPropertyChanged(nameof(ReviewListVM)); } }
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactory;
     private readonly IFilterDataHelper _filterDataHelper;
@@ -20,7 +25,13 @@ public partial class ReviewListMainPage : ContentPage
 		InitializeComponent();
         InitializeComponentParemeters();
         LoadData();
-	}
+        InitialzieReferenceMessenger();
+    }
+
+    private void InitialzieReferenceMessenger()
+    {
+        MessageCenter.SetRefresReviewList(this, (x) => LoadData());
+    }
 
     private void InitializeComponentParemeters()
     {
@@ -42,5 +53,11 @@ public partial class ReviewListMainPage : ContentPage
         ReviewListFilterVM filterVM = _viewModelsFactory.CreateReviewListFilterVM();
         var reviews = _filterDataHelper.GetFiltratedReviews(filterVM);
         ReviewListVM = _viewModelsFactory.CreateReviewListVM(reviews, filterVM);
+    }
+
+    private async void OnReviewCreateClick(object sender, EventArgs e)
+    {
+        var page = PagesHelper.ReviewCreatorMain;
+        await Navigation.PushAsync(page);
     }
 }

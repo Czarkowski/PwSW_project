@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DataTemplate xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:MobileApp.ViewModels"
+              xmlns:loc="clr-namespace:MobileApp.Localizations"
+              x:Class="MobileApp.Pages.Review.List.Templates.ReviewListDataTemplateCompleted"
+              x:DataType="vm:ReviewListItemVM">
+
+    <Frame HasShadow="True"  Margin="1" BackgroundColor="Black" Padding="1,1,1,1">
+        <Grid BackgroundColor="DarkGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.1*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="{Binding ReviewType.Name}" FontAttributes="Bold" />
+            <Label Grid.Column="1" Text="{loc:Translate txt_Planned}" />
+            <Label Grid.Column="2" Text="{Binding PlannedDate, StringFormat='{0:dd-MM-yyyy}'}" />
+            <Label Grid.Column="3" Text="{Binding ReviewDescription}" />
+            <Label Grid.Column="4" Text="{loc:Translate txt_Realized}" />
+            <Label Grid.Column="5" Text="{Binding RealizedDate, StringFormat='{0:dd-MM-yyyy}'}" />
+        </Grid>
+    </Frame>
+
+
+</DataTemplate>

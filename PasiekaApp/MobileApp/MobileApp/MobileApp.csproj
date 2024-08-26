@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.8" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -59,6 +60,12 @@
 	  </Compile>
 	  <Compile Update="Pages\Review\List\ReviewListMainPage.xaml.cs">
 	    <DependentUpon>ReviewListMainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Review\List\Templates\ReviewListDataTemplateSoon.xaml.cs">
+	    <DependentUpon>ReviewListDataTemplateSoon.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Review\List\Templates\ReviewListDataTemplateCompleted.xaml.cs">
+	    <DependentUpon>ReviewListDataTemplateCompleted.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Languages\Strings.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -108,10 +115,13 @@
 	  <MauiXaml Update="Pages\Review\List\ReviewListMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Review\List\Templates\NewContent1.xaml">
+	  <MauiXaml Update="Pages\Review\List\Templates\ReviewListDataTemplateCompleted.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Review\List\Templates\ReviewListDataTemplate.xaml">
+	  <MauiXaml Update="Pages\Review\List\Templates\ReviewListDataTemplateSoon.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Review\List\Templates\ReviewListDataTemplateUncmopleted.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Review\List\Views\ReviewDetailsView.xaml">

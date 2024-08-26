@@ -33,10 +33,14 @@ namespace MobileApp.Helpers.StaticResources
             resourceDictionary.Add(StaticResourceKeys.AvailableRaces, raceOptions.Value);
             resourceDictionary.Add(StaticResourceKeys.BeeQueenNameConverter, new BeeQueenNameConverter());
             resourceDictionary.Add(StaticResourceKeys.QueenAgeConverter, new QueenAgeConverter());
-            resourceDictionary.Add(StaticResourceKeys.Test, "TEST");
-            resourceDictionary.Add(nameof(ReviewListDataTemplate), new ReviewListDataTemplate());
+
+
+            resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateCompleted, new ReviewListDataTemplateCompleted());
+            resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateSoon, new ReviewListDataTemplateSoon());
+            resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateUncmopleted, new ReviewListDataTemplateUncmopleted());
+
+            resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateSelector, new ReviewListDataTemplateSelector());
 
         }
-
     }
 }

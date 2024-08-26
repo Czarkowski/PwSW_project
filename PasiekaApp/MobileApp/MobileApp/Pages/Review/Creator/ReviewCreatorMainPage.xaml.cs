@@ -1,5 +1,6 @@
 using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
+using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
 using System.Collections.ObjectModel;
 
@@ -37,5 +38,7 @@ public partial class ReviewCreatorMainPage : ContentPage
     {
         Data.Core.Models.Review review = _dataToSaveFactory.CreateReview(ReviewCreatorVM);
         _beeService.AddReview(review);
+        MessageCenter.RefresReviewList();
+        await Navigation.PopAsync();
     }
 }

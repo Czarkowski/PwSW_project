@@ -18,12 +18,12 @@
         </StackLayout>
         <!-- Główna zawartość strony -->
         <CollectionView x:Name="ReviewListCV" BindingContext="{Binding ReviewVMs}" ItemsSource="{Binding .}" x:DataType="vm:ReviewListItemVM" 
-                        ItemTemplate="{StaticResource ReviewListDataTemplate}"  >
+                        ItemTemplate="{StaticResource ReviewListDataTemplateSelector}" >
         </CollectionView>
 
         <!-- Stały footer -->
         <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Padding="10" VerticalOptions="End">
-            <Button Text="Przycisk 1" HorizontalOptions="StartAndExpand" />
+            <Button Text="{loc:Translate txt_CreateReview}" Clicked="OnReviewCreateClick" />
             <Button Text="Przycisk 2" HorizontalOptions="EndAndExpand" />
         </StackLayout>
     </StackLayout>

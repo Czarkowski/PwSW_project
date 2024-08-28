@@ -122,10 +122,10 @@ namespace Data.Core.Services
                 sqlPredicate.AddPredicate(fromDate, x => x.PlannedDate, (x, y) => x >= y, ConcatType.And);
             if (toDate.HasValue)
                 sqlPredicate.AddPredicate(toDate, x => x.PlannedDate, (x, y) => x <= y, ConcatType.And);
-            if (uncompleted.HasValue)
-                sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => !x.Equals(y), ConcatType.And);
+            if (uncompleted.HasValue && uncompleted == true)
+                sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
 
-            return  _db.Reviews .Where(sqlPredicate.Predicate).ToList();
+            return  _db.Reviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
         }
     }
 }

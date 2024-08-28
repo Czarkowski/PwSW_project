@@ -19,5 +19,6 @@ namespace MobileApp.Factories.Interfaces
         ReviewListFilterVM CreateReviewListFilterVM();
         ReviewListVM CreateReviewListVM(List<Review> reviews, ReviewListFilterVM filterVM);
         ReviewListItemVM CreateReviewListItemVM(Review review);
+        List<ReviewListItemVM> CreateReviewListItemVMs(List<Review> reviews);
     }
 }

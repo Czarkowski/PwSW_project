@@ -31,7 +31,7 @@ namespace Data.Core.Predicates
             List<ISinglePredicate> orPredicates = _predicates.FindAll(x => x.Item2 == ConcatType.Or).Select(x => x.Item1).ToList();
             List<ISinglePredicate> andPredicates = _predicates.FindAll(x => x.Item2 == ConcatType.And).Select(x => x.Item1).ToList();
             return andPredicates.All(x => x.Predicate(realValue))
-                && (orPredicates.Count > 0) ? orPredicates.Any(x => x.Predicate(realValue)) : true;
+                && ((orPredicates.Count > 0) ? orPredicates.Any(x => x.Predicate(realValue)) : true);
         }
 
     }

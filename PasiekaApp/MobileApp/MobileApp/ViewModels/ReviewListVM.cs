@@ -15,11 +15,11 @@ namespace MobileApp.ViewModels
             get => _reviewListFilterVM;
             set => SetProperty(ref _reviewListFilterVM, value);
         }
-        private List<ReviewListItemVM> _reviewVMs;
-        public List<ReviewListItemVM> ReviewVMs
+        private List<ReviewListItemVM> _reviewListItemVMs;
+        public List<ReviewListItemVM> ReviewListItemVMs
         {
-            get => _reviewVMs;
-            set => SetProperty(ref _reviewVMs, value);
+            get => _reviewListItemVMs;
+            set => SetProperty(ref _reviewListItemVMs, value);
         }
     }
 }

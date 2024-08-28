@@ -7,6 +7,7 @@ using MobileApp.Helpers;
 using MobileApp.Helpers.Interfaces;
 using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
+using System.Windows.Input;
 
 namespace MobileApp.Pages;
 
@@ -17,6 +18,8 @@ public partial class ReviewListMainPage : ContentPage
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactory;
     private readonly IFilterDataHelper _filterDataHelper;
+    public ICommand _onSearch;
+    public ICommand OnSearch { get => _onSearch; set { _onSearch = value; OnPropertyChanged(nameof(OnSearch)); } }
     public ReviewListMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IFilterDataHelper filterDataHelper)
 	{
         _beeService = beeService;
@@ -35,17 +38,14 @@ public partial class ReviewListMainPage : ContentPage
 
     private void InitializeComponentParemeters()
     {
+        OnSearch = new Command(OnSearchClicked);
+    }
 
-        //ReviewListCV.ItemTemplate = new DataTemplate(() =>
-        //{
-        //    //var view = new ReviewItemView();
-        //    //view.SetBinding(ReviewItemView.RealizedDateLabelProperty, new Binding("RealizedDate", StringFormat = "{0:dd-MM-yyyy}", TargetNullValue = "Brak danych"));
+    private void OnSearchClicked(object sender)
+    {
 
-        //    // Apply additional modifications if necessary
-        //    //view.UpdateRealizedDateLabel("Additional Text");
-
-        //    //return new ViewCell { View = view };
-        //});
+        var reviews = _filterDataHelper.GetFiltratedReviews(ReviewListVM.ReviewListFilterVM);
+        ReviewListVM.ReviewListItemVMs = _viewModelsFactory.CreateReviewListItemVMs(reviews);
     }
 
     private void LoadData()

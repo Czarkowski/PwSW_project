@@ -6,18 +6,20 @@
              xmlns:loc="clr-namespace:MobileApp.Localizations"
              xmlns:lan="clr-namespace:MobileApp.Resources.Languages"
              xmlns:tem="clr-namespace:MobileApp.Pages.Review.List.Templates"
+             xmlns:views="clr-namespace:MobileApp.Pages.Review.List.Views"
              x:Class="MobileApp.Pages.ReviewListMainPage"
              x:DataType="vm:ReviewListVM"
+             x:Name="this"
              BindingContext="{Binding ReviewListVM, Source={RelativeSource Self}}"
              Title="ReviewListMainPage">
     
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <!--Filtr-->
-        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}">
-            
+        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}" >
+            <views:ReviewListFilterView OnSearch="{Binding OnSearch,Source={x:Reference this}}"/>
         </StackLayout>
         <!-- Główna zawartość strony -->
-        <CollectionView x:Name="ReviewListCV" BindingContext="{Binding ReviewVMs}" ItemsSource="{Binding .}" x:DataType="vm:ReviewListItemVM" 
+        <CollectionView x:Name="ReviewListCV" BindingContext="{Binding ReviewListItemVMs}" ItemsSource="{Binding .}" x:DataType="vm:ReviewListItemVM" 
                         ItemTemplate="{StaticResource ReviewListDataTemplateSelector}" >
         </CollectionView>
 

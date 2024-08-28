@@ -7,6 +7,6 @@
              x:Name="this">
     <StackLayout Orientation="Vertical" Spacing="10">
         <Label x:Name="Label" FontAttributes="Bold" Text="{Binding LabelText, Source={x:Reference this}}"/>
-        <DatePicker x:Name="Picker" Date="{Binding SelectedDate, Source={x:Reference this}}"/>
+        <DatePicker x:Name="Picker" Date="{Binding SelectedDate, Source={x:Reference this}}" />
     </StackLayout>
 </ContentView>

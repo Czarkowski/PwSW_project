@@ -75,10 +75,10 @@ namespace MobileApp.Factories
             var reviewTypes = _beeService.GetAllReviewType();
             return new ReviewListFilterVM()
             {
-                FromDate = null,
-                ToDate = null,
+                FromDate = DateTime.Now.Date.AddDays(-7),
+                ToDate = DateTime.Now.Date.AddDays(14),
                 ReviewType = null,
-                Uncompleted = null,
+                Uncompleted = true,
                 ReviewTypes = reviewTypes,
             };
         }
@@ -94,11 +94,16 @@ namespace MobileApp.Factories
             };
         }
 
+        public List<ReviewListItemVM> CreateReviewListItemVMs(List<Review> reviews)
+        {
+            return reviews.Select(CreateReviewListItemVM).ToList();
+        }
+
         public ReviewListVM CreateReviewListVM(List<Review> reviews, ReviewListFilterVM filterVM)
         {
             return new ReviewListVM()
             {
-                ReviewVMs = reviews.Select(CreateReviewListItemVM).ToList(),
+                ReviewListItemVMs = reviews.Select(CreateReviewListItemVM).ToList(),
                 ReviewListFilterVM = filterVM,
             };
         }

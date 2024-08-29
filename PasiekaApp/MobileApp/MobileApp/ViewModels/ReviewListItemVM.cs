@@ -34,5 +34,12 @@ namespace MobileApp.ViewModels
             get => _completedDate;
             set => SetProperty(ref _completedDate, value);
         }
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set => SetProperty(ref _isSelected, value);
+        }
     }
 }

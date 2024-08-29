@@ -21,5 +21,35 @@ namespace MobileApp.ViewModels
             get => _reviewListItemVMs;
             set => SetProperty(ref _reviewListItemVMs, value);
         }
+
+        private ReviewListItemVM _selectedItem;
+        public ReviewListItemVM SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                if (_selectedItem != value)
+                {
+                    if (_selectedItem != null)
+                        _selectedItem.IsSelected = false;
+
+                    _selectedItem = value;
+
+                    if (_selectedItem != null)
+                        _selectedItem.IsSelected = true;
+
+                    OnPropertyChanged(nameof(SelectedItem));
+                }
+            }
+        }
+
+        public void OnItemSelected(ReviewListItemVM selectedItem)
+        {
+            if (selectedItem != null)
+            {
+                // Your logic here, e.g., navigate to detail page, update UI, etc.
+            }
+        }
+
     }
 }

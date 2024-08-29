@@ -11,6 +11,7 @@ namespace MobileApp.Helpers.StaticResources
         public static readonly string AvailableRaces = nameof(AvailableRaces);
         public static readonly string BeeQueenNameConverter = nameof(BeeQueenNameConverter);
         public static readonly string QueenAgeConverter = nameof(QueenAgeConverter);
+        public static readonly string IsSelectedToColorConverter = nameof(IsSelectedToColorConverter);
         public static readonly string ReviewListDataTemplateSelector = nameof(ReviewListDataTemplateSelector);
         public static readonly string ReviewListDataTemplateUncmopleted = nameof(ReviewListDataTemplateUncmopleted);
         public static readonly string ReviewListDataTemplateSoon = nameof(ReviewListDataTemplateSoon);

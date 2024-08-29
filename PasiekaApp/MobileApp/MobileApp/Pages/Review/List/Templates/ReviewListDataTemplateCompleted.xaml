@@ -6,7 +6,7 @@
               x:Class="MobileApp.Pages.Review.List.Templates.ReviewListDataTemplateCompleted"
               x:DataType="vm:ReviewListItemVM">
 
-    <Frame HasShadow="True"  Margin="1" BackgroundColor="Black" Padding="1,1,1,1">
+    <Frame HasShadow="True"  Margin="1" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" Padding="2,2,2,2">
         <Grid BackgroundColor="DarkGreen">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*" />

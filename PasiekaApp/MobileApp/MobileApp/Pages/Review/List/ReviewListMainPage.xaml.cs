@@ -20,6 +20,8 @@ public partial class ReviewListMainPage : ContentPage
     private readonly IFilterDataHelper _filterDataHelper;
     public ICommand _onSearch;
     public ICommand OnSearch { get => _onSearch; set { _onSearch = value; OnPropertyChanged(nameof(OnSearch)); } }
+    public ICommand _onDetails;
+    public ICommand OnDetails { get => _onDetails; set { _onDetails = value; OnPropertyChanged(nameof(OnDetails)); } }
     public ReviewListMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IFilterDataHelper filterDataHelper)
 	{
         _beeService = beeService;
@@ -39,6 +41,7 @@ public partial class ReviewListMainPage : ContentPage
     private void InitializeComponentParemeters()
     {
         OnSearch = new Command(OnSearchClicked);
+        OnDetails = new Command(OnSearchClicked);
     }
 
     private void OnSearchClicked(object sender)
@@ -46,6 +49,11 @@ public partial class ReviewListMainPage : ContentPage
 
         var reviews = _filterDataHelper.GetFiltratedReviews(ReviewListVM.ReviewListFilterVM);
         ReviewListVM.ReviewListItemVMs = _viewModelsFactory.CreateReviewListItemVMs(reviews);
+    }
+
+    private void OnDetailsClicked(object selectedItem)
+    {
+
     }
 
     private void LoadData()
@@ -60,4 +68,10 @@ public partial class ReviewListMainPage : ContentPage
         var page = PagesHelper.ReviewCreatorMain;
         await Navigation.PushAsync(page);
     }
+
+    public void OnItemSelected(object sender, SelectionChangedEventArgs e)
+    {
+    }
+
+
 }

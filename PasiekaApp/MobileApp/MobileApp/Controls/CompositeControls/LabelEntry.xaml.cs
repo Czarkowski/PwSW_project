@@ -39,4 +39,6 @@ public partial class LabelEntry : ContentView
 		InitializeComponent();
         //this.BindingContext = this;
 	}
+
+    public Entry GetEntry => this.Entry;
 }

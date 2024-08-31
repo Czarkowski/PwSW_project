@@ -20,7 +20,6 @@ namespace Data.Core.Models
         public virtual List<DescriptionHiveReview> DescriptionHiveReviews { get; set; } = new List<DescriptionHiveReview>();
         public DateTime? AddBeeQueenDate { get; set; }
         public string? Description { get; set; }
-
         public bool IsNucleus { get; set; }
     }
 }

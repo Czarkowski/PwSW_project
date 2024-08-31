@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels"
+             xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             xmlns:behaviors="clr-namespace:MobileApp.Core.Behaviors;assembly=MobileApp.Core"
+             x:Class="MobileApp.Pages.WarehouseMainPage"
+             x:DataType="vm:WarehouseVM"
+             x:Name="this"
+             BindingContext="{Binding WarehouseVM, Source={RelativeSource Self}}"
+             Title="WarehouseMainPage">
+    <StackLayout Orientation="Vertical">
+        <cc:LabelEntry x:Name="SearchPhraseLE" LabelText="{loc:Translate txt_SearchPhrase}" EntryText="{Binding SearchPhrase}" />
+        <CollectionView ItemsSource="{Binding FiltratedWarehouseListItemVMs}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:WarehouseListItemVM">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+                             BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding ItemName}" Margin="2,0,5,0"/>
+                            <Label Text="{Binding Quantity}" Margin="0,0,1,0" />
+                            <Label Text="{Binding Unit}" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                            <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" 
+                                CommandParameter="{Binding .}" />
+                            <Button Text="{loc:Translate txt_Delete}" Command="{Binding OnDelete, Source={x:Reference this}}" 
+                                CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <StackLayout Orientation="Horizontal" BindingContext="{Binding NewWarehouseItemVM}" x:DataType="vm:WarehouseItemVM">
+            <cc:LabelEntry LabelText="{loc:Translate txt_ItemName}" EntryText="{Binding Name}" />
+            <cc:LabelEntry LabelText="{loc:Translate txt_ItemUnit}" EntryText="{Binding Unit}" />
+            <VerticalStackLayout>
+                <Label Text="{loc:Translate txt_ItemQuantity}" />
+                <Entry Text="{Binding Quantity, Converter={StaticResource DoubleToStringConverter}}">
+                    <Entry.Behaviors>
+                        <behaviors:DoubleValidationBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+        </StackLayout>
+        <Button Text="{loc:Translate txt_AddStock}" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>

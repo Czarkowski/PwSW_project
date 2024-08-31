@@ -21,13 +21,21 @@ namespace MobileApp.Helpers
             return ref ul;
         }
 
-        public ref BeeQueen UpdateQueenDetails(ref BeeQueen matkaPszczela, QueenDetailsVM queenDetailsVM)
+        public ref BeeQueen UpdateQueenDetails(ref BeeQueen beeQueen, QueenDetailsVM queenDetailsVM)
         {
-            matkaPszczela.Description = queenDetailsVM.Description;
-            matkaPszczela.Race = queenDetailsVM.Race;
-            matkaPszczela.BirthDate = queenDetailsVM.BirthDate;
-            matkaPszczela.Hive = queenDetailsVM.Hive;
-            return ref matkaPszczela;
+            beeQueen.Description = queenDetailsVM.Description;
+            beeQueen.Race = queenDetailsVM.Race;
+            beeQueen.BirthDate = queenDetailsVM.BirthDate;
+            beeQueen.Hive = queenDetailsVM.Hive;
+            return ref beeQueen;
+        }
+
+        public ref StockAvailability UpdateStockAvailabilityDetails(ref StockAvailability stock, WarehouseItemVM warehouseItemVM)
+        {
+            stock.Quantity = warehouseItemVM.Quantity;
+            stock.Unit = warehouseItemVM.Unit;
+            stock.Name = warehouseItemVM.Name;
+            return ref stock;
         }
     }
 }

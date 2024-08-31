@@ -67,6 +67,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IRasaRepository, RasaRepostory>();
             builder.Services.AddSingleton<IReviewTypeRepository, ReviewTypeRepository>();
             builder.Services.AddSingleton<IReviewRepository, ReviewRepository>();
+            builder.Services.AddSingleton<IStockAvailabilityRepository, StockAvailabilityRepository>();
             return builder;
         }
 
@@ -97,11 +98,13 @@ namespace MobileApp
             builder.Services.AddSingleton<HiveListMainPage>();
             builder.Services.AddSingleton<QueenListMainPage>();
             builder.Services.AddSingleton<ReviewListMainPage>();
+            builder.Services.AddSingleton<WarehouseMainPage>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();
             builder.Services.AddTransient<ChangeQueenPopup>();
             builder.Services.AddTransient<ReviewCreatorMainPage>();
+            builder.Services.AddTransient<ReviewDetailsMainPage>();
             return builder;
         }
     }

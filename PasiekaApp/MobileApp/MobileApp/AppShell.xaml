@@ -11,5 +11,6 @@
         <ShellContent Title="Hives" ContentTemplate="{DataTemplate pages:HiveListMainPage}" Route="HiveListMainPage" />
         <ShellContent Title="Queens" ContentTemplate="{DataTemplate pages:QueenListMainPage}" Route="QueenListMainPage" />
         <ShellContent Title="Review" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
+        <ShellContent Title="Warehouse" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
     </FlyoutItem>
 </Shell>

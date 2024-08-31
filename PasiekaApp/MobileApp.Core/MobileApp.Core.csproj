@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="BasePages\ScrollablePage.xaml.cs">
       <DependentUpon>ScrollablePage.xaml</DependentUpon>
     </Compile>

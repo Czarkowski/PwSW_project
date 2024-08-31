@@ -34,6 +34,7 @@ namespace MobileApp.Helpers.StaticResources
             resourceDictionary.Add(StaticResourceKeys.BeeQueenNameConverter, new BeeQueenNameConverter());
             resourceDictionary.Add(StaticResourceKeys.QueenAgeConverter, new QueenAgeConverter());
             resourceDictionary.Add(StaticResourceKeys.IsSelectedToColorConverter, new IsSelectedToColorConverter());
+            resourceDictionary.Add(StaticResourceKeys.DoubleToStringConverter, new DoubleToStringConverter());
 
 
             resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateCompleted, new ReviewListDataTemplateCompleted());

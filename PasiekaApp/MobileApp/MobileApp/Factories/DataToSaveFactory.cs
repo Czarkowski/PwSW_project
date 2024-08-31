@@ -36,5 +36,15 @@ namespace MobileApp.Factories
                 DescriptionHiveReviews= descriptionHiveReviewList,
             };
         }
+
+        public StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM)
+        {
+            return new StockAvailability()
+            {
+                Name = warehouseItemVM.Name,
+                Quantity = warehouseItemVM.Quantity,
+                Unit = warehouseItemVM.Unit,
+            };
+        }
     }
 }

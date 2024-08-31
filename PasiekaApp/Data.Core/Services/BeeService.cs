@@ -24,18 +24,20 @@ namespace Data.Core.Services
         private readonly IRasaRepository _rasaRepository;
         private readonly IReviewTypeRepository _reviewTypeRepository;
         private readonly IReviewRepository _reviewRepository;
+        private readonly IStockAvailabilityRepository _stockAvailabilityRepository;
         private readonly BeeDbContext _db;
         
 
         public BeeService(BeeDbContext beeDbContext, IUlRepository ulRepository, IRasaRepository rasaRepository,
             IMatkaPszczelaRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
-            IReviewRepository reviewRepository)
+            IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository)
         {
             _ulRepository = ulRepository;
             _matkaPszczelaRepository = matkaPszczelaRepository;
             _rasaRepository = rasaRepository;
             _reviewTypeRepository = reviewTypeRepository;
             _reviewRepository = reviewRepository;
+            _stockAvailabilityRepository = stockAvailabilityRepository;
             _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
@@ -126,6 +128,26 @@ namespace Data.Core.Services
                 sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
 
             return  _db.Reviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
+        }
+
+        public List<StockAvailability> GetAllStock()
+        {
+           return _stockAvailabilityRepository.GetAll();
+        }
+
+        public bool DeleteStock(StockAvailability stock)
+        {
+            return _stockAvailabilityRepository.Delete(stock);
+        }
+
+        public StockAvailability AddStock(StockAvailability stock)
+        {
+            return _stockAvailabilityRepository.Add(stock);
+        }
+
+        public StockAvailability UpdateStock(StockAvailability stock)
+        {
+            return _stockAvailabilityRepository.Update(stock);
         }
     }
 }

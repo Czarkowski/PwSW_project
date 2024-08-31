@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             x:Class="MobileApp.Pages.ReviewDetailsMainPage"
+             x:DataType="vm:ReviewDetailsVM"
+             BindingContext="{Binding , Source={x:Reference Self}}"
+             x:Name="this"
+             Title="ReviewDetailsMainPage">
+
+    <StackLayout Orientation="Vertical">
+        <Label Text="{Binding ReviewTypeName}" />
+        <Label Text="{Binding Description}" />
+        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" SelectedItem="{Binding SelectedItem}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:DescriptionHiveReviewVM">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="{Binding IsSelected, Converter={StaticResource SelectedItemToColorConverter}}">
+                        <Label Text="{Binding HiveName}" />
+                        <Label Text="{Binding Description}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="&lt;" Command="{Binding OnLeft, Source={x:Reference this}}}" CommandParameter="{Binding SelectedItem}" />
+            <Entry Text="{Binding SelectedItem.Description}" />
+            <Button Text=">" Command="{Binding OnRight, Source={x:Reference this}}}" CommandParameter="{Binding SelectedItem}" />
+        </StackLayout>
+            <Button Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" />
+        </StackLayout>
+        
+</ContentPage>

@@ -12,5 +12,6 @@ namespace MobileApp.Factories.Interfaces
     {
         BeeQueen CreateBeeGueen(QueenDetailsVM queenDetailsVM);
         Review CreateReview(ReviewCreatorVM queenDetailsVM);
+        StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM);
     }
 }

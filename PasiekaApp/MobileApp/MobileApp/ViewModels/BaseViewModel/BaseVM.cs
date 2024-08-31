@@ -8,10 +8,18 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.BaseViewModel
 {
-    public class BaseVM : INotifyPropertyChanged
+    public abstract class BaseVM : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public readonly int? Id = default;
+        public BaseVM(int id)
+        {
+            Id = id;
+        }
+        public BaseVM()
+        {
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(storage, value))

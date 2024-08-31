@@ -20,6 +20,25 @@ namespace MobileApp.Factories
             _beeService = beeService;
         }
 
+        public DescriptionHiveReviewVM CreateDescriptionHiveReviewVM(DescriptionHiveReview descriptionHiveReview)
+        {
+            return new DescriptionHiveReviewVM(descriptionHiveReview)
+            {
+                Description = descriptionHiveReview.Description.Text ?? string.Empty,
+                HiveName = $"{descriptionHiveReview.Hive.Number} - {descriptionHiveReview.Hive.BeeQueen.Race.Name}",
+            };
+        }
+
+        public WarehouseItemVM CreateEmptyWarehouseItemVM()
+        {
+            return new WarehouseItemVM()
+            {
+                Name = string.Empty,
+                Quantity = 0,
+                Unit = string.Empty,
+            };
+        }
+
         public List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives)
         {
             return hives.Select(x => new HiveListToCreateReviewVM
@@ -67,6 +86,18 @@ namespace MobileApp.Factories
                 Date = DateTime.Now.Date,
                 Description = string.Empty,
                 ReviewType = reviewType?.FirstOrDefault(),
+            };
+        }
+
+        public ReviewDetailsVM CreateReviewDetailsVM(Review review)
+        {
+            return new ReviewDetailsVM(review)
+            {
+                Description = review.Description,
+                PlannedDate = review.PlannedDate,
+                RealizedDate = review.RealizedDate,
+                ReviewTypeName = review.ReviewType.Name,
+                DescriptionHiveReviewVMs = review.DescriptionHiveReviews.Select(CreateDescriptionHiveReviewVM).ToList(),
             };
         }
 
@@ -149,6 +180,22 @@ namespace MobileApp.Factories
                 };
             }
             ).ToList();
+        }
+
+        public WarehouseVM CreateWarehouseVM(List<StockAvailability> stockAvailabilities)
+        {
+            return new WarehouseVM()
+            {
+                SearchPhrase = string.Empty,
+                SelectedItem = null,
+                NewWarehouseItemVM = CreateEmptyWarehouseItemVM(),
+                WarehouseListItemVMs = stockAvailabilities.Select(x => new WarehouseListItemVM(x)
+                {
+                    ItemName = x.Name,
+                    Quantity = x.Quantity,
+                    Unit = x.Unit,
+                }).ToList(),
+            };
         }
     }
 }

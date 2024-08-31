@@ -18,7 +18,7 @@ namespace Data.Core
         public DbSet<Race> Races { get; set; }
         public DbSet<BeeQueen> BeeQueens { get; set; }
         public DbSet<Description> Descriptions { get; set; }
-        public DbSet<StockAvailability> StanMagazynowys { get; set; }
+        public DbSet<StockAvailability> StockAvailabilities { get; set; }
         public DbSet<ReviewType> ReviewTypes { get; set; }
 
         public BeeDbContext()

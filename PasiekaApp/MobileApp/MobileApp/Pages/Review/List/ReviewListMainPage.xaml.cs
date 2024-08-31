@@ -15,22 +15,22 @@ public partial class ReviewListMainPage : ContentPage
 {
     private ReviewListVM _reviewListVM;
     public ReviewListVM ReviewListVM { get => _reviewListVM; set { _reviewListVM = value; OnPropertyChanged(nameof(ReviewListVM)); } }
-    private readonly IBeeService _beeService;
-    private readonly IViewModelsFactory _viewModelsFactory;
-    private readonly IFilterDataHelper _filterDataHelper;
     public ICommand _onSearch;
     public ICommand OnSearch { get => _onSearch; set { _onSearch = value; OnPropertyChanged(nameof(OnSearch)); } }
     public ICommand _onDetails;
     public ICommand OnDetails { get => _onDetails; set { _onDetails = value; OnPropertyChanged(nameof(OnDetails)); } }
+    private readonly IBeeService _beeService;
+    private readonly IViewModelsFactory _viewModelsFactory;
+    private readonly IFilterDataHelper _filterDataHelper;
     public ReviewListMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IFilterDataHelper filterDataHelper)
 	{
         _beeService = beeService;
         _viewModelsFactory = viewModelsFactory;
         _filterDataHelper = filterDataHelper;
 		InitializeComponent();
-        InitializeComponentParemeters();
-        LoadData();
+        InitializeCommand();
         InitialzieReferenceMessenger();
+        LoadData();
     }
 
     private void InitialzieReferenceMessenger()
@@ -38,7 +38,7 @@ public partial class ReviewListMainPage : ContentPage
         MessageCenter.SetRefresReviewList(this, (x) => LoadData());
     }
 
-    private void InitializeComponentParemeters()
+    private void InitializeCommand()
     {
         OnSearch = new Command(OnSearchClicked);
         OnDetails = new Command(OnSearchClicked);

@@ -16,6 +16,7 @@ namespace MobileApp.Helpers.StaticResources
         public static readonly string ReviewListDataTemplateUncmopleted = nameof(ReviewListDataTemplateUncmopleted);
         public static readonly string ReviewListDataTemplateSoon = nameof(ReviewListDataTemplateSoon);
         public static readonly string ReviewListDataTemplateCompleted = nameof(ReviewListDataTemplateCompleted);
+        public static readonly string DoubleToStringConverter = nameof(DoubleToStringConverter);
         public static readonly string Test = nameof(Test);
     }
 }

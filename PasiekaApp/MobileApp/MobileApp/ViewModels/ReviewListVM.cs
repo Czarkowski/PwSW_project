@@ -43,13 +43,13 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public void OnItemSelected(ReviewListItemVM selectedItem)
-        {
-            if (selectedItem != null)
-            {
-                // Your logic here, e.g., navigate to detail page, update UI, etc.
-            }
-        }
+        //public void OnItemSelected(ReviewListItemVM selectedItem)
+        //{
+        //    if (selectedItem != null)
+        //    {
+        //        // Your logic here, e.g., navigate to detail page, update UI, etc.
+        //    }
+        //}
 
     }
 }

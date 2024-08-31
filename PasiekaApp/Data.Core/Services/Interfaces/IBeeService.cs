@@ -10,6 +10,7 @@ namespace Data.Core.Services.Interfaces
     public interface IBeeService
     {
         List<Hive> GetAllHive();
+        List<StockAvailability> GetAllStock();
         Hive GetHiveById(int id);
         Hive UpdateHive(Hive ul);
         Race GetRaceByBeeQueenId(int id);
@@ -24,5 +25,8 @@ namespace Data.Core.Services.Interfaces
         List<ReviewType> GetAllReviewType();
         Review AddReview(Review review);
         List<Review> GetFiltratedReviews(ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? Uncompleted = default);
+        bool DeleteStock(StockAvailability stock);
+        StockAvailability AddStock(StockAvailability stock);
+        StockAvailability UpdateStock(StockAvailability stock);
     }
 }

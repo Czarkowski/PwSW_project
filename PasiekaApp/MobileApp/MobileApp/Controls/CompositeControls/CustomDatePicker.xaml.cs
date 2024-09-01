@@ -3,14 +3,14 @@ namespace MobileApp.Controls.CompositeControls;
 public partial class CustomDatePicker : ContentView
 {
 	public static readonly BindableProperty SelectedDateProperty =
-        BindableProperty.Create(nameof(SelectedDate), typeof(DateTime?), typeof(CustomDatePicker), null, BindingMode.TwoWay, propertyChanged: OnDateChanged);
+        BindableProperty.Create(nameof(SelectedDate), typeof(DateTime), typeof(CustomDatePicker), DateTime.Now.Date, BindingMode.TwoWay, propertyChanged: OnDateChanged);
     private static void OnDateChanged(BindableObject bindable, object oldValue, object newValue)
     {
     }
 
-    public DateTime? SelectedDate
+    public DateTime SelectedDate
     {
-        get => (DateTime?)GetValue(SelectedDateProperty);
+        get => (DateTime)GetValue(SelectedDateProperty);
         set => SetValue(SelectedDateProperty, value);
     }
 

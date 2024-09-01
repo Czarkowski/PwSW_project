@@ -11,6 +11,7 @@ namespace MobileApp.Factories.Interfaces
     public interface IDataToSaveFactory
     {
         BeeQueen CreateBeeGueen(QueenDetailsVM queenDetailsVM);
+        Description CreateDescription(DescriptionHiveReviewVM descriptionHiveReviewVM);
         Review CreateReview(ReviewCreatorVM queenDetailsVM);
         StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM);
     }

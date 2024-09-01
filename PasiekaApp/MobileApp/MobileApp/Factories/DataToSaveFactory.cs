@@ -21,6 +21,14 @@ namespace MobileApp.Factories
             };
         }
 
+        public Description CreateDescription(DescriptionHiveReviewVM descriptionHiveReviewVM)
+        {
+            return new Description() {
+                Text = descriptionHiveReviewVM.Description,
+                DescriptionHiveReview = descriptionHiveReviewVM.DescriptionHiveReview,
+            };
+        }
+
         public Review CreateReview(ReviewCreatorVM reviewCreatorVM)
         {
             var descriptionHiveReviewList = reviewCreatorVM.SelectedHive.Select(x =>

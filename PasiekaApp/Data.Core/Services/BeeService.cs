@@ -25,13 +25,16 @@ namespace Data.Core.Services
         private readonly IReviewTypeRepository _reviewTypeRepository;
         private readonly IReviewRepository _reviewRepository;
         private readonly IStockAvailabilityRepository _stockAvailabilityRepository;
+        private readonly IDescriptionRepository _descriptionRepository;
         private readonly BeeDbContext _db;
         
 
         public BeeService(BeeDbContext beeDbContext, IUlRepository ulRepository, IRasaRepository rasaRepository,
             IMatkaPszczelaRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
-            IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository)
+            IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository,
+            IDescriptionRepository descriptionRepository)
         {
+            _descriptionRepository = descriptionRepository;
             _ulRepository = ulRepository;
             _matkaPszczelaRepository = matkaPszczelaRepository;
             _rasaRepository = rasaRepository;
@@ -148,6 +151,21 @@ namespace Data.Core.Services
         public StockAvailability UpdateStock(StockAvailability stock)
         {
             return _stockAvailabilityRepository.Update(stock);
+        }
+
+        public Description UpdateDescription(Description description)
+        {
+            return _descriptionRepository.Update(description);
+        }
+
+        public Description AddDescription(Description description)
+        {
+            return _descriptionRepository.Add(description);
+        }
+
+        public Review UpdateReview(Review review)
+        {
+            return _reviewRepository.Update(review);
         }
     }
 }

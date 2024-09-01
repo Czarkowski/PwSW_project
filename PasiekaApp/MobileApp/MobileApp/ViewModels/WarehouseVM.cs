@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class WarehouseVM : BaseVM, IHaveSelection<WarehouseListItemVM>
+    public class WarehouseVM : HaveSelectionVM<WarehouseListItemVM>
     {
         public WarehouseVM()
         {

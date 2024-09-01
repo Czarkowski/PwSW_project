@@ -13,5 +13,6 @@ namespace MobileApp.Helpers.Interfaces
         ref BeeQueen UpdateQueenDetails(ref BeeQueen matkaPszczela, QueenDetailsVM queenDetailsVM);
         ref Hive UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive);
         ref StockAvailability UpdateStockAvailabilityDetails(ref StockAvailability stock, WarehouseItemVM warehouseItemVM);
+        ref DescriptionHiveReview UpdateDescriptionHiveReview(ref DescriptionHiveReview descriptionHiveReview, DescriptionHiveReviewVM descriptionHiveReviewVM);
     }
 }

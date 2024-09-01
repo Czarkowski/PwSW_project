@@ -18,6 +18,7 @@ namespace MobileApp.Helpers
         public static QueenListMainPage QueenListMain => (QueenListMainPage)serviceProvider.GetService(typeof(QueenListMainPage));
         public static ChangeQueenPopup ChangeQueenPopup => (ChangeQueenPopup)serviceProvider.GetService(typeof(ChangeQueenPopup));
         public static ReviewCreatorMainPage ReviewCreatorMain => (ReviewCreatorMainPage)serviceProvider.GetService(typeof(ReviewCreatorMainPage));
-        public static ReviewListMainPage ReviewMain => (ReviewListMainPage)serviceProvider.GetService(typeof(ReviewListMainPage));
+        public static ReviewListMainPage ReviewListMain => (ReviewListMainPage)serviceProvider.GetService(typeof(ReviewListMainPage));
+        public static ReviewDetailsMainPage ReviewDetailsMain => (ReviewDetailsMainPage)serviceProvider.GetService(typeof(ReviewDetailsMainPage));
     }
 }

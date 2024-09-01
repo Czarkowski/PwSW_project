@@ -28,5 +28,8 @@ namespace Data.Core.Services.Interfaces
         bool DeleteStock(StockAvailability stock);
         StockAvailability AddStock(StockAvailability stock);
         StockAvailability UpdateStock(StockAvailability stock);
+        Description UpdateDescription(Description description);
+        Description AddDescription(Description description);
+        Review UpdateReview(Review review);
     }
 }

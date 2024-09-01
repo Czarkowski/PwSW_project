@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Core.Classes
 {
-    public class NotifiObject<T> : INotifyPropertyChanged
+    public class NotifyObject<T> : INotifyPropertyChanged
     {
-        public NotifiObject(T value)
+        public NotifyObject(T value)
         {
             _value = value;
         }
@@ -30,13 +30,13 @@ namespace MobileApp.Core.Classes
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public static implicit operator T(NotifiObject<T> obj)
+        public static implicit operator T(NotifyObject<T> obj)
         {
             return obj.Value;
         }
-        public static implicit operator NotifiObject<T>(T obj)
+        public static implicit operator NotifyObject<T>(T obj)
         {
-            return new NotifiObject<T>(obj);
+            return new NotifyObject<T>(obj);
         }
     }
 }

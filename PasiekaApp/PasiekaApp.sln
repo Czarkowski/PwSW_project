@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp.WinUI", "MobileAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Core", "Data.Core\Data.Core.csproj", "{CBD91F09-8A5C-4943-859A-4D57989F7B18}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{F4270CF0-88BC-4FCF-A188-748A6AE44636}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp.Utilities", "Utilities\MobileApp.Utilities.csproj", "{F4270CF0-88BC-4FCF-A188-748A6AE44636}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp.Core", "MobileApp.Core\MobileApp.Core.csproj", "{4E70E53C-3375-41BA-BD4F-C617E8936E4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp.Core", "MobileApp.Core\MobileApp.Core.csproj", "{4E70E53C-3375-41BA-BD4F-C617E8936E4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

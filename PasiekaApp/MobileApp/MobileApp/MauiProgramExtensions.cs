@@ -68,6 +68,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IReviewTypeRepository, ReviewTypeRepository>();
             builder.Services.AddSingleton<IReviewRepository, ReviewRepository>();
             builder.Services.AddSingleton<IStockAvailabilityRepository, StockAvailabilityRepository>();
+            builder.Services.AddSingleton<IDescriptionRepository, DescriptionRepository>();
             return builder;
         }
 
@@ -82,6 +83,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IStaticResourcesHelper, StaticResourcesHelper>();
             builder.Services.AddSingleton<IUpdateDataHelper, UpdateDataHelper>();
             builder.Services.AddSingleton<IFilterDataHelper, FilterDataHelper>();
+            builder.Services.AddSingleton<IReviewHelper, ReviewHelper>();
             return builder;
         }
 

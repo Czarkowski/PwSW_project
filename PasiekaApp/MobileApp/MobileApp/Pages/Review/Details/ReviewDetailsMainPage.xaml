@@ -5,27 +5,27 @@
              xmlns:loc="clr-namespace:MobileApp.Localizations"
              x:Class="MobileApp.Pages.ReviewDetailsMainPage"
              x:DataType="vm:ReviewDetailsVM"
-             BindingContext="{Binding , Source={x:Reference Self}}"
+             BindingContext="{Binding ReviewDetailsVM, Source={RelativeSource Self}}"
              x:Name="this"
              Title="ReviewDetailsMainPage">
 
-    <StackLayout Orientation="Vertical">
-        <Label Text="{Binding ReviewTypeName}" />
-        <Label Text="{Binding Description}" />
-        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" SelectedItem="{Binding SelectedItem}" >
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+        <Label Text="{Binding ReviewTypeName}" HorizontalOptions="Center" />
+        <Label Text="{Binding Description}" HorizontalOptions="Center"/>
+        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" SelectionChanged="ReviewDetailsCV_SelectionChanged" >
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:DescriptionHiveReviewVM">
-                    <StackLayout Orientation="Horizontal" BackgroundColor="{Binding IsSelected, Converter={StaticResource SelectedItemToColorConverter}}">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}">
                         <Label Text="{Binding HiveName}" />
-                        <Label Text="{Binding Description}" />
+                        <Label Text="{Binding Description}" Margin="10,0,0,0"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <StackLayout Orientation="Horizontal">
-            <Button Text="&lt;" Command="{Binding OnLeft, Source={x:Reference this}}}" CommandParameter="{Binding SelectedItem}" />
-            <Entry Text="{Binding SelectedItem.Description}" />
-            <Button Text=">" Command="{Binding OnRight, Source={x:Reference this}}}" CommandParameter="{Binding SelectedItem}" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Button Text="&lt;" Command="{Binding OnLeft, Source={x:Reference this}}" CommandParameter="{Binding SelectedItem}" HorizontalOptions="Start"/>
+            <Entry Text="{Binding SelectedItem.Description}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+            <Button Text=">" Command="{Binding OnRight, Source={x:Reference this}}" CommandParameter="{Binding SelectedItem}" HorizontalOptions="End" />
         </StackLayout>
             <Button Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" />
         </StackLayout>

@@ -10,6 +10,11 @@ namespace MobileApp.ViewModels
 {
     public class ReviewListItemVM : BaseVM
     {
+        public readonly Review Review;
+        public ReviewListItemVM(Review review) : base(review.Id)
+        {
+            Review = review;
+        }
         private string _reviewDescription;
         public string ReviewDescription
         {

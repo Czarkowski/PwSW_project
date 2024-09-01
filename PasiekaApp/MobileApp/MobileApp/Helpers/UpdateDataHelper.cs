@@ -11,6 +11,11 @@ namespace MobileApp.Helpers
 {
     public class UpdateDataHelper : IUpdateDataHelper
     {
+        public ref DescriptionHiveReview UpdateDescriptionHiveReview(ref DescriptionHiveReview descriptionHiveReview, DescriptionHiveReviewVM descriptionHiveReviewVM)
+        {
+            throw new NotImplementedException();
+            //descriptionHiveReview.Description = descriptionHiveReviewVM.Description;
+        }
 
         public ref Hive UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive)
         {

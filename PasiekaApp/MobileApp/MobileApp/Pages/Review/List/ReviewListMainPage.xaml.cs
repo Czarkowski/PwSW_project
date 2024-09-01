@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.Messaging;
 using Data.Core.Services.Interfaces;
+using Data.Core.Models;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using MobileApp.CommunicationMessages;
 using MobileApp.Factories.Interfaces;
@@ -41,7 +42,7 @@ public partial class ReviewListMainPage : ContentPage
     private void InitializeCommand()
     {
         OnSearch = new Command(OnSearchClicked);
-        OnDetails = new Command(OnSearchClicked);
+        OnDetails = new Command<ReviewListItemVM>(OnDetailsClicked);
     }
 
     private void OnSearchClicked(object sender)
@@ -51,9 +52,11 @@ public partial class ReviewListMainPage : ContentPage
         ReviewListVM.ReviewListItemVMs = _viewModelsFactory.CreateReviewListItemVMs(reviews);
     }
 
-    private void OnDetailsClicked(object selectedItem)
+    private async void OnDetailsClicked(ReviewListItemVM selectedItem)
     {
-
+        var page = PagesHelper.ReviewDetailsMain;
+        page.InitializeData(selectedItem.Review);
+        await Navigation.PushAsync(page);
     }
 
     private void LoadData()

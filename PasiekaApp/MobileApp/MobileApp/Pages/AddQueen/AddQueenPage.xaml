@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Label Text="Dodaj Nową Matkę" FontSize="24" FontAttributes="Bold" />
-            <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Nazwa" />
+            <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
             <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
             
             <cc:CustomDatePicker x:Name="DatePicker" LabelText="Data Urodzenia:" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>

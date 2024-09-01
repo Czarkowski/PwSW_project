@@ -1,6 +1,7 @@
 ﻿using Data.Core.Models;
 using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Localizations;
 using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,8 @@ namespace MobileApp.Factories
         {
             return new DescriptionHiveReviewVM(descriptionHiveReview)
             {
-                Description = descriptionHiveReview.Description.Text ?? string.Empty,
-                HiveName = $"{descriptionHiveReview.Hive.Number} - {descriptionHiveReview.Hive.BeeQueen.Race.Name}",
+                Description = descriptionHiveReview.Description?.Text ?? string.Empty,
+                HiveName = $"{descriptionHiveReview.Hive.Number} - {descriptionHiveReview.Hive.BeeQueen?.Race.Name ?? LocalizeManager.Translate("txt_NoQueen")}",
             };
         }
 
@@ -116,7 +117,7 @@ namespace MobileApp.Factories
 
         public ReviewListItemVM CreateReviewListItemVM(Review review)
         {
-            return new ReviewListItemVM()
+            return new ReviewListItemVM(review)
             {
                 ReviewDescription = review.Description,
                 ReviewType = review.ReviewType,

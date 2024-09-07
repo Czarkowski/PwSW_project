@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using Data.Core.Models;
+using Data.Core.Services;
 using Data.Core.Services.Interfaces;
 using MobileApp.Core.BasePages;
 using MobileApp.Factories.Interfaces;
@@ -16,8 +17,10 @@ public partial class HiveListMainPage : ScrollablePage
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactories;
     private readonly IUpdateDataHelper _updateDataHelper;
-    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper, IBeeService beeService)
+    private readonly IDataToSaveFactory _dataToSaveFactory;
+    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper, IBeeService beeService, IDataToSaveFactory dataToSaveFactory)
     {
+        _dataToSaveFactory = dataToSaveFactory;
         _viewModelsFactories = viewModelsFactories;
         _updateDataHelper = updateDataHelper;
         _beeService = beeService;
@@ -34,6 +37,7 @@ public partial class HiveListMainPage : ScrollablePage
     {
         //var newItem = new Item { Name = "New Item" };
         //await App.Database.SaveItemAsync(newItem);
+        _beeService.AddHive(_dataToSaveFactory.CreateNewHive());
         LoadData();
     }
 
@@ -43,24 +47,35 @@ public partial class HiveListMainPage : ScrollablePage
 
         if (selectedItem != null)
         {
-            SelectedHive = _viewModelsFactories.CreateUlDetailsVM(selectedItem.Id);
-            UlDetailsModel.BindingContext = SelectedHive;
-            UlDetailsModel.IsVisible = true;
+            SetSelect(selectedItem.Id);
         }
     }
 
-    private void OnSaveChangesClicked(object sender, EventArgs e)
+    private void SetSelect(int hiveId)
     {
-        //SelectedHive = (UlDetailsModel.BindingContext as HiveDetailsVM);
+        SelectedHive = _viewModelsFactories.CreateUlDetailsVM(hiveId);
+        UlDetailsModel.BindingContext = SelectedHive;
+        UlDetailsModel.IsVisible = true;
+    }
+
+    private void UpdateCurrentHive()
+    {
         if (SelectedHive.IsNull())
             return;
-
         var hive = _beeService.GetHiveById(SelectedHive.Id);
         _updateDataHelper.UpdateHiveDetails(ref hive, SelectedHive);
         _beeService.UpdateHive(hive);
+
+        RefreshHiveList();
+        SetSelect(SelectedHive.Id);
     }
 
-    private async void OnChangeQueenClicked(object sender, EventArgs e)
+    private void RefreshHiveList()
+    {
+        LoadData();
+    }
+
+    private async void OnAddQueenClicked(object sender, EventArgs e)
     {
         var popup = PagesHelper.ChangeQueenPopup;
         var result = await this.ShowPopupAsync(popup) as Tuple<DateTime, BeeQueen>;
@@ -68,5 +83,40 @@ public partial class HiveListMainPage : ScrollablePage
             return;
         SelectedHive.QueenAddDate = result.Item1;
         SelectedHive.BeeQueen = result.Item2;
+        UpdateCurrentHive();
+    }
+
+    private void OnRemoveQueenClicked(object sender, EventArgs e)
+    {
+        SelectedHive.BeeQueen = null;
+        SelectedHive.QueenAddDate = null;
+        UpdateCurrentHive();
+    }
+
+    private void OnRemoveHiveClicked(object sender, EventArgs e)
+    {
+        _beeService.DeleteHive(SelectedHive.Id);
+        SelectedHive = null;
+        RefreshHiveList();
+
+        UlDetailsModel.IsVisible = false;
+        UlDetailsModel.BindingContext = null;
+    }
+
+    private void OnHiveReviewHistoryClicked(object sender, EventArgs e)
+    {
+        var page = PagesHelper.EditQueen;
+        int? id = (e.CurrentSelection.ElementAt(0) as QueenListVM)?.Id;
+        if (!id.HasValue)
+            return;
+        page.InitializeData(_beeService.GetQueenById(id.Value));
+        page.OnSave += (s, e) => RefreshList();
+        await Navigation.PushAsync(page);
+    }
+
+
+    private void OnEntryUnfocused(object sender, FocusEventArgs e)
+    {
+        UpdateCurrentHive();
     }
 }

@@ -117,10 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>Test_default</value>
+  <data name="txt_AddQueen" xml:space="preserve">
+    <value>Add Queen</value>
+  </data>
+  <data name="txt_BirthDate" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="txt_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="txt_CreateReview" xml:space="preserve">
+    <value>Create Review</value>
+  </data>
+  <data name="txt_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="txt_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="txt_DetailsReview" xml:space="preserve">
+    <value>Details Review</value>
+  </data>
+  <data name="txt_FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="txt_InvalidReview" xml:space="preserve">
+    <value>Invalid Review</value>
+  </data>
+  <data name="txt_InvalidValue" xml:space="preserve">
+    <value>Invalid Value</value>
+  </data>
+  <data name="txt_ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="txt_ItemUnit" xml:space="preserve">
+    <value>Item Unit</value>
+  </data>
+  <data name="txt_Modify" xml:space="preserve">
+    <value>Modify</value>
   </data>
   <data name="txt_NoDate" xml:space="preserve">
-    <value>txt_NoDate</value>
+    <value>No Date</value>
+  </data>
+  <data name="txt_NoQueen" xml:space="preserve">
+    <value>No Queen</value>
+  </data>
+  <data name="txt_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="txt_Planned" xml:space="preserve">
+    <value>Planned:</value>
+  </data>
+  <data name="txt_PleaseEnterValidNumber" xml:space="preserve">
+    <value>Please Enter Valid Number</value>
+  </data>
+  <data name="txt_Race" xml:space="preserve">
+    <value>Race</value>
+  </data>
+  <data name="txt_Realized" xml:space="preserve">
+    <value>Realized:</value>
+  </data>
+  <data name="txt_RemoveHive" xml:space="preserve">
+    <value>Remove Hive</value>
+  </data>
+  <data name="txt_RemoveQueen" xml:space="preserve">
+    <value>Remove Queen</value>
+  </data>
+  <data name="txt_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="txt_Soon" xml:space="preserve">
+    <value>Soon</value>
+  </data>
+  <data name="txt_Test" xml:space="preserve">
+    <value>Test_default</value>
+  </data>
+  <data name="txt_ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="txt_UncompletedAllReview" xml:space="preserve">
+    <value>Uncompleted All Review</value>
   </data>
 </root>

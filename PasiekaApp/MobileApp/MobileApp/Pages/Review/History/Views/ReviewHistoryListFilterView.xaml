@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             xmlns:lan="clr-namespace:MobileApp.Resources.Languages"
+             xmlns:tem="clr-namespace:MobileApp.Pages.Review.List.Templates"
+             xmlns:views="clr-namespace:MobileApp.Pages.Review.History.Views"
+             x:Class="MobileApp.Pages.Review.History.Views.ReviewHistoryListFilterView"
+             x:DataType="vm:ReviewListFilterVM"
+             x:Name="this">
+    <HorizontalStackLayout>
+        <cc:CustomDatePicker LabelText="{loc:Translate txt_FromDate}" SelectedDate="{Binding FromDate}" />
+        <cc:CustomDatePicker LabelText="{loc:Translate txt_ToDate}" SelectedDate="{Binding ToDate}" />
+        <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" SelectedItem="{Binding ReviewType}" OptionList="{Binding ReviewTypes}" DisplayProperty="Name" />
+        <cc:CustomChackBox LabelText="{loc:Translate txt_Uncopleted}" IsChecked="{Binding Uncompleted}" />
+        <Button Text="{loc:Translate txt_Search}" Command="{Binding OnSearch, Source={x:Reference this}}"/>
+    </HorizontalStackLayout>
+</ContentView>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cc="using:MobileApp.Controls.CompositeControls"
              xmlns:vm="using:MobileApp.ViewModels"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
              xmlns:sr="clr-namespace:MobileApp.Helpers.StaticResources"
              x:Class="MobileApp.Pages.EditQueenPage"
              x:DataType="vm:QueenDetailsVM"
@@ -12,18 +13,18 @@
         <StackLayout Padding="20">
             <StackLayout IsEnabled="False" Opacity="0.9">
                 <Label Text="Parametry" FontSize="24" FontAttributes="Bold" />
-                <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" 
+                <cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
                                  OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
-                <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
-                <cc:CustomDatePicker x:Name="DatePicker" LabelText="Data Urodzenia:" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
+                <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description, Mode=TwoWay}" />
+                <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
             </StackLayout>
 
-            <cc:CustomPicker LabelText="Ul:" SelectedItem="{Binding Hive, Mode=TwoWay}" OptionList="{Binding AvailableHives, Source={x:Reference this}}" DisplayProperty="Numer" />
+            <cc:CustomPicker LabelText="Ul:" SelectedItem="{Binding Hive, Mode=TwoWay}" OptionList="{Binding AvailableHives, Source={x:Reference this}}" DisplayProperty="Number" />
 
             <StackLayout Orientation="Horizontal" Spacing="10">
-                <Button Text="Zapisz" Clicked="OnSaveClicked" />
-                <Button Text="Usuń" Clicked="OnDeleteClicked" />
-                <Button Text="Anuluj" Clicked="OnCancelClicked" />
+                <Button Text="{loc:Translate txt_Save}" Clicked="OnSaveClicked" />
+                <Button Text="{loc:Translate txt_Delete}" Clicked="OnDeleteClicked" />
+                <Button Text="{loc:Translate txt_Cancel}" Clicked="OnCancelClicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

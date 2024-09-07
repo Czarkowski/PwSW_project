@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories.Interfaces
 {
-    public interface IUlRepository
+    public interface IHiveRepository
     {
         Hive Get(int id);
         List<Hive> GetAll();

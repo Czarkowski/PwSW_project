@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class MatkaPszczelaRepostory : IMatkaPszczelaRepository
+    public class MatkaPszczelaRepostory : IBeeQueenRepository
     {
         private readonly BeeDbContext _db;
         public MatkaPszczelaRepostory(BeeDbContext beeDbContext)

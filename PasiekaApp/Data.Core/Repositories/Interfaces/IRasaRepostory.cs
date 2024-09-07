@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories.Interfaces
 {
-    public interface IRasaRepository
+    public interface IRaceRepository
     {
         Race Get(int id);
         List<Race> GetAll();

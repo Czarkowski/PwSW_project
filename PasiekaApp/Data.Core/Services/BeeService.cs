@@ -19,9 +19,9 @@ namespace Data.Core.Services
     {
         //private readonly BeeDbContext _db;
 
-        private readonly IUlRepository _ulRepository;
-        private readonly IMatkaPszczelaRepository _matkaPszczelaRepository;
-        private readonly IRasaRepository _rasaRepository;
+        private readonly IHiveRepository _hiveRepository;
+        private readonly IBeeQueenRepository _beeQueenRepository;
+        private readonly IRaceRepository _raceRepository;
         private readonly IReviewTypeRepository _reviewTypeRepository;
         private readonly IReviewRepository _reviewRepository;
         private readonly IStockAvailabilityRepository _stockAvailabilityRepository;
@@ -29,15 +29,15 @@ namespace Data.Core.Services
         private readonly BeeDbContext _db;
         
 
-        public BeeService(BeeDbContext beeDbContext, IUlRepository ulRepository, IRasaRepository rasaRepository,
-            IMatkaPszczelaRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
+        public BeeService(BeeDbContext beeDbContext, IHiveRepository ulRepository, IRaceRepository rasaRepository,
+            IBeeQueenRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
             IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository,
             IDescriptionRepository descriptionRepository)
         {
             _descriptionRepository = descriptionRepository;
-            _ulRepository = ulRepository;
-            _matkaPszczelaRepository = matkaPszczelaRepository;
-            _rasaRepository = rasaRepository;
+            _hiveRepository = ulRepository;
+            _beeQueenRepository = matkaPszczelaRepository;
+            _raceRepository = rasaRepository;
             _reviewTypeRepository = reviewTypeRepository;
             _reviewRepository = reviewRepository;
             _stockAvailabilityRepository = stockAvailabilityRepository;
@@ -48,64 +48,64 @@ namespace Data.Core.Services
 
         public BeeQueen AddQueen(BeeQueen matkaPszczela)
         {
-            _matkaPszczelaRepository.Add(matkaPszczela);
+            _beeQueenRepository.Add(matkaPszczela);
 
             return matkaPszczela;
         }
 
         public bool DeleteQueen(BeeQueen matkaPszczela)
         {
-            return _matkaPszczelaRepository.Delete(matkaPszczela);
+            return _beeQueenRepository.Delete(matkaPszczela);
         }
 
         public List<BeeQueen> GetAllQueens()
         {
-            return _matkaPszczelaRepository.GetAll();
+            return _beeQueenRepository.GetAll();
         }
 
         public List<Race> GetAllRaces()
         {
-            return _rasaRepository.GetAll();
+            return _raceRepository.GetAll();
         }
 
         public List<Hive> GetAllHive()
         {
-            return _ulRepository.GetAll();
+            return _hiveRepository.GetAll();
         }
 
         public List<Hive> GetAllHiveWithoutQueens()
         {
-            return _ulRepository.GetAll().Where(x => x.BeeQueen == null).ToList();
+            return _hiveRepository.GetAll().Where(x => x.BeeQueen == null).ToList();
         }
 
         public BeeQueen GetQueenById(int matkaPszczelaId)
         {
-            return _matkaPszczelaRepository.Get(matkaPszczelaId);
+            return _beeQueenRepository.Get(matkaPszczelaId);
         }
 
         public Race GetRaceByBeeQueenId(int id)
         {
-            return _matkaPszczelaRepository.Get(id, true)?.Race;
+            return _beeQueenRepository.Get(id, true)?.Race;
         }
 
         public Hive GetHiveById(int id)
         {
-            return _ulRepository.Get(id);
+            return _hiveRepository.Get(id);
         }
 
         public BeeQueen UpdateQueen(BeeQueen matkaPszczela)
         {
-            return _matkaPszczelaRepository.Update(matkaPszczela);
+            return _beeQueenRepository.Update(matkaPszczela);
         }
 
         public Hive UpdateHive(Hive ul)
         {
-            return _ulRepository.Update(ul);
+            return _hiveRepository.Update(ul);
         }
 
         public List<BeeQueen> GetAllQueensWithoutHive()
         {
-            return _matkaPszczelaRepository.GetAll().Where(x => x.Hive == null).ToList();
+            return _beeQueenRepository.GetAll().Where(x => x.Hive == null).ToList();
         }
 
         public List<ReviewType> GetAllReviewType()
@@ -130,7 +130,7 @@ namespace Data.Core.Services
             if (uncompleted.HasValue && uncompleted == true)
                 sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
 
-            return  _db.Reviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
+            return _db.Reviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
         }
 
         public List<StockAvailability> GetAllStock()
@@ -166,6 +166,33 @@ namespace Data.Core.Services
         public Review UpdateReview(Review review)
         {
             return _reviewRepository.Update(review);
+        }
+
+        public Hive AddHive(Hive ul)
+        {
+            return _hiveRepository.Add(ul);
+        }
+
+        public bool DeleteHive(int hiveId)
+        {
+            return _hiveRepository.Delete(hiveId);
+        }
+
+        public List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewType reviewType = null, DateTime? fromDate = null,
+            DateTime? toDate = null, bool? uncompleted = null)
+        {
+            SqlPredicate<DescriptionHiveReview> sqlPredicate = new SqlPredicate<DescriptionHiveReview>();
+            sqlPredicate.AddPredicate(hive, x => x.Hive, (x, y) => x.Equals(y), ConcatType.And);
+            if (reviewType != null)
+                sqlPredicate.AddPredicate(reviewType, x => x.Review.ReviewType, (x, y) => x.Equals(y), ConcatType.And);
+            if (fromDate.HasValue)
+                sqlPredicate.AddPredicate(fromDate, x => x.Review.PlannedDate, (x, y) => x >= y, ConcatType.And);
+            if (toDate.HasValue)
+                sqlPredicate.AddPredicate(toDate, x => x.Review.PlannedDate, (x, y) => x <= y, ConcatType.And);
+            if (uncompleted.HasValue && uncompleted == true)
+                sqlPredicate.AddPredicate(uncompleted, x => x.Review.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
+
+            return _db.DescriptionHiveReviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
         }
     }
 }

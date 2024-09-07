@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class RasaRepostory : IRasaRepository
+    public class RasaRepostory : IRaceRepository
     {
         private readonly BeeDbContext _db;
         public RasaRepostory(BeeDbContext beeDbContext)

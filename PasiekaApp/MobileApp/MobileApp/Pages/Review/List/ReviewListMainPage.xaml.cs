@@ -47,7 +47,6 @@ public partial class ReviewListMainPage : ContentPage
 
     private void OnSearchClicked(object sender)
     {
-
         var reviews = _filterDataHelper.GetFiltratedReviews(ReviewListVM.ReviewListFilterVM);
         ReviewListVM.ReviewListItemVMs = _viewModelsFactory.CreateReviewListItemVMs(reviews);
     }
@@ -75,6 +74,4 @@ public partial class ReviewListMainPage : ContentPage
     public void OnItemSelected(object sender, SelectionChangedEventArgs e)
     {
     }
-
-
 }

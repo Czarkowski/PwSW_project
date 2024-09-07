@@ -12,14 +12,16 @@ namespace Data.Core.Services.Interfaces
         List<Hive> GetAllHive();
         List<StockAvailability> GetAllStock();
         Hive GetHiveById(int id);
-        Hive UpdateHive(Hive ul);
+        Hive UpdateHive(Hive hive);
+        Hive AddHive(Hive hive);
+        bool DeleteHive(int hiveId);
         Race GetRaceByBeeQueenId(int id);
-        BeeQueen GetQueenById(int matkaPszczelaId);
+        BeeQueen GetQueenById(int beeQueenId);
         List<BeeQueen> GetAllQueens();
         List<Race> GetAllRaces();
-        BeeQueen AddQueen(BeeQueen matkaPszczela);
-        BeeQueen UpdateQueen(BeeQueen matkaPszczela);
-        bool DeleteQueen(BeeQueen matkaPszczela);
+        BeeQueen AddQueen(BeeQueen beeQueen);
+        BeeQueen UpdateQueen(BeeQueen beeQueen);
+        bool DeleteQueen(BeeQueen beeQueen);
         List<Hive> GetAllHiveWithoutQueens();
         List<BeeQueen> GetAllQueensWithoutHive();
         List<ReviewType> GetAllReviewType();
@@ -31,5 +33,6 @@ namespace Data.Core.Services.Interfaces
         Description UpdateDescription(Description description);
         Description AddDescription(Description description);
         Review UpdateReview(Review review);
+        List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? uncompleted = default);
     }
 }

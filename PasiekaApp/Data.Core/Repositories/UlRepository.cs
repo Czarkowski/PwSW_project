@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class UlRepository : IUlRepository
+    public class UlRepository : IHiveRepository
     {
         private readonly BeeDbContext _db;
         public UlRepository(BeeDbContext beeDbContext) 

@@ -5,6 +5,7 @@
              xmlns:converters="clr-namespace:MobileApp.Converters"
              xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
              xmlns:core="clr-namespace:MobileApp.Core.BasePages;assembly=MobileApp.Core"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
              xmlns:vm="using:MobileApp.ViewModels"             
              x:Class="MobileApp.Pages.HiveListMainPage">
     <Grid>
@@ -15,7 +16,7 @@
         </Grid.RowDefinitions>
 
 
-        <Button Text="Add Hive" Clicked="OnAddItemClicked" Grid.Row="0"/>
+        <Button Text="{loc:Translate txt_AddHive}" Clicked="OnAddItemClicked" Grid.Row="0"/>
 
         <CollectionView x:Name="UlListModel" ItemsLayout="VerticalList" SelectionMode="Single" SelectionChanged="OnItemSelected" Grid.Row="1">
             <CollectionView.ItemTemplate>
@@ -32,42 +33,48 @@
         </CollectionView>
 
         <StackLayout x:Name="UlDetailsModel" x:DataType="vm:HiveDetailsVM" IsVisible="False" Padding="10" Spacing="10" Grid.Row="2">
-            <Label Text="Szczegóły" FontAttributes="Bold" FontSize="Medium" />
+            <Label Text="Szczegóły" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
             <StackLayout Orientation="Horizontal" Spacing="5">
                 <Label Text="Numer:" VerticalOptions="Center" />
-                <cc:IntegerEntry Text="{Binding Number}" IsEnabled="False"/>
+                <cc:IntegerEntry Text="{Binding Number}" IsEnabled="True" Unfocused="OnEntryUnfocused"/>
             </StackLayout>
 
 
-            <StackLayout Orientation="Horizontal" Spacing="5">
+            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5">
                 <Label Text="Opis Ula:" VerticalOptions="Center" />
-                <Entry Text="{Binding Description}" IsEnabled="True" />
+                <Entry Text="{Binding Description}" IsEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Unfocused="OnEntryUnfocused"/>
             </StackLayout>
 
-            <Button Text="Change Queen" Clicked="OnChangeQueenClicked" />
-
-            <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="{loc:Translate txt_AddQueen}" IsVisible="{Binding HasQueen_N}" Clicked="OnAddQueenClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
+                <Button Text="{loc:Translate txt_RemoveQueen}" IsVisible="{Binding HasQueen}" Clicked="OnRemoveQueenClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
+                <Button Text="{loc:Translate txt_RemoveHive}" IsVisible="{Binding HasQueen_N}" Clicked="OnRemoveHiveClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
+                <Button Text="{loc:Translate txt_HiveReviewHistory}" IsVisible="True" Clicked="OnHiveReviewHistoryClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                <Label Text="Data Poddania Matki:" VerticalOptions="Fill" />
-                <DatePicker Date="{Binding QueenAddDate}" IsEnabled="True" VerticalOptions="Fill"/>
-            </StackLayout>
+            <StackLayout IsVisible="{Binding HasQueen}">
 
-            <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                <Label Text="Wiek Matki:" VerticalOptions="Center" />
-                <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" VerticalOptions="Center" />
-            </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
+                    <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />
+                </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="5" >
-                <Label Text="Opis Matki:" VerticalOptions="Center" />
-                <Entry Text="{Binding QueenDescription}" VerticalOptions="Fill" IsEnabled="True" />
-            </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
+                    <Label Text="Data Poddania Matki:" VerticalOptions="Fill" />
+                    <DatePicker Date="{Binding QueenAddDate}" IsEnabled="True" VerticalOptions="Fill"/>
+                </StackLayout>
 
-            <!-- Przycisk zapisz -->
-            <Button Text="Save" Clicked="OnSaveChangesClicked" />
+                <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
+                    <Label Text="Wiek Matki:" VerticalOptions="Center" />
+                    <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="5" >
+                    <Label Text="Opis Matki:" VerticalOptions="Center" />
+                    <Entry Text="{Binding QueenDescription}" VerticalOptions="Fill" IsEnabled="False" />
+                </StackLayout>
+
+            </StackLayout>
         </StackLayout>
     </Grid>
 </core:ScrollablePage>

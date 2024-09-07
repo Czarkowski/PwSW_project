@@ -29,6 +29,11 @@ namespace MobileApp.Factories
             };
         }
 
+        public Hive CreateNewHive()
+        {
+            return new Hive();
+        }
+
         public Review CreateReview(ReviewCreatorVM reviewCreatorVM)
         {
             var descriptionHiveReviewList = reviewCreatorVM.SelectedHive.Select(x =>

@@ -1,7 +1,9 @@
 ﻿using Data.Core.Models;
 using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers.StaticResources;
 using MobileApp.Localizations;
+using MobileApp.Resources.Languages;
 using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -102,9 +104,28 @@ namespace MobileApp.Factories
             };
         }
 
+        public ReviewHistoryVM CreateReviewHistoryVM(Hive hive)
+        {
+            return new ReviewHistoryVM()
+            {
+                ReviewHistoryListVM = new ReviewHistoryListVM()
+                {
+                    ReviewHistoryListItemVMs = hive.DescriptionHiveReviews.Select(x => new ReviewHistoryListItemVM(x)
+                    {
+                        Description = x.Description?.Text ?? string.Empty,
+                        PlannedDate = x.Review.PlannedDate,
+                        RealizedDate = x.Review.RealizedDate,
+                        ReviewDescription = x.Review.Description,
+                        ReviewTypeName = x.Review.ReviewType.Name,
+                    }).ToList(),
+                },
+            };
+        }
+
         public ReviewListFilterVM CreateReviewListFilterVM()
         {
             var reviewTypes = _beeService.GetAllReviewType();
+            reviewTypes.Add(DefaultDatePickerItems.AllReviewType);
             return new ReviewListFilterVM()
             {
                 FromDate = DateTime.Now.Date.AddDays(-7),
@@ -159,6 +180,10 @@ namespace MobileApp.Factories
                     model.QueenAge = DateTime.Now - queen.BirthDate;
                     model.QueenDescription = queen.Description ?? string.Empty;
                 }
+            }
+            else
+            {
+                model.QueenAddDate = DateTime.MinValue;
             }
 
             return model;

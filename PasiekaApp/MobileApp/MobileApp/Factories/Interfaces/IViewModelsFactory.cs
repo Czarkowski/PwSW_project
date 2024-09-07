@@ -24,5 +24,7 @@ namespace MobileApp.Factories.Interfaces
         WarehouseItemVM CreateEmptyWarehouseItemVM();
         ReviewDetailsVM CreateReviewDetailsVM(Review review);
         DescriptionHiveReviewVM CreateDescriptionHiveReviewVM(DescriptionHiveReview descriptionHiveReview);
+        ReviewHistoryVM CreateReviewHistoryVM(Hive hive);
+        ReviewHistoryListVM CreateReviewHistoryListVM(object reviewsHistory);
     }
 }

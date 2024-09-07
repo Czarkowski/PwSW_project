@@ -16,6 +16,7 @@ namespace MobileApp.ViewModels
         public DateTime? QueenAddDate { get; set; }
         public TimeSpan? QueenAge { get; set; }
         public string QueenDescription { get; set; }
-        
+        public bool HasQueen => BeeQueen != null;
+        public bool HasQueen_N => !HasQueen;
     }
 }

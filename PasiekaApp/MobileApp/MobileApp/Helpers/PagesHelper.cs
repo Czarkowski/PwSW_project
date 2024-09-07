@@ -20,5 +20,6 @@ namespace MobileApp.Helpers
         public static ReviewCreatorMainPage ReviewCreatorMain => (ReviewCreatorMainPage)serviceProvider.GetService(typeof(ReviewCreatorMainPage));
         public static ReviewListMainPage ReviewListMain => (ReviewListMainPage)serviceProvider.GetService(typeof(ReviewListMainPage));
         public static ReviewDetailsMainPage ReviewDetailsMain => (ReviewDetailsMainPage)serviceProvider.GetService(typeof(ReviewDetailsMainPage));
+        public static ReviewHistoryMainPage ReviewHistoryMain => (ReviewHistoryMainPage)serviceProvider.GetService(typeof(ReviewHistoryMainPage));
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories.Interfaces
 {
-    public interface IMatkaPszczelaRepository
+    public interface IBeeQueenRepository
     {
         BeeQueen Get(int id, bool includeRelations = false);
         List<BeeQueen> GetAll();

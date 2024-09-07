@@ -61,20 +61,245 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test_default.
+        ///   Looks up a localized string similar to Add Queen.
         /// </summary>
-        internal static string Test {
+        internal static string txt_AddQueen {
             get {
-                return ResourceManager.GetString("Test", resourceCulture);
+                return ResourceManager.GetString("txt_AddQueen", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to txt_NoDate.
+        ///   Looks up a localized string similar to Birth Date.
+        /// </summary>
+        internal static string txt_BirthDate {
+            get {
+                return ResourceManager.GetString("txt_BirthDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string txt_Cancel {
+            get {
+                return ResourceManager.GetString("txt_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Review.
+        /// </summary>
+        internal static string txt_CreateReview {
+            get {
+                return ResourceManager.GetString("txt_CreateReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string txt_Delete {
+            get {
+                return ResourceManager.GetString("txt_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string txt_Description {
+            get {
+                return ResourceManager.GetString("txt_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details Review.
+        /// </summary>
+        internal static string txt_DetailsReview {
+            get {
+                return ResourceManager.GetString("txt_DetailsReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From Date.
+        /// </summary>
+        internal static string txt_FromDate {
+            get {
+                return ResourceManager.GetString("txt_FromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Review.
+        /// </summary>
+        internal static string txt_InvalidReview {
+            get {
+                return ResourceManager.GetString("txt_InvalidReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Value.
+        /// </summary>
+        internal static string txt_InvalidValue {
+            get {
+                return ResourceManager.GetString("txt_InvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Name.
+        /// </summary>
+        internal static string txt_ItemName {
+            get {
+                return ResourceManager.GetString("txt_ItemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Unit.
+        /// </summary>
+        internal static string txt_ItemUnit {
+            get {
+                return ResourceManager.GetString("txt_ItemUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify.
+        /// </summary>
+        internal static string txt_Modify {
+            get {
+                return ResourceManager.GetString("txt_Modify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Date.
         /// </summary>
         internal static string txt_NoDate {
             get {
                 return ResourceManager.GetString("txt_NoDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Queen.
+        /// </summary>
+        internal static string txt_NoQueen {
+            get {
+                return ResourceManager.GetString("txt_NoQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string txt_OK {
+            get {
+                return ResourceManager.GetString("txt_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned:.
+        /// </summary>
+        internal static string txt_Planned {
+            get {
+                return ResourceManager.GetString("txt_Planned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Enter Valid Number.
+        /// </summary>
+        internal static string txt_PleaseEnterValidNumber {
+            get {
+                return ResourceManager.GetString("txt_PleaseEnterValidNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Race.
+        /// </summary>
+        internal static string txt_Race {
+            get {
+                return ResourceManager.GetString("txt_Race", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realized:.
+        /// </summary>
+        internal static string txt_Realized {
+            get {
+                return ResourceManager.GetString("txt_Realized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Hive.
+        /// </summary>
+        internal static string txt_RemoveHive {
+            get {
+                return ResourceManager.GetString("txt_RemoveHive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Queen.
+        /// </summary>
+        internal static string txt_RemoveQueen {
+            get {
+                return ResourceManager.GetString("txt_RemoveQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string txt_Save {
+            get {
+                return ResourceManager.GetString("txt_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soon.
+        /// </summary>
+        internal static string txt_Soon {
+            get {
+                return ResourceManager.GetString("txt_Soon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test_default.
+        /// </summary>
+        internal static string txt_Test {
+            get {
+                return ResourceManager.GetString("txt_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To Date.
+        /// </summary>
+        internal static string txt_ToDate {
+            get {
+                return ResourceManager.GetString("txt_ToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncompleted All Review.
+        /// </summary>
+        internal static string txt_UncompletedAllReview {
+            get {
+                return ResourceManager.GetString("txt_UncompletedAllReview", resourceCulture);
             }
         }
     }

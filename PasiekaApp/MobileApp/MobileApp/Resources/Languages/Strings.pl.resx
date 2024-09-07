@@ -117,16 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>Test_pl</value>
+  <data name="txt_AddQueen" xml:space="preserve">
+    <value>Dodaj Królową</value>
+  </data>
+  <data name="txt_All" xml:space="preserve">
+    <value>Wszystkie</value>
+  </data>
+  <data name="txt_BirthDate" xml:space="preserve">
+    <value>Data Urodzenia:</value>
+  </data>
+  <data name="txt_Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="txt_CreateReview" xml:space="preserve">
+    <value>Utwórz przegląd</value>
+  </data>
+  <data name="txt_Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="txt_Description" xml:space="preserve">
+    <value>Opis:</value>
+  </data>
+  <data name="txt_DetailsReview" xml:space="preserve">
+    <value>Szczgóły przeglądu</value>
+  </data>
+  <data name="txt_FromDate" xml:space="preserve">
+    <value>Od Daty:</value>
+  </data>
+  <data name="txt_InvalidReview" xml:space="preserve">
+    <value>Błędny przegląd</value>
+  </data>
+  <data name="txt_InvalidValue" xml:space="preserve">
+    <value>Niewłaściwa wartość</value>
+  </data>
+  <data name="txt_ItemName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="txt_ItemUnit" xml:space="preserve">
+    <value>Jednostka</value>
+  </data>
+  <data name="txt_Modify" xml:space="preserve">
+    <value>Modyfikuj</value>
   </data>
   <data name="txt_NoDate" xml:space="preserve">
     <value>Brak Daty</value>
   </data>
+  <data name="txt_NoQueen" xml:space="preserve">
+    <value>Brak Królowej</value>
+  </data>
+  <data name="txt_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="txt_Planned" xml:space="preserve">
     <value>Planowane:</value>
   </data>
+  <data name="txt_PleaseEnterValidNumber" xml:space="preserve">
+    <value>Wprowadź poprawną wartość</value>
+  </data>
+  <data name="txt_Race" xml:space="preserve">
+    <value>Rasa:</value>
+  </data>
   <data name="txt_Realized" xml:space="preserve">
     <value>Zrealizowane:</value>
+  </data>
+  <data name="txt_RemoveHive" xml:space="preserve">
+    <value>Usuń Ul</value>
+  </data>
+  <data name="txt_RemoveQueen" xml:space="preserve">
+    <value>Usuń Królową</value>
+  </data>
+  <data name="txt_Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="txt_Soon" xml:space="preserve">
+    <value>Wkrótce</value>
+  </data>
+  <data name="txt_Test" xml:space="preserve">
+    <value>Test_pl</value>
+  </data>
+  <data name="txt_ToDate" xml:space="preserve">
+    <value>Do Daty:</value>
+  </data>
+  <data name="txt_UncompletedAllReview" xml:space="preserve">
+    <value>Nie ukończono wszystkich przeglądów</value>
   </data>
 </root>

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MobileApp"
     xmlns:pages="clr-namespace:MobileApp.Pages"
+    xmlns:loc="clr-namespace:MobileApp.Localizations"
     Title="MobileApp">
     
     <Shell.FlyoutHeader>
@@ -13,12 +14,16 @@
             <Image Source="logo.png" />
         </StackLayout>
     </Shell.FlyoutHeader>
-    <FlyoutItem Title="Pasieka">
-        <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
-        <ShellContent Title="Hives" ContentTemplate="{DataTemplate pages:HiveListMainPage}" Route="HiveListMainPage" />
-        <ShellContent Title="Queens" ContentTemplate="{DataTemplate pages:QueenListMainPage}" Route="QueenListMainPage" />
-        <ShellContent Title="Review" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
-        <ShellContent Title="Warehouse" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
+    <FlyoutItem Title="{loc:Translate txt_ApiaryNavigationTitle}">
+        <ShellContent Title="{loc:Translate txt_MainPageTitle}" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
+        <ShellContent Title="{loc:Translate txt_HiveListMainPageTitle}" ContentTemplate="{DataTemplate pages:HiveListMainPage}" Route="HiveListMainPage" />
+        <ShellContent Title="{loc:Translate txt_QueenListMainPageTitle}" ContentTemplate="{DataTemplate pages:QueenListMainPage}" Route="QueenListMainPage" />
+        <ShellContent Title="{loc:Translate txt_ReviewListMainPageTitle}" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
+        <ShellContent Title="{loc:Translate txt_WarehouseMainPageTitle}" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
+    </FlyoutItem>
+    <FlyoutItem Title="{loc:Translate txt_SettingsNavigationTitle}">
+        <ShellContent Title="{loc:Translate txt_DataSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:DataSettingsMainPage}" Route="DataSettingsMainPage" />
+        <ShellContent Title="{loc:Translate txt_LanguageSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:LanguageSettingsMainPage}" Route="LanguageSettingsMainPage" />
     </FlyoutItem>
     <Shell.FlyoutFooter>
         <Label Text="Version 1.0" HorizontalOptions="Center" />

@@ -10,7 +10,7 @@
              x:DataType="vm:HiveListMainVM"
              BindingContext="{Binding HiveListMainVM, Source={RelativeSource Self}}"
              x:Class="MobileApp.Pages.HiveListMainPage"
-             Title="{loc:Translate txt_HiveListTitle}">
+             Title="{loc:Translate txt_HiveListMainPageTitle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

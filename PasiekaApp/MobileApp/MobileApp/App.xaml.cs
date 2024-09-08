@@ -24,12 +24,26 @@ namespace MobileApp
             _beeService = beeService;
             _staticResourcesServices = staticResourcesServices;
             Services = serviceProvider;
-            InitializeComponent();
             EnsureDbInitialized();
+            InitializeComponent();
+
+            InitializeMainPage();
+        }
+
+        public void InitializeMainPage()
+        {
             InitializeStaticResources();
+            InitializeCulture();
             InitializeLocalizer();
 
             MainPage = new AppShell();
+        }
+
+        private void InitializeCulture()
+        {
+            var languageCode = Preferences.Get("AppLanguage", "pl");
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(languageCode);
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(languageCode);
         }
 
         private void EnsureDbInitialized()
@@ -45,6 +59,7 @@ namespace MobileApp
         {
             ResourceManager resourceManager = new ResourceManager("MobileApp.Resources.Languages.Strings", typeof(App).Assembly);
             LocalizeManager.Initialize(resourceManager);
+            LocalizeManager.SetCulture(Thread.CurrentThread.CurrentUICulture);
         }
 
         private void InitializeStaticResources()

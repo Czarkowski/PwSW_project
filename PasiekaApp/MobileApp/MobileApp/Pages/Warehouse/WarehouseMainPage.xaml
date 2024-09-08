@@ -11,7 +11,7 @@
              BindingContext="{Binding WarehouseVM, Source={RelativeSource Self}}"
              Title="WarehouseMainPage">
     <StackLayout Orientation="Vertical">
-        <cc:LabelEntry x:Name="SearchPhraseLE" LabelText="{loc:Translate txt_SearchPhrase}" EntryText="{Binding SearchPhrase}" />
+        <cc:LabelEntry x:Name="SearchPhraseLE" LabelText="{loc:Translate txt_SearchPhrase}" EntryText="{Binding SearchPhrase}" Margin="5"/>
         <CollectionView ItemsSource="{Binding FiltratedWarehouseListItemVMs}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:WarehouseListItemVM">
@@ -25,9 +25,9 @@
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                             <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" 
-                                CommandParameter="{Binding .}" />
+                                CommandParameter="{Binding .}" Margin="3"/>
                             <Button Text="{loc:Translate txt_Delete}" Command="{Binding OnDelete, Source={x:Reference this}}" 
-                                CommandParameter="{Binding .}" />
+                                CommandParameter="{Binding .}" Margin="3"/>
                         </StackLayout>
                     </StackLayout>
                 </DataTemplate>

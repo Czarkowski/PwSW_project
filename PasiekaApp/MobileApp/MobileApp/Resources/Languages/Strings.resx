@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txt_AddNewQueen" xml:space="preserve">
+    <value>Dodaj nową królową </value>
+  </data>
   <data name="txt_AddQueen" xml:space="preserve">
     <value>Add Queen</value>
+  </data>
+  <data name="txt_All" xml:space="preserve">
+    <value>Wszystkie</value>
   </data>
   <data name="txt_BirthDate" xml:space="preserve">
     <value>Birth Date</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="txt_FromDate" xml:space="preserve">
     <value>From Date</value>
+  </data>
+  <data name="txt_HiveListTitle" xml:space="preserve">
+    <value>Lista Uli</value>
   </data>
   <data name="txt_HiveReviewHistory" xml:space="preserve">
     <value>Review History</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="txt_Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="txt_SearchPhrase" xml:space="preserve">
+    <value>Szukana Fraza</value>
   </data>
   <data name="txt_Soon" xml:space="preserve">
     <value>Soon</value>

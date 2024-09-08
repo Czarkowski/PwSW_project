@@ -61,11 +61,29 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj nową królową .
+        /// </summary>
+        internal static string txt_AddNewQueen {
+            get {
+                return ResourceManager.GetString("txt_AddNewQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Queen.
         /// </summary>
         internal static string txt_AddQueen {
             get {
                 return ResourceManager.GetString("txt_AddQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wszystkie.
+        /// </summary>
+        internal static string txt_All {
+            get {
+                return ResourceManager.GetString("txt_All", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_FromDate {
             get {
                 return ResourceManager.GetString("txt_FromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista Uli.
+        /// </summary>
+        internal static string txt_HiveListTitle {
+            get {
+                return ResourceManager.GetString("txt_HiveListTitle", resourceCulture);
             }
         }
         
@@ -291,6 +318,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_Search {
             get {
                 return ResourceManager.GetString("txt_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukana Fraza.
+        /// </summary>
+        internal static string txt_SearchPhrase {
+            get {
+                return ResourceManager.GetString("txt_SearchPhrase", resourceCulture);
             }
         }
         

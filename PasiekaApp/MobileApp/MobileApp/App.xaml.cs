@@ -1,4 +1,7 @@
-﻿using Data.Core.Services.Interfaces;
+﻿using Data.Core;
+using Data.Core.Services;
+using Data.Core.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
@@ -15,15 +18,27 @@ namespace MobileApp
         public static new App Current => (App)Application.Current;
         public readonly IServiceProvider Services;
         private readonly IStaticResourcesHelper _staticResourcesServices;
-        public App(IStaticResourcesHelper staticResourcesServices, IServiceProvider serviceProvider)
+        private readonly IBeeService _beeService;
+        public App(IStaticResourcesHelper staticResourcesServices, IServiceProvider serviceProvider, IBeeService beeService)
         {
+            _beeService = beeService;
             _staticResourcesServices = staticResourcesServices;
             Services = serviceProvider;
             InitializeComponent();
+            EnsureDbInitialized();
             InitializeStaticResources();
             InitializeLocalizer();
 
             MainPage = new AppShell();
+        }
+
+        private void EnsureDbInitialized()
+        {
+            using (var context = new BeeDbContext())
+            {
+                context.Database.EnsureCreated();
+                context.Database.Migrate();
+            }
         }
 
         private void InitializeLocalizer()

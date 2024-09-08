@@ -10,10 +10,10 @@ namespace MobileApp.ViewModels
 {
     public class ReviewHistoryListItemVM : SelectableVM
     {
-        public readonly DescriptionHiveReview descriptionHiveReview;
+        public readonly DescriptionHiveReview DescriptionHiveReview;
         public ReviewHistoryListItemVM(DescriptionHiveReview descriptionHiveReview) :base(descriptionHiveReview.Id)
         {
-            this.descriptionHiveReview = descriptionHiveReview;
+            this.DescriptionHiveReview = descriptionHiveReview;
         }
         private string _description;
         public string Description

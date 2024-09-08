@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels"
+             xmlns:local="clr-namespace:MobileApp.Pages"
+             x:Class="MobileApp.Pages.AddRaceMainPage"
+             BindingContext="{Binding AddRaceMainVM, Source={RelativeSource Self}}"
+             x:DataType="vm:AddRaceMainVM"
+             Title="{loc:Translate txt_AddRace}">
+    <StackLayout Orientation="Vertical">
+        <Label Text="{loc:Translate txt_Name}" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Name}" HorizontalOptions="Center"/>
+        <Label Text="{loc:Translate txt_Description}" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Description}" HorizontalOptions="Center"/>
+        <Button Text="{loc:Translate txt_Save}" HorizontalOptions="Center" Clicked="OnSaveClicked"/>
+    </StackLayout>
+</ContentPage>

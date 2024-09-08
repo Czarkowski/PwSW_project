@@ -1,4 +1,5 @@
 ﻿using Data.Core.Models;
+using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,22 +9,8 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class QueenDetailsVM : INotifyPropertyChanged
+    public class QueenDetailsVM : BaseVM
     {
-        private int _id;
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-                OnPropertyChanged(nameof(Id));
-            }
-        }
-
         private string _description;
         public string Description
         {
@@ -80,11 +67,5 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

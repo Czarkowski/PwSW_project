@@ -13,31 +13,37 @@ public partial class AddQueenPage : ContentPage
 {
     public event EventHandler<EventArgs> OnSave;
 
-    private QueenDetailsVM QueenDetailsVM;
+    private AddQueenVM _addQueenvM;
+    public AddQueenVM AddQueenVM
+    {
+        get => _addQueenvM;
+        set
+        {
+            _addQueenvM = value;
+            OnPropertyChanged();
+        }
+    }
     private readonly IBeeService _beeService;
     private readonly IDataToSaveFactory _dataToSaveFactories;
-    public AddQueenPage(IBeeService beeService, IDataToSaveFactory dataToSaveFactories)
-	{
+    private readonly IViewModelsFactory _viewModelsFactory;
+    public AddQueenPage(IBeeService beeService, IDataToSaveFactory dataToSaveFactories, IViewModelsFactory viewModelsFactory)
+    {
         _beeService = beeService;
         _dataToSaveFactories = dataToSaveFactories;
+        _viewModelsFactory = viewModelsFactory;
         InitializeComponent();
         InitializeData();
     }
 
     private void InitializeData()
     {
-        QueenDetailsVM = new QueenDetailsVM()
-        {
-            Description = "Nowa matka",
-            Race = (App.Current.Resources[StaticResourceKeys.AvailableRaces] as List<Race>)[0],
-            BirthDate = DateTime.Now.Date,
-        };
-        BindingContext = QueenDetailsVM;
+        List<Race> races = _beeService.GetAllRaces();
+        AddQueenVM = _viewModelsFactory.CreateAddQueenVM(races);
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        var queen = _dataToSaveFactories.CreateBeeGueen(QueenDetailsVM);
+        var queen = _dataToSaveFactories.CreateBeeGueen(AddQueenVM.QueenDetailsVM);
         _beeService.AddQueen(queen);
         OnSave?.Invoke(this, EventArgs.Empty);
         // Powrót do poprzedniej strony

@@ -13,6 +13,6 @@ namespace Data.Core.Repositories.Interfaces
         List<Hive> GetAll();
         Hive Add(Hive ul);
         Hive Update(Hive ul);
-        bool Delete(int id);
+        bool Delete(Hive hive);
     }
 }

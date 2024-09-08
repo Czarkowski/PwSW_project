@@ -58,6 +58,18 @@
 	  <Compile Update="Pages\HiveList\Views\ChangeQueenPopup.xaml.cs">
 	    <DependentUpon>ChangeQueenPopup.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\Review\History\ReviewHiveHistoryMainPage.xaml.cs">
+	    <DependentUpon>ReviewHiveHistoryMainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Review\History\Templates\ReviewHiveHistoryListDataTemplateCompleted.xaml.cs">
+	    <DependentUpon>ReviewHiveHistoryListDataTemplateCompleted.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Review\History\Templates\ReviewHiveHistoryListDataTemplateUncmopleted.xaml.cs">
+	    <DependentUpon>ReviewHiveHistoryListDataTemplateUncmopleted.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Review\History\Views\ReviewHiveHistoryListFilterView.xaml.cs">
+	    <DependentUpon>ReviewHiveHistoryListFilterView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\Review\List\ReviewListMainPage.xaml.cs">
 	    <DependentUpon>ReviewListMainPage.xaml</DependentUpon>
 	  </Compile>
@@ -112,16 +124,25 @@
 	  <MauiXaml Update="Pages\QueenList\Views\QueenList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Race\AddRace\AddRaceMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Review\Creator\ReviewCreatorMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Review\Details\ReviewDetailsMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Review\History\ReviewHistoryMainPage.xaml">
+	  <MauiXaml Update="Pages\Review\History\ReviewHiveHistoryMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Review\History\Views\ReviewHistoryListFilterView.xaml">
+	  <MauiXaml Update="Pages\Review\History\Templates\ReviewHiveHistoryListDataTemplateCompleted.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Review\History\Templates\ReviewHiveHistoryListDataTemplateUncmopleted.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Review\History\Views\ReviewHiveHistoryListFilterView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Review\List\ReviewListMainPage.xaml">

@@ -29,13 +29,13 @@ namespace Data.Core.Services
         private readonly BeeDbContext _db;
         
 
-        public BeeService(BeeDbContext beeDbContext, IHiveRepository ulRepository, IRaceRepository rasaRepository,
+        public BeeService(BeeDbContext beeDbContext, IHiveRepository hiveRepository, IRaceRepository rasaRepository,
             IBeeQueenRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
             IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository,
             IDescriptionRepository descriptionRepository)
         {
             _descriptionRepository = descriptionRepository;
-            _hiveRepository = ulRepository;
+            _hiveRepository = hiveRepository;
             _beeQueenRepository = matkaPszczelaRepository;
             _raceRepository = rasaRepository;
             _reviewTypeRepository = reviewTypeRepository;
@@ -173,16 +173,15 @@ namespace Data.Core.Services
             return _hiveRepository.Add(ul);
         }
 
-        public bool DeleteHive(int hiveId)
+        public bool DeleteHive(Hive hive)
         {
-            return _hiveRepository.Delete(hiveId);
+            return _hiveRepository.Delete(hive);
         }
 
-        public List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewType reviewType = null, DateTime? fromDate = null,
+        public List<DescriptionHiveReview> GetFiltratedDescriptionHiveReviewsHistory(Hive hive, ReviewType reviewType = null, DateTime? fromDate = null,
             DateTime? toDate = null, bool? uncompleted = null)
         {
             SqlPredicate<DescriptionHiveReview> sqlPredicate = new SqlPredicate<DescriptionHiveReview>();
-            sqlPredicate.AddPredicate(hive, x => x.Hive, (x, y) => x.Equals(y), ConcatType.And);
             if (reviewType != null)
                 sqlPredicate.AddPredicate(reviewType, x => x.Review.ReviewType, (x, y) => x.Equals(y), ConcatType.And);
             if (fromDate.HasValue)
@@ -192,7 +191,12 @@ namespace Data.Core.Services
             if (uncompleted.HasValue && uncompleted == true)
                 sqlPredicate.AddPredicate(uncompleted, x => x.Review.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
 
-            return _db.DescriptionHiveReviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
+            return hive.DescriptionHiveReviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
+        }
+
+        public Race AddRace(Race race)
+        {
+            return _raceRepository.Add(race);
         }
     }
 }

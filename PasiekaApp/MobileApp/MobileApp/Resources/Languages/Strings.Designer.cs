@@ -133,6 +133,15 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review History.
+        /// </summary>
+        internal static string txt_HiveReviewHistory {
+            get {
+                return ResourceManager.GetString("txt_HiveReviewHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Review.
         /// </summary>
         internal static string txt_InvalidReview {
@@ -259,11 +268,29 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review Type.
+        /// </summary>
+        internal static string txt_ReviewType {
+            get {
+                return ResourceManager.GetString("txt_ReviewType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string txt_Save {
             get {
                 return ResourceManager.GetString("txt_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string txt_Search {
+            get {
+                return ResourceManager.GetString("txt_Search", resourceCulture);
             }
         }
         
@@ -300,6 +327,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_UncompletedAllReview {
             get {
                 return ResourceManager.GetString("txt_UncompletedAllReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncopleted.
+        /// </summary>
+        internal static string txt_Uncopleted {
+            get {
+                return ResourceManager.GetString("txt_Uncopleted", resourceCulture);
             }
         }
     }

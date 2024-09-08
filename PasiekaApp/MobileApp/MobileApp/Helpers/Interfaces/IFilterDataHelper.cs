@@ -11,6 +11,6 @@ namespace MobileApp.Helpers.Interfaces
     public interface IFilterDataHelper
     {
         List<Review> GetFiltratedReviews(ReviewListFilterVM reviewListFilterVM);
-        List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewListFilterVM reviewHistoryListFilterVM);
+        //List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewListFilterVM reviewHistoryListFilterVM);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Data.Core.Models;
+using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class HiveDetailsVM
+    public class HiveDetailsVM : BaseVM
     {
-        public int Id { get; set; }
+        public readonly Hive Hive;
+        public HiveDetailsVM(Hive hive) : base(hive.Id)
+        {
+            Hive = hive;
+        }
         public int Number { get; set; }
         public string Description { get; set; }
         public BeeQueen BeeQueen { get; set; }

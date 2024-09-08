@@ -7,7 +7,7 @@
               x:DataType="vm:ReviewListItemVM">
 
     <Frame HasShadow="True"  Margin="1" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" Padding="2,2,2,2" >
-        <Grid BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}, TargetNullValue='Blue'}" >
+        <Grid BackgroundColor="Blue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition Width="0.1*" />

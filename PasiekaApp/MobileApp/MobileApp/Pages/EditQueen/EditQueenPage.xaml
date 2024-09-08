@@ -15,10 +15,10 @@
                 <Label Text="Parametry" FontSize="24" FontAttributes="Bold" />
                 <cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
                                  OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
-                <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description, Mode=TwoWay}" />
                 <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
             </StackLayout>
 
+            <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description, Mode=TwoWay}" />
             <cc:CustomPicker LabelText="Ul:" SelectedItem="{Binding Hive, Mode=TwoWay}" OptionList="{Binding AvailableHives, Source={x:Reference this}}" DisplayProperty="Number" />
 
             <StackLayout Orientation="Horizontal" Spacing="10">

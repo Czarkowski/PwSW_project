@@ -42,6 +42,23 @@ namespace MobileApp.Factories
             };
         }
 
+        public HiveListMainVM CreateHiveListMainVM(List<Hive> hives)
+        {
+            return new HiveListMainVM()
+            {
+                HiveListVM = new HiveListVM()
+                {
+                    HiveListItemVMs = hives.Select(x => new HiveListItemVM(x)
+                    {
+                        Number = x.Number,
+                        Description = x.Description,
+                        Race = x.BeeQueenId.HasValue ? _beeService.GetRaceByBeeQueenId(x.BeeQueenId.Value).Name : string.Empty,
+
+                    }).ToList(),
+                }
+            };
+        }
+
         public List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives)
         {
             return hives.Select(x => new HiveListToCreateReviewVM
@@ -55,7 +72,6 @@ namespace MobileApp.Factories
         {
             return new QueenDetailsVM()
             {
-                Id = matkaPszczela.Id,
                 BirthDate = matkaPszczela.BirthDate,
                 Description = matkaPszczela.Description ?? string.Empty,
                 Hive = matkaPszczela.Hive,
@@ -104,10 +120,11 @@ namespace MobileApp.Factories
             };
         }
 
-        public ReviewHistoryVM CreateReviewHistoryVM(Hive hive)
+        public ReviewHiveHistoryVM CreateReviewHistoryVM(Hive hive)
         {
-            return new ReviewHistoryVM()
+            return new ReviewHiveHistoryVM()
             {
+                ReviewHistoryListFilterVM = CreateReviewListFilterVM(),
                 ReviewHistoryListVM = new ReviewHistoryListVM()
                 {
                     ReviewHistoryListItemVMs = hive.DescriptionHiveReviews.Select(x => new ReviewHistoryListItemVM(x)
@@ -161,22 +178,20 @@ namespace MobileApp.Factories
             };
         }
 
-        public HiveDetailsVM CreateUlDetailsVM(int ulId)
+        public HiveDetailsVM CreateHiveDetailsVM(Hive hive)
         {
-            var ul = _beeService.GetHiveById(ulId);
-            var model = new HiveDetailsVM
+            var model = new HiveDetailsVM(hive)
             {
-                Id = ul.Id,
-                Number = ul.Number,
-                Description = ul.Description ?? string.Empty,
+                Number = hive.Number,
+                Description = hive.Description ?? string.Empty,
             };
-            if (ul.BeeQueenId.HasValue)
+            if (hive.BeeQueenId.HasValue)
             {
-            var queen = _beeService.GetQueenById(ul.BeeQueenId.Value);
+            var queen = _beeService.GetQueenById(hive.BeeQueenId.Value);
                 if (!queen.IsNull())
                 {
                     model.BeeQueen = queen;
-                    model.QueenAddDate = ul.AddBeeQueenDate ?? DateTime.MinValue;
+                    model.QueenAddDate = hive.AddBeeQueenDate ?? DateTime.MinValue;
                     model.QueenAge = DateTime.Now - queen.BirthDate;
                     model.QueenDescription = queen.Description ?? string.Empty;
                 }
@@ -189,7 +204,7 @@ namespace MobileApp.Factories
             return model;
         }
 
-        public List<UlListVM> CreateUlListVMs()
+        public List<HiveListItemVM> CreateUlListVMs()
         {
             List<Data.Core.Models.Hive> uls = _beeService.GetAllHive();
 
@@ -197,9 +212,8 @@ namespace MobileApp.Factories
                 var race = x.BeeQueenId.HasValue ?
                     _beeService.GetRaceByBeeQueenId(x.BeeQueenId.Value)
                     : null;
-                return new ViewModels.UlListVM
+                return new ViewModels.HiveListItemVM(x)
                 {
-                    Id = x.Id,
                     Number = x.Number,
                     Description = x.Description ?? string.Empty,
                     Race = race?.Name ?? string.Empty,
@@ -221,6 +235,28 @@ namespace MobileApp.Factories
                     Quantity = x.Quantity,
                     Unit = x.Unit,
                 }).ToList(),
+            };
+        }
+
+        public AddQueenVM CreateAddQueenVM(List<Race> races)
+        {
+            return new AddQueenVM()
+            {
+                QueenDetailsVM = new QueenDetailsVM()
+                {
+                    BirthDate = DateTime.Now,
+                    Description = string.Empty,
+                },
+                Races = races,
+            };
+        }
+
+        public AddRaceMainVM CreateAddRaceMainVM()
+        {
+            return new AddRaceMainVM()
+            {
+                Description = string.Empty,
+                Name = string.Empty,
             };
         }
     }

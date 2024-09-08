@@ -35,6 +35,7 @@ namespace MobileApp.Helpers.StaticResources
             resourceDictionary.Add(StaticResourceKeys.QueenAgeConverter, new QueenAgeConverter());
             resourceDictionary.Add(StaticResourceKeys.IsSelectedToColorConverter, new IsSelectedToColorConverter());
             resourceDictionary.Add(StaticResourceKeys.DoubleToStringConverter, new DoubleToStringConverter());
+            resourceDictionary.Add(StaticResourceKeys.NullToBooleanConverter, new NullToBooleanConverter());
 
 
             resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateCompleted, new ReviewListDataTemplateCompleted());
@@ -42,6 +43,7 @@ namespace MobileApp.Helpers.StaticResources
             resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateUncmopleted, new ReviewListDataTemplateUncmopleted());
 
             resourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateSelector, new ReviewListDataTemplateSelector());
+            resourceDictionary.Add(StaticResourceKeys.ReviewHiveHistortListDataTemplateSelector, new ReviewHiveHistortListDataTemplateSelector());
 
         }
     }

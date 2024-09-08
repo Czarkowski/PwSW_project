@@ -141,6 +141,9 @@
   <data name="txt_FromDate" xml:space="preserve">
     <value>From Date</value>
   </data>
+  <data name="txt_HiveReviewHistory" xml:space="preserve">
+    <value>Review History</value>
+  </data>
   <data name="txt_InvalidReview" xml:space="preserve">
     <value>Invalid Review</value>
   </data>
@@ -183,8 +186,14 @@
   <data name="txt_RemoveQueen" xml:space="preserve">
     <value>Remove Queen</value>
   </data>
+  <data name="txt_ReviewType" xml:space="preserve">
+    <value>Review Type</value>
+  </data>
   <data name="txt_Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="txt_Search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="txt_Soon" xml:space="preserve">
     <value>Soon</value>
@@ -197,5 +206,8 @@
   </data>
   <data name="txt_UncompletedAllReview" xml:space="preserve">
     <value>Uncompleted All Review</value>
+  </data>
+  <data name="txt_Uncopleted" xml:space="preserve">
+    <value>Uncopleted</value>
   </data>
 </root>

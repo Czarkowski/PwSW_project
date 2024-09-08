@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txt_AddHive" xml:space="preserve">
+    <value>Dodaj Ul</value>
+  </data>
   <data name="txt_AddQueen" xml:space="preserve">
     <value>Dodaj Królową</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="txt_FromDate" xml:space="preserve">
     <value>Od Daty:</value>
+  </data>
+  <data name="txt_HiveReviewHistory" xml:space="preserve">
+    <value>Historia Przeglądów</value>
   </data>
   <data name="txt_InvalidReview" xml:space="preserve">
     <value>Błędny przegląd</value>
@@ -186,8 +192,14 @@
   <data name="txt_RemoveQueen" xml:space="preserve">
     <value>Usuń Królową</value>
   </data>
+  <data name="txt_ReviewType" xml:space="preserve">
+    <value>Typ Przeglądu</value>
+  </data>
   <data name="txt_Save" xml:space="preserve">
     <value>Zapisz</value>
+  </data>
+  <data name="txt_Search" xml:space="preserve">
+    <value>Szukaj</value>
   </data>
   <data name="txt_Soon" xml:space="preserve">
     <value>Wkrótce</value>
@@ -200,5 +212,8 @@
   </data>
   <data name="txt_UncompletedAllReview" xml:space="preserve">
     <value>Nie ukończono wszystkich przeglądów</value>
+  </data>
+  <data name="txt_Uncopleted" xml:space="preserve">
+    <value>Nieukończone</value>
   </data>
 </root>

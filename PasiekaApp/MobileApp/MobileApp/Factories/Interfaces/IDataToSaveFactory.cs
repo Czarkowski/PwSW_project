@@ -14,6 +14,7 @@ namespace MobileApp.Factories.Interfaces
         Description CreateDescription(DescriptionHiveReviewVM descriptionHiveReviewVM);
         Review CreateReview(ReviewCreatorVM queenDetailsVM);
         StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM);
-        Hive CreateNewHive();
+        Hive CreateEmptyHive();
+        Race CreateRace(AddRaceMainVM addRaceMainVM);
     }
 }

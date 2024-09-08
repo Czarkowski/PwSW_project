@@ -8,37 +8,11 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class RasaRepostory : IRaceRepository
+    public class RasaRepostory : BaseRepository<Race>, IRaceRepository
     {
-        private readonly BeeDbContext _db;
-        public RasaRepostory(BeeDbContext beeDbContext)
+        public RasaRepostory(BeeDbContext beeDbContext) : base(beeDbContext, beeDbContext.Races)
         {
-            _db = beeDbContext;
         }
 
-        public Race Add(Race ul)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Race Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Race> GetAll()
-        {
-            return _db.Races.ToList();
-        }
-
-        public Race Update(Race ul)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -62,7 +62,7 @@ namespace MobileApp
         private static MauiAppBuilder RegisterRepositories(this MauiAppBuilder builder)
         {
             builder.Services.AddDbContext<BeeDbContext>();
-            builder.Services.AddSingleton<IHiveRepository, UlRepository>();
+            builder.Services.AddSingleton<IHiveRepository, HiveRepository>();
             builder.Services.AddSingleton<IBeeQueenRepository, MatkaPszczelaRepostory>();
             builder.Services.AddSingleton<IRaceRepository, RasaRepostory>();
             builder.Services.AddSingleton<IReviewTypeRepository, ReviewTypeRepository>();
@@ -84,6 +84,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IUpdateDataHelper, UpdateDataHelper>();
             builder.Services.AddSingleton<IFilterDataHelper, FilterDataHelper>();
             builder.Services.AddSingleton<IReviewHelper, ReviewHelper>();
+            builder.Services.AddSingleton<IFilterPredicateHelper, FilterPredicateHelper>();
             return builder;
         }
 
@@ -107,7 +108,8 @@ namespace MobileApp
             builder.Services.AddTransient<ChangeQueenPopup>();
             builder.Services.AddTransient<ReviewCreatorMainPage>();
             builder.Services.AddTransient<ReviewDetailsMainPage>();
-            builder.Services.AddTransient<ReviewHistoryMainPage>();
+            builder.Services.AddTransient<ReviewHiveHistoryMainPage>();
+            builder.Services.AddTransient<AddRaceMainPage>();
             return builder;
         }
     }

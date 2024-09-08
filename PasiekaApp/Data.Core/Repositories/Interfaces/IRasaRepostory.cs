@@ -1,4 +1,5 @@
 ﻿using Data.Core.Models;
+using Data.Core.Repositories.Interfaces.BaseRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories.Interfaces
 {
-    public interface IRaceRepository
+    public interface IRaceRepository : IBaseRepository<Race>
     {
-        Race Get(int id);
-        List<Race> GetAll();
-        Race Add(Race ul);
-        Race Update(Race ul);
-        bool Delete(int id);
     }
 }

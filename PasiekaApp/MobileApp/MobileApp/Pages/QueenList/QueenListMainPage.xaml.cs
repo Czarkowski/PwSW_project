@@ -54,6 +54,12 @@ public partial class QueenListMainPage : ContentPage
         LoadData();
     }
 
+    private async void OnAddRaceClicked(object sender, EventArgs e)
+    {
+        var pare = PagesHelper.AddRaceMain;
+        await Navigation.PushAsync(pare);
+    }
+
 
     //protected override void OnAppearing()
     //{

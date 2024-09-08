@@ -4,20 +4,22 @@
              xmlns:cc="using:MobileApp.Controls.CompositeControls"
              xmlns:viewModels="using:MobileApp.ViewModels"
              xmlns:sr="clr-namespace:MobileApp.Helpers.StaticResources"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
+             BindingContext="{Binding AddQueenVM, Source={RelativeSource Self}}"
              x:Class="MobileApp.Pages.AddQueenPage"
-             x:DataType="viewModels:QueenDetailsVM">
+             x:DataType="viewModels:AddQueenVM">
     
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="Dodaj Nową Matkę" FontSize="24" FontAttributes="Bold" />
-            <cc:CustomPicker LabelText="Rasa:" SelectedItem="{Binding Race, Mode=TwoWay}" OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
-            <cc:LabelEntry LabelText="Opis:" EntryText="{Binding Description, Mode=TwoWay}" />
-            
-            <cc:CustomDatePicker x:Name="DatePicker" LabelText="Data Urodzenia:" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
+            <Label Text="{loc:Translate txt_AddNewQueen}" FontSize="24" FontAttributes="Bold" />
+            <cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding QueenDetailsVM.Race, Mode=TwoWay}" OptionList="{Binding Races}" DisplayProperty="Name" />
+            <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding QueenDetailsVM.Description, Mode=TwoWay}" />
+
+            <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding QueenDetailsVM.BirthDate, Mode=TwoWay}"/>
 
             <StackLayout Orientation="Horizontal" Spacing="10">
-                <Button Text="Zapisz" Clicked="OnSaveClicked" />
-                <Button Text="Anuluj" Clicked="OnCancelClicked" />
+                <Button Text="{loc:Translate txt_Save}" Clicked="OnSaveClicked" IsEnabled="{Binding QueenDetailsVM.Race, Converter={StaticResource NullToBooleanConverter}}" />
+                <Button Text="{loc:Translate txt_Cancel}" Clicked="OnCancelClicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

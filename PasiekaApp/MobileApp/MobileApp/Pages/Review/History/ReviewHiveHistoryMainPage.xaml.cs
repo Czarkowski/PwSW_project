@@ -9,11 +9,11 @@ using System.Windows.Input;
 
 namespace MobileApp.Pages;
 
-public partial class ReviewHistoryMainPage : ContentPage
+public partial class ReviewHiveHistoryMainPage : ContentPage
 {
     private Hive _hive;
-    private ReviewHistoryVM _reviewHistoryVM;
-    public ReviewHistoryVM ReviewHistoryVM
+    private ReviewHiveHistoryVM _reviewHistoryVM;
+    public ReviewHiveHistoryVM ReviewHistoryVM
     {
         get => _reviewHistoryVM;
         set
@@ -29,11 +29,14 @@ public partial class ReviewHistoryMainPage : ContentPage
     private readonly IViewModelsFactory _viewModelsFactory;
 	private readonly IBeeService _beeService;
     private readonly IFilterDataHelper _filterDataHelper;
-	public ReviewHistoryMainPage(IViewModelsFactory viewModelsFactory, IBeeService beeService, IFilterDataHelper filterDataHelper)
+    private readonly IFilterPredicateHelper _filterPredicateHelper;
+	public ReviewHiveHistoryMainPage(IViewModelsFactory viewModelsFactory, IBeeService beeService, 
+        IFilterDataHelper filterDataHelper, IFilterPredicateHelper filterPredicateHelper)
 	{
 		_viewModelsFactory = viewModelsFactory;
 		_beeService = beeService;
         _filterDataHelper = filterDataHelper;
+        _filterPredicateHelper = filterPredicateHelper;
 		InitializeComponent();
         InitializeCommand();
 	}
@@ -46,15 +49,18 @@ public partial class ReviewHistoryMainPage : ContentPage
 
     private void OnSearchClicked(object sender)
     {
-        var reviewsHistory = _filterDataHelper.GetFiltratedDescriptionReviewsHistory(_hive, ReviewHistoryVM.ReviewHistoryListFilterVM);
-        ReviewHistoryVM.ReviewHistoryListVM = _viewModelsFactory.CreateReviewHistoryListVM(reviewsHistory);
+        FilterList();
     }
 
-    private async void OnDetailsClicked(ReviewHistoryListItemVM selectedItem)
+    private void FilterList()
     {
-        //var page = PagesHelper.ReviewDetailsMain;
-        //page.InitializeData(selectedItem.Review);
-        //await Navigation.PushAsync(page);
+        var predicate = _filterPredicateHelper.PrepearFilterForReviewHistoryListItemVM(ReviewHistoryVM.ReviewHistoryListFilterVM);
+        ReviewHistoryVM.ReviewHistoryListVM.ApplyFilter(predicate);
+    }
+
+    private void OnDetailsClicked(ReviewHistoryListItemVM selectedItem)
+    {
+
     }
 
     public void InitializeData(Hive hive)
@@ -66,7 +72,12 @@ public partial class ReviewHistoryMainPage : ContentPage
     public void LoadData()
     {
         ReviewHistoryVM = _viewModelsFactory.CreateReviewHistoryVM(_hive);
+        FilterList();
     }
 
-
+    private void OnItemSelected(object sender, SelectionChangedEventArgs e)
+    {
+        ReviewHistoryVM.DescriptionHiveReviewVM = _viewModelsFactory.CreateDescriptionHiveReviewVM(
+            ReviewHistoryVM.ReviewHistoryListVM.SelectedItem.DescriptionHiveReview);
+    }
 }

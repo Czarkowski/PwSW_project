@@ -14,7 +14,7 @@ namespace Data.Core.Services.Interfaces
         Hive GetHiveById(int id);
         Hive UpdateHive(Hive hive);
         Hive AddHive(Hive hive);
-        bool DeleteHive(int hiveId);
+        bool DeleteHive(Hive hive);
         Race GetRaceByBeeQueenId(int id);
         BeeQueen GetQueenById(int beeQueenId);
         List<BeeQueen> GetAllQueens();
@@ -33,6 +33,7 @@ namespace Data.Core.Services.Interfaces
         Description UpdateDescription(Description description);
         Description AddDescription(Description description);
         Review UpdateReview(Review review);
-        List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? uncompleted = default);
+        List<DescriptionHiveReview> GetFiltratedDescriptionHiveReviewsHistory(Hive hive, ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? uncompleted = default);
+        Race AddRace(Race race);
     }
 }

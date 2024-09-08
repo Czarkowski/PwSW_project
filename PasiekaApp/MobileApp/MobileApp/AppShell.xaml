@@ -6,11 +6,21 @@
     xmlns:local="clr-namespace:MobileApp"
     xmlns:pages="clr-namespace:MobileApp.Pages"
     Title="MobileApp">
-    <FlyoutItem Title="Navigation Bar">
+    
+    <Shell.FlyoutHeader>
+        <StackLayout>
+            <Label Text="Welcome" FontSize="Large" />
+            <Image Source="logo.png" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title="Pasieka">
         <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
         <ShellContent Title="Hives" ContentTemplate="{DataTemplate pages:HiveListMainPage}" Route="HiveListMainPage" />
         <ShellContent Title="Queens" ContentTemplate="{DataTemplate pages:QueenListMainPage}" Route="QueenListMainPage" />
         <ShellContent Title="Review" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
         <ShellContent Title="Warehouse" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
     </FlyoutItem>
+    <Shell.FlyoutFooter>
+        <Label Text="Version 1.0" HorizontalOptions="Center" />
+    </Shell.FlyoutFooter>
 </Shell>

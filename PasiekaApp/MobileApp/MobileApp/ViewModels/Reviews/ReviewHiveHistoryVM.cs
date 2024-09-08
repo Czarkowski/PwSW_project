@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class ReviewHistoryVM : BaseVM
+    public class ReviewHiveHistoryVM : BaseVM
     {
+        private DescriptionHiveReviewVM _descriptionHiveReviewVM;
+        public DescriptionHiveReviewVM DescriptionHiveReviewVM
+        {
+            get => _descriptionHiveReviewVM;
+            set => SetProperty(ref _descriptionHiveReviewVM, value);
+        }
 
         private ReviewListFilterVM reviewHistoryListFilterVM;
         public ReviewListFilterVM ReviewHistoryListFilterVM

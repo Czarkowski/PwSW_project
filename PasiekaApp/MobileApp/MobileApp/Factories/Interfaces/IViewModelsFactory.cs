@@ -10,8 +10,7 @@ namespace MobileApp.Factories.Interfaces
 {
     public interface IViewModelsFactory
     {
-        List<UlListVM> CreateUlListVMs();
-        HiveDetailsVM CreateUlDetailsVM(int ulId);
+        HiveDetailsVM CreateHiveDetailsVM(Hive hive);
         QueenDetailsVM CreateQueenDetailsVM(BeeQueen matkaPszczela);
         List<QueenListVM> CreateQueenListVM(List<BeeQueen> matkaPszczelas);
         List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives);
@@ -24,7 +23,9 @@ namespace MobileApp.Factories.Interfaces
         WarehouseItemVM CreateEmptyWarehouseItemVM();
         ReviewDetailsVM CreateReviewDetailsVM(Review review);
         DescriptionHiveReviewVM CreateDescriptionHiveReviewVM(DescriptionHiveReview descriptionHiveReview);
-        ReviewHistoryVM CreateReviewHistoryVM(Hive hive);
-        ReviewHistoryListVM CreateReviewHistoryListVM(object reviewsHistory);
+        ReviewHiveHistoryVM CreateReviewHistoryVM(Hive hive);
+        HiveListMainVM CreateHiveListMainVM(List<Hive> hives);
+        AddQueenVM CreateAddQueenVM(List<Race> races);
+        AddRaceMainVM CreateAddRaceMainVM();
     }
 }

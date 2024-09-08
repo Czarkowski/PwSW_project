@@ -7,7 +7,7 @@
              xmlns:lan="clr-namespace:MobileApp.Resources.Languages"
              xmlns:tem="clr-namespace:MobileApp.Pages.Review.List.Templates"
              xmlns:views="clr-namespace:MobileApp.Pages.Review.History.Views"
-             x:Class="MobileApp.Pages.Review.History.Views.ReviewHistoryListFilterView"
+             x:Class="MobileApp.Pages.Review.History.Views.ReviewHiveHistoryListFilterView"
              x:DataType="vm:ReviewListFilterVM"
              x:Name="this">
     <HorizontalStackLayout>

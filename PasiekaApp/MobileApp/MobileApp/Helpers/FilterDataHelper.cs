@@ -20,11 +20,12 @@ namespace MobileApp.Helpers
             _beeService = beeService;
         }
 
-        public List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewListFilterVM reviewHistoryListFilterVM)
-        {
-            ReviewType reviewType = reviewHistoryListFilterVM.ReviewType == DefaultDatePickerItems.AllReviewType ? null : reviewHistoryListFilterVM.ReviewType;
-            return _beeService.GetFiltratedDescriptionReviewsHistory(hive, reviewType, reviewHistoryListFilterVM.FromDate, reviewHistoryListFilterVM.ToDate, reviewHistoryListFilterVM.Uncompleted);
-        }
+        //public List<DescriptionHiveReview> GetFiltratedDescriptionReviewsHistory(Hive hive, ReviewListFilterVM reviewHistoryListFilterVM)
+        //{
+
+        //    ReviewType reviewType = reviewHistoryListFilterVM.ReviewType == DefaultDatePickerItems.AllReviewType ? null : reviewHistoryListFilterVM.ReviewType;
+        //    return _beeService.GetFiltratedDescriptionHiveReviewsHistory(hive, reviewType, reviewHistoryListFilterVM.FromDate, reviewHistoryListFilterVM.ToDate, reviewHistoryListFilterVM.Uncompleted);
+        //}
 
         public List<Review> GetFiltratedReviews(ReviewListFilterVM reviewListFilterVM)
         {

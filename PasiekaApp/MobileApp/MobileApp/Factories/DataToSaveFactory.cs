@@ -29,9 +29,21 @@ namespace MobileApp.Factories
             };
         }
 
-        public Hive CreateNewHive()
+        public Hive CreateEmptyHive()
         {
-            return new Hive();
+            return new Hive()
+            {
+                Description = string.Empty,
+            };
+        }
+
+        public Race CreateRace(AddRaceMainVM addRaceMainVM)
+        {
+            return new Race()
+            {
+                Name = addRaceMainVM.Name,
+                Description = addRaceMainVM.Description,
+            };
         }
 
         public Review CreateReview(ReviewCreatorVM reviewCreatorVM)

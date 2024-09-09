@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class WarehouseListItemVM : BaseVM, ISelectable
+    public class WarehouseListItemVM : BaseVM, ISelectableVM
     {
         public readonly StockAvailability StockAvailability;
         public WarehouseListItemVM(StockAvailability stockAvailability) : base(stockAvailability.Id)

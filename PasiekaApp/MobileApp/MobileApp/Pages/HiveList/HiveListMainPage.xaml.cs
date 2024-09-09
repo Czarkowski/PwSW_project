@@ -13,6 +13,7 @@ namespace MobileApp.Pages;
 
 public partial class HiveListMainPage : ContentPage
 {
+    public bool RefreshRequiered { get; set; } = true;
     private HiveListMainVM _hiveListMainVM;
     public HiveListMainVM HiveListMainVM
     {
@@ -33,8 +34,17 @@ public partial class HiveListMainPage : ContentPage
         _viewModelsFactories = viewModelsFactories;
         _updateDataHelper = updateDataHelper;
         _beeService = beeService;
-        LoadData();
+        //LoadData();
         InitializeComponent();
+    }
+
+    protected override void OnAppearing()
+    {
+        if (RefreshRequiered)
+        {
+            LoadData();
+            //RefreshRequiered = false;
+        }
     }
 
     private async void LoadData()

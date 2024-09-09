@@ -12,15 +12,8 @@
              Title="{loc:Translate txt_LanguageSettingsMainPageTitle}">
     <StackLayout Orientation="Vertical">
         <Label Text="Choose Language" />
-        <Picker x:Name="LanguagePicker">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>English</x:String>
-                    <x:String>Polski</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
+        <Picker x:Name="LanguagePicker" ItemsSource="{Binding LanguageListVM.ItemList}" SelectedItem="{Binding LanguageListVM.SelectedItem}">
         </Picker>
-
         <Button Text="Save" Clicked="OnSaveLanguageClicked"/>
     </StackLayout>
 </ContentPage>

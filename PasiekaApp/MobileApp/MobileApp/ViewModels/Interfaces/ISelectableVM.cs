@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.Interfaces
 {
-    public interface ISelectable
+    public interface ISelectableVM
     {
         bool IsSelected { get; set; }
     }

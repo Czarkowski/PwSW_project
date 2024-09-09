@@ -99,10 +99,10 @@ namespace MobileApp
         private static MauiAppBuilder RegisterPages(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<HiveListMainPage>();
-            builder.Services.AddSingleton<QueenListMainPage>();
-            builder.Services.AddSingleton<ReviewListMainPage>();
-            builder.Services.AddSingleton<WarehouseMainPage>();
-            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddScoped<QueenListMainPage>();
+            builder.Services.AddScoped<ReviewListMainPage>();
+            builder.Services.AddScoped<WarehouseMainPage>();
+            builder.Services.AddScoped<MainPage>();
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();
             builder.Services.AddTransient<ChangeQueenPopup>();

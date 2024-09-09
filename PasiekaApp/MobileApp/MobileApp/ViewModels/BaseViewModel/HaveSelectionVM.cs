@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.BaseViewModel
 {
-    public class HaveSelectionVM<T> : BaseVM, IHaveSelection<T> where T : class, ISelectable
+    public class HaveSelectionVM<T> : BaseVM, IHaveSelectionVM<T> where T : class, ISelectableVM
     {
         public HaveSelectionVM() { }
         public HaveSelectionVM(int id) : base(id) { }

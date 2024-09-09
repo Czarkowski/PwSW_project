@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.BaseViewModel
 {
-    public abstract class SelectableVM : BaseVM, ISelectable
+    public abstract class SelectableVM : BaseVM, ISelectableVM
     {
         public SelectableVM() { }
         public SelectableVM(int id) : base(id) { }

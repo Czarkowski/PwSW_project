@@ -1,3 +1,5 @@
+using Data.Core;
+using MobileApp.Localizations;
 using MobileApp.ViewModels;
 
 namespace MobileApp.Pages;
@@ -18,4 +20,24 @@ public partial class DataSettingsMainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+	private async void OnClearDataBasesClicked(object sender, EventArgs e)
+    {
+        bool isConfirmed = await Application.Current.MainPage.DisplayAlert(
+            LocalizeManager.Translate("txt_ClearDataBase"),
+            LocalizeManager.Translate("txt_ClearDataBaseConfirmationText"),
+            LocalizeManager.Translate("txt_Yes"),
+            LocalizeManager.Translate("txt_No"));
+
+        if (isConfirmed)
+        {
+            ResetDatabase();
+        }
+    }
+
+    private void ResetDatabase()
+    {
+        BeeDbContext.ClearDataBase();
+        App.Current.InitializeData();
+        App.Current.InitializeMainPage();
+    }
 }

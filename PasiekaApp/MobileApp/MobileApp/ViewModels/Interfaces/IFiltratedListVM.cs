@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.Interfaces
 {
-    public interface IFiltratedList<T> where T : class
+    public interface IFiltratedListVM<T> where T : class
     {
         void ApplyFilter(FilterPredicate<T> filterPredicate);
     //    public void ApplyFilter(SqlPredicate<ReviewHistoryListItemVM> sqlPredicate)

@@ -11,7 +11,7 @@ namespace MobileApp.Helpers
 {
     public static class PagesHelper
     {
-        private static IServiceProvider serviceProvider => App.Current.Services;
+        private static IServiceProvider serviceProvider => App.Current.ServicesProvider;
 
         public static AddQueenPage AddQueen => (AddQueenPage)serviceProvider.GetService(typeof(AddQueenPage));
         public static EditQueenPage EditQueen => (EditQueenPage)serviceProvider.GetService(typeof(EditQueenPage));

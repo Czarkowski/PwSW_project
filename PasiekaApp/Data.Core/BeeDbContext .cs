@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Devices;
 using Data.Core.Models;
 using Utilities.StaticExtensions;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace Data.Core
 {
@@ -27,6 +28,38 @@ namespace Data.Core
 
         public BeeDbContext(DbContextOptions<BeeDbContext> options) : base(options)
         {
+        }
+
+        public static void ClearDataBase()
+        {
+            using(var context = new BeeDbContext())
+            {
+                foreach (var entity in context.Model.GetEntityTypes())
+                {
+                    var tableName = entity.GetTableName();
+                    context.Database.ExecuteSqlRaw($"DELETE FROM {tableName}");
+                }
+
+                context.SaveChanges();
+                //db.Database.EnsureDeleted();
+                //db.Database.EnsureCreated();
+            }
+        }
+
+        public static void EnsureInitialized()
+        {
+            using (var context = new BeeDbContext())
+            {
+                context.Database.EnsureCreated();
+                try
+                {
+                    if (context.Database.GetPendingMigrations().Any())
+                        context.Database.Migrate();
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

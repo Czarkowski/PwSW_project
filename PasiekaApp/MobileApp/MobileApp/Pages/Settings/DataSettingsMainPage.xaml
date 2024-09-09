@@ -11,5 +11,7 @@
              BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_DataSettingsMainPageTitle}">
     <StackLayout Orientation="Vertical">
+        <Label Text="{loc:Translate txt_ClearDataBase}" />
+        <Button Text="{loc:Translate txt_Clear}" Clicked="OnClearDataBasesClicked"/>
     </StackLayout>
 </ContentPage>

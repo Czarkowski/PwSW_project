@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.Interfaces
 {
-    public interface IHaveSelection<T> where T : class
+    public interface IHaveSelectionVM<T> where T : class
     {
         T SelectedItem { get; set; }
     }

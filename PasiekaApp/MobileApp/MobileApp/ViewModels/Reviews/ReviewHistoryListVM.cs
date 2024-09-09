@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class ReviewHistoryListVM : HaveSelectionVM<ReviewHistoryListItemVM>, IFiltratedList<ReviewHistoryListItemVM>
+    public class ReviewHistoryListVM : HaveSelectionVM<ReviewHistoryListItemVM>, IFiltratedListVM<ReviewHistoryListItemVM>
     {
         private List<ReviewHistoryListItemVM> _reviewHistoryListItemVMs;
         public List<ReviewHistoryListItemVM> ReviewHistoryListItemVMs

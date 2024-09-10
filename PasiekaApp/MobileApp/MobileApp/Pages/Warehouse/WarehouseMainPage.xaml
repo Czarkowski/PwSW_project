@@ -9,7 +9,7 @@
              x:DataType="vm:WarehouseVM"
              x:Name="this"
              BindingContext="{Binding WarehouseVM, Source={RelativeSource Self}}"
-             Title="WarehouseMainPage">
+             Title="{loc:Translate txt_WarehouseMainPageTitle}">
     <StackLayout Orientation="Vertical">
         <cc:LabelEntry x:Name="SearchPhraseLE" LabelText="{loc:Translate txt_SearchPhrase}" EntryText="{Binding SearchPhrase}" Margin="5"/>
         <CollectionView ItemsSource="{Binding FiltratedWarehouseListItemVMs}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">

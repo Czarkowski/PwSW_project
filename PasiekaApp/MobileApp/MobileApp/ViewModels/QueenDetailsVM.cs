@@ -11,6 +11,18 @@ namespace MobileApp.ViewModels
 {
     public class QueenDetailsVM : BaseVM
     {
+        //private List<Race> _raceOptions;
+        //public List<Race> RaceOptions
+        //    {
+        //    get
+        //    {
+        //        return _raceOptions;
+        //    }
+        //    set
+        //    {
+        //        SetProperty(ref _raceOptions, value);
+        //    }
+        //}
         private string _description;
         public string Description
         {

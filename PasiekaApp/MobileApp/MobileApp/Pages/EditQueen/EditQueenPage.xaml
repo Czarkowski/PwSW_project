@@ -12,9 +12,10 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout IsEnabled="False" Opacity="0.9">
-                <Label Text="Parametry" FontSize="24" FontAttributes="Bold" />
-                <cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
-                                 OptionList="{StaticResource {x:Static sr:StaticResourceKeys.AvailableRaces}}" DisplayProperty="Name" />
+                <Label Text="{loc:Translate txt_Race}" FontSize="24" FontAttributes="Bold" />
+                <Label Text="{Binding Race.Name}" FontAttributes="Bold" />
+                <!--<cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
+                                 OptionList="{Binding RaceOptions}" DisplayProperty="Name" />-->
                 <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
             </StackLayout>
 

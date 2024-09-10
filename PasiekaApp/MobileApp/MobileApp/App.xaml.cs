@@ -19,10 +19,10 @@ namespace MobileApp
     {
         public static new App Current => (App)Application.Current;
         public readonly IServiceProvider ServicesProvider;
-        private readonly IStaticResourcesHelper _staticResourcesServices;
+        private readonly IInitializeResources _staticResourcesServices;
         private readonly IBeeService _beeService;
         private IServiceScope _currentScope;
-        public App(IStaticResourcesHelper staticResourcesServices, IServiceProvider serviceProvider, IBeeService beeService)
+        public App(IInitializeResources staticResourcesServices, IServiceProvider serviceProvider, IBeeService beeService)
         {
             _beeService = beeService;
             _staticResourcesServices = staticResourcesServices;
@@ -59,10 +59,6 @@ namespace MobileApp
         {
             InitializeCulture();
 
-            if (MainPage is Shell shell)
-            {
-                shell.Items.Clear();
-            }
             MainPage = new AppShell();
         }
 
@@ -87,9 +83,11 @@ namespace MobileApp
 
         private void InitializeStaticResources()
         {
-            var newResourceDictionary = new ResourceDictionary();
-            _staticResourcesServices.InitializeResourcesAsync(newResourceDictionary).Wait();
-            Resources.MergedDictionaries.Add(newResourceDictionary);
+            if (!Resources.MergedDictionaries.Contains(_staticResourcesServices.ResourceDictionary))
+            {
+                Resources.MergedDictionaries.Add(_staticResourcesServices.ResourceDictionary);
+            }
+            _staticResourcesServices.InitializeResources();
         }
     }
 }

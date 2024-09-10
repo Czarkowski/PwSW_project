@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Helpers.Interfaces
 {
-    public interface IStaticResourcesHelper
+    public interface IInitializeResources
     {
-        Task InitializeResourcesAsync(ResourceDictionary resourceDictionary);
+        void InitializeResources();
+        ResourceDictionary ResourceDictionary { get; }
     }
 }

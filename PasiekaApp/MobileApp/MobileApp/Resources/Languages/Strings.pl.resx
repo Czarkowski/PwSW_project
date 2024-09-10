@@ -126,6 +126,9 @@
   <data name="txt_AddQueen" xml:space="preserve">
     <value>Dodaj Królową</value>
   </data>
+  <data name="txt_AddStock" xml:space="preserve">
+    <value>Dodaj Przedmiot</value>
+  </data>
   <data name="txt_All" xml:space="preserve">
     <value>Wszystkie</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="txt_ItemName" xml:space="preserve">
     <value>Nazwa</value>
   </data>
+  <data name="txt_ItemQuantity" xml:space="preserve">
+    <value>Stan</value>
+  </data>
   <data name="txt_ItemUnit" xml:space="preserve">
     <value>Jednostka</value>
   </data>
@@ -182,6 +188,12 @@
   </data>
   <data name="txt_Modify" xml:space="preserve">
     <value>Modyfikuj</value>
+  </data>
+  <data name="txt_NewQueen" xml:space="preserve">
+    <value>Nowa Królowa</value>
+  </data>
+  <data name="txt_NewRace" xml:space="preserve">
+    <value>Nowa Rasa</value>
   </data>
   <data name="txt_NoDate" xml:space="preserve">
     <value>Brak Daty</value>

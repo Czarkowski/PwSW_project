@@ -45,6 +45,8 @@ public partial class LanguageSettingsMainPage : ContentPage
     private async void OnSaveLanguageClicked(object sender, EventArgs e)
     {
         AppPreferences.Language = ViewModel.LanguageListVM.SelectedItem.LanguageCode;
+        //App.Current.InitializeData();
+        App.Current.ResetScope();
         App.Current.InitializeMainPage();
     }
 }

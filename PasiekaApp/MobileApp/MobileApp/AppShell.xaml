@@ -21,11 +21,13 @@
         <ShellContent Title="{loc:Translate txt_ReviewListMainPageTitle}" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
         <ShellContent Title="{loc:Translate txt_WarehouseMainPageTitle}" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
     </FlyoutItem>
-    <FlyoutItem Title="{loc:Translate txt_SettingsNavigationTitle}">
+    <FlyoutItem Title="{loc:Translate txt_SettingsNavigationTitle}" >
         <ShellContent Title="{loc:Translate txt_DataSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:DataSettingsMainPage}" Route="DataSettingsMainPage" />
         <ShellContent Title="{loc:Translate txt_LanguageSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:LanguageSettingsMainPage}" Route="LanguageSettingsMainPage" />
     </FlyoutItem>
     <Shell.FlyoutFooter>
-        <Label Text="Version 1.0" HorizontalOptions="Center" />
+        <StackLayout>
+            <Label Text="Version 1.0" HorizontalOptions="Center" />
+        </StackLayout>
     </Shell.FlyoutFooter>
 </Shell>

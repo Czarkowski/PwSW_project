@@ -80,7 +80,7 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterHelpers(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<IStaticResourcesHelper, StaticResourcesHelper>();
+            builder.Services.AddSingleton<IInitializeResources, StaticResourcesHelper>();
             builder.Services.AddSingleton<IUpdateDataHelper, UpdateDataHelper>();
             builder.Services.AddSingleton<IFilterDataHelper, FilterDataHelper>();
             builder.Services.AddSingleton<IReviewHelper, ReviewHelper>();
@@ -98,11 +98,12 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterPages(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<HiveListMainPage>();
-            builder.Services.AddScoped<QueenListMainPage>();
-            builder.Services.AddScoped<ReviewListMainPage>();
-            builder.Services.AddScoped<WarehouseMainPage>();
-            builder.Services.AddScoped<MainPage>();
+            builder.Services.AddTransient<HiveListMainPage>();
+            builder.Services.AddTransient<QueenListMainPage>();
+            builder.Services.AddTransient<ReviewListMainPage>();
+            builder.Services.AddTransient<WarehouseMainPage>();
+            builder.Services.AddTransient<MainPage>();
+
             builder.Services.AddTransient<AddQueenPage>();
             builder.Services.AddTransient<EditQueenPage>();
             builder.Services.AddTransient<ChangeQueenPopup>();

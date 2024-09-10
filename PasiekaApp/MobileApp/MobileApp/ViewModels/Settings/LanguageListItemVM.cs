@@ -13,5 +13,10 @@ namespace MobileApp.ViewModels
         public string LanguageName { get => _languageName; set => SetProperty(ref _languageName, value); }
         private string _languageCode;
         public string LanguageCode { get => _languageCode; set => SetProperty(ref _languageCode, value); }
+
+        public override string ToString()
+        {
+            return LanguageName;
+        }
     }
 }

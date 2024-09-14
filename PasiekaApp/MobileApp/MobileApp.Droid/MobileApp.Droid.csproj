@@ -15,6 +15,42 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Resources\mipmap-hdpi\appicon.png" />
+	  <AndroidResource Remove="Resources\mipmap-hdpi\appicon_background.png" />
+	  <AndroidResource Remove="Resources\mipmap-hdpi\appicon_foreground.png" />
+	  <AndroidResource Remove="Resources\mipmap-mdpi\appicon.png" />
+	  <AndroidResource Remove="Resources\mipmap-mdpi\appicon_background.png" />
+	  <AndroidResource Remove="Resources\mipmap-mdpi\appicon_foreground.png" />
+	  <AndroidResource Remove="Resources\mipmap-xhdpi\appicon.png" />
+	  <AndroidResource Remove="Resources\mipmap-xhdpi\appicon_background.png" />
+	  <AndroidResource Remove="Resources\mipmap-xhdpi\appicon_foreground.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxhdpi\appicon.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxhdpi\appicon_background.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxhdpi\appicon_foreground.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxxhdpi\appicon.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxxhdpi\appicon_background.png" />
+	  <AndroidResource Remove="Resources\mipmap-xxxhdpi\appicon_foreground.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\mipmap-hdpi\appicon.png" />
+	  <EmbeddedResource Include="Resources\mipmap-hdpi\appicon_background.png" />
+	  <EmbeddedResource Include="Resources\mipmap-hdpi\appicon_foreground.png" />
+	  <EmbeddedResource Include="Resources\mipmap-mdpi\appicon.png" />
+	  <EmbeddedResource Include="Resources\mipmap-mdpi\appicon_background.png" />
+	  <EmbeddedResource Include="Resources\mipmap-mdpi\appicon_foreground.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xhdpi\appicon.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xhdpi\appicon_background.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xhdpi\appicon_foreground.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxhdpi\appicon.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxhdpi\appicon_background.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxhdpi\appicon_foreground.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxxhdpi\appicon.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxxhdpi\appicon_background.png" />
+	  <EmbeddedResource Include="Resources\mipmap-xxxhdpi\appicon_foreground.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
@@ -22,6 +58,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\MobileApp\MobileApp.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\mipmap-anydpi-v26\" />
 	</ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.MyPreferences
+namespace MobileApp.UserPreferences
 {
     public struct PreferencesKeys
     {

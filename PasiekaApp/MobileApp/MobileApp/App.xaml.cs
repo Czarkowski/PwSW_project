@@ -7,7 +7,7 @@ using Microsoft.Maui.Hosting;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.Interfaces;
 using MobileApp.Localizations;
-using MobileApp.MyPreferences;
+using MobileApp.UserPreferences;
 using MobileApp.Pages;
 using System.Globalization;
 using System.Resources;

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using MobileApp.MyPreferences;
+using MobileApp.UserPreferences;
 using MobileApp.ViewModels;
 
 namespace MobileApp.Pages;

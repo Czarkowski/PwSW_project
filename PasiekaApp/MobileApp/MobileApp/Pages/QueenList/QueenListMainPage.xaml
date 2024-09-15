@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MobileApp.Pages.QueenList.Views"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
              x:Class="MobileApp.Pages.QueenListMainPage" >
     <!--AutomationProperties.IsInAccessibleTree="True"-->
     <ContentPage.Resources>
@@ -18,7 +19,7 @@
             </Grid.RowDefinitions>
 
             <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Button Text="txt_NewRace" Clicked="OnAddRaceClicked" />
+                <!--<Button Text="txt_NewRace" Clicked="OnAddRaceClicked" />-->
             </StackLayout>
             
             <ScrollView Grid.Row="1">
@@ -30,7 +31,7 @@
 
             <!-- Stałe przyciski na dole strony -->
             <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Button Text="txt_NewQueen" Clicked="OnAddQueenClicked" />
+                <Button Text="{loc:Translate txt_NewQueen}" Clicked="OnAddQueenClicked" />
             </StackLayout>
         </Grid>
         

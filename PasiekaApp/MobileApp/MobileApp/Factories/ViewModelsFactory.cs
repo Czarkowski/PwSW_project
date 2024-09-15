@@ -259,5 +259,22 @@ namespace MobileApp.Factories
                 Name = string.Empty,
             };
         }
+
+        public ApiaryDataRacesMainVM CreateApiaryDataRacesMainVM(List<Race> races)
+        {
+            return new ApiaryDataRacesMainVM()
+            {
+                NewRaceName = string.Empty,
+                RacesListVM = new RacesListVM()
+                {
+                    ItemList = races.Select(x => new RaceItemVM(x)
+                    {
+                        Name = x.Name,
+                        IsVisible = x.IsVisible,
+                    }).ToList(),
+                },
+                AddRaceMainVM = CreateAddRaceMainVM(),
+            };
+        }
     }
 }

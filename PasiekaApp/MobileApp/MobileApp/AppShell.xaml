@@ -21,6 +21,10 @@
         <ShellContent Title="{loc:Translate txt_ReviewListMainPageTitle}" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
         <ShellContent Title="{loc:Translate txt_WarehouseMainPageTitle}" ContentTemplate="{DataTemplate pages:WarehouseMainPage}" Route="WarehouseMainPage" />
     </FlyoutItem>
+    <FlyoutItem Title="{loc:Translate txt_ApiaryDataNavigationTitle}" >
+        <ShellContent Title="{loc:Translate txt_ApiaryDataRacesMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataRacesMainPage}" Route="ApiaryDataRacesMainPage" />
+        <ShellContent Title="{loc:Translate txt_ApiaryDataReviewsMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataReviewsMainPage}" Route="ApiaryDataReviewsMainPage" />
+    </FlyoutItem>
     <FlyoutItem Title="{loc:Translate txt_SettingsNavigationTitle}" >
         <ShellContent Title="{loc:Translate txt_DataSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:DataSettingsMainPage}" Route="DataSettingsMainPage" />
         <ShellContent Title="{loc:Translate txt_LanguageSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:LanguageSettingsMainPage}" Route="LanguageSettingsMainPage" />

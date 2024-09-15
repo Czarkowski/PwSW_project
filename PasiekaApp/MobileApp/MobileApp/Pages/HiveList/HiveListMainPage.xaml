@@ -7,9 +7,9 @@
              xmlns:core="clr-namespace:MobileApp.Core.BasePages;assembly=MobileApp.Core"
              xmlns:loc="clr-namespace:MobileApp.Localizations"
              xmlns:vm="using:MobileApp.ViewModels"   
+             x:Class="MobileApp.Pages.HiveListMainPage"
              x:DataType="vm:HiveListMainVM"
              BindingContext="{Binding HiveListMainVM, Source={RelativeSource Self}}"
-             x:Class="MobileApp.Pages.HiveListMainPage"
              Title="{loc:Translate txt_HiveListMainPageTitle}">
     <Grid>
         <Grid.RowDefinitions>
@@ -32,9 +32,9 @@
                             <Label Text="{Binding Description}" TextColor="White" Grid.Column="2" VerticalOptions="Center" InputTransparent="True"/>
                         </Grid>-->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="{Binding Number}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
-                            <Label Text="{Binding Race}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" />
-                            <Label Text="{Binding Description}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" />
+                            <Label Text="{Binding Number}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
+                            <Label Text="{Binding Race}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
+                            <Label Text="{Binding Description}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

@@ -27,5 +27,6 @@ namespace MobileApp.Factories.Interfaces
         HiveListMainVM CreateHiveListMainVM(List<Hive> hives);
         AddQueenVM CreateAddQueenVM(List<Race> races);
         AddRaceMainVM CreateAddRaceMainVM();
+        ApiaryDataRacesMainVM CreateApiaryDataRacesMainVM(List<Race> races);
     }
 }

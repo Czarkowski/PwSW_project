@@ -86,6 +86,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IFilterDataHelper, FilterDataHelper>();
             builder.Services.AddSingleton<IReviewHelper, ReviewHelper>();
             builder.Services.AddSingleton<IFilterPredicateHelper, FilterPredicateHelper>();
+            builder.Services.AddSingleton<IDisplayPromptHelper, DisplayPromptHelper>();
             return builder;
         }
 
@@ -112,6 +113,8 @@ namespace MobileApp
             builder.Services.AddTransient<ReviewDetailsMainPage>();
             builder.Services.AddTransient<ReviewHiveHistoryMainPage>();
             builder.Services.AddTransient<AddRaceMainPage>();
+            builder.Services.AddTransient<ApiaryDataRacesMainPage>();
+            builder.Services.AddTransient<ApiaryDataReviewsMainPage>();
             return builder;
         }
     }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MobileApp.Pages"
+            xmlns:converters="clr-namespace:MobileApp.Converters"
+            xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+            xmlns:core="clr-namespace:MobileApp.Core.BasePages;assembly=MobileApp.Core"
+            xmlns:loc="clr-namespace:MobileApp.Localizations"
+            xmlns:vm="using:MobileApp.ViewModels"   
+            x:Class="MobileApp.Pages.ApiaryDataRacesMainPage"
+            x:DataType="vm:ApiaryDataRacesMainVM"
+             x:Name="this"
+            BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
+            Title="{loc:Translate txt_ApiaryDataRacesMainPageTitle}">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <!-- Lista dostępnych ras z checkboxami -->
+        <CollectionView ItemsSource="{Binding RacesListVM.ObservableItemCollection}" SelectionMode="Single" 
+                        SelectedItem="{Binding RacesListVM.SelectedItem}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:RaceItemVM">
+                    <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
+                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
+                        <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
+                                  CheckedChanged="IsVisible_CheckedChanged"/>
+                        <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" Grid.Column="2" 
+                                CommandParameter="{Binding .}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Formularz do dodawania/modyfikowania rasy -->
+        <Frame Padding="10" BackgroundColor="LightGray">
+            <StackLayout Spacing="10">
+
+                <!-- Pole do wpisania nazwy rasy -->
+                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}" />
+                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" />
+
+                <!-- Przyciski -->
+                <HorizontalStackLayout Spacing="10">
+                    <Button Text="{loc:Translate txt_Save}" Clicked="AddRace_Clicked" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

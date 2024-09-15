@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtNewQueen" xml:space="preserve">
+    <value>Nowa Królowa</value>
+  </data>
   <data name="txt_AddHive" xml:space="preserve">
     <value>Dodaj Ul</value>
   </data>
@@ -131,6 +134,15 @@
   </data>
   <data name="txt_All" xml:space="preserve">
     <value>Wszystkie</value>
+  </data>
+  <data name="txt_ApiaryDataNavigationTitle" xml:space="preserve">
+    <value>Dane dla Pasieki</value>
+  </data>
+  <data name="txt_ApiaryDataRacesMainPageTitle" xml:space="preserve">
+    <value>Dane Ras</value>
+  </data>
+  <data name="txt_ApiaryDataReviewsMainPageTitle" xml:space="preserve">
+    <value>Dane Przeglądów</value>
   </data>
   <data name="txt_ApiaryNavigationTitle" xml:space="preserve">
     <value>Pasieka</value>
@@ -152,6 +164,9 @@
   </data>
   <data name="txt_Description" xml:space="preserve">
     <value>Opis:</value>
+  </data>
+  <data name="txt_DescriptionPlaceholder" xml:space="preserve">
+    <value>Opis</value>
   </data>
   <data name="txt_DetailsReview" xml:space="preserve">
     <value>Szczgóły przeglądu</value>
@@ -189,6 +204,9 @@
   <data name="txt_Modify" xml:space="preserve">
     <value>Modyfikuj</value>
   </data>
+  <data name="txt_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
   <data name="txt_NewQueen" xml:space="preserve">
     <value>Nowa Królowa</value>
   </data>
@@ -215,6 +233,9 @@
   </data>
   <data name="txt_Race" xml:space="preserve">
     <value>Rasa:</value>
+  </data>
+  <data name="txt_RaceNamePlaceholder" xml:space="preserve">
+    <value>Nowa Rasa</value>
   </data>
   <data name="txt_Realized" xml:space="preserve">
     <value>Zrealizowane:</value>
@@ -257,6 +278,9 @@
   </data>
   <data name="txt_Uncopleted" xml:space="preserve">
     <value>Nieukończone</value>
+  </data>
+  <data name="txt_ValueEdit" xml:space="preserve">
+    <value>Edycja wartości</value>
   </data>
   <data name="txt_WarehouseMainPageTitle" xml:space="preserve">
     <value>Magazyn</value>

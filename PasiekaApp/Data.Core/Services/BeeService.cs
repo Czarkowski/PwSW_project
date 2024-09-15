@@ -63,9 +63,9 @@ namespace Data.Core.Services
             return _beeQueenRepository.GetAll();
         }
 
-        public List<Race> GetAllRaces()
+        public List<Race> GetAllRaces(bool isVisible)
         {
-            return _raceRepository.GetAll();
+            return _raceRepository.GetAll().Where(x => isVisible ? x.IsVisible == true : true).ToList();
         }
 
         public List<Hive> GetAllHive()
@@ -197,6 +197,11 @@ namespace Data.Core.Services
         public Race AddRace(Race race)
         {
             return _raceRepository.Add(race);
+        }
+
+        public Race UpdateRace(Race race)
+        {
+            return _raceRepository.Update(race);
         }
     }
 }

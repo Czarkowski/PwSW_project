@@ -43,6 +43,7 @@ namespace MobileApp.Factories
             {
                 Name = addRaceMainVM.Name,
                 Description = addRaceMainVM.Description,
+                IsVisible = true,
             };
         }
 

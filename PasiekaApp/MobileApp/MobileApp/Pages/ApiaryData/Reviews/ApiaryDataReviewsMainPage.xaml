@@ -9,12 +9,44 @@
             xmlns:vm="using:MobileApp.ViewModels"   
             x:Class="MobileApp.Pages.ApiaryDataReviewsMainPage"
             x:DataType="vm:ApiaryDataReviewsMainVM"
+             x:Name="this"
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
             Title="{loc:Translate txt_ApiaryDataReviewsMainPageTitle}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <!-- Lista dostępnych ras z checkboxami -->
+        <CollectionView ItemsSource="{Binding ReviewTypeListVM.ObservableItemCollection}" SelectionMode="Single" 
+                        SelectedItem="{Binding ReviewTypeListVM.SelectedItem}" SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:RaceListItemVM">
+                    <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
+                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
+                        <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
+                                  CheckedChanged="IsVisible_CheckedChanged"/>
+                        <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" Grid.Column="2" 
+                                CommandParameter="{Binding .}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Formularz do dodawania/modyfikowania rasy -->
+        <Frame Padding="10" BackgroundColor="LightGray">
+            <StackLayout Spacing="10">
+
+                <!-- Pole do wpisania nazwy rasy -->
+                <Entry Text="{Binding AddReviewTypeVM.Name}" Placeholder="{loc:Translate txt_ReviewNamePlaceholder}" TextColor="Black"/>
+                <Entry Text="{Binding AddReviewTypeVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" TextColor="Black" />
+
+                <!-- Przyciski -->
+                <HorizontalStackLayout Spacing="10">
+                    <Button Text="{loc:Translate txt_Add}" Clicked="AddReviewType_Clicked" />
+                    <Button Text="{loc:Translate txt_Modify}" Clicked="ModifyReviewType_Clicked" 
+                            IsEnabled="{Binding ReviewTypeListVM.SelectedItem, Converter={StaticResource NullToBooleanConverter}}"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+
     </VerticalStackLayout>
 </ContentPage>

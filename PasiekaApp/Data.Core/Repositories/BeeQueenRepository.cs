@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class MatkaPszczelaRepostory : IBeeQueenRepository
+    public class BeeQueenRepository : IBeeQueenRepository
     {
         private readonly BeeDbContext _db;
-        public MatkaPszczelaRepostory(BeeDbContext beeDbContext)
+        public BeeQueenRepository(BeeDbContext beeDbContext)
         {
             _db = beeDbContext;
         }

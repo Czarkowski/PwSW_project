@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Core.Models;
 using Data.Core.Predicates;
+using Data.Core.Repositories;
 using Data.Core.Repositories.Interfaces;
 using Data.Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -27,24 +28,37 @@ namespace Data.Core.Services
         private readonly IStockAvailabilityRepository _stockAvailabilityRepository;
         private readonly IDescriptionRepository _descriptionRepository;
         private readonly BeeDbContext _db;
-        
 
-        public BeeService(BeeDbContext beeDbContext, IHiveRepository hiveRepository, IRaceRepository rasaRepository,
-            IBeeQueenRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
-            IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository,
-            IDescriptionRepository descriptionRepository)
+        public BeeService(BeeDbContext beeDbContext)
         {
-            _descriptionRepository = descriptionRepository;
-            _hiveRepository = hiveRepository;
-            _beeQueenRepository = matkaPszczelaRepository;
-            _raceRepository = rasaRepository;
-            _reviewTypeRepository = reviewTypeRepository;
-            _reviewRepository = reviewRepository;
-            _stockAvailabilityRepository = stockAvailabilityRepository;
+            _descriptionRepository = new DescriptionRepository(beeDbContext);
+            _hiveRepository = new HiveRepository(beeDbContext);
+            _beeQueenRepository = new BeeQueenRepository(beeDbContext);
+            _raceRepository = new RaceRepostory(beeDbContext);
+            _reviewTypeRepository = new ReviewTypeRepository(beeDbContext);
+            _reviewRepository = new ReviewRepository(beeDbContext);
+            _stockAvailabilityRepository = new StockAvailabilityRepository(beeDbContext);
             _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
         }
+
+        //public BeeService(BeeDbContext beeDbContext, IHiveRepository hiveRepository, IRaceRepository rasaRepository,
+        //    IBeeQueenRepository matkaPszczelaRepository, IReviewTypeRepository reviewTypeRepository,
+        //    IReviewRepository reviewRepository, IStockAvailabilityRepository stockAvailabilityRepository,
+        //    IDescriptionRepository descriptionRepository)
+        //{
+        //    _descriptionRepository = descriptionRepository;
+        //    _hiveRepository = hiveRepository;
+        //    _beeQueenRepository = matkaPszczelaRepository;
+        //    _raceRepository = rasaRepository;
+        //    _reviewTypeRepository = reviewTypeRepository;
+        //    _reviewRepository = reviewRepository;
+        //    _stockAvailabilityRepository = stockAvailabilityRepository;
+        //    _db = beeDbContext;
+        //    //_db = new BeeDbContext();
+        //    //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
+        //}
 
         public BeeQueen AddQueen(BeeQueen matkaPszczela)
         {
@@ -108,9 +122,9 @@ namespace Data.Core.Services
             return _beeQueenRepository.GetAll().Where(x => x.Hive == null).ToList();
         }
 
-        public List<ReviewType> GetAllReviewType()
+        public List<ReviewType> GetAllReviewType(bool isVisible)
         {
-            return _reviewTypeRepository.GetAll();
+            return _reviewTypeRepository.GetAll().Where(x => isVisible ? x.IsVisible == true : true).ToList(); ;
         }
 
         public Review AddReview(Review review)
@@ -130,7 +144,7 @@ namespace Data.Core.Services
             if (uncompleted.HasValue && uncompleted == true)
                 sqlPredicate.AddPredicate(uncompleted, x => x.RealizedDate.HasValue, (x, y) => x.Equals(false), ConcatType.And);
 
-            return _db.Reviews.Where(sqlPredicate.Predicate).ToList().FindAll(sqlPredicate.Predicate).ToList();
+            return _reviewRepository.GetAll().Where(sqlPredicate.Predicate).ToList();
         }
 
         public List<StockAvailability> GetAllStock()
@@ -170,6 +184,12 @@ namespace Data.Core.Services
 
         public Hive AddHive(Hive ul)
         {
+            //using (BeeDbContext context = new BeeDbContext())
+            //{
+            //    context.Hives.Add(ul);
+            //    context.SaveChanges();
+            //};
+            //return ul;
             return _hiveRepository.Add(ul);
         }
 
@@ -202,6 +222,16 @@ namespace Data.Core.Services
         public Race UpdateRace(Race race)
         {
             return _raceRepository.Update(race);
+        }
+
+        public ReviewType UpdateReviewType(ReviewType reviewType)
+        {
+            return _reviewTypeRepository.Update(reviewType);
+        }
+
+        public ReviewType AddReviewType(ReviewType reviewType)
+        {
+            return _reviewTypeRepository.Add(reviewType);
         }
     }
 }

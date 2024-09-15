@@ -41,8 +41,14 @@ namespace Data.Core
                 }
 
                 context.SaveChanges();
-                //db.Database.EnsureDeleted();
-                //db.Database.EnsureCreated();
+            }
+        }
+
+        public static void DeleteDataBase()
+        {
+            using (var context = new BeeDbContext())
+            {
+                context.Database.EnsureDeleted();
             }
         }
 
@@ -56,7 +62,7 @@ namespace Data.Core
                     if (context.Database.GetPendingMigrations().Any())
                         context.Database.Migrate();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                 }
             }

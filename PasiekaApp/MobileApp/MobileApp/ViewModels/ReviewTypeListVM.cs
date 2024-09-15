@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class RacesListVM : ObservableItemCollectionVM<RaceListItemVM>
+    public class ReviewTypeListVM : ObservableItemCollectionVM<ReviewTypeListItemVM>
     {
     }
 }

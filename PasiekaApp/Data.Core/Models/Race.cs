@@ -16,7 +16,7 @@ namespace Data.Core.Models
         }
         public virtual List<BeeQueen> BeeQueens { get; set; } = new List<BeeQueen>();
         public string Name { get; set; } = string.Empty;
-        public string? Description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         public int Licznosc { get; set; }
         public int Produktywnosc { get; set; }
         public int Rojliwosc { get; set; }

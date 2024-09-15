@@ -51,7 +51,7 @@ public partial class ApiaryDataRacesMainPage : ContentPage
 
     private async void OnEditClicked(object sender)
     {
-        if (sender is RaceItemVM item)
+        if (sender is RaceListItemVM item)
         {
             string result = string.Empty;
             bool isCorrect = false;
@@ -82,9 +82,10 @@ public partial class ApiaryDataRacesMainPage : ContentPage
             LoadData();
         }
     }
+
     private void IsVisible_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        if (sender is CheckBox checkBox && checkBox.BindingContext is RaceItemVM raceItem)
+        if (sender is CheckBox checkBox && checkBox.BindingContext is RaceListItemVM raceItem)
         {
             Race race = raceItem.Race;
             if (race.IsVisible != raceItem.IsVisible)
@@ -102,5 +103,25 @@ public partial class ApiaryDataRacesMainPage : ContentPage
         Race race = _dataToSaveFactory.CreateRace(ViewModel.AddRaceMainVM);
         _beeService.AddRace(race);
         LoadData();
+    }
+
+    private void ModifyRace_Clicked(object sender, EventArgs e)
+    {
+        if (ViewModel.RacesListVM.SelectedItem?.Race is Race race)
+        {
+            race.Description = ViewModel.AddRaceMainVM.Description;
+            race.Name = ViewModel.AddRaceMainVM.Name;
+            _beeService.UpdateRace(race);
+            LoadData();
+        }
+    }
+
+    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (ViewModel.RacesListVM.SelectedItem?.Race is Race race)
+        {
+            ViewModel.AddRaceMainVM.Name = race.Name;
+            ViewModel.AddRaceMainVM.Description = race.Description;
+        }
     }
 }

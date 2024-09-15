@@ -28,5 +28,6 @@ namespace MobileApp.Factories.Interfaces
         AddQueenVM CreateAddQueenVM(List<Race> races);
         AddRaceMainVM CreateAddRaceMainVM();
         ApiaryDataRacesMainVM CreateApiaryDataRacesMainVM(List<Race> races);
+        ApiaryDataReviewsMainVM CreateApiaryDataReviewsMainVM(List<ReviewType> reviewType);
     }
 }

@@ -16,12 +16,6 @@ namespace MobileApp.ViewModels
             set => SetProperty(ref _racesListVM, value);
         }
 
-        private string _newRaceName;
-        public string NewRaceName
-        {
-            get => _newRaceName;
-            set => SetProperty(ref _newRaceName, value);
-        }   
         private AddRaceMainVM _addRaceMainVM;
         public AddRaceMainVM AddRaceMainVM
         {

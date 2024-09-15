@@ -13,6 +13,7 @@ using MobileApp.Helpers.Interfaces;
 using MobileApp.Helpers.StaticResources;
 using MobileApp.Pages;
 using MobileApp.Pages.HiveList.Views;
+using System.Net.Sockets;
 
 namespace MobileApp
 {
@@ -62,20 +63,20 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterRepositories(this MauiAppBuilder builder)
         {
-            builder.Services.AddDbContext<BeeDbContext>();
-            builder.Services.AddSingleton<IHiveRepository, HiveRepository>();
-            builder.Services.AddSingleton<IBeeQueenRepository, MatkaPszczelaRepostory>();
-            builder.Services.AddSingleton<IRaceRepository, RasaRepostory>();
-            builder.Services.AddSingleton<IReviewTypeRepository, ReviewTypeRepository>();
-            builder.Services.AddSingleton<IReviewRepository, ReviewRepository>();
-            builder.Services.AddSingleton<IStockAvailabilityRepository, StockAvailabilityRepository>();
-            builder.Services.AddSingleton<IDescriptionRepository, DescriptionRepository>();
+            builder.Services.AddDbContext<BeeDbContext>(ServiceLifetime.Transient);
+            builder.Services.AddTransient<IHiveRepository, HiveRepository>();
+            builder.Services.AddTransient<IBeeQueenRepository, BeeQueenRepository>();
+            builder.Services.AddTransient<IRaceRepository, RaceRepostory>();
+            builder.Services.AddTransient<IReviewTypeRepository, ReviewTypeRepository>();
+            builder.Services.AddTransient<IReviewRepository, ReviewRepository>();
+            builder.Services.AddTransient<IStockAvailabilityRepository, StockAvailabilityRepository>();
+            builder.Services.AddTransient<IDescriptionRepository, DescriptionRepository>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<IBeeService, BeeService>();
+            builder.Services.AddTransient<IBeeService, BeeService>();
             return builder;
         }
 

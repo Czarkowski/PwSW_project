@@ -36,7 +36,7 @@ public partial class DataSettingsMainPage : ContentPage
 
     private void ResetDatabase()
     {
-        BeeDbContext.ClearDataBase();
+        BeeDbContext.DeleteDataBase();
         App.Current.InitializeData();
         App.Current.InitializeMainPage();
     }

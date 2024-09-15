@@ -63,6 +63,16 @@ namespace MobileApp.Factories
             };
         }
 
+        public ReviewType CreateReviewType(AddReviewTypeVM addReviewTypeVM)
+        {
+            return new ReviewType()
+            {
+                Name = addReviewTypeVM.Name,
+                Description = addReviewTypeVM.Description,
+                IsVisible = true,
+            };
+        }
+
         public StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM)
         {
             return new StockAvailability()

@@ -17,9 +17,9 @@
 
         <!-- Lista dostępnych ras z checkboxami -->
         <CollectionView ItemsSource="{Binding RacesListVM.ObservableItemCollection}" SelectionMode="Single" 
-                        SelectedItem="{Binding RacesListVM.SelectedItem}">
+                        SelectedItem="{Binding RacesListVM.SelectedItem}" SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="vm:RaceItemVM">
+                <DataTemplate x:DataType="vm:RaceListItemVM">
                     <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
                         <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
                         <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
@@ -36,12 +36,14 @@
             <StackLayout Spacing="10">
 
                 <!-- Pole do wpisania nazwy rasy -->
-                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}" />
-                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" />
+                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}" TextColor="Black" />
+                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" TextColor="Black" />
 
                 <!-- Przyciski -->
                 <HorizontalStackLayout Spacing="10">
-                    <Button Text="{loc:Translate txt_Save}" Clicked="AddRace_Clicked" />
+                    <Button Text="{loc:Translate txt_Add}" Clicked="AddRace_Clicked" />
+                    <Button Text="{loc:Translate txt_Modify}" Clicked="ModifyRace_Clicked" 
+                            IsEnabled="{Binding RacesListVM.SelectedItem, Converter={StaticResource NullToBooleanConverter}}"/>
                 </HorizontalStackLayout>
             </StackLayout>
         </Frame>

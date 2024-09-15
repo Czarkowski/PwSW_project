@@ -1,6 +1,5 @@
 ﻿using Data.Core.Models;
 using MobileApp.ViewModels.BaseViewModel;
-using MobileApp.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels
 {
-    public class RaceItemVM : SelectableVM
+    public class ReviewTypeListItemVM : SelectableVM
     {
-        public readonly Race Race;
-        public RaceItemVM(Race race) : base(race.Id)
+        public readonly ReviewType ReviewType;
+        public ReviewTypeListItemVM(ReviewType reviewType) : base(reviewType.Id)
         {
-            Race = race;
+            ReviewType = reviewType;
         }
         private string _name;
         public string Name

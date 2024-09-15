@@ -264,16 +264,35 @@ namespace MobileApp.Factories
         {
             return new ApiaryDataRacesMainVM()
             {
-                NewRaceName = string.Empty,
                 RacesListVM = new RacesListVM()
                 {
-                    ItemList = races.Select(x => new RaceItemVM(x)
+                    ItemList = races.Select(x => new RaceListItemVM(x)
                     {
                         Name = x.Name,
                         IsVisible = x.IsVisible,
                     }).ToList(),
                 },
                 AddRaceMainVM = CreateAddRaceMainVM(),
+            };
+        }
+
+        public ApiaryDataReviewsMainVM CreateApiaryDataReviewsMainVM(List<ReviewType> reviewType)
+        {
+            return new ApiaryDataReviewsMainVM()
+            {
+                AddReviewTypeVM = new AddReviewTypeVM()
+                {
+                    Description = string.Empty,
+                    Name = string.Empty,
+                },
+                ReviewTypeListVM = new ReviewTypeListVM()
+                {
+                    ItemList = reviewType.Select(x => new ReviewTypeListItemVM(x)
+                    {
+                        Name = x.Name,
+                        IsVisible = x.IsVisible,
+                    }).ToList(),
+                },
             };
         }
     }

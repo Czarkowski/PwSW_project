@@ -24,7 +24,7 @@ namespace Data.Core.Services.Interfaces
         bool DeleteQueen(BeeQueen beeQueen);
         List<Hive> GetAllHiveWithoutQueens();
         List<BeeQueen> GetAllQueensWithoutHive();
-        List<ReviewType> GetAllReviewType();
+        List<ReviewType> GetAllReviewType(bool isVisible = true);
         Review AddReview(Review review);
         List<Review> GetFiltratedReviews(ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? Uncompleted = default);
         bool DeleteStock(StockAvailability stock);
@@ -36,5 +36,7 @@ namespace Data.Core.Services.Interfaces
         List<DescriptionHiveReview> GetFiltratedDescriptionHiveReviewsHistory(Hive hive, ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? uncompleted = default);
         Race AddRace(Race race);
         Race UpdateRace(Race race);
+        ReviewType UpdateReviewType(ReviewType reviewType);
+        ReviewType AddReviewType(ReviewType reviewType);
     }
 }

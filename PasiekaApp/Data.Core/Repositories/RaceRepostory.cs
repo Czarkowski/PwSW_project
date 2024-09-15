@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Repositories
 {
-    public class RasaRepostory : BaseRepository<Race>, IRaceRepository
+    public class RaceRepostory : BaseRepository<Race>, IRaceRepository
     {
-        public RasaRepostory(BeeDbContext beeDbContext) : base(beeDbContext, beeDbContext.Races)
+        public RaceRepostory(BeeDbContext beeDbContext) : base(beeDbContext, beeDbContext.Races)
         {
         }
 

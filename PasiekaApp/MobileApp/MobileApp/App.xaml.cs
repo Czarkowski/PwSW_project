@@ -19,15 +19,17 @@ namespace MobileApp
     {
         public static new App Current => (App)Application.Current;
         public readonly IServiceProvider ServicesProvider;
+        public readonly IServiceScopeFactory ServiceScopeFactory;
         private readonly IInitializeResources _staticResourcesServices;
         private readonly IBeeService _beeService;
         private IServiceScope _currentScope;
-        public App(IInitializeResources staticResourcesServices, IServiceProvider serviceProvider, IBeeService beeService)
+        public App(IInitializeResources staticResourcesServices, IServiceProvider serviceProvider, IBeeService beeService, 
+            IServiceScopeFactory serviceScopeFactory)
         {
             _beeService = beeService;
             _staticResourcesServices = staticResourcesServices;
             ServicesProvider = serviceProvider;
-
+            ServiceScopeFactory = serviceScopeFactory;
 
             InitializeComponent();
 
@@ -39,12 +41,23 @@ namespace MobileApp
 
         public void ResetScope()
         {
-            if (_currentScope != null)
-            {
-                _currentScope.Dispose();
-                _currentScope = null;
-            }
-            _currentScope = ServicesProvider.CreateScope();
+            //ServicesProvider.GetService<BeeDbContext>();
+            //if (_currentScope != null)
+            //{
+            //    _currentScope.Dispose();
+            //    _currentScope = null;
+            //}
+            //_currentScope = ServiceScopeFactory.CreateScope();
+
+            //ServicesProvider.GetService<BeeDbContext>();
+            //_currentScope.Dispose();
+            //ServicesProvider.GetService<BeeDbContext>();
+            //_currentScope = ServicesProvider.CreateScope();
+            //using (var scope = ServicesProvider.CreateScope())
+            //{
+            //    scope.ServiceProvider.GetService<BeeDbContext>();
+            //    ServicesProvider.GetService<BeeDbContext>();
+            //}
         }
 
         public void InitializeData()

@@ -10,6 +10,7 @@ namespace Data.Core.Models
     {
         public string Name { get; set; }
         public bool IsVisible { get; set; } = true;
+        public string Description { get; set; } = string.Empty;
         public virtual List<Review> Reviews { get; set; }
     }
 }

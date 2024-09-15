@@ -16,5 +16,6 @@ namespace MobileApp.Factories.Interfaces
         StockAvailability CreateStockAvailability(WarehouseItemVM warehouseItemVM);
         Hive CreateEmptyHive();
         Race CreateRace(AddRaceMainVM addRaceMainVM);
+        ReviewType CreateReviewType(AddReviewTypeVM addReviewTypeVM);
     }
 }

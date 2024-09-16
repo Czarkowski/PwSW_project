@@ -21,5 +21,6 @@ namespace Data.Core.Models
         public DateTime? AddBeeQueenDate { get; set; }
         public string Description { get; set; }
         public bool IsNucleus { get; set; }
+        public virtual List<ProductionHive> ProductionHives { get; set; } = new List<ProductionHive>();
     }
 }

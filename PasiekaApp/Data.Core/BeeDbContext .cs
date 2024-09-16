@@ -21,6 +21,9 @@ namespace Data.Core
         public DbSet<Description> Descriptions { get; set; }
         public DbSet<StockAvailability> StockAvailabilities { get; set; }
         public DbSet<ReviewType> ReviewTypes { get; set; }
+        public DbSet<Production> Productions { get; set; }
+        public DbSet<ProductionHive> ProductionHives { get; set; }
+        public DbSet<ProductionType> ProductionTypes { get; set; }
 
         public BeeDbContext()
         {
@@ -108,6 +111,16 @@ namespace Data.Core
                 p.ToTable(nameof(Review));
                 p.HasOne(p => p.ReviewType).WithMany(rw => rw.Reviews).HasForeignKey(p => p.ReviewTypeId);
             });
+
+            modelBuilder.Entity<ProductionHive>()
+                .HasOne(hp => hp.Hive)
+                .WithMany(h => h.ProductionHives)
+                .HasForeignKey(hp => hp.HiveId);
+
+            modelBuilder.Entity<ProductionHive>()
+                .HasOne(hp => hp.Production)
+                .WithMany(p => p.ProductionHives)
+                .HasForeignKey(hp => hp.ProductionId);
 
         }
 

@@ -4,6 +4,7 @@
              xmlns:vm="using:MobileApp.ViewModels"
              xmlns:pages="clr-namespace:MobileApp.Pages"
              xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+             xmlns:loc="clr-namespace:MobileApp.Localizations"
              x:Class="MobileApp.Pages.ReviewCreatorMainPage"
              BindingContext="{Binding ReviewCreatorVM, Source={RelativeSource Self}}"
              x:DataType="vm:ReviewCreatorVM">
@@ -16,7 +17,7 @@
         
         <ScrollView Orientation="Vertical" Grid.Row="0">
             <StackLayout>
-                <CollectionView x:Name="HiveListCV" ItemsSource="{Binding HiveList}" MinimumHeightRequest="200">
+                <CollectionView x:Name="HiveListCV" ItemsSource="{Binding HiveList}" MinimumHeightRequest="200" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="10" x:DataType="vm:HiveListToCreateReviewVM">
@@ -27,13 +28,13 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
         
-                <cc:CustomDatePicker LabelText="Planned Date" SelectedDate="{Binding Date}"/>
-                <cc:CustomPicker LabelText="Review Type" OptionList ="{Binding ReviewTypeList}" SelectedItem="{Binding ReviewType}" DisplayProperty="Name"/>
-                <cc:LabelEntry LabelText="Review Description" EntryText="{Binding Description}" />
+                <cc:CustomDatePicker LabelText="{loc:Translate txt_PlannedDate}" SelectedDate="{Binding Date}"/>
+                <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" OptionList ="{Binding ReviewTypeList}" SelectedItem="{Binding ReviewType}" DisplayProperty="Name"/>
+                <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description}" />
             </StackLayout>
         </ScrollView>
         <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" BackgroundColor="LightGray">
-            <Button Text="Create Review" Clicked="OnCreateReviewClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="{loc:Translate txt_CreateReview}" Clicked="OnCreateReviewClicked" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </Grid>
     

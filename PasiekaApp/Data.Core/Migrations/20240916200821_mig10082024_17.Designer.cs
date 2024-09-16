@@ -3,6 +3,7 @@ using System;
 using Data.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Core.Migrations
 {
     [DbContext(typeof(BeeDbContext))]
-    partial class BeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240916200821_mig10082024_17")]
+    partial class mig10082024_17
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
@@ -170,7 +173,7 @@ namespace Data.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductionTypes");
+                    b.ToTable("ProductionType");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Race", b =>

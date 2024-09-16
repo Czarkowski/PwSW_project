@@ -11,7 +11,7 @@
              x:DataType="vm:ReviewListVM"
              x:Name="this"
              BindingContext="{Binding ReviewListVM, Source={RelativeSource Self}}"
-             Title="ReviewListMainPage">
+             Title="{loc:Translate txt_ReviewListMainPageTitle}">
     
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <!--Filtr-->

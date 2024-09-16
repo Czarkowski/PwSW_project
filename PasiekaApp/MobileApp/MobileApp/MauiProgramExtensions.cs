@@ -71,6 +71,9 @@ namespace MobileApp
             builder.Services.AddTransient<IReviewRepository, ReviewRepository>();
             builder.Services.AddTransient<IStockAvailabilityRepository, StockAvailabilityRepository>();
             builder.Services.AddTransient<IDescriptionRepository, DescriptionRepository>();
+            builder.Services.AddTransient<IProductionRepository, ProductionRepository>();
+            builder.Services.AddTransient<IProductionHiveRepository, ProductionHiveRepository>();
+            builder.Services.AddTransient<IProductionTypeRepostory, ProductionTypeRepostory>();
             return builder;
         }
 

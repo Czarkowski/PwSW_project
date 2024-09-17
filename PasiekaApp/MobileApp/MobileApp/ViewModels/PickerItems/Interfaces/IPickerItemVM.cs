@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileApp.ViewModels.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.PickerItems.Interfaces
 {
-    public interface IPickerItem
+    public interface IPickerItemVM<T> : ISelectableVM
     {
-        object Value { get; set; }
+        T Value { get; set; }
         string Name { get; set; }
     }
 }

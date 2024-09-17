@@ -7,7 +7,7 @@ namespace MobileApp.Controls.CompositeControls;
 public partial class CustomPicker2 : ContentView
 {
     public static readonly BindableProperty OptionListProperty =
-        BindableProperty.Create(nameof(OptionList), typeof(IEnumerable<IPickerItem>), typeof(CustomPicker2), null, propertyChanged: OnOptionListChanged);
+        BindableProperty.Create(nameof(OptionList), typeof(IEnumerable<IPickerItemVM<object>>), typeof(CustomPicker2), null, propertyChanged: OnOptionListChanged);
 
     private static void OnOptionListChanged(BindableObject bindable, object oldValue, object newValue)
     {
@@ -23,9 +23,9 @@ public partial class CustomPicker2 : ContentView
         }
     }
 
-    public IEnumerable<IPickerItem> OptionList
+    public IEnumerable<IPickerItemVM<object>> OptionList
     {
-        get => (IEnumerable<IPickerItem>)GetValue(OptionListProperty);
+        get => (IEnumerable<IPickerItemVM<object>>)GetValue(OptionListProperty);
         set => SetValue(OptionListProperty, value);
     }
 
@@ -55,7 +55,7 @@ public partial class CustomPicker2 : ContentView
         set => SetValue(SelectedItemProperty, value);
     }
 
-    public IPickerItem SelectedPickerItem
+    public IPickerItemVM<object> SelectedPickerItem
     {
         set => SelectedItem = value.Value;
         get => OptionList.FirstOrDefault(x => x.Value == SelectedItem);

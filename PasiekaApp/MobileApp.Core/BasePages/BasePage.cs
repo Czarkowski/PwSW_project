@@ -14,5 +14,10 @@ namespace MobileApp.Core.BasePages
             get { return _viewModel; }
             set { _viewModel = value; OnPropertyChanged(); }
         }
+
+        public BaseContentPage()
+        {
+            BindingContext = ViewModel;
+        }
     }
 }

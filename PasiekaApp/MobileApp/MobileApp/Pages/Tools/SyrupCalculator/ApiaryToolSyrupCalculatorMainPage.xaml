@@ -8,15 +8,45 @@
             xmlns:loc="clr-namespace:MobileApp.Localizations"
             xmlns:vm="using:MobileApp.ViewModels"   
             x:Class="MobileApp.Pages.ApiaryToolSyrupCalculatorMainPage"
-                      x:TypeArguments="vm:ApiaryToolSyrupCalculatorMainVM"
+            x:TypeArguments="vm:ApiaryToolSyrupCalculatorMainVM"
             x:DataType="vm:ApiaryToolSyrupCalculatorMainVM"
              x:Name="this"
-             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
+            BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ApiaryToolSyrupCalculatorMainPageTitle}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="20">
+
+        <!-- Proporcja cukru do wody -->
+        <Label Text="Proporcja cukru do wody" FontAttributes="Bold"/>
+        <Picker Title="Wybierz proporcję" 
+                ItemsSource="{Binding RatioListVM.ItemList}" 
+                SelectedItem="{Binding RatioListVM.SelectedItem}">
+        </Picker>
+
+        <!-- Typ kalkulacji -->
+        <Label Text="Typ kalkulacji" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Picker Title="Wybierz typ kalkulacji" 
+                ItemsSource="{Binding CalculationTypeListVM.ItemList}" 
+                SelectedItem="{Binding CalculationTypeListVM.SelectedItem}">
+        </Picker>
+
+        <!-- Pole na wpisanie wartości -->
+        <Label Text="Wprowadź wartość" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Entry Placeholder="Wprowadź wartość" 
+               Keyboard="Numeric" 
+               Text="{Binding InputValue}"/>
+
+        <!-- Przycisk do obliczeń -->
+        <Button Text="Oblicz" 
+                Clicked="Button_Clicked"
+                Margin="0,20,0,0"/>
+
+        <!-- Wynik -->
+        <Label Text="Wynik Woda:" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Label Text="{Binding SyrupCalculatorResultsVM.ResultWater}" />
+        <Label Text="Wynik:" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Label Text="{Binding SyrupCalculatorResultsVM.ResultSugar}" />
+        <Label Text="Wynik:" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Label Text="{Binding SyrupCalculatorResultsVM.ResultSyrup}" />
+
     </VerticalStackLayout>
 </core:BaseContentPage>

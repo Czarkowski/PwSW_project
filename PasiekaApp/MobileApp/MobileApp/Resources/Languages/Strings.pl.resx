@@ -261,6 +261,9 @@
   <data name="txt_PleaseEnterValidNumber" xml:space="preserve">
     <value>Wprowadź poprawną wartość</value>
   </data>
+  <data name="txt_ProductionTypeNamePlaceholder" xml:space="preserve">
+    <value>Nazwa Produktu Pszczelego</value>
+  </data>
   <data name="txt_QueenListMainPageTitle" xml:space="preserve">
     <value>Lista Królowych</value>
   </data>

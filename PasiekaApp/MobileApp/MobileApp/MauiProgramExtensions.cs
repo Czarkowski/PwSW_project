@@ -91,6 +91,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IReviewHelper, ReviewHelper>();
             builder.Services.AddSingleton<IFilterPredicateHelper, FilterPredicateHelper>();
             builder.Services.AddSingleton<IDisplayPromptHelper, DisplayPromptHelper>();
+            builder.Services.AddSingleton<IApiaryToolHelper, ApiaryToolHelper>();
             return builder;
         }
 
@@ -119,6 +120,10 @@ namespace MobileApp
             builder.Services.AddTransient<AddRaceMainPage>();
             builder.Services.AddTransient<ApiaryDataRacesMainPage>();
             builder.Services.AddTransient<ApiaryDataReviewsMainPage>();
+            builder.Services.AddTransient<ApiaryDataProdutionsMainPage>();
+            builder.Services.AddTransient<ApiaryToolSyrupCalculatorMainPage>();
+            builder.Services.AddTransient<ApiaryProductionCreatorMainPage>();
+            builder.Services.AddTransient<ApiaryProductionSummaryMainPage>();
             return builder;
         }
     }

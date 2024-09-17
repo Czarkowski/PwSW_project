@@ -1,5 +1,7 @@
 ﻿using Data.Core.Models;
 using Data.Core.Services.Interfaces;
+using MobileApp.ApiaryTools;
+using MobileApp.Core.Classes;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.StaticResources;
 using MobileApp.Localizations;
@@ -294,6 +296,40 @@ namespace MobileApp.Factories
                     }).ToList(),
                 },
             };
+        }
+
+        public ApiaryDataProductionsMainVM CreateApiaryDataProductionsMainVM(List<ProductionType> productionType)
+        {
+            return new ApiaryDataProductionsMainVM()
+            {
+                ProductionTypeDetailsVM = new ProductionTypeDetailsVM(null)
+                {
+                    Description = string.Empty,
+                    Name = string.Empty,
+                },
+                ProductionTypeListVM = new ProductionTypeListVM()
+                {
+                    ItemList = productionType.Select(x => new ProductionTypeListItemVM(x)
+                    {
+                        Name = x.Name,
+                        IsVisible = x.IsVisible,
+                    }).ToList(),
+                },
+            };
+        }
+
+        public ProductionTypeDetailsVM CreateProductionTypeDetailsVM(ProductionType production)
+        {
+            return new ProductionTypeDetailsVM(production)
+            {
+                Name = production.Name,
+                Description = production.Description,
+            };
+        }
+
+        public ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(List<NamedValue<SyrupCalculationBaseType>> syrupCalculationBaseTypes, List<NamedValue<SyrupCalculationRatioType>> syrupCalculationRatioTypes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

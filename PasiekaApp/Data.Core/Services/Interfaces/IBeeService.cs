@@ -38,5 +38,8 @@ namespace Data.Core.Services.Interfaces
         Race UpdateRace(Race race);
         ReviewType UpdateReviewType(ReviewType reviewType);
         ReviewType AddReviewType(ReviewType reviewType);
+        List<ProductionType> GetAllProductionType(bool isVisible);
+        ProductionType UpdateProductionType(ProductionType productionType);
+        ProductionType AddProductionType(ProductionType productionType);
     }
 }

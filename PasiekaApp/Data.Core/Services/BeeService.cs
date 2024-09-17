@@ -27,6 +27,9 @@ namespace Data.Core.Services
         private readonly IReviewRepository _reviewRepository;
         private readonly IStockAvailabilityRepository _stockAvailabilityRepository;
         private readonly IDescriptionRepository _descriptionRepository;
+        private readonly IProductionTypeRepostory _productionTypeRepostory;
+        private readonly IProductionHiveRepository _productionHiveRepository;
+        private readonly IProductionRepository _productionRepository;
         private readonly BeeDbContext _db;
 
         public BeeService(BeeDbContext beeDbContext)
@@ -38,6 +41,9 @@ namespace Data.Core.Services
             _reviewTypeRepository = new ReviewTypeRepository(beeDbContext);
             _reviewRepository = new ReviewRepository(beeDbContext);
             _stockAvailabilityRepository = new StockAvailabilityRepository(beeDbContext);
+            _productionTypeRepostory = new ProductionTypeRepostory(beeDbContext);
+            _productionHiveRepository = new ProductionHiveRepository(beeDbContext);
+            _productionRepository = new ProductionRepository(beeDbContext);
             _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
@@ -232,6 +238,21 @@ namespace Data.Core.Services
         public ReviewType AddReviewType(ReviewType reviewType)
         {
             return _reviewTypeRepository.Add(reviewType);
+        }
+
+        public List<ProductionType> GetAllProductionType(bool isVisible)
+        {
+            return _productionTypeRepostory.GetAll().Where(x => isVisible ? x.IsVisible == true : true).ToList();
+        }
+
+        public ProductionType UpdateProductionType(ProductionType productionType)
+        {
+            return _productionTypeRepostory.Update(productionType);
+        }
+
+        public ProductionType AddProductionType(ProductionType productionType)
+        {
+            return _productionTypeRepostory.Add(productionType);
         }
     }
 }

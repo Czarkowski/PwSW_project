@@ -37,6 +37,16 @@ namespace MobileApp.Factories
             };
         }
 
+        public ProductionType CreateProductionType(ProductionTypeDetailsVM productionTypeDetailsVM)
+        {
+            return new ProductionType()
+            {
+                Name = productionTypeDetailsVM.Name,
+                Description = productionTypeDetailsVM.Description,
+                IsVisible = true,
+            };
+        }
+
         public Race CreateRace(AddRaceMainVM addRaceMainVM)
         {
             return new Race()

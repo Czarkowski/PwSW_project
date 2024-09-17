@@ -17,5 +17,6 @@ namespace MobileApp.Factories.Interfaces
         Hive CreateEmptyHive();
         Race CreateRace(AddRaceMainVM addRaceMainVM);
         ReviewType CreateReviewType(AddReviewTypeVM addReviewTypeVM);
+        ProductionType CreateProductionType(ProductionTypeDetailsVM productionTypeDetailsVM);
     }
 }

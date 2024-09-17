@@ -11,7 +11,7 @@ namespace MobileApp.ViewModels.BaseViewModel
     public abstract class BaseVM : INotifyPropertyChanged
     {
         public readonly int? Id = default;
-        public BaseVM(int id)
+        public BaseVM(int? id)
         {
             Id = id;
         }

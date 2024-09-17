@@ -8,10 +8,10 @@ using MobileApp.ViewModels.PickerItems.Interfaces;
 
 namespace MobileApp.ViewModels.PickerItems
 {
-    public class RacePickerItem : IPickerItem
+    public class RacePickerItem : IPickerItemVM<Race>
     {
         public string Name { get; set; }
-        public object Value { get; set; }
+        public Race Value { get; set; }
         //public Rasa Value { get; set; }
         //object IPickerItem.Value { get => Value; set => Value = value as Rasa; }
     }

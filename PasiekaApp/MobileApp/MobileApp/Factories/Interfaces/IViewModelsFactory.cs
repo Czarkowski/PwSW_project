@@ -1,4 +1,6 @@
 ﻿using Data.Core.Models;
+using MobileApp.ApiaryTools;
+using MobileApp.Core.Classes;
 using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,8 @@ namespace MobileApp.Factories.Interfaces
         QueenDetailsVM CreateQueenDetailsVM(BeeQueen matkaPszczela);
         List<QueenListVM> CreateQueenListVM(List<BeeQueen> matkaPszczelas);
         List<HiveListToCreateReviewVM> CreateHiveListToCreateReviewVM(List<Hive> hives);
-        ReviewCreatorVM CreateReviewCreatorVM(List<HiveListToCreateReviewVM> hiveListToCreateReviewVMs, List<ReviewType> reviewType);
+        ReviewCreatorVM CreateReviewCreatorVM(
+            List<HiveListToCreateReviewVM> hiveListToCreateReviewVMs, List<ReviewType> reviewType);
         ReviewListFilterVM CreateReviewListFilterVM();
         ReviewListVM CreateReviewListVM(List<Review> reviews, ReviewListFilterVM filterVM);
         ReviewListItemVM CreateReviewListItemVM(Review review);
@@ -29,5 +32,10 @@ namespace MobileApp.Factories.Interfaces
         AddRaceMainVM CreateAddRaceMainVM();
         ApiaryDataRacesMainVM CreateApiaryDataRacesMainVM(List<Race> races);
         ApiaryDataReviewsMainVM CreateApiaryDataReviewsMainVM(List<ReviewType> reviewType);
+        ApiaryDataProductionsMainVM CreateApiaryDataProductionsMainVM(List<ProductionType> productionType);
+        ProductionTypeDetailsVM CreateProductionTypeDetailsVM(ProductionType production);
+        ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(
+            List<NamedValue<SyrupCalculationBaseType>> syrupCalculationBaseTypes,
+            List<NamedValue<SyrupCalculationRatioType>> syrupCalculationRatioTypes);
     }
 }

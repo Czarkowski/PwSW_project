@@ -7,6 +7,7 @@ using MobileApp.Helpers.StaticResources;
 using MobileApp.Localizations;
 using MobileApp.Resources.Languages;
 using MobileApp.ViewModels;
+using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -327,9 +328,18 @@ namespace MobileApp.Factories
             };
         }
 
-        public ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(List<NamedValue<SyrupCalculationBaseType>> syrupCalculationBaseTypes, List<NamedValue<SyrupCalculationRatioType>> syrupCalculationRatioTypes)
+
+        public ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(
+            PickerItemListVM<SyrupCalculationBaseType> syrupCalculationBaseTypes, 
+            PickerItemListVM<SyrupCalculationRatioType> syrupCalculationRatioTypes)
         {
-            throw new NotImplementedException();
+            return new ApiaryToolSyrupCalculatorMainVM()
+            {
+                CalculationRatioListVM = syrupCalculationRatioTypes,
+                CalculationTypeListVM = syrupCalculationBaseTypes,
+                SyrupCalculatorResultsVM = new SyrupCalculatorResultsVM(),
+                InputValue = 0,
+            };
         }
     }
 }

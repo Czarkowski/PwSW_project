@@ -28,7 +28,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="MobileApp"
+        DisplayName="Pszczela Enklawa"
         Description="MobileApp"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"

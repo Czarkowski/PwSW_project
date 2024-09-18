@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.Interfaces
 {
-    public interface IPickerItemListVM<T> where T : class, ISelectableVM
+    public interface IPickerItemListVM<T>
     {
+        public T SelectedValue { get; set; }
     }
 }

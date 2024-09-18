@@ -18,8 +18,8 @@
         <!-- Proporcja cukru do wody -->
         <Label Text="Proporcja cukru do wody" FontAttributes="Bold"/>
         <Picker Title="Wybierz proporcję" 
-                ItemsSource="{Binding RatioListVM.ItemList}" 
-                SelectedItem="{Binding RatioListVM.SelectedItem}">
+                ItemsSource="{Binding CalculationRatioListVM.ItemList}" 
+                SelectedItem="{Binding CalculationRatioListVM.SelectedItem}">
         </Picker>
 
         <!-- Typ kalkulacji -->

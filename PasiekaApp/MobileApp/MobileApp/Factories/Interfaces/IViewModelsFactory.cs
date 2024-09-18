@@ -2,6 +2,7 @@
 using MobileApp.ApiaryTools;
 using MobileApp.Core.Classes;
 using MobileApp.ViewModels;
+using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace MobileApp.Factories.Interfaces
         ApiaryDataProductionsMainVM CreateApiaryDataProductionsMainVM(List<ProductionType> productionType);
         ProductionTypeDetailsVM CreateProductionTypeDetailsVM(ProductionType production);
         ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(
-            List<NamedValue<SyrupCalculationBaseType>> syrupCalculationBaseTypes,
-            List<NamedValue<SyrupCalculationRatioType>> syrupCalculationRatioTypes);
+            PickerItemListVM<SyrupCalculationBaseType> syrupCalculationBaseTypes,
+            PickerItemListVM<SyrupCalculationRatioType> syrupCalculationRatioTypes);
     }
 }

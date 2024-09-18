@@ -1,4 +1,6 @@
-﻿using MobileApp.ViewModels.BaseViewModel;
+﻿using MobileApp.ApiaryTools;
+using MobileApp.ViewModels.BaseViewModel;
+using MobileApp.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +11,15 @@ namespace MobileApp.ViewModels
 {
     public class ApiaryToolSyrupCalculatorMainVM : BaseVM
     {
-        private RatioListVM _ratioListVM;
-        public RatioListVM RatioListVM
+        private PickerItemListVM<SyrupCalculationRatioType> _calculationRatioListVM;
+        public PickerItemListVM<SyrupCalculationRatioType> CalculationRatioListVM
         {
-            get => _ratioListVM;
-            set => SetProperty(ref _ratioListVM, value);
+            get => _calculationRatioListVM;
+            set => SetProperty(ref _calculationRatioListVM, value);
         }
 
-        private CalculationTypeListVM _calculationTypeListVM;
-        public CalculationTypeListVM CalculationTypeListVM
+        private PickerItemListVM<SyrupCalculationBaseType> _calculationTypeListVM;
+        public PickerItemListVM<SyrupCalculationBaseType> CalculationTypeListVM
         {
             get => _calculationTypeListVM;
             set => SetProperty(ref _calculationTypeListVM, value);

@@ -17,7 +17,11 @@ namespace MobileApp.ViewModels.PickerItems.Base
         public PickerItemVM(T value, string name)
         {
             Value = value;
-            Name = name ?? value.ToString();
+            Name = name ?? value?.ToString();
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

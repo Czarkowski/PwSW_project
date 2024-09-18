@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace MobileApp.ViewModels.BaseViewModel
 {
-    public class PickerItemListVM<T> : ItemListVM<IPickerItemVM<T>>, IPickerItemListVM<IPickerItemVM<T>> where T : class
+    public class PickerItemListVM<T> : ItemListVM<IPickerItemVM<T>>, IPickerItemListVM<T>
     {
-        public T SelectedValue => SelectedItem?.Value;
+        public T SelectedValue { 
+            get => SelectedItem != null ? SelectedItem.Value : default; 
+            set => SelectedItem = ItemList.FirstOrDefault(x => x.Value.Equals(value)); 
+        }
     }
 }

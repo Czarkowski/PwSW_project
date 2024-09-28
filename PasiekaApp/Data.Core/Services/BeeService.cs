@@ -30,6 +30,7 @@ namespace Data.Core.Services
         private readonly IProductionTypeRepostory _productionTypeRepostory;
         private readonly IProductionHiveRepository _productionHiveRepository;
         private readonly IProductionRepository _productionRepository;
+        private readonly IPhotoRepository _photoRepository;
         private readonly BeeDbContext _db;
 
         public BeeService(BeeDbContext beeDbContext)
@@ -44,6 +45,7 @@ namespace Data.Core.Services
             _productionTypeRepostory = new ProductionTypeRepostory(beeDbContext);
             _productionHiveRepository = new ProductionHiveRepository(beeDbContext);
             _productionRepository = new ProductionRepository(beeDbContext);
+            _photoRepository = new PhotoRepository(beeDbContext);
             _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone
@@ -253,6 +255,11 @@ namespace Data.Core.Services
         public ProductionType AddProductionType(ProductionType productionType)
         {
             return _productionTypeRepostory.Add(productionType);
+        }
+
+        public Photo AddPhoto(Photo photo)
+        {
+            return _photoRepository.Add(photo);
         }
     }
 }

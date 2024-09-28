@@ -26,6 +26,11 @@ namespace MobileApp.Factories
             return new Description() {
                 Text = descriptionHiveReviewVM.Description,
                 DescriptionHiveReview = descriptionHiveReviewVM.DescriptionHiveReview,
+                Photos = descriptionHiveReviewVM.Photos.Select(x => 
+                    new Photo() {
+                        DateTaken = DateTime.Now,
+                        ImageData = x 
+                }).ToList(),
             };
         }
 

@@ -10,7 +10,6 @@
     <StackLayout Orientation="Vertical" Spacing="10">
         <Label x:Name="Label" FontAttributes="Bold" />
         <Picker x:Name="Picker"
-                x:DataType="pi:IPickerItem"
                 ItemDisplayBinding="{Binding Name}"
                 SelectedItem="{Binding SelectedPickerItem, Source={x:Reference this}}"
                 SelectedIndexChanged="OnPickerSelectedIndexChanged" />

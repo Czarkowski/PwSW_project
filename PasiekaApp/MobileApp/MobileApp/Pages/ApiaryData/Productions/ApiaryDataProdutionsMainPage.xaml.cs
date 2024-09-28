@@ -8,7 +8,6 @@ using System.Windows.Input;
 
 namespace MobileApp.Pages;
 
-public class TestClass : BaseContentPage<ApiaryDataProductionsMainVM> { }
 public partial class ApiaryDataProdutionsMainPage : BaseContentPage<ApiaryDataProductionsMainVM>
 {
     public ICommand OnEdit { get; set; }
@@ -25,15 +24,7 @@ public partial class ApiaryDataProdutionsMainPage : BaseContentPage<ApiaryDataPr
 
     }
 
-    protected override void OnAppearing()
-    {
-        if (ViewModel == null)
-        {
-            LoadData();
-        }
-    }
-
-    private void LoadData()
+    protected override void LoadData()
     {
         List<ProductionType> ProductionType = _beeService.GetAllProductionType(isVisible: false);
         ViewModel = _viewModelsFactory.CreateApiaryDataProductionsMainVM(ProductionType);

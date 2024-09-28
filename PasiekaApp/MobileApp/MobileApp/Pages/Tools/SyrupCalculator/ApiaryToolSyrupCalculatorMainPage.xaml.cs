@@ -17,29 +17,36 @@ public partial class ApiaryToolSyrupCalculatorMainPage : BaseContentPage<ApiaryT
     private readonly IViewModelsFactory _viewModelsFactory;
     private readonly IDataToSaveFactory _dataToSaveFactory;
     private readonly IApiaryToolHelper _apiaryToolHelper;
-    private readonly IPickerItemFactories _pickerItemFactories;
+    private readonly IPickerItemFactory _pickerItemFactory;
     public ApiaryToolSyrupCalculatorMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory,
-        IDataToSaveFactory dataToSaveFactory, IApiaryToolHelper apiaryToolHelper, IPickerItemFactories pickerItemFactories)
+        IDataToSaveFactory dataToSaveFactory, IApiaryToolHelper apiaryToolHelper, IPickerItemFactory pickerItemFactories)
     {
         _beeService = beeService;
         _viewModelsFactory = viewModelsFactory;
         _dataToSaveFactory = dataToSaveFactory;
         _apiaryToolHelper = apiaryToolHelper;
-        _pickerItemFactories = pickerItemFactories;
+        _pickerItemFactory = pickerItemFactories;
         InitializeComponent();
         LoadData();
 	}
 
-    private void LoadData()
+    protected override void LoadData()
     {
         ViewModels.BaseViewModel.PickerItemListVM<SyrupCalculationBaseType> scbt1 = 
-            _pickerItemFactories.CreatePickerItemListVMFromEnum<SyrupCalculationBaseType>();
+            _pickerItemFactory.CreatePickerItemListVMFromEnum<SyrupCalculationBaseType>();
         ViewModels.BaseViewModel.PickerItemListVM<SyrupCalculationRatioType> scbt2 =
-            _pickerItemFactories.CreatePickerItemListVMFromEnum<SyrupCalculationRatioType>();
+            _pickerItemFactory.CreatePickerItemListVMFromEnum<SyrupCalculationRatioType>();
         ViewModel = _viewModelsFactory.CreateApiaryToolSyrupCalculatorMainVM(scbt1, scbt2);
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private void Calculate_Clicked(object sender, EventArgs e)
+    {
+        var (water, sugar, syrup) = _apiaryToolHelper.CalculateSyrup(ViewModel.InputValue,
+            ViewModel.CalculationTypeListVM.SelectedValue, ViewModel.CalculationRatioListVM.SelectedValue);
+        ViewModel.SyrupCalculatorResultsVM = new SyrupCalculatorResultsVM(water, sugar, syrup);
+    }
+
+    private void CalculateType_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }

@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Factories.Interfaces
 {
-    public interface IPickerItemFactories
+    public interface IPickerItemFactory
     {
         List<RacePickerItem> CreateRacePickerItems(IEnumerable<Race> races);
         PickerItemListVM<T> CreatePickerItemListVM<T>(List<IPickerItemVM<T>> pickerItemVMs, T defaultSelected = default);
+        PickerItemListVM<T> CreatePickerItemListVM<T>(List<T> items, Func<T, string> nameGetter = null, T defaultSelected = default);
         PickerItemListVM<T> CreatePickerItemListVMFromEnum<T>() where T : Enum;
-        PickerItemVM<T> CreatePickerItemVM<T>(T value, string name) where T : class;
+        PickerItemVM<T> CreatePickerItemVM<T>(T value, string name);
     }
 }

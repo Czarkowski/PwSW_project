@@ -33,5 +33,10 @@ namespace MobileApp.ViewModels
             get => _race;
             set => SetProperty(ref _race, value);
         }
+
+        public override string ToString()
+        {
+            return $"{Number} - {Race}";
+        }
     }
 }

@@ -24,6 +24,8 @@ namespace Data.Core
         public DbSet<Production> Productions { get; set; }
         public DbSet<ProductionHive> ProductionHives { get; set; }
         public DbSet<ProductionType> ProductionTypes { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        //public DbSet<PhotoDescription> PhotoDescriptions { get; set; }
 
         public BeeDbContext()
         {
@@ -121,6 +123,16 @@ namespace Data.Core
                 .HasOne(hp => hp.Production)
                 .WithMany(p => p.ProductionHives)
                 .HasForeignKey(hp => hp.ProductionId);
+
+            modelBuilder.Entity<Photo>()
+                .HasOne(p => p.Description)
+                .WithMany(d => d.Photos)
+                .HasForeignKey(p => p.DescriptionId);
+
+            //modelBuilder.Entity<PhotoDescription>()
+            //    .HasOne(pd => pd.Description)
+            //    .WithMany(d => d.PhotoDescriptions)
+            //    .HasForeignKey(pd => pd.DescriptionId);
 
         }
 

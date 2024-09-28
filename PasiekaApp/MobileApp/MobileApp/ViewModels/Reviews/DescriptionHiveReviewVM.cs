@@ -27,5 +27,12 @@ namespace MobileApp.ViewModels
             get => _hiveName;
             set => SetProperty(ref _hiveName, value);
         }
+
+        private List<byte[]> _photos;
+        public List<byte[]> Photos
+        {
+            get => _photos;
+            set => SetProperty(ref _photos, value);
+        }
     }
 }

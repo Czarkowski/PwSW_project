@@ -16,7 +16,7 @@ using MobileApp.Utilities.StaticExtensions;
 
 namespace MobileApp.Factories
 {
-    public class PickerItemFactory : IPickerItemFactories
+    public class PickerItemFactory : IPickerItemFactory
     {
         public PickerItemListVM<T> CreatePickerItemListVM<T>(List<IPickerItemVM<T>> pickerItemVMs, T defaultSelected = default)
         {
@@ -25,6 +25,12 @@ namespace MobileApp.Factories
                 ItemList = pickerItemVMs,
                 SelectedValue = defaultSelected
             };
+        }
+
+        public PickerItemListVM<T> CreatePickerItemListVM<T>(List<T> items, Func<T, string> nameGetter = null, T defaultSelected = default)
+        {
+            List<PickerItemVM<T>> pickerItemVMs = items.Select(x => CreatePickerItemVM<T>(x, nameGetter?.Invoke(x) ?? x.ToString())).ToList();
+            return CreatePickerItemListVM(pickerItemVMs.OfType<IPickerItemVM<T>>().ToList(), defaultSelected);
         }
 
         public PickerItemListVM<T> CreatePickerItemListVMFromEnum<T>() where T : Enum
@@ -39,7 +45,7 @@ namespace MobileApp.Factories
             return null;
         }
 
-        public PickerItemVM<T> CreatePickerItemVM<T>(T value, string name) where T : class
+        public PickerItemVM<T> CreatePickerItemVM<T>(T value, string name)
         {
             return new PickerItemVM<T>(value, name);
         }

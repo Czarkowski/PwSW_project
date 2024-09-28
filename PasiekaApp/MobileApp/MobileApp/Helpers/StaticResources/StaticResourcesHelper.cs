@@ -14,14 +14,14 @@ namespace MobileApp.Helpers.StaticResources
     public class StaticResourcesHelper : IInitializeResources
     {
         private readonly IBeeService _beeService;
-        private readonly IPickerItemFactories _pickerItemFactories;
+        private readonly IPickerItemFactory _pickerItemFactories;
         private ResourceDictionary _resourceDictionary;
         public ResourceDictionary ResourceDictionary
         {
             get => _resourceDictionary;
             private set => _resourceDictionary = value;
         }
-        public StaticResourcesHelper(IBeeService beeService, IPickerItemFactories pickerItemFactories)
+        public StaticResourcesHelper(IBeeService beeService, IPickerItemFactory pickerItemFactories)
         {
             _beeService = beeService;
             _pickerItemFactories = pickerItemFactories;
@@ -49,6 +49,7 @@ namespace MobileApp.Helpers.StaticResources
             ResourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateUncmopleted, new ReviewListDataTemplateUncmopleted());
             ResourceDictionary.Add(StaticResourceKeys.ReviewListDataTemplateSelector, new ReviewListDataTemplateSelector());
             ResourceDictionary.Add(StaticResourceKeys.ReviewHiveHistortListDataTemplateSelector, new ReviewHiveHistortListDataTemplateSelector());
+            ResourceDictionary.Add(StaticResourceKeys.ByteArrayToImageSourceConverter, new ByteArrayToImageSourceConverter());
         }
     }
 }

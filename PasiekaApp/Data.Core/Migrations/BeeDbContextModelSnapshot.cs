@@ -114,6 +114,29 @@ namespace Data.Core.Migrations
                     b.ToTable("Hive", (string)null);
                 });
 
+            modelBuilder.Entity("Data.Core.Models.Photo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DateTaken")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("DescriptionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("ImageData")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DescriptionId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("Data.Core.Models.Production", b =>
                 {
                     b.Property<int>("Id")
@@ -168,7 +191,12 @@ namespace Data.Core.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("ProductionTypeId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductionTypeId");
 
                     b.ToTable("ProductionTypes");
                 });
@@ -223,9 +251,6 @@ namespace Data.Core.Migrations
                     b.Property<DateTime>("PlannedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ProductionTypeId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime?>("RealizedDate")
                         .HasColumnType("TEXT");
 
@@ -233,8 +258,6 @@ namespace Data.Core.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductionTypeId");
 
                     b.HasIndex("ReviewTypeId");
 
@@ -331,6 +354,17 @@ namespace Data.Core.Migrations
                     b.Navigation("BeeQueen");
                 });
 
+            modelBuilder.Entity("Data.Core.Models.Photo", b =>
+                {
+                    b.HasOne("Data.Core.Models.Description", "Description")
+                        .WithMany("Photos")
+                        .HasForeignKey("DescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Description");
+                });
+
             modelBuilder.Entity("Data.Core.Models.Production", b =>
                 {
                     b.HasOne("Data.Core.Models.ProductionType", "ProductionType")
@@ -361,12 +395,15 @@ namespace Data.Core.Migrations
                     b.Navigation("Production");
                 });
 
-            modelBuilder.Entity("Data.Core.Models.Review", b =>
+            modelBuilder.Entity("Data.Core.Models.ProductionType", b =>
                 {
                     b.HasOne("Data.Core.Models.ProductionType", null)
-                        .WithMany("Reviews")
+                        .WithMany("ProductionTypes")
                         .HasForeignKey("ProductionTypeId");
+                });
 
+            modelBuilder.Entity("Data.Core.Models.Review", b =>
+                {
                     b.HasOne("Data.Core.Models.ReviewType", "ReviewType")
                         .WithMany("Reviews")
                         .HasForeignKey("ReviewTypeId")
@@ -386,6 +423,8 @@ namespace Data.Core.Migrations
                 {
                     b.Navigation("DescriptionHiveReview")
                         .IsRequired();
+
+                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Hive", b =>
@@ -402,7 +441,7 @@ namespace Data.Core.Migrations
 
             modelBuilder.Entity("Data.Core.Models.ProductionType", b =>
                 {
-                    b.Navigation("Reviews");
+                    b.Navigation("ProductionTypes");
                 });
 
             modelBuilder.Entity("Data.Core.Models.Race", b =>

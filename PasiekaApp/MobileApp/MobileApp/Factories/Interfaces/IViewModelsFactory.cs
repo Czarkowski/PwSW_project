@@ -1,6 +1,7 @@
 ﻿using Data.Core.Models;
 using MobileApp.ApiaryTools;
 using MobileApp.Core.Classes;
+using MobileApp.Productions;
 using MobileApp.ViewModels;
 using MobileApp.ViewModels.BaseViewModel;
 using System;
@@ -35,8 +36,11 @@ namespace MobileApp.Factories.Interfaces
         ApiaryDataReviewsMainVM CreateApiaryDataReviewsMainVM(List<ReviewType> reviewType);
         ApiaryDataProductionsMainVM CreateApiaryDataProductionsMainVM(List<ProductionType> productionType);
         ProductionTypeDetailsVM CreateProductionTypeDetailsVM(ProductionType production);
+        ApiaryProductionCreatorMainVM CreateApiaryProductionCreatorMainVM(
+            PickerItemListVM<UnitType> unitTypes, PickerItemListVM<ProductionType> productionTypes, List<Hive> hives);
         ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(
             PickerItemListVM<SyrupCalculationBaseType> syrupCalculationBaseTypes,
             PickerItemListVM<SyrupCalculationRatioType> syrupCalculationRatioTypes);
+        ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM();
     }
 }

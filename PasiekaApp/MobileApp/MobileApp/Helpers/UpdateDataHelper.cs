@@ -42,5 +42,16 @@ namespace MobileApp.Helpers
             stock.Name = warehouseItemVM.Name;
             return ref stock;
         }
+        public ref Description UpdateDescription(ref Description description, DescriptionHiveReviewVM descriptionHiveReviewVM)
+        {
+            description.Text = descriptionHiveReviewVM.Description;
+            description.Photos = descriptionHiveReviewVM.Photos.Select(x =>
+                new Photo()
+                {
+                    DateTaken = DateTime.Now,
+                    ImageData = x
+                }).ToList();
+            return ref description;
+        }
     }
 }

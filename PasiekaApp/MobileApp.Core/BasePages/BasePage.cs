@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Core.BasePages
 {
-    public class BaseContentPage<T> : ContentPage where T : class
+    public abstract class BaseContentPage<T> : ContentPage where T : class
     {
         protected T _viewModel;
         public T ViewModel
@@ -15,9 +15,20 @@ namespace MobileApp.Core.BasePages
             set { _viewModel = value; OnPropertyChanged(); }
         }
 
+        protected abstract void LoadData();
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (ViewModel == null)
+            {
+                LoadData();
+            }
+        }
+
         public BaseContentPage()
         {
-            BindingContext = ViewModel;
+            //BindingContext = ViewModel;
         }
     }
 }

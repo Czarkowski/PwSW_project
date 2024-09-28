@@ -168,6 +168,12 @@
   <data name="txt_BirthDate" xml:space="preserve">
     <value>Data Urodzenia:</value>
   </data>
+  <data name="txt_Calculate" xml:space="preserve">
+    <value>Oblicz</value>
+  </data>
+  <data name="txt_CalculationTargetType" xml:space="preserve">
+    <value>Element docelowy</value>
+  </data>
   <data name="txt_Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
@@ -197,6 +203,12 @@
   </data>
   <data name="txt_DetailsReview" xml:space="preserve">
     <value>Szczgóły przeglądu</value>
+  </data>
+  <data name="txt_ForSugar" xml:space="preserve">
+    <value>Cukier</value>
+  </data>
+  <data name="txt_ForSyrup" xml:space="preserve">
+    <value>Syrop</value>
   </data>
   <data name="txt_FromDate" xml:space="preserve">
     <value>Od Daty:</value>
@@ -252,6 +264,9 @@
   <data name="txt_OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="txt_OneToOne" xml:space="preserve">
+    <value>1 : 1</value>
+  </data>
   <data name="txt_Planned" xml:space="preserve">
     <value>Planowane:</value>
   </data>
@@ -282,6 +297,9 @@
   <data name="txt_RemoveQueen" xml:space="preserve">
     <value>Usuń Królową</value>
   </data>
+  <data name="txt_Result" xml:space="preserve">
+    <value>Wynik:</value>
+  </data>
   <data name="txt_ReviewListMainPageTitle" xml:space="preserve">
     <value>Lista Przeglądów</value>
   </data>
@@ -300,17 +318,41 @@
   <data name="txt_SearchPhrase" xml:space="preserve">
     <value>Szukana Fraza</value>
   </data>
+  <data name="txt_SelectCalculationTargetType" xml:space="preserve">
+    <value>Wybierz element</value>
+  </data>
+  <data name="txt_SelectRatio" xml:space="preserve">
+    <value>Wybierz proporcję</value>
+  </data>
   <data name="txt_SettingsNavigationTitle" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
   <data name="txt_Soon" xml:space="preserve">
     <value>Wkrótce</value>
   </data>
+  <data name="txt_Sugar" xml:space="preserve">
+    <value>Cukier [Kg]:</value>
+  </data>
+  <data name="txt_SugarToWaterRatio" xml:space="preserve">
+    <value>Proporcja cukru do wody</value>
+  </data>
+  <data name="txt_Syrup" xml:space="preserve">
+    <value>Syrop [l]:</value>
+  </data>
   <data name="txt_Test" xml:space="preserve">
     <value>Test_pl</value>
   </data>
+  <data name="txt_ThreeToTwo" xml:space="preserve">
+    <value>3 : 2</value>
+  </data>
   <data name="txt_ToDate" xml:space="preserve">
     <value>Do Daty:</value>
+  </data>
+  <data name="txt_TwoToOne" xml:space="preserve">
+    <value>2 : 1</value>
+  </data>
+  <data name="txt_TypeValue" xml:space="preserve">
+    <value>Wprowadź wartość</value>
   </data>
   <data name="txt_UncompletedAllReview" xml:space="preserve">
     <value>Nie ukończono wszystkich przeglądów</value>
@@ -323,6 +365,9 @@
   </data>
   <data name="txt_WarehouseMainPageTitle" xml:space="preserve">
     <value>Magazyn</value>
+  </data>
+  <data name="txt_Water" xml:space="preserve">
+    <value>Woda [l]:</value>
   </data>
   <data name="txt_Yes" xml:space="preserve">
     <value>Tak</value>

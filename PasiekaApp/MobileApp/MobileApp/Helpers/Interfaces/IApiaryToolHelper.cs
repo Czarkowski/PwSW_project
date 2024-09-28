@@ -12,5 +12,14 @@ namespace MobileApp.Helpers.Interfaces
     {
         List<NamedValue<SyrupCalculationBaseType>> GetAllSyrupCalculationBaseType();
         List<NamedValue<SyrupCalculationRatioType>> GetSyrupCalculationRatioType();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="targetValue"></param>
+        /// <param name="baseType"></param>
+        /// <param name="ratioType"></param>
+        /// <returns>First: Water; Second: Sugar; Third: Syrup</returns>
+        (double, double, double) CalculateSyrup(double targetValue, SyrupCalculationBaseType baseType, SyrupCalculationRatioType ratioType);
     }
 }

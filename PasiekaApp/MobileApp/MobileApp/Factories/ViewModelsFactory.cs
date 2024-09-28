@@ -5,6 +5,7 @@ using MobileApp.Core.Classes;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.StaticResources;
 using MobileApp.Localizations;
+using MobileApp.Productions;
 using MobileApp.Resources.Languages;
 using MobileApp.ViewModels;
 using MobileApp.ViewModels.BaseViewModel;
@@ -340,6 +341,32 @@ namespace MobileApp.Factories
                 SyrupCalculatorResultsVM = new SyrupCalculatorResultsVM(),
                 InputValue = 0,
             };
+        }
+
+        public ApiaryProductionCreatorMainVM CreateApiaryProductionCreatorMainVM(PickerItemListVM<UnitType> unitTypes, 
+            PickerItemListVM<ProductionType> productionTypes, List<Hive> hives)
+        {
+            var list = hives.Select(x => new HiveListItemVM(x)
+            {
+                Number = x.Number,
+                Description = x.Description,
+                Race = x.BeeQueen?.Race.Name ?? string.Empty,
+            }).ToList();
+            return new ApiaryProductionCreatorMainVM()
+            {
+                InputValue = 0,
+                UnitTypePickerVM = unitTypes,
+                ProductionTypePickerVM = productionTypes,
+                HiveListVM = new MultiSelectedItemLIstVM<HiveListItemVM>(list)
+                {
+                    ItemList = list,
+                },
+            };
+        }
+
+        public ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM()
+        {
+            throw new NotImplementedException();
         }
     }
 }

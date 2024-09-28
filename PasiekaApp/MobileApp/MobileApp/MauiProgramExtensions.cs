@@ -13,6 +13,7 @@ using MobileApp.Helpers.Interfaces;
 using MobileApp.Helpers.StaticResources;
 using MobileApp.Pages;
 using MobileApp.Pages.HiveList.Views;
+using Plugin.LocalNotification;
 using System.Net.Sockets;
 
 namespace MobileApp
@@ -24,6 +25,7 @@ namespace MobileApp
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseLocalNotification()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -92,13 +94,14 @@ namespace MobileApp
             builder.Services.AddSingleton<IFilterPredicateHelper, FilterPredicateHelper>();
             builder.Services.AddSingleton<IDisplayPromptHelper, DisplayPromptHelper>();
             builder.Services.AddSingleton<IApiaryToolHelper, ApiaryToolHelper>();
+            builder.Services.AddSingleton<IPhotoHelper, PhotoHelper>();
             return builder;
         }
 
         private static MauiAppBuilder RegisterFactories(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<IViewModelsFactory, ViewModelsFactory>();
-            builder.Services.AddSingleton<IPickerItemFactories, PickerItemFactory>();
+            builder.Services.AddSingleton<IPickerItemFactory, PickerItemFactory>();
             builder.Services.AddSingleton<IDataToSaveFactory, DataToSaveFactory>();
             return builder;
         }

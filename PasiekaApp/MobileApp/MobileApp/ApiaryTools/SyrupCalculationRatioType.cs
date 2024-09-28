@@ -13,8 +13,6 @@ namespace MobileApp.ApiaryTools
 		OneToOne,
 		[Description("txt_TwoToOne")]
 		TwoToOne,
-		[Description("txt_ThreeToOne")]
-		ThreeToOne,
 		[Description("txt_ThreeToTwo")]
 		ThreeToTwo,
     }

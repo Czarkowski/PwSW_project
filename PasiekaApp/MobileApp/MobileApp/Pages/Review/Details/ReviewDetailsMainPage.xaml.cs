@@ -9,6 +9,7 @@ using Utilities.StaticExtensions;
 using MobileApp.Localizations;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using MobileApp.ReferenceMessenger;
+using Data.Core.Repositories.Interfaces;
 
 namespace MobileApp.Pages;
 
@@ -20,21 +21,29 @@ public partial class ReviewDetailsMainPage : ContentPage
     private ICommand _onLeft;
     private ICommand _onRight;
     private ICommand _onSave;
+    private ICommand _takePhotoCommand;
+    private ICommand _deletePhotoCommand;
+
+    public ICommand TakePhotoCommand { get => _takePhotoCommand; set { _takePhotoCommand = value; OnPropertyChanged(nameof(TakePhotoCommand)); } }
     public ICommand OnLeft { get => _onLeft; set { _onLeft = value; OnPropertyChanged(nameof(OnLeft)); } }
     public ICommand OnRight { get => _onRight; set { _onRight = value; OnPropertyChanged(nameof(OnRight)); } }
     public ICommand OnSave { get => _onSave; set { _onSave = value; OnPropertyChanged(nameof(OnSave)); } }
+    public ICommand DeletePhotoCommand { get => _deletePhotoCommand; set { _deletePhotoCommand = value; OnPropertyChanged(nameof(DeletePhotoCommand)); } }
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactory;
     private readonly IDataToSaveFactory _dataToSaveFactory;
     private readonly IUpdateDataHelper _updateDataHelper;
     private readonly IReviewHelper _reviewHelper;
-    public ReviewDetailsMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IDataToSaveFactory dataToSaveFactory, IUpdateDataHelper updateDataHelper, IReviewHelper reviewHelper)
+    private readonly IPhotoHelper _photoHelper;
+    public ReviewDetailsMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IDataToSaveFactory dataToSaveFactory,
+        IUpdateDataHelper updateDataHelper, IReviewHelper reviewHelper, IPhotoHelper photoHelper)
     {
         _beeService = beeService;
         _viewModelsFactory = viewModelsFactory;
         _dataToSaveFactory = dataToSaveFactory;
         _updateDataHelper = updateDataHelper;
         _reviewHelper = reviewHelper;
+        _photoHelper = photoHelper;
         InitializeComponent();
         InitializeCommand();
 
@@ -45,6 +54,22 @@ public partial class ReviewDetailsMainPage : ContentPage
         OnLeft = new Command<DescriptionHiveReviewVM>(OnLeftClicked);
         OnRight = new Command<DescriptionHiveReviewVM>(OnRightClicked);
         OnSave = new Command(OnSaveClicked);
+        DeletePhotoCommand = new Command<byte[]>(DeletePhotoClicked);
+        TakePhotoCommand = new Command(async () => await TakeAndSavePhotoAsync());
+    }
+
+    private void DeletePhotoClicked(byte[] obj)
+    {
+
+    }
+
+    private async Task TakeAndSavePhotoAsync()
+    {
+        byte[] bytes = await _photoHelper.TakePhotoBytesAsync();
+        if (bytes != null)
+        {
+            _reviewDetailsVM.SelectedItem.Photos.Add(bytes);
+        }
     }
 
     private void OnLeftClicked(DescriptionHiveReviewVM descriptionHiveReviewVM)
@@ -100,6 +125,7 @@ public partial class ReviewDetailsMainPage : ContentPage
     private void LoadData()
     {
         ReviewDetailsVM = _viewModelsFactory.CreateReviewDetailsVM(_review);
+        ReviewDetailsVM.SelectedItem = ReviewDetailsVM.DescriptionHiveReviewVMs.FirstOrDefault();
     }
 
     private void ReviewDetailsCV_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -120,7 +146,7 @@ public partial class ReviewDetailsMainPage : ContentPage
         }
         else if (description.Text != descriptionHiveReviewVM.Description)
         {
-            description.Text = descriptionHiveReviewVM.Description;
+            description = _updateDataHelper.UpdateDescription(ref description, descriptionHiveReviewVM);
             _beeService.UpdateDescription(description);
         }
     }

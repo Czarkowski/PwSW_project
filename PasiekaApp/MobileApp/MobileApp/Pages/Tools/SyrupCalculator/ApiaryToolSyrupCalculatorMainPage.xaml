@@ -16,37 +16,49 @@
     <VerticalStackLayout Padding="20">
 
         <!-- Proporcja cukru do wody -->
-        <Label Text="Proporcja cukru do wody" FontAttributes="Bold"/>
-        <Picker Title="Wybierz proporcję" 
+        <Label Text="{loc:Translate txt_SugarToWaterRatio}" FontAttributes="Bold"/>
+        <Picker Title="{loc:Translate txt_SelectRatio}" 
                 ItemsSource="{Binding CalculationRatioListVM.ItemList}" 
                 SelectedItem="{Binding CalculationRatioListVM.SelectedItem}">
         </Picker>
 
         <!-- Typ kalkulacji -->
-        <Label Text="Typ kalkulacji" FontAttributes="Bold" Margin="0,20,0,0"/>
-        <Picker Title="Wybierz typ kalkulacji" 
+        <Label Text="{loc:Translate txt_CalculationTargetType}" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Picker Title="{loc:Translate txt_SelectCalculationTargetType}" 
+                SelectedIndexChanged="CalculateType_SelectedIndexChanged"
                 ItemsSource="{Binding CalculationTypeListVM.ItemList}" 
                 SelectedItem="{Binding CalculationTypeListVM.SelectedItem}">
         </Picker>
 
         <!-- Pole na wpisanie wartości -->
-        <Label Text="Wprowadź wartość" FontAttributes="Bold" Margin="0,20,0,0"/>
-        <Entry Placeholder="Wprowadź wartość" 
-               Keyboard="Numeric" 
+        <Label Text="{loc:Translate txt_TypeValue}" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <Entry Keyboard="Numeric" 
                Text="{Binding InputValue}"/>
 
         <!-- Przycisk do obliczeń -->
-        <Button Text="Oblicz" 
-                Clicked="Button_Clicked"
+        <Button Text="{loc:Translate txt_Calculate}" 
+                Clicked="Calculate_Clicked"
                 Margin="0,20,0,0"/>
 
         <!-- Wynik -->
-        <Label Text="Wynik Woda:" FontAttributes="Bold" Margin="0,20,0,0"/>
-        <Label Text="{Binding SyrupCalculatorResultsVM.ResultWater}" />
-        <Label Text="Wynik:" FontAttributes="Bold" Margin="0,20,0,0"/>
-        <Label Text="{Binding SyrupCalculatorResultsVM.ResultSugar}" />
-        <Label Text="Wynik:" FontAttributes="Bold" Margin="0,20,0,0"/>
-        <Label Text="{Binding SyrupCalculatorResultsVM.ResultSyrup}" />
+        <StackLayout>
+            <Label Text="{loc:Translate txt_Result}" 
+                   IsVisible="{Binding SyrupCalculatorResultsVM.ResultWater, Converter={StaticResource NullToBooleanConverter}}"/>
+            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultWater, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Water}" FontAttributes="Bold" Margin="0,20,0,0"/>
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultWater, StringFormat='{}{0:F2}'}" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultSugar, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Sugar}" FontAttributes="Bold" Margin="0,20,0,0"/>
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSugar, StringFormat='{}{0:F2}'}" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultSyrup, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Syrup}" FontAttributes="Bold" Margin="0,20,0,0"/>
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSyrup, StringFormat='{}{0:F2}'}" />
+            </StackLayout>
+        </StackLayout>
 
     </VerticalStackLayout>
 </core:BaseContentPage>

@@ -11,5 +11,6 @@ namespace Data.Core.Models
         public Description() { }
         public virtual DescriptionHiveReview DescriptionHiveReview { get; set; }
         public string Text { get; set; }
+        public virtual List<Photo> Photos { get; set; } = new List<Photo>();
     }
 }

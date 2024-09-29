@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.mobileapp" android:versionCode="1" android:versionName="1.0">
-	<application android:allowBackup="true" android:label="@string/app_name" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ctytko.pszczelaenklawa" android:versionCode="1" android:versionName="1.0">
+	<application android:allowBackup="true" android:label="@string/app_name" android:icon="@mipmap/appicon" android:supportsRtl="true">
+		<!--<receiver android:name="com.plugin.LocalNotification.NotificationService" android:exported="true" />-->
+	</application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-<receiver android:name="com.plugin.LocalNotification.NotificationService" android:exported="true" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>

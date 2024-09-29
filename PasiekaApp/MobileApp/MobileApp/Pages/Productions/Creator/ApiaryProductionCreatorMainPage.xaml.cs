@@ -34,7 +34,7 @@ public partial class ApiaryProductionCreatorMainPage : BaseContentPage<ApiaryPro
             _pickerItemFactory.CreatePickerItemListVMFromEnum<UnitType>();
         List<ProductionType> productionTypes = _beeService.GetAllProductionType(isVisible: true);
         PickerItemListVM<ProductionType> productionTypePickerItemListVM = 
-            _pickerItemFactory.CreatePickerItemListVM<ProductionType>(productionTypes);
+            _pickerItemFactory.CreatePickerItemListVM<ProductionType>(productionTypes, x => x.Name);
         List<Hive> hives = _beeService.GetAllHive();
         ViewModel = _viewModelsFactory.CreateApiaryProductionCreatorMainVM(unitTypes, productionTypePickerItemListVM, hives);
     }

@@ -76,6 +76,7 @@ namespace MobileApp
             builder.Services.AddTransient<IProductionRepository, ProductionRepository>();
             builder.Services.AddTransient<IProductionHiveRepository, ProductionHiveRepository>();
             builder.Services.AddTransient<IProductionTypeRepostory, ProductionTypeRepostory>();
+            builder.Services.AddTransient<INotificationRepository, NotificationRepository>();
             return builder;
         }
 
@@ -95,6 +96,7 @@ namespace MobileApp
             builder.Services.AddSingleton<IDisplayPromptHelper, DisplayPromptHelper>();
             builder.Services.AddSingleton<IApiaryToolHelper, ApiaryToolHelper>();
             builder.Services.AddSingleton<IPhotoHelper, PhotoHelper>();
+            builder.Services.AddTransient<INotificationHelper, NotificationHelper>();
             return builder;
         }
 

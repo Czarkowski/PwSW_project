@@ -1,5 +1,6 @@
 using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
+using MobileApp.Helpers.Interfaces;
 using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
 using System.Collections.ObjectModel;
@@ -16,11 +17,14 @@ public partial class ReviewCreatorMainPage : ContentPage
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactory;
     private readonly IDataToSaveFactory _dataToSaveFactory;
-    public ReviewCreatorMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IDataToSaveFactory dataToSaveFactory)
+    private readonly INotificationHelper _notificationHelper;
+    public ReviewCreatorMainPage(IBeeService beeService, IViewModelsFactory viewModelsFactory, IDataToSaveFactory dataToSaveFactory,
+        INotificationHelper notificationHelper)
 	{
         _beeService = beeService;
         _viewModelsFactory = viewModelsFactory;
         _dataToSaveFactory = dataToSaveFactory;
+        _notificationHelper = notificationHelper;
 		InitializeComponent();
         LoadData();
 	}
@@ -38,6 +42,7 @@ public partial class ReviewCreatorMainPage : ContentPage
     {
         Data.Core.Models.Review review = _dataToSaveFactory.CreateReview(ReviewCreatorVM);
         _beeService.AddReview(review);
+        _notificationHelper.CreateAndSetBaseNotificationForReview(review);
         MessageCenter.RefresReviewList();
         await Navigation.PopAsync();
     }

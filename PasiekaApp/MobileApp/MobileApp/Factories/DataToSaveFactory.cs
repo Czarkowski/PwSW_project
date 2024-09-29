@@ -72,7 +72,7 @@ namespace MobileApp.Factories
             return new Review()
             {
                 Description = reviewCreatorVM.Description,
-                PlannedDate = reviewCreatorVM.Date,
+                PlannedDate = reviewCreatorVM.Date.Date,
                 ReviewType = reviewCreatorVM.ReviewType,
                 DescriptionHiveReviews= descriptionHiveReviewList,
             };

@@ -31,6 +31,7 @@ namespace Data.Core.Services
         private readonly IProductionHiveRepository _productionHiveRepository;
         private readonly IProductionRepository _productionRepository;
         private readonly IPhotoRepository _photoRepository;
+        private readonly INotificationRepository _notificationRepository;
         private readonly BeeDbContext _db;
 
         public BeeService(BeeDbContext beeDbContext)
@@ -46,6 +47,7 @@ namespace Data.Core.Services
             _productionHiveRepository = new ProductionHiveRepository(beeDbContext);
             _productionRepository = new ProductionRepository(beeDbContext);
             _photoRepository = new PhotoRepository(beeDbContext);
+            _notificationRepository = new NotificationRepository(beeDbContext);
             _db = beeDbContext;
             //_db = new BeeDbContext();
             //_db.Database.EnsureCreated(); // Upewnij się, że baza danych i tabele są utworzone

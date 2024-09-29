@@ -17,30 +17,28 @@
     <VerticalStackLayout Padding="20">
 
         <!-- Wybór zasobu (np. miód, pyłek, itp.) -->
-        <Label Text="Wybierz zasób:" />
-        <Picker Title="Wybierz zasób"
+        <Label Text="{loc:Translate txt_SelectProduct}" />
+        <Picker Title="{loc:Translate txt_SelectProduct}"
                 ItemsSource="{Binding ProductionTypePickerVM.ItemList}" 
                 SelectedItem="{Binding ProductionTypePickerVM.SelectedItem}" />
 
         <!-- Wybór jednostki (np. kilogramy, litry, itp.) -->
-        <Label Text="Wybierz jednostkę:" Margin="0,10,0,0"/>
-        <Picker Title="Wybierz jednostkę"
+        <Label Text="{loc:Translate txt_SelectUnit}" Margin="0,10,0,0"/>
+        <Picker Title="{loc:Translate txt_SelectUnit}"
                 ItemsSource="{Binding UnitTypePickerVM.ItemList}" 
                 SelectedItem="{Binding UnitTypePickerVM.SelectedItem}" />
 
         <!-- Wartość produkcji -->
-        <Label Text="Wprowadź wartość:" Margin="0,10,0,0"/>
-        <Entry Placeholder="Wpisz wartość"
+        <Label Text="{loc:Translate txt_TypeValue}" Margin="0,10,0,0"/>
+        <Entry Placeholder="{loc:Translate txt_ValuePlaceHolder}"
                Keyboard="Numeric"
                Text="{Binding InputValue}" />
 
         <!-- Wybór uli, które uczestniczyły w produkcji -->
         <Label Text="Wybierz ule, które brały udział:" Margin="0,10,0,0"/>
         <CollectionView ItemsSource="{Binding HiveListVM.ItemList}"
-                  SelectionMode="Single"
-                        SelectionChanged="CollectionView_SelectionChanged"
-                        SelectedItem="{Binding HiveListVM.SelectedItem}"
-                  SelectedItems="{Binding HiveListVM.SelectedItems}">
+                  SelectionMode="Multiple"
+                  SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:HiveListItemVM">
                     <!--<TextCell Text="{Binding Number}" />-->

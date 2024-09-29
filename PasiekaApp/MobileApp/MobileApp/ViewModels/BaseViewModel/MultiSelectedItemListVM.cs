@@ -14,15 +14,15 @@ namespace MobileApp.ViewModels.BaseViewModel
     {
         public MultiSelectedItemLIstVM(List<T> list)
         {
-            SelectedItems = new ObservableCollection<T>(list);
+            SelectedItems = new List<T>();
 
             OnSelectedCommand = new Command<SelectionChangedEventArgs>(OnSelected);
         }
         public ICommand OnSelectedCommand { get; }
-        private ObservableCollection<T> _selectedItems;
-        public ObservableCollection<T> SelectedItems { get => _selectedItems; set => SetProperty(ref _selectedItems, value); }
-        private T _selectedItem;
-        public T SelectedItem { get => _selectedItem; set => SetProperty(ref _selectedItem, value); }
+        private List<T> _selectedItems;
+        public List<T> SelectedItems { get => _selectedItems; set => SetProperty(ref _selectedItems, value); }
+        //private T _selectedItem;
+        //public T SelectedItem { get => _selectedItem; set => SetProperty(ref _selectedItem, value); }
         private List<T> _itemList;
         public List<T> ItemList { get => _itemList; set => SetProperty(ref _itemList, value); }
 

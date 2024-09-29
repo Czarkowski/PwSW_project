@@ -24,6 +24,7 @@ namespace Data.Core
         public DbSet<Production> Productions { get; set; }
         public DbSet<ProductionHive> ProductionHives { get; set; }
         public DbSet<ProductionType> ProductionTypes { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         public DbSet<Photo> Photos { get; set; }
         //public DbSet<PhotoDescription> PhotoDescriptions { get; set; }
 
@@ -112,6 +113,7 @@ namespace Data.Core
             {
                 p.ToTable(nameof(Review));
                 p.HasOne(p => p.ReviewType).WithMany(rw => rw.Reviews).HasForeignKey(p => p.ReviewTypeId);
+                p.HasMany(p => p.Notifications).WithOne(n => n.Review).HasForeignKey(n => n.ReviewId);
             });
 
             modelBuilder.Entity<ProductionHive>()

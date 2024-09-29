@@ -18,5 +18,6 @@ namespace Data.Core.Models
         public int ReviewTypeId { get; set; }
         public virtual ReviewType ReviewType { get; set; }
         public  virtual List<DescriptionHiveReview> DescriptionHiveReviews { get; set; } = new List<DescriptionHiveReview>();
+        public virtual List<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }

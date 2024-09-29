@@ -10,6 +10,6 @@ namespace MobileApp.ViewModels.Interfaces
 {
     public interface IMultiSelectedItemListVM<T> : IItemListVM<T> where T : ISelectableVM
     {
-        public ObservableCollection<T> SelectedItems { get; set; }
+        public List<T> SelectedItems { get; set; }
     }
 }

@@ -306,6 +306,12 @@
   <data name="txt_ReviewNamePlaceholder" xml:space="preserve">
     <value>Nazwa Przeglądu</value>
   </data>
+  <data name="txt_ReviewNotificationDescription" xml:space="preserve">
+    <value>Przypomnienie o: {0}, planowany: {1}, opis: {2}</value>
+  </data>
+  <data name="txt_ReviewNotificationTitle" xml:space="preserve">
+    <value>Przegląd!</value>
+  </data>
   <data name="txt_ReviewType" xml:space="preserve">
     <value>Typ Przeglądu</value>
   </data>
@@ -321,8 +327,14 @@
   <data name="txt_SelectCalculationTargetType" xml:space="preserve">
     <value>Wybierz element</value>
   </data>
+  <data name="txt_SelectProduct" xml:space="preserve">
+    <value>Wybierz produkcję:</value>
+  </data>
   <data name="txt_SelectRatio" xml:space="preserve">
     <value>Wybierz proporcję</value>
+  </data>
+  <data name="txt_SelectUnit" xml:space="preserve">
+    <value>Wybierz jednostkę:</value>
   </data>
   <data name="txt_SettingsNavigationTitle" xml:space="preserve">
     <value>Ustawienia</value>
@@ -362,6 +374,9 @@
   </data>
   <data name="txt_ValueEdit" xml:space="preserve">
     <value>Edycja wartości</value>
+  </data>
+  <data name="txt_ValuePlaceholder" xml:space="preserve">
+    <value>Wartość </value>
   </data>
   <data name="txt_WarehouseMainPageTitle" xml:space="preserve">
     <value>Magazyn</value>

@@ -222,4 +222,185 @@
   <data name="txt_Uncopleted" xml:space="preserve">
     <value>Uncopleted</value>
   </data>
+  <data name="txt_Add" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_AddHive" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_AddStock" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryDataNavigationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryDataProdutionsMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryDataRacesMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryDataReviewsMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryNavigationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryProductionCreatorMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryProductionNavigationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryProductionSummaryMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryToolsNavigationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ApiaryToolSyrupCalculatorMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txt_Calculate" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_CalculationTargetType" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_Clear" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ClearDataBase" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ClearDataBaseConfirmationText" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_DataSettingsMainPageTitle" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_DescriptionPlaceholder" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ForSugar" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ForSyrup" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_HiveListMainPageTitle" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ItemQuantity" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_LanguageSettingsMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_MainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_NewQueen" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_NewRace" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_No" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_OneToOne" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_PlannedDate" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ProductionTypeNamePlaceholder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_QueenListMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_RaceNamePlaceholder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Result" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ReviewListMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ReviewNamePlaceholder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ReviewNotificationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ReviewNotificationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_SelectCalculationTargetType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_SelectProduct" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_SelectRatio" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_SelectUnit" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_SettingsNavigationTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Sugar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_SugarToWaterRatio" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Syrup" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ThreeToTwo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_TwoToOne" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_TypeValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_ValueEdit" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_ValuePlaceholder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_WarehouseMainPageTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Water" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_Yes" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txt_CountableUnit" xml:space="preserve">
+    <value>txt_CountableUnit</value>
+  </data>
+  <data name="txt_VolumeUnit" xml:space="preserve">
+    <value>txt_VolumeUnit</value>
+  </data>
+  <data name="txt_MassUnit" xml:space="preserve">
+    <value>txt_MassUnit</value>
+  </data>
+  <data name="txt_AppName" xml:space="preserve">
+    <value>txt_AppName</value>
+  </data>
 </root>

@@ -7,9 +7,10 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{loc:Translate txt_Test}"
+            <Image Source="logo.png" />
+            <!--<Label Text="{loc:Translate txt_Test}"
                    VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+                   HorizontalOptions="CenterAndExpand" />-->
         </StackLayout>
     </ContentPage.Content>
 

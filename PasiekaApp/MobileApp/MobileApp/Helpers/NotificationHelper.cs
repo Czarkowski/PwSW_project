@@ -55,12 +55,12 @@ namespace MobileApp.Helpers
         {
             // "Przypomnienie o: {0}, w dnia: {1}, opis: {2}"
             string description = string.Format(LocalizeManager.Translate("txt_ReviewNotificationDescription"),
-                review.ReviewType.Name, review.PlannedDate, review.Description);
+                review.ReviewType.Name, review.PlannedDate.ToString("dd.M.yyyy"), review.Description);
             var notification = new Notification
             {
                 ReviewId = review.Id,
                 Title = LocalizeManager.Translate("txt_ReviewNotificationTitle"),
-                Description =description,
+                Description = description,
                 NotifyTime = notifyTime
             };
             notification = _notificationRepository.Add(notification);

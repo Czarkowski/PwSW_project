@@ -125,7 +125,22 @@ public partial class ReviewDetailsMainPage : ContentPage
     private void LoadData()
     {
         ReviewDetailsVM = _viewModelsFactory.CreateReviewDetailsVM(_review);
-        ReviewDetailsVM.SelectedItem = ReviewDetailsVM.DescriptionHiveReviewVMs.FirstOrDefault();
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await Task.Delay(1);
+        SetFirstReview();
+    }
+
+    private void SetFirstReview()
+    {
+        if (ReviewDetailsVM != null && ReviewDetailsVM.SelectedItem == null)
+        {
+            ReviewDetailsCV.SelectedItem = ReviewDetailsVM.DescriptionHiveReviewVMs.FirstOrDefault();
+            //ReviewDetailsVM.SelectedItem = ReviewDetailsVM.DescriptionHiveReviewVMs.FirstOrDefault();
+        }
     }
 
     private void ReviewDetailsCV_SelectionChanged(object sender, SelectionChangedEventArgs e)

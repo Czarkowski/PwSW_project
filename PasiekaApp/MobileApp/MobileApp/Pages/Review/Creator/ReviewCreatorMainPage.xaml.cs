@@ -1,6 +1,7 @@
 using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.Interfaces;
+using MobileApp.Keys;
 using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
 using System.Collections.ObjectModel;
@@ -36,6 +37,17 @@ public partial class ReviewCreatorMainPage : ContentPage
         var reviewType = _beeService.GetAllReviewType();
         ReviewCreatorVM = _viewModelsFactory.CreateReviewCreatorVM(hiveListToCreateReviewVMs, reviewType);
         //HiveList = new ObservableCollection<HiveListToCreateReviewVM>(hiveListToCreateReviewVMs);
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (ReviewCreatorVM?.ReviewTypeList.Count == 0)
+        {
+            await Navigation.PopAsync();
+            await Shell.Current.GoToAsync(RouteKeys.ApiaryDataReviewsMainPage_Path);
+        }
     }
 
     public async void OnCreateReviewClicked(object sender, EventArgs e)

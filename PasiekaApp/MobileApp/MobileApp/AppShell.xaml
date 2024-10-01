@@ -6,11 +6,11 @@
     xmlns:local="clr-namespace:MobileApp"
     xmlns:pages="clr-namespace:MobileApp.Pages"
     xmlns:loc="clr-namespace:MobileApp.Localizations"
+    xmlns:route="clr-namespace:MobileApp.Keys"
     Title="MobileApp">
     
     <Shell.FlyoutHeader>
         <StackLayout>
-            <Label Text="Welcome" FontSize="Large" />
             <Image Source="logo.png" />
         </StackLayout>
     </Shell.FlyoutHeader>
@@ -30,7 +30,7 @@
     </FlyoutItem>
     <FlyoutItem Title="{loc:Translate txt_ApiaryDataNavigationTitle}" >
         <ShellContent Title="{loc:Translate txt_ApiaryDataRacesMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataRacesMainPage}" Route="ApiaryDataRacesMainPage" />
-        <ShellContent Title="{loc:Translate txt_ApiaryDataReviewsMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataReviewsMainPage}" Route="ApiaryDataReviewsMainPage" />
+        <ShellContent Title="{loc:Translate txt_ApiaryDataReviewsMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataReviewsMainPage}" Route="{x:Static route:RouteKeys.ApiaryDataReviewsMainPage}" />
         <ShellContent Title="{loc:Translate txt_ApiaryDataProdutionsMainPageTitle}" ContentTemplate="{DataTemplate pages:ApiaryDataProdutionsMainPage}" Route="ApiaryDataProdutionsMainPage" />
     </FlyoutItem>
     <FlyoutItem Title="{loc:Translate txt_SettingsNavigationTitle}" >

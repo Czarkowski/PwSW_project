@@ -7,12 +7,12 @@
              x:DataType="vm:ReviewDetailsVM"
              BindingContext="{Binding ReviewDetailsVM, Source={RelativeSource Self}}"
              x:Name="this"
-             Title="ReviewDetailsMainPage">
+             Title="{loc:Translate txt_ReviewDetailsMainPageTitle}">
 
     <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
         <Label Text="{Binding ReviewTypeName}" HorizontalOptions="Center" />
         <Label Text="{Binding Description}" HorizontalOptions="Center"/>
-        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" SelectionChanged="ReviewDetailsCV_SelectionChanged" >
+        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" SelectionMode="Single" SelectionChanged="ReviewDetailsCV_SelectionChanged" >
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:DescriptionHiveReviewVM">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}">

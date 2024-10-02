@@ -6,10 +6,10 @@
               x:Class="MobileApp.Pages.Review.List.Templates.ReviewListDataTemplateUncmopleted"
               x:DataType="vm:ReviewListItemVM">
 
-    <Frame HasShadow="True"  Margin="1" 
+    <VerticalStackLayout Margin="1" 
            BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" 
            Padding="2,2,2,2" InputTransparent="False">
-        <Grid BackgroundColor="Blue">
+        <Grid BackgroundColor="Blue" HorizontalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition Width="0.1*" />
@@ -23,7 +23,7 @@
             <Label Grid.Column="2" Text="{Binding PlannedDate, StringFormat='{0:dd-MM-yyyy}'}" />
             <Label Grid.Column="3" Text="{Binding ReviewDescription}" />
         </Grid>
-    </Frame>
+    </VerticalStackLayout>
 
 
 </DataTemplate>

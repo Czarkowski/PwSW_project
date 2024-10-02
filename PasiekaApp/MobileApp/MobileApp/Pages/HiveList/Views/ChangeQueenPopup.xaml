@@ -8,7 +8,6 @@
     x:Class="MobileApp.Pages.HiveList.Views.ChangeQueenPopup"
     x:DataType="local:ChangeQueenPopup"
     x:Name="this">
-
     <VerticalStackLayout Padding="20" BackgroundColor="DarkGreen" 
                          WidthRequest="400" HeightRequest="300"
                          HorizontalOptions="Center" VerticalOptions="Center">

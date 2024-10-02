@@ -5,8 +5,13 @@
              x:Class="MobileApp.Controls.CompositeControls.CustomChackBox"
              x:DataType="local:CustomChackBox"
              x:Name="this">
-    <StackLayout Orientation="Vertical">
-        <Label x:Name="Label" Text="{Binding LabelText, Source={x:Reference this}}" />
-        <CheckBox x:Name="CheckBox" IsChecked="{Binding IsChecked, Source={x:Reference this}}" />
+    <StackLayout Orientation="Horizontal" HeightRequest="60" 
+                 Spacing="1" Padding="5">
+        <Label x:Name="Label" VerticalTextAlignment="Center" 
+               FontAttributes="Bold"
+           FontSize="Medium"
+               Text="{Binding LabelText, Source={x:Reference this}}" />
+        <CheckBox x:Name="CheckBox" 
+                  IsChecked="{Binding IsChecked, Source={x:Reference this}}" />
     </StackLayout>
 </ContentView>

@@ -5,8 +5,20 @@
              xmlns:local="clr-namespace:MobileApp.Controls.CompositeControls"
              x:DataType="local:CustomDatePicker"
              x:Name="this">
-    <StackLayout Orientation="Vertical" Spacing="10">
-        <Label x:Name="Label" FontAttributes="Bold" Text="{Binding LabelText, Source={x:Reference this}}"/>
-        <DatePicker x:Name="Picker" Date="{Binding SelectedDate, Source={x:Reference this}}" />
+    <StackLayout Orientation="Horizontal"
+             Padding="5" 
+             VerticalOptions="Center"
+             HorizontalOptions="FillAndExpand"
+             Spacing="1"
+             HeightRequest="60">
+        <Label x:Name="Label" FontAttributes="Bold"
+           VerticalTextAlignment="Center"
+           HorizontalOptions="Start"
+           FontSize="Medium"
+           Text="{Binding LabelText, Source={x:Reference this}}"/>
+        <DatePicker x:Name="Picker" HorizontalOptions="EndAndExpand"
+                FontSize="Medium" 
+                WidthRequest="100"
+                Date="{Binding SelectedDate, Source={x:Reference this}}" />
     </StackLayout>
 </ContentView>

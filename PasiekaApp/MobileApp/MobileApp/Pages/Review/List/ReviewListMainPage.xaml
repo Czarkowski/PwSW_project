@@ -15,7 +15,7 @@
     
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <!--Filtr-->
-        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}" >
+        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}" HorizontalOptions="FillAndExpand" >
             <views:ReviewListFilterView OnSearch="{Binding OnSearch,Source={x:Reference this}}"/>
         </StackLayout>
         <!-- Główna zawartość strony -->

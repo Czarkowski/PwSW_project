@@ -13,9 +13,8 @@
              x:Name="this"
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
             Title="{loc:Translate txt_ApiaryDataProdutionsMainPageTitle}">
-    
-    <VerticalStackLayout Padding="10" Spacing="10">
 
+    <VerticalStackLayout Padding="10" Spacing="10">
         <!-- Lista dostępnych ras z checkboxami -->
         <CollectionView ItemsSource="{Binding ProductionTypeListVM.ObservableItemCollection}" SelectionMode="Single" 
                         SelectedItem="{Binding ProductionTypeListVM.SelectedItem}" SelectionChanged="CollectionView_SelectionChanged">

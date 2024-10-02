@@ -6,10 +6,10 @@
               x:Class="MobileApp.Pages.Review.List.Templates.ReviewListDataTemplateSoon"
               x:DataType="vm:ReviewListItemVM">
 
-    <Frame HasShadow="True"  Margin="1" 
+    <VerticalStackLayout Margin="1" 
            BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" 
            Padding="2,2,2,2" >
-        <Grid BackgroundColor="Yellow">
+        <Grid BackgroundColor="Yellow" HorizontalOptions="FillAndExpand">
             <Grid.Resources>
                 <Style TargetType="Label">
                     <Setter Property="TextColor" Value="Black" />
@@ -30,6 +30,6 @@
             <Label Grid.Column="4" Text="{loc:Translate txt_Realized}" />
             <Label Grid.Column="5" Text="{loc:Translate txt_Soon}" />
         </Grid>
-    </Frame>
+    </VerticalStackLayout>
 
 </DataTemplate>

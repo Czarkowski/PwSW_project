@@ -13,6 +13,8 @@ namespace MobileApp.Helpers
     {
         public async Task<byte[]> TakePhotoBytesAsync()
         {
+            //CrossPermissions
+            //Permissions.RequestAsync<Permissions.Camera>();
             var photoResult = await MediaPicker.CapturePhotoAsync();
             if (photoResult != null)
             {

@@ -5,6 +5,8 @@ using MobileApp.Core.BasePages;
 using MobileApp.Factories;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.Interfaces;
+using MobileApp.Keys;
+using MobileApp.Localizations;
 using MobileApp.Productions;
 using MobileApp.ViewModels;
 using MobileApp.ViewModels.BaseViewModel;
@@ -26,7 +28,8 @@ public partial class ApiaryProductionCreatorMainPage : BaseContentPage<ApiaryPro
         _apiaryToolHelper = apiaryToolHelper;
         _pickerItemFactory = pickerItemFactories;
         InitializeComponent();
-	}
+        LoadData();
+    }
 
     protected override void LoadData()
     {
@@ -42,6 +45,15 @@ public partial class ApiaryProductionCreatorMainPage : BaseContentPage<ApiaryPro
     private void Button_Clicked(object sender, EventArgs e)
     {
 
+    }
+
+    protected override async void OnAppearing()
+    {
+        if ((ViewModel?.ProductionTypePickerVM.ItemList.Count ?? 0) == 0)
+        {
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoProductionType"), LocalizeManager.Translate("Txt_Ok"));
+            await Shell.Current.GoToAsync(RouteKeys.ApiaryDataProdutionsMainPage_Path);
+        }
     }
 
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)

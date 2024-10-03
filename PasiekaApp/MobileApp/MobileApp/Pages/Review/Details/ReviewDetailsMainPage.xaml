@@ -28,19 +28,18 @@
                 <Label Text="{loc:Translate txt_Description}" HorizontalOptions="Center"/>
                 <Entry Text="{Binding SelectedItem.Description}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
                 <Label Text="{loc:Translate txt_PhotoList}" HorizontalOptions="Center"/>
-                <CollectionView ItemsSource="{Binding SelectedItem.Photos}">
+                <CollectionView x:Name="PhotoCV" ItemsSource="{Binding SelectedItem.Photos}" >
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="vm:PhotoVM">
                             <Grid Padding="5">
                                 <!-- Zdjęcie -->
-                                <Image Source="{Binding ., Converter={StaticResource ByteArrayToImageSourceConverter}}"
-                       WidthRequest="100" HeightRequest="100" />
+                                <Image Source="{Binding ImageData, Converter={StaticResource ByteArrayToImageSourceConverter}}" HeightRequest="300" />
 
                                 <!-- Przycisk do usunięcia zdjęcia -->
                                 <Button Text="{loc:Translate txt_Delete}"
-                        Command="{Binding DeletePhotoCommand, Source={x:Reference this}}"
-                        CommandParameter="{Binding .}"
-                        HorizontalOptions="End" />
+                                    Command="{Binding DeletePhotoCommand, Source={x:Reference this}}"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalOptions="End" />
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

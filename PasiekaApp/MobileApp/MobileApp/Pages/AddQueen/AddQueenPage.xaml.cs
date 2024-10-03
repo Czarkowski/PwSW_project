@@ -6,6 +6,8 @@ using MobileApp.Factories.Interfaces;
 using MobileApp.ViewModels;
 using MobileApp.ActionSubscriber;
 using MobileApp.Helpers.StaticResources;
+using MobileApp.Keys;
+using MobileApp.Localizations;
 
 namespace MobileApp.Pages;
 
@@ -39,6 +41,16 @@ public partial class AddQueenPage : ContentPage
     {
         List<Race> races = _beeService.GetAllRaces();
         AddQueenVM = _viewModelsFactory.CreateAddQueenVM(races);
+    }
+
+    protected override async void OnAppearing()
+    {
+        if ((AddQueenVM?.Races.Count ?? 0) == 0)
+        {
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRaces"), LocalizeManager.Translate("Txt_Ok"));
+            await Navigation.PopAsync();
+            await Shell.Current.GoToAsync(RouteKeys.ApiaryDataProdutionsMainPage_Path);
+        }
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)

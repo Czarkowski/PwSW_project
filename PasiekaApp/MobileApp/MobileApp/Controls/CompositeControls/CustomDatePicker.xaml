@@ -18,7 +18,6 @@
            Text="{Binding LabelText, Source={x:Reference this}}"/>
         <DatePicker x:Name="Picker" HorizontalOptions="EndAndExpand"
                 FontSize="Medium" 
-                WidthRequest="100"
                 Date="{Binding SelectedDate, Source={x:Reference this}}" />
     </StackLayout>
 </ContentView>

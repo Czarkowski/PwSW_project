@@ -10,7 +10,11 @@ namespace MobileApp.Keys
     {
         public const string PathPrefix = "//";
         public static readonly string ApiaryDataReviewsMainPage = nameof(ApiaryDataReviewsMainPage);
+        public static readonly string ApiaryDataProdutionsMainPage = nameof(ApiaryDataProdutionsMainPage);
+        public static readonly string ApiaryDataRacesMainPage = nameof(ApiaryDataRacesMainPage);
         public static readonly string ApiaryDataReviewsMainPage_Path = GetRoutePath(ApiaryDataReviewsMainPage);
+        public static readonly string ApiaryDataRacesMainPage_Path = GetRoutePath(ApiaryDataRacesMainPage);
+        public static readonly string ApiaryDataProdutionsMainPage_Path = GetRoutePath(ApiaryDataProdutionsMainPage);
 
         public static string GetRoutePath(string routeKey)
         {

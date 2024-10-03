@@ -32,6 +32,7 @@ namespace Data.Core.Services.Interfaces
         StockAvailability UpdateStock(StockAvailability stock);
         Description UpdateDescription(Description description);
         Description AddDescription(Description description);
+        DescriptionHiveReview UpdateDescriptionHiveReview(DescriptionHiveReview descriptionHiveReview);
         Review UpdateReview(Review review);
         List<DescriptionHiveReview> GetFiltratedDescriptionHiveReviewsHistory(Hive hive, ReviewType reviewType = default, DateTime? fromDate = default, DateTime? toDate = default, bool? uncompleted = default);
         Race AddRace(Race race);

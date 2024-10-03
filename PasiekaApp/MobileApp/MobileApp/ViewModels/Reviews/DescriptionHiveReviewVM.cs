@@ -2,6 +2,7 @@
 using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,8 @@ namespace MobileApp.ViewModels
             set => SetProperty(ref _hiveName, value);
         }
 
-        private List<byte[]> _photos;
-        public List<byte[]> Photos
+        private ObservableCollection<PhotoVM> _photos;
+        public ObservableCollection<PhotoVM> Photos
         {
             get => _photos;
             set => SetProperty(ref _photos, value);

@@ -1,4 +1,5 @@
-﻿using Data.Core.Models;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using Data.Core.Models;
 using Data.Core.Services.Interfaces;
 using MobileApp.ApiaryTools;
 using MobileApp.Core.Classes;
@@ -11,6 +12,7 @@ using MobileApp.ViewModels;
 using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -33,6 +35,7 @@ namespace MobileApp.Factories
             {
                 Description = descriptionHiveReview.Description?.Text ?? string.Empty,
                 HiveName = $"{descriptionHiveReview.Hive.Number} - {descriptionHiveReview.Hive.BeeQueen?.Race.Name ?? LocalizeManager.Translate("txt_NoQueen")}",
+                Photos = descriptionHiveReview.Description?.Photos?.Select(CreatePhotoVM).ToObservableCollection() ?? new ObservableCollection<PhotoVM>(),
             };
         }
 
@@ -367,6 +370,14 @@ namespace MobileApp.Factories
         public ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM()
         {
             throw new NotImplementedException();
+        }
+
+        public PhotoVM CreatePhotoVM(Photo photo)
+        {
+            return new PhotoVM(photo)
+            {
+                ImageData = photo.ImageData,
+            };
         }
     }
 }

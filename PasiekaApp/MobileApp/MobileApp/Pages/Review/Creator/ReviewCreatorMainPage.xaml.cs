@@ -2,6 +2,7 @@ using Data.Core.Services.Interfaces;
 using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.Interfaces;
 using MobileApp.Keys;
+using MobileApp.Localizations;
 using MobileApp.ReferenceMessenger;
 using MobileApp.ViewModels;
 using System.Collections.ObjectModel;
@@ -45,6 +46,7 @@ public partial class ReviewCreatorMainPage : ContentPage
 
         if (ReviewCreatorVM?.ReviewTypeList.Count == 0)
         {
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoReviewType"), LocalizeManager.Translate("Txt_Ok"));
             await Navigation.PopAsync();
             await Shell.Current.GoToAsync(RouteKeys.ApiaryDataReviewsMainPage_Path);
         }

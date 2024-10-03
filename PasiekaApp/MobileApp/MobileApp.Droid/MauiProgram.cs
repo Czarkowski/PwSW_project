@@ -1,4 +1,7 @@
-﻿namespace MobileApp.Droid
+﻿using MobileApp.IInfrastructure;
+using MobileApp.Droid.Infrastructure;
+
+namespace MobileApp.Droid
 {
     public static class MauiProgram
     {
@@ -7,7 +10,8 @@
             var builder = MauiApp.CreateBuilder();
 
             builder
-                .UseSharedMauiApp();
+                .UseSharedMauiApp()
+                .Services.AddSingleton<IPermissionHelper, PermissionHelper>();
             
             return builder.Build();
         }

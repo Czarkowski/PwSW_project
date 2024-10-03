@@ -10,6 +10,7 @@ using MobileApp.Localizations;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using MobileApp.ReferenceMessenger;
 using Data.Core.Repositories.Interfaces;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace MobileApp.Pages;
 
@@ -54,13 +55,13 @@ public partial class ReviewDetailsMainPage : ContentPage
         OnLeft = new Command<DescriptionHiveReviewVM>(OnLeftClicked);
         OnRight = new Command<DescriptionHiveReviewVM>(OnRightClicked);
         OnSave = new Command(OnSaveClicked);
-        DeletePhotoCommand = new Command<byte[]>(DeletePhotoClicked);
+        DeletePhotoCommand = new Command<PhotoVM>(DeletePhotoClicked);
         TakePhotoCommand = new Command(async () => await TakeAndSavePhotoAsync());
     }
 
-    private void DeletePhotoClicked(byte[] obj)
+    private void DeletePhotoClicked(PhotoVM photoVM)
     {
-
+        ReviewDetailsVM.SelectedItem.Photos.Remove(photoVM);
     }
 
     private async Task TakeAndSavePhotoAsync()
@@ -68,7 +69,8 @@ public partial class ReviewDetailsMainPage : ContentPage
         byte[] bytes = await _photoHelper.TakePhotoBytesAsync();
         if (bytes != null)
         {
-            _reviewDetailsVM.SelectedItem.Photos.Add(bytes);
+            ReviewDetailsVM.SelectedItem.Photos.Add(new PhotoVM() { ImageData = bytes });
+            //PhotoCV.ItemsSource = ReviewDetailsVM.SelectedItem.Photos;
         }
     }
 
@@ -154,15 +156,25 @@ public partial class ReviewDetailsMainPage : ContentPage
     private void AddOrUpdateDescription(DescriptionHiveReviewVM descriptionHiveReviewVM)
     {
         Description description = descriptionHiveReviewVM.DescriptionHiveReview.Description;
-        if (description == null)
+        try
         {
-            description = _dataToSaveFactory.CreateDescription(descriptionHiveReviewVM);
-            _beeService.AddDescription(description);
+            if (description == null)
+            {
+                description = _dataToSaveFactory.CreateDescription(descriptionHiveReviewVM);
+                descriptionHiveReviewVM.DescriptionHiveReview.Description = description;
+                _beeService.UpdateDescriptionHiveReview(descriptionHiveReviewVM.DescriptionHiveReview);
+                //_beeService.AddDescription(description);
+            }
+            else if (description.Text != descriptionHiveReviewVM.Description 
+                || !description.Photos.SequenceEqual(descriptionHiveReviewVM.Photos.Select(x => x.Photo).ToList()))
+            {
+                description = _updateDataHelper.UpdateDescription(ref description, descriptionHiveReviewVM);
+                _beeService.UpdateDescription(description);
+            }
         }
-        else if (description.Text != descriptionHiveReviewVM.Description)
+        catch (Exception e)
         {
-            description = _updateDataHelper.UpdateDescription(ref description, descriptionHiveReviewVM);
-            _beeService.UpdateDescription(description);
+            throw e;
         }
     }
 }

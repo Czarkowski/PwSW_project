@@ -4,6 +4,8 @@ using MobileApp.Factories.Interfaces;
 using MobileApp.ViewModels;
 using MobileApp.ActionSubscriber;
 using MobileApp.Helpers;
+using MobileApp.Keys;
+using MobileApp.Localizations;
 
 namespace MobileApp.Pages;
 
@@ -33,6 +35,12 @@ public partial class QueenListMainPage : ContentPage
 
     private async void OnAddQueenClicked(object sender, EventArgs e)
     {
+        if (_beeService.GetAllRaces().Count == 0)
+        {
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRace"), LocalizeManager.Translate("Txt_Ok"));
+            await Shell.Current.GoToAsync(RouteKeys.ApiaryDataRacesMainPage_Path);
+            return;
+        }
         var page = PagesHelper.AddQueen;
         page.OnSave += (s, e) => RefreshList();
         await Navigation.PushAsync(page);
@@ -54,11 +62,12 @@ public partial class QueenListMainPage : ContentPage
         LoadData();
     }
 
-    private async void OnAddRaceClicked(object sender, EventArgs e)
-    {
-        var pare = PagesHelper.AddRaceMain;
-        await Navigation.PushAsync(pare);
-    }
+    //private async void OnAddRaceClicked(object sender, EventArgs e)
+    //{
+
+    //    var page = PagesHelper.AddRaceMain;
+    //    await Navigation.PushAsync(page);
+    //}
 
 
     //protected override void OnAppearing()

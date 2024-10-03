@@ -20,7 +20,7 @@
                 <cc:CustomDatePicker LabelText="{loc:Translate txt_ToDate}" SelectedDate="{Binding ToDate}"  
                                  HorizontalOptions="FillAndExpand"/>
             </HorizontalStackLayout>
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5">
                     <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" SelectedItem="{Binding ReviewType}" 
                                  OptionList="{Binding ReviewTypes}" DisplayProperty="Name"/>
                         <cc:CustomChackBox LabelText="{loc:Translate txt_Uncopleted}" IsChecked="{Binding Uncompleted}"/>

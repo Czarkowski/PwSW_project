@@ -46,11 +46,13 @@ namespace MobileApp.Helpers
         {
             description.Text = descriptionHiveReviewVM.Description;
             description.Photos = descriptionHiveReviewVM.Photos.Select(x =>
-                new Photo()
+            {
+                return x.Photo ?? new Photo()
                 {
                     DateTaken = DateTime.Now,
-                    ImageData = x
-                }).ToList();
+                    ImageData = x.ImageData
+                };
+            }).ToList();
             return ref description;
         }
     }

@@ -29,7 +29,7 @@ namespace MobileApp.Factories
                 Photos = descriptionHiveReviewVM.Photos.Select(x => 
                     new Photo() {
                         DateTaken = DateTime.Now,
-                        ImageData = x 
+                        ImageData = x.ImageData
                 }).ToList(),
             };
         }

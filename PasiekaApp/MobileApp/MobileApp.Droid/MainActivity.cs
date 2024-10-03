@@ -2,6 +2,8 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using MobileApp.Droid.Infrastructure;
+using MobileApp.IInfrastructure;
 using Plugin.LocalNotification;
 using Plugin.LocalNotification.EventArgs;
 
@@ -10,9 +12,19 @@ namespace MobileApp.Droid
     [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
     public class MainActivity : MauiAppCompatActivity
     {
+        //private PermissionHelper _permissionHelper = null;
+        //public MainActivity(IPermissionHelper permissionHelper)
+        //{
+        //    //_permissionHelper = permissionHelper as PermissionHelper;
+        //}
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            if (IPlatformApplication.Current.Services.GetService<IPermissionHelper>() is PermissionHelper permission)
+            {
+                permission.MainActivity = this;
+            } 
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Tiramisu)
             {

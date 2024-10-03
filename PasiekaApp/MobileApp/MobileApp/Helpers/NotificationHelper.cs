@@ -24,6 +24,8 @@ namespace MobileApp.Helpers
             {
                 return;
             }
+            //NotificationPermission permission = new NotificationPermission();
+            //permission.AskPermission;
             LocalNotificationCenter.Current.Cancel(notification.LocalNotificationId);
             notification.IsActivated = false;
             notification = _notificationRepository.Update(notification);

@@ -102,9 +102,9 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterFactories(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<IViewModelsFactory, ViewModelsFactory>();
-            builder.Services.AddSingleton<IPickerItemFactory, PickerItemFactory>();
-            builder.Services.AddSingleton<IDataToSaveFactory, DataToSaveFactory>();
+            builder.Services.AddTransient<IViewModelsFactory, ViewModelsFactory>();
+            builder.Services.AddTransient<IPickerItemFactory, PickerItemFactory>();
+            builder.Services.AddTransient<IDataToSaveFactory, DataToSaveFactory>();
             return builder;
         }
 

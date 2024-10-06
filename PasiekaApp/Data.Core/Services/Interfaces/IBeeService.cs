@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Core.Services.Interfaces
 {
-    public interface IBeeService
+    public interface IBeeService : IDisposable
     {
         List<Hive> GetAllHive();
         List<StockAvailability> GetAllStock();

@@ -19,6 +19,7 @@ namespace MobileApp
     {
         public static new App Current => (App)Application.Current;
         public readonly IServiceProvider ServicesProvider;
+        public IBeeService BeeService => ServicesProvider?.GetService<IBeeService>();
         public readonly IServiceScopeFactory ServiceScopeFactory;
         private readonly IInitializeResources _staticResourcesServices;
         private readonly IBeeService _beeService;

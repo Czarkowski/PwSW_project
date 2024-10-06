@@ -17,13 +17,21 @@ namespace MobileApp.Helpers
             //descriptionHiveReview.Description = descriptionHiveReviewVM.Description;
         }
 
-        public ref Hive UpdateHiveDetails(ref Hive ul, HiveDetailsVM hive)
+        public ref Hive UpdateHiveDetails(ref Hive hive, HiveDetailsVM hiveVM)
         {
-            ul.Description = hive.Description;
-            ul.Number = hive.Number;
-            ul.AddBeeQueenDate = hive.QueenAddDate;
-            ul.BeeQueen = hive.BeeQueen;
-            return ref ul;
+            hive.Description = hiveVM.Description;
+            hive.Number = hiveVM.Number;
+            hive.AddBeeQueenDate = hiveVM.QueenAddDate;
+
+                hive.BeeQueen = hiveVM.BeeQueen;
+                hive.BeeQueenId = hiveVM.BeeQueen?.Id;
+                //hive.BeeQueen.Race = hiveVM.BeeQueen.Race;
+            
+            //if (ul.BeeQueen != null)
+            //{
+            //    ul.BeeQueen.Hive = ul;
+            //}
+            return ref hive;
         }
 
         public ref BeeQueen UpdateQueenDetails(ref BeeQueen beeQueen, QueenDetailsVM queenDetailsVM)

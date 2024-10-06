@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using Data.Core;
 using Data.Core.Models;
 using Data.Core.Services;
 using Data.Core.Services.Interfaces;
@@ -27,7 +28,8 @@ public partial class HiveListMainPage : ContentPage
     private readonly IViewModelsFactory _viewModelsFactories;
     private readonly IUpdateDataHelper _updateDataHelper;
     private readonly IDataToSaveFactory _dataToSaveFactory;
-    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper, IBeeService beeService, IDataToSaveFactory dataToSaveFactory)
+    public HiveListMainPage(IViewModelsFactory viewModelsFactories, IUpdateDataHelper updateDataHelper,
+        IBeeService beeService, IDataToSaveFactory dataToSaveFactory)
     {
         _dataToSaveFactory = dataToSaveFactory;
         _viewModelsFactories = viewModelsFactories;
@@ -78,9 +80,15 @@ public partial class HiveListMainPage : ContentPage
     {
         if (HiveListMainVM.HiveDetailsVM.IsNull())
             return;
+        //var hive = _beeService.GetHiveById(HiveListMainVM.HiveDetailsVM.Hive.Id);
         var hive = HiveListMainVM.HiveDetailsVM.Hive;
         _updateDataHelper.UpdateHiveDetails(ref hive, HiveListMainVM.HiveDetailsVM);
-        _beeService.UpdateHive(hive);
+        using (var db = App.Current.ServicesProvider.GetService<BeeDbContext>())
+        using (var beeService = new BeeService(db))
+        {
+            beeService.UpdateHive(hive);
+        }
+        //_beeService.UpdateHive(hive);
 
         RefreshHiveList();
         SetSelectDetails(hive);
@@ -115,8 +123,8 @@ public partial class HiveListMainPage : ContentPage
         HiveListMainVM.HiveDetailsVM = null;
         RefreshHiveList();
 
-        UlDetailsModel.IsVisible = false;
-        UlDetailsModel.BindingContext = null;
+        //UlDetailsModel.IsVisible = false;
+        //UlDetailsModel.BindingContext = null;
     }
 
     private async void OnHiveReviewHistoryClicked(object sender, EventArgs e)

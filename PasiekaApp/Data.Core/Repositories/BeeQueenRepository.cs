@@ -33,14 +33,16 @@ namespace Data.Core.Repositories
 
         public BeeQueen Get(int id, bool includeRelations = false)
         {
-            if (includeRelations)
-            {
-                return _db.BeeQueens.Include(x => x.Race).Include(x => x.Hive).FirstOrDefault(x => x.Id == id);
-            }
-            else
-            {
-                return _db.BeeQueens.FirstOrDefault(x => x.Id == id);
-            }
+            return _db.BeeQueens.FirstOrDefault(x => x.Id == id);
+
+            //if (includeRelations)
+            //{
+            //return _db.BeeQueens.Include(x => x.Race).Include(x => x.Hive).Include(x => x.Race).FirstOrDefault(x => x.Id == id);
+            //}
+            //else
+            //{
+            //    return _db.BeeQueens.FirstOrDefault(x => x.Id == id);
+            //}
         }
 
         public List<BeeQueen> GetAll()
@@ -50,6 +52,15 @@ namespace Data.Core.Repositories
 
         public BeeQueen Update(BeeQueen beeQueen)
         {
+            var trackedBeeQueen = _db.ChangeTracker.Entries<Race>()
+                             .FirstOrDefault(e => e.Entity.Id == beeQueen.RaceId);
+
+            if (trackedBeeQueen != null)
+            {
+                // Odłącz śledzoną instancję, aby uniknąć konfliktów
+                _db.Entry(trackedBeeQueen.Entity).State = EntityState.Detached;
+            }
+            beeQueen.Race = _db.Races.First(x => x.Id == beeQueen.RaceId);
             _db.BeeQueens.Update(beeQueen);
             _db.SaveChanges();
             return beeQueen;

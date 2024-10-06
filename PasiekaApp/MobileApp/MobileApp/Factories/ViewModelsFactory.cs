@@ -59,7 +59,7 @@ namespace MobileApp.Factories
                     {
                         Number = x.Number,
                         Description = x.Description,
-                        Race = x.BeeQueenId.HasValue ? _beeService.GetRaceByBeeQueenId(x.BeeQueenId.Value).Name : string.Empty,
+                        Race = x.BeeQueen?.Race.Name ?? LocalizeManager.Translate("txt_NoQueen"),
 
                     }).ToList(),
                 }
@@ -194,7 +194,7 @@ namespace MobileApp.Factories
             };
             if (hive.BeeQueenId.HasValue)
             {
-            var queen = _beeService.GetQueenById(hive.BeeQueenId.Value);
+            var queen = hive.BeeQueen;
                 if (!queen.IsNull())
                 {
                     model.BeeQueen = queen;
@@ -217,7 +217,7 @@ namespace MobileApp.Factories
 
             return uls.Select(x => {
                 var race = x.BeeQueenId.HasValue ?
-                    _beeService.GetRaceByBeeQueenId(x.BeeQueenId.Value)
+                    x.BeeQueen.Race
                     : null;
                 return new ViewModels.HiveListItemVM(x)
                 {

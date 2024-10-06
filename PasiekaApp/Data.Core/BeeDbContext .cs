@@ -82,6 +82,8 @@ namespace Data.Core
                 optionsBuilder
                     .UseLazyLoadingProxies()
                     .UseSqlite($"Data Source={dbPath}");
+
+                optionsBuilder.EnableSensitiveDataLogging();
             }
         }
 
@@ -90,7 +92,9 @@ namespace Data.Core
             modelBuilder.Entity<Hive>(ul =>
             {
                 ul.ToTable(nameof(Hive));
-                ul.HasOne(u => u.BeeQueen).WithOne(m => m.Hive).HasForeignKey<Hive>(u => u.BeeQueenId).IsRequired(false).OnDelete(DeleteBehavior.SetNull); ;
+                ul.HasOne(u => u.BeeQueen).WithOne(m => m.Hive)
+                .HasForeignKey<Hive>(u => u.BeeQueenId)
+                .IsRequired(false).OnDelete(DeleteBehavior.SetNull); ;
             });
             modelBuilder.Entity<BeeQueen>(mp =>
             {

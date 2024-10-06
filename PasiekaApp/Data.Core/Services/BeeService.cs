@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Data.Core.Services
 {
-    public class BeeService : IBeeService
+    public class BeeService : IBeeService, IDisposable
     {
         //private readonly BeeDbContext _db;
 
@@ -91,7 +91,7 @@ namespace Data.Core.Services
 
         public List<Race> GetAllRaces(bool isVisible)
         {
-            return _raceRepository.GetAll().Where(x => isVisible ? x.IsVisible == true : true).ToList();
+            return _db.Races.Where(x => isVisible ? x.IsVisible == true : true).ToList();
         }
 
         public List<Hive> GetAllHive()
@@ -126,6 +126,11 @@ namespace Data.Core.Services
 
         public Hive UpdateHive(Hive ul)
         {
+            if (ul.BeeQueenId.HasValue)
+            {
+                //ul.BeeQueen.Race = _db.Races.First(x => x.Id == ul.BeeQueen.Race.Id);
+                //ul.BeeQueen = _db.BeeQueens.First(x => x.Id == ul.BeeQueenId);
+            }
             return _hiveRepository.Update(ul);
         }
 
@@ -269,6 +274,11 @@ namespace Data.Core.Services
         public DescriptionHiveReview UpdateDescriptionHiveReview(DescriptionHiveReview descriptionHiveReview)
         {
             return _descriptionHiveReviewRepository.Update(descriptionHiveReview);
+        }
+
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

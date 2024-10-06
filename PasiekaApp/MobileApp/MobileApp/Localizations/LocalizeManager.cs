@@ -39,5 +39,12 @@ namespace MobileApp.Localizations
             _resourceManager = resourceManager;
         }
 
+        public static string TranslateWitFormat(string key, params string[] strings)
+        {
+            string value = _resourceManager?.GetString(key, _currentCulture);
+            return value != null 
+                ? string.Format(value, strings)
+                : $"{key}:{string.Join(";", strings)}";
+        }
     }
 }

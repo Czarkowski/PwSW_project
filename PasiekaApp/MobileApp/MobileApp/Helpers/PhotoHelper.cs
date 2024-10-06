@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MobileApp.Localizations;
+using Microsoft.Maui.Platform;
 
 namespace MobileApp.Helpers
 {
@@ -13,16 +15,38 @@ namespace MobileApp.Helpers
     {
         public async Task<byte[]> TakePhotoBytesAsync()
         {
-            //CrossPermissions
-            //Permissions.RequestAsync<Permissions.Camera>();
-            var photoResult = await MediaPicker.CapturePhotoAsync();
-            if (photoResult != null)
+            try
             {
-                var stream = await photoResult.OpenReadAsync();
-                using var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                var imageData = memoryStream.ToArray();
-                return imageData;
+                var cameraStatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
+
+                if (cameraStatus != PermissionStatus.Granted)
+                {
+                    cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
+                }
+
+                if (cameraStatus == PermissionStatus.Granted)
+                {
+                    if (MediaPicker.Default.IsCaptureSupported)
+                    {
+                        var photoResult = await MediaPicker.CapturePhotoAsync();
+                        if (photoResult != null)
+                        {
+                            var stream = await photoResult.OpenReadAsync();
+                            using var memoryStream = new MemoryStream();
+                            await stream.CopyToAsync(memoryStream);
+                            var imageData = memoryStream.ToArray();
+                            return imageData;
+                        }
+                    }
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert(LocalizeManager.Translate("txt_NoPremission"), LocalizeManager.Translate("txt_NoPermissionForCamera"), LocalizeManager.Translate("txt_OK"));
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert(LocalizeManager.Translate("txt_Error"), LocalizeManager.TranslateWitFormat("txt_Error", ex.Message), LocalizeManager.Translate("txt_OK"));
             }
             return null;
         }

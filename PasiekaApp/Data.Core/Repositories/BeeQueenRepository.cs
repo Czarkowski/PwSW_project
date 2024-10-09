@@ -54,7 +54,7 @@ namespace Data.Core.Repositories
         {
             var trackedBeeQueen = _db.ChangeTracker.Entries<Race>()
                              .FirstOrDefault(e => e.Entity.Id == beeQueen.RaceId);
-
+            Race race = _db.Races.Local.FirstOrDefault(x => x.Id == beeQueen.RaceId);
             if (trackedBeeQueen != null)
             {
                 // Odłącz śledzoną instancję, aby uniknąć konfliktów

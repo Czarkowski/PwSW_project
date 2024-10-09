@@ -9,14 +9,14 @@
              Padding="5" 
              VerticalOptions="Center"
              HorizontalOptions="FillAndExpand"
-             Spacing="1"
+             Spacing="5"
              HeightRequest="60">
         <Label x:Name="Label" FontAttributes="Bold"
            VerticalTextAlignment="Center"
            HorizontalOptions="Start"
            FontSize="Medium"
            Text="{Binding LabelText, Source={x:Reference this}}"/>
-        <DatePicker x:Name="Picker" HorizontalOptions="EndAndExpand"
+        <DatePicker x:Name="Picker" HorizontalOptions="Start"
                 FontSize="Medium" 
                 Date="{Binding SelectedDate, Source={x:Reference this}}" />
     </StackLayout>

@@ -83,12 +83,12 @@ public partial class HiveListMainPage : ContentPage
         //var hive = _beeService.GetHiveById(HiveListMainVM.HiveDetailsVM.Hive.Id);
         var hive = HiveListMainVM.HiveDetailsVM.Hive;
         _updateDataHelper.UpdateHiveDetails(ref hive, HiveListMainVM.HiveDetailsVM);
-        using (var db = App.Current.ServicesProvider.GetService<BeeDbContext>())
-        using (var beeService = new BeeService(db))
-        {
-            beeService.UpdateHive(hive);
-        }
-        //_beeService.UpdateHive(hive);
+        //using (var db = App.Current.ServicesProvider.GetService<BeeDbContext>())
+        //using (var beeService = new BeeService(db))
+        //{
+        //    beeService.UpdateHive(hive);
+        //}
+        _beeService.UpdateHive(hive);
 
         RefreshHiveList();
         SetSelectDetails(hive);

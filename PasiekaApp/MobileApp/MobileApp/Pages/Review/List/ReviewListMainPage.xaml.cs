@@ -53,6 +53,10 @@ public partial class ReviewListMainPage : ContentPage
 
     private async void OnDetailsClicked(ReviewListItemVM selectedItem)
     {
+        if (selectedItem?.Review == null)
+        {
+            return;
+        }
         var page = PagesHelper.ReviewDetailsMain;
         page.InitializeData(selectedItem.Review);
         await Navigation.PushAsync(page);

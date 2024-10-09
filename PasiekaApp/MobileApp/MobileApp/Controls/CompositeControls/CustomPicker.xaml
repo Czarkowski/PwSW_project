@@ -6,7 +6,7 @@
              x:DataType="local:CustomPicker"
              x:Name="this">
 
-    <StackLayout Orientation="Horizontal" Spacing="1" Padding="10" HeightRequest="60">
+    <StackLayout Orientation="Horizontal" Spacing="5" Padding="10" HeightRequest="60">
         <Label x:Name="Label" 
            VerticalTextAlignment="Center"
                Text="{Binding LabelText, Source={x:Reference this}}" 
@@ -19,7 +19,7 @@
                 ItemDisplayBinding="{Binding ItemDisplayBinding, Source={x:Reference this}}"
                 SelectedIndexChanged="OnPickerSelectedIndexChanged"
                 FontSize="Medium" 
-                HorizontalOptions="EndAndExpand"/>
+                HorizontalOptions="Start"/>
                 <!--ItemDisplayBinding="{Binding ., Converter={ItemDisplayConverter, Source={x:Reference this}}}"-->
     </StackLayout>
 

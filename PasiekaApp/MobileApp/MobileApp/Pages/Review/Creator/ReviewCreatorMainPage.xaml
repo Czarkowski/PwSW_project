@@ -28,7 +28,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
         
-                <cc:CustomDatePicker LabelText="{loc:Translate txt_PlannedDate}" SelectedDate="{Binding Date}"/>
+                <cc:CustomDatePicker VerticalOptions="Start" LabelText="{loc:Translate txt_PlannedDate}" SelectedDate="{Binding Date}"/>
                 <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" OptionList ="{Binding ReviewTypeList}" SelectedItem="{Binding ReviewType}" DisplayProperty="Name"/>
                 <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description}" />
             </StackLayout>

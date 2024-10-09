@@ -128,8 +128,8 @@ namespace Data.Core.Services
         {
             if (ul.BeeQueenId.HasValue)
             {
-                //ul.BeeQueen.Race = _db.Races.First(x => x.Id == ul.BeeQueen.Race.Id);
-                //ul.BeeQueen = _db.BeeQueens.First(x => x.Id == ul.BeeQueenId);
+                ul.BeeQueen = _db.BeeQueens.First(x => x.Id == ul.BeeQueenId);
+                ul.BeeQueen.Race = _db.Races.First(x => x.Id == ul.BeeQueen.Race.Id);
             }
             return _hiveRepository.Update(ul);
         }

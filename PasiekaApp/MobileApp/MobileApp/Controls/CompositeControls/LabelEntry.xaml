@@ -16,9 +16,9 @@
 
         <Label x:Name="Label" 
                Text="{Binding LabelText, Source={x:Reference this}}"
-               VerticalOptions="Center" />
+               HorizontalOptions="Start" />
         <Entry  x:Name="Entry"
                 Text="{Binding EntryText, Source={x:Reference this}}"
-               VerticalOptions="Center" />
+               VerticalOptions="StartAndExpand" />
     </StackLayout>
 </ContentView>

@@ -155,8 +155,8 @@ namespace Data.Core
             }
             else if (platform == DevicePlatform.WinUI)
             {
-                dbPath = Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + appDataDir + dbFileName);
-
+                dbPath = Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + appDataDir + dbFileName);
+                //var x = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
                 //dbPath = Path.Combine(@"E:\BeeApp\", dbFileName);
             }
             else

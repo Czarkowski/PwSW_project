@@ -146,23 +146,25 @@ namespace Data.Core
         {
             var platform = DeviceInfo.Platform;
 
-            var dbFileName = @"BeeApp.db";
+            var dbFileName = @"\BeeApp.db";
+            var appDataDir = @"\PszczelaEnklawa\";
             var dbPath = string.Empty;
-            var path = AppContext.BaseDirectory;
             if (platform == DevicePlatform.Android)
             {
-                dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), dbFileName);
+                dbPath = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), appDataDir), dbFileName);
             }
             else if (platform == DevicePlatform.WinUI)
             {
-                dbPath = Path.Combine(@"E:\BeeApp\", dbFileName);
+                dbPath = Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + appDataDir + dbFileName);
+
+                //dbPath = Path.Combine(@"E:\BeeApp\", dbFileName);
             }
             else
             {
                 //dbPath = @"E:\BeeApp\BeeApp.db";
                 throw new PlatformNotSupportedException("Platform not supported");
             }
-            var dbDir = Path.GetDirectoryName(dbPath) ?? string.Empty;
+            var dbDir = Path.GetDirectoryName(dbPath);
 
             if (!dbDir.IsNEoWS() && !Directory.Exists(dbDir))
             {

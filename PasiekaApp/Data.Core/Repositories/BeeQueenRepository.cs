@@ -52,16 +52,16 @@ namespace Data.Core.Repositories
 
         public BeeQueen Update(BeeQueen beeQueen)
         {
-            var trackedBeeQueen = _db.ChangeTracker.Entries<Race>()
-                             .FirstOrDefault(e => e.Entity.Id == beeQueen.RaceId);
-            Race race = _db.Races.Local.FirstOrDefault(x => x.Id == beeQueen.RaceId);
-            if (trackedBeeQueen != null)
-            {
-                // Odłącz śledzoną instancję, aby uniknąć konfliktów
-                _db.Entry(trackedBeeQueen.Entity).State = EntityState.Detached;
-            }
-            beeQueen.Race = _db.Races.First(x => x.Id == beeQueen.RaceId);
-            _db.BeeQueens.Update(beeQueen);
+            //var trackedBeeQueen = _db.ChangeTracker.Entries<Race>()
+            //                 .FirstOrDefault(e => e.Entity.Id == beeQueen.RaceId);
+            //Race race = _db.Races.Local.FirstOrDefault(x => x.Id == beeQueen.RaceId);
+            //if (trackedBeeQueen != null)
+            //{
+            //    // Odłącz śledzoną instancję, aby uniknąć konfliktów
+            //    _db.Entry(trackedBeeQueen.Entity).State = EntityState.Detached;
+            //}
+            //beeQueen.Race = _db.Races.AsNoTracking().First(x => x.Id == beeQueen.RaceId);
+            //_db.BeeQueens.Update(beeQueen);
             _db.SaveChanges();
             return beeQueen;
         }

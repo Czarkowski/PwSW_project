@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="BeeQueen" Category="Table" Bounds="136.782222865515,36.4780472884396,94.6133333333335,25" Group="Collapsed" Label="BeeQueen" UseManualLocation="True" />
+    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="78.7903737277275,248.225060328227,69.68,25.96" Description="text" Label="BirthDate" UseManualLocation="True" />
+    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="178.470373727727,248.225060328227,76.5166666666667,25.96" Description="text" Label="DeathDate" UseManualLocation="True" />
+    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="78.7903737277275,304.185060328227,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="78.7903737277275,192.265060328227,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="158.790373727727,192.265060328227,55.3633333333333,25.96" Description="bigint" Label="RaceId" UseManualLocation="True" />
+    <Node Id="Database" Category="Database" Bounds="-21.7915889306231,-66.6450194284088,598.858670921837,273.274526118973" Group="Expanded" Label="BeeApp.db" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview" Category="Table" Bounds="256.353974952203,-26.6454359777193,160.41,25" Group="Collapsed" Label="DescriptionHiveReview" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview_DescriptionId" Category="Field Foreign" Description="bigint" Label="DescriptionId" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview_HiveId" Category="Field Foreign" Description="bigint" Label="HiveId" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview_Id" Category="Field Primary" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview_ReviewId" Category="Field Foreign" Description="bigint" Label="ReviewId" UseManualLocation="True" />
+    <Node Id="Descriptions" Category="Table" Bounds="261.395556198848,36.3522344091151,105.346666666667,25" Group="Collapsed" Label="Descriptions" UseManualLocation="True" />
+    <Node Id="Descriptions_Id" Category="Field Primary" Bounds="326.767655733947,52.6921132307803,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Descriptions_Text" Category="Field" Bounds="326.767655733947,108.652119511656,50,25.96" Description="text" Label="Text" UseManualLocation="True" />
+    <Node Id="Hive" Category="Table" Bounds="157.472275174431,-19.2891439771499,63.4499999999999,25" Group="Collapsed" Label="Hive" UseManualLocation="True" />
+    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Description="text" Label="AddBeeQueenDate" UseManualLocation="True" />
+    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Description="bigint" Label="BeeQueenId" UseManualLocation="True" />
+    <Node Id="Hive_Description" Category="Field" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="Hive_Id" Category="Field Primary" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Hive_IsNucleus" Category="Field" Description="bigint" Label="IsNucleus" UseManualLocation="True" />
+    <Node Id="Hive_Number" Category="Field" Description="bigint" Label="Number" UseManualLocation="True" />
+    <Node Id="Notifications" Category="Table" Bounds="449.888269710932,-22.8686901304757,107.179999999999,25" Group="Collapsed" Label="Notifications" UseManualLocation="True" />
+    <Node Id="Notifications_Description" Category="Field" Bounds="678.472323877679,220.975917377418,0,0" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="Notifications_Id" Category="Field Primary" Bounds="678.472323877679,220.975917377418,0,0" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Notifications_IsActivated" Category="Field" Bounds="678.472323877679,220.975917377418,0,0" Description="bigint" Label="IsActivated" UseManualLocation="True" />
+    <Node Id="Notifications_LocalNotificationId" Category="Field" Bounds="678.472323877679,220.975917377418,0,0" Description="bigint" Label="LocalNotificationId" UseManualLocation="True" />
+    <Node Id="Notifications_NotifyTime" Category="Field" Bounds="678.472323877679,220.975917377418,0,0" Description="text" Label="NotifyTime" UseManualLocation="True" />
+    <Node Id="Notifications_ReviewId" Category="Field Foreign" Bounds="678.472323877679,220.975917377418,0,0" Description="bigint" Label="ReviewId" UseManualLocation="True" />
+    <Node Id="Notifications_Title" Category="Field" Bounds="678.472323877679,220.975917377418,0,0" Description="text" Label="Title" UseManualLocation="True" />
+    <Node Id="Photos" Category="Table" Bounds="264.187067856866,96.5005174292116,76.73,25" Group="Collapsed" Label="Photos" UseManualLocation="True" />
+    <Node Id="Photos_DateTaken" Category="Field" Bounds="666.837079017994,143.519634741315,74.94,25.96" Description="text" Label="DateTaken" UseManualLocation="True" />
+    <Node Id="Photos_DescriptionId" Category="Field Foreign" Bounds="694.510449582773,199.479637640485,90.5133333333333,25.96" Description="bigint" Label="DescriptionId" UseManualLocation="True" />
+    <Node Id="Photos_Id" Category="Field Primary" Bounds="586.837047279713,143.519634741315,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Photos_ImageData" Category="Field" Bounds="586.837111570077,199.479637640485,77.6733333333333,25.96" Description="image" Label="ImageData" UseManualLocation="True" />
+    <Node Id="ProductionHives" Category="Table" Bounds="-1.13610998367422,-26.2032646372209,126.66,25" Group="Collapsed" Label="ProductionHives" />
+    <Node Id="ProductionHives_HiveId" Category="Field Foreign" Bounds="51.3244747926013,-59.2395044818091,53.71,25.96" Description="bigint" Label="HiveId" UseManualLocation="True" />
+    <Node Id="ProductionHives_Id" Category="Field Primary" Bounds="-28.6755190288251,-59.2395044818091,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="ProductionHives_ProductionId" Category="Field Foreign" Bounds="-28.6755302932803,-3.27951681895628,88.3766666666667,25.96" Description="bigint" Label="ProductionId" UseManualLocation="True" />
+    <Node Id="ProductionTypes" Category="Table" Bounds="-1.79277665034052,91.4781472884396,127.973333333333,25" Group="Collapsed" Label="ProductionTypes" />
+    <Node Id="ProductionTypes_Description" Category="Field" Bounds="-161.991309604965,268.2377324804,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="ProductionTypes_Id" Category="Field Primary" Bounds="-151.201316674871,212.277710507744,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="ProductionTypes_IsVisible" Category="Field" Bounds="-254.874657535873,268.2377324804,62.8833333333333,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
+    <Node Id="ProductionTypes_Name" Category="Field" Bounds="-39.631316954615,140.357727597588,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="ProductionTypes_ProductionTypeId" Category="Field Foreign" Bounds="-182.771324304265,140.357727597588,113.14,25.96" Description="bigint" Label="ProductionTypeId" UseManualLocation="True" />
+    <Node Id="Productions" Category="Table" Bounds="3.57222286551508,29.2487833996972,103.21,25" Group="Collapsed" Label="Productions" UseManualLocation="True" />
+    <Node Id="Productions_Id" Category="Field Primary" Bounds="-140.2262298232,89.1725725066692,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Productions_ProductionTypeId" Category="Field Foreign" Bounds="-140.226230128376,145.132571604059,113.14,25.96" Description="bigint" Label="ProductionTypeId" UseManualLocation="True" />
+    <Node Id="Races" Category="Table" Bounds="161.635803715379,97.787772067545,70.1966666666666,25" Group="Collapsed" Label="Races" UseManualLocation="True" />
+    <Node Id="Races_Description" Category="Field" Bounds="-33.234260586,445.213898782324,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="Races_Higienicznosc" Category="Field" Bounds="77.019073666421,445.213898782324,92.8,25.96" Description="bigint" Label="Higienicznosc" UseManualLocation="True" />
+    <Node Id="Races_Id" Category="Field Primary" Bounds="-33.2342599914159,333.293884757558,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Races_IsVisible" Category="Field" Bounds="128.462415227293,333.293884757558,62.8833333333333,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
+    <Node Id="Races_Lagodnosc" Category="Field" Bounds="159.665722669513,389.25387655998,77.3766666666667,25.96" Description="bigint" Label="Lagodnosc" UseManualLocation="True" />
+    <Node Id="Races_Licznosc" Category="Field" Bounds="-33.2342646265274,389.25387655998,63.9833333333333,25.96" Description="bigint" Label="Licznosc" UseManualLocation="True" />
+    <Node Id="Races_Name" Category="Field" Bounds="46.7657419413641,333.293884757558,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="Races_Produktywnosc" Category="Field" Bounds="-33.2342622486994,501.173936214628,100.746666666667,25.96" Description="bigint" Label="Produktywnosc" UseManualLocation="True" />
+    <Node Id="Races_Rojliwosc" Category="Field" Bounds="60.7490551646306,389.25387655998,68.9166666666667,25.96" Description="bigint" Label="Rojliwosc" UseManualLocation="True" />
+    <Node Id="Review" Category="Table" Bounds="401.116235527736,32.9357878962538,76.7066666666665,25" Group="Collapsed" Label="Review" UseManualLocation="True" />
+    <Node Id="ReviewTypes" Category="Table" Bounds="386.119620685839,91.3523344091151,106.563333333334,25" Group="Collapsed" Label="ReviewTypes" UseManualLocation="True" />
+    <Node Id="ReviewTypes_Description" Category="Field" Bounds="276.78024005362,269.816042542544,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="ReviewTypes_Id" Category="Field Primary" Bounds="183.896942731029,213.856051087466,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="ReviewTypes_IsVisible" Category="Field" Bounds="183.896941713776,269.816042542544,62.8833333333334,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
+    <Node Id="ReviewTypes_Name" Category="Field" Bounds="263.896906516836,213.856051087466,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="Review_Description" Category="Field" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="Review_Id" Category="Field Primary" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="Review_PlannedDate" Category="Field" Description="text" Label="PlannedDate" UseManualLocation="True" />
+    <Node Id="Review_RealizedDate" Category="Field Optional" Description="text" Label="RealizedDate" UseManualLocation="True" />
+    <Node Id="Review_ReviewTypeId" Category="Field Foreign" Description="bigint" Label="ReviewTypeId" UseManualLocation="True" />
+    <Node Id="StockAvailabilities" Category="Table" Bounds="15.0784150467904,161.629406690565,133.986666666667,25" Group="Collapsed" Label="StockAvailabilities" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Id" Category="Field Primary" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Name" Category="Field" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Quantity" Category="Field" Description="real" Label="Quantity" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Unit" Category="Field" Description="text" Label="Unit" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="BeeQueen" Target="BeeQueen_BirthDate" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_DeathDate" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_Description" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_Id" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_RaceId" Category="Contains" />
+    <Link Source="BeeQueen_RaceId" Target="Races_Id" Category="Foreign Key" Label="FK_BeeQueen_0_0" />
+    <Link Source="Database" Target="BeeQueen" Category="Contains" />
+    <Link Source="Database" Target="DescriptionHiveReview" Category="Contains" />
+    <Link Source="Database" Target="Descriptions" Category="Contains" />
+    <Link Source="Database" Target="Hive" Category="Contains" />
+    <Link Source="Database" Target="Notifications" Category="Contains" />
+    <Link Source="Database" Target="Photos" Category="Contains" />
+    <Link Source="Database" Target="ProductionHives" Category="Contains" />
+    <Link Source="Database" Target="ProductionTypes" Category="Contains" />
+    <Link Source="Database" Target="Productions" Category="Contains" />
+    <Link Source="Database" Target="Races" Category="Contains" />
+    <Link Source="Database" Target="Review" Category="Contains" />
+    <Link Source="Database" Target="ReviewTypes" Category="Contains" />
+    <Link Source="Database" Target="StockAvailabilities" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_DescriptionId" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_HiveId" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_Id" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_ReviewId" Category="Contains" />
+    <Link Source="DescriptionHiveReview_DescriptionId" Target="Descriptions_Id" Category="Foreign Key" Label="FK_DescriptionHiveReview_2_0" />
+    <Link Source="DescriptionHiveReview_HiveId" Target="Hive_Id" Category="Foreign Key" Label="FK_DescriptionHiveReview_1_0" />
+    <Link Source="DescriptionHiveReview_ReviewId" Target="Review_Id" Category="Foreign Key" Label="FK_DescriptionHiveReview_0_0" />
+    <Link Source="Descriptions" Target="Descriptions_Id" Category="Contains" />
+    <Link Source="Descriptions" Target="Descriptions_Text" Category="Contains" />
+    <Link Source="Hive" Target="Hive_AddBeeQueenDate" Category="Contains" />
+    <Link Source="Hive" Target="Hive_BeeQueenId" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Description" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Id" Category="Contains" />
+    <Link Source="Hive" Target="Hive_IsNucleus" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Number" Category="Contains" />
+    <Link Source="Hive_BeeQueenId" Target="BeeQueen_Id" Category="Foreign Key" Label="FK_Hive_0_0" />
+    <Link Source="Notifications" Target="Notifications_Description" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_Id" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_IsActivated" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_LocalNotificationId" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_NotifyTime" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_ReviewId" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_Title" Category="Contains" />
+    <Link Source="Notifications_ReviewId" Target="Review_Id" Category="Foreign Key" Label="FK_Notifications_0_0" />
+    <Link Source="Photos" Target="Photos_DateTaken" Category="Contains" />
+    <Link Source="Photos" Target="Photos_DescriptionId" Category="Contains" />
+    <Link Source="Photos" Target="Photos_Id" Category="Contains" />
+    <Link Source="Photos" Target="Photos_ImageData" Category="Contains" />
+    <Link Source="Photos_DescriptionId" Target="Descriptions_Id" Category="Foreign Key" Label="FK_Photos_0_0" />
+    <Link Source="ProductionHives" Target="ProductionHives_HiveId" Category="Contains" />
+    <Link Source="ProductionHives" Target="ProductionHives_Id" Category="Contains" />
+    <Link Source="ProductionHives" Target="ProductionHives_ProductionId" Category="Contains" />
+    <Link Source="ProductionHives_HiveId" Target="Hive_Id" Category="Foreign Key" Label="FK_ProductionHives_1_0" />
+    <Link Source="ProductionHives_ProductionId" Target="Productions_Id" Category="Foreign Key" Label="FK_ProductionHives_0_0" />
+    <Link Source="ProductionTypes" Target="ProductionTypes_Description" Category="Contains" />
+    <Link Source="ProductionTypes" Target="ProductionTypes_Id" Category="Contains" />
+    <Link Source="ProductionTypes" Target="ProductionTypes_IsVisible" Category="Contains" />
+    <Link Source="ProductionTypes" Target="ProductionTypes_Name" Category="Contains" />
+    <Link Source="ProductionTypes" Target="ProductionTypes_ProductionTypeId" Category="Contains" />
+    <Link Source="ProductionTypes_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="-126.201316833496,166.317733764648,0,36.9599914550781" Label="FK_ProductionTypes_0_0" LabelBounds="-251.16800831993,137.390394673794,128.673333333333,15.96" />
+    <Link Source="Productions" Target="Productions_Id" Category="Contains" />
+    <Link Source="Productions" Target="Productions_ProductionTypeId" Category="Contains" />
+    <Link Source="Productions_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Label="FK_Productions_0_0" />
+    <Link Source="Races" Target="Races_Description" Category="Contains" />
+    <Link Source="Races" Target="Races_Higienicznosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Id" Category="Contains" />
+    <Link Source="Races" Target="Races_IsVisible" Category="Contains" />
+    <Link Source="Races" Target="Races_Lagodnosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Licznosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Name" Category="Contains" />
+    <Link Source="Races" Target="Races_Produktywnosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Rojliwosc" Category="Contains" />
+    <Link Source="Review" Target="Review_Description" Category="Contains" />
+    <Link Source="Review" Target="Review_Id" Category="Contains" />
+    <Link Source="Review" Target="Review_PlannedDate" Category="Contains" />
+    <Link Source="Review" Target="Review_RealizedDate" Category="Contains" />
+    <Link Source="Review" Target="Review_ReviewTypeId" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Description" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Id" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_IsVisible" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Name" Category="Contains" />
+    <Link Source="Review_ReviewTypeId" Target="ReviewTypes_Id" Category="Foreign Key" Label="FK_Review_0_0" />
+    <Link Source="StockAvailabilities" Target="StockAvailabilities_Id" Category="Contains" />
+    <Link Source="StockAvailabilities" Target="StockAvailabilities_Name" Category="Contains" />
+    <Link Source="StockAvailabilities" Target="StockAvailabilities_Quantity" Category="Contains" />
+    <Link Source="StockAvailabilities" Target="StockAvailabilities_Unit" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="DescriptionHiveReview" Category="Table" Bounds="47.3533293151862,47.9717548170073,227.480013834635,141.9203" Group="Expanded" Label="DescriptionHiveReview" UseManualLocation="True" />
+    <Node Id="DescriptionHiveReview_DescriptionId" Category="Field Foreign" Bounds="164.320008748372,143.931987304687,90.5133333333334,25.96" Description="bigint" Label="DescriptionId" />
+    <Node Id="DescriptionHiveReview_HiveId" Category="Field Foreign" Bounds="147.35332824707,87.971904296875,53.7099999999999,25.96" Description="bigint" Label="HiveId" />
+    <Node Id="DescriptionHiveReview_Id" Category="Field Primary" Bounds="67.3533325195311,87.971904296875,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="DescriptionHiveReview_ReviewId" Category="Field Foreign" Bounds="67.3533365885415,143.931987304687,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
+    <Node Id="Descriptions" Category="Table" Bounds="109.978168649081,263.335935734979,105.346666666667,141.9203" Group="Expanded" Label="Descriptions" UseManualLocation="True" />
+    <Node Id="Descriptions_Id" Category="Field Primary" Bounds="137.651501982414,303.336030424917,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Descriptions_Text" Category="Field" Bounds="137.651501982414,359.296113432729,50,25.96" Description="text" Label="Text" />
+    <Node Id="Notifications" Category="Table" Bounds="642.174926757813,36.4369381557575,269.836802164713,197.880505078125" Group="Expanded" Label="Notifications" UseManualLocation="True" />
+    <Node Id="Notifications_Description" Category="Field" Bounds="662.174938557943,188.357527999508,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Notifications_Id" Category="Field Primary" Bounds="662.174926757813,76.4371178432576,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Notifications_IsActivated" Category="Field" Bounds="662.174974772136,132.397322921383,77.8066666666666,25.96" Description="bigint" Label="IsActivated" />
+    <Node Id="Notifications_LocalNotificationId" Category="Field" Bounds="772.428395589193,188.357527999508,119.583333333333,25.96" Description="bigint" Label="LocalNotificationId" />
+    <Node Id="Notifications_NotifyTime" Category="Field" Bounds="769.98173828125,132.397322921383,78.3499999999999,25.96" Description="text" Label="NotifyTime" />
+    <Node Id="Notifications_ReviewId" Category="Field Foreign" Bounds="822.174930826823,76.4371178432576,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
+    <Node Id="Notifications_Title" Category="Field" Bounds="742.174926757813,76.4371178432576,50,25.96" Description="text" Label="Title" />
+    <Node Id="Photos" Category="Table" Bounds="317,273.986430602592,238.186705118815,141.9203" Group="Expanded" Label="Photos" UseManualLocation="True" />
+    <Node Id="Photos_DateTaken" Category="Field" Bounds="417.000001220703,313.986530602592,74.9400000000001,25.96" Description="text" Label="DateTaken" />
+    <Node Id="Photos_DescriptionId" Category="Field Foreign" Bounds="444.673371785482,369.946630602592,90.5133333333334,25.96" Description="bigint" Label="DescriptionId" />
+    <Node Id="Photos_Id" Category="Field Primary" Bounds="337,313.986530602592,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Photos_ImageData" Category="Field" Bounds="337.000018513997,369.946630602592,77.6733333333334,25.96" Description="image" Label="ImageData" />
+    <Node Id="Review" Category="Table" Bounds="314.004943847656,46.1058865596236,246.176836497035,197.880444042969" Group="Expanded" Label="Review" UseManualLocation="True" />
+    <Node Id="Review1" Bounds="27.3533303833008,-3.56309848632614,904.658406219498,442.6812421875" Group="Expanded" Label="Review" />
+    <Node Id="ReviewTypes" Category="Table" Bounds="658.524963378906,277.197687179195,213.13670694987,141.9203" Group="Expanded" Label="ReviewTypes" UseManualLocation="True" />
+    <Node Id="ReviewTypes_Description" Category="Field" Bounds="771.40833984375,373.15799225732,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="ReviewTypes_Id" Category="Field Primary" Bounds="678.524966227214,317.197787179195,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ReviewTypes_IsVisible" Category="Field" Bounds="678.525010986328,373.15799225732,62.8833333333334,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="ReviewTypes_Name" Category="Field" Bounds="758.524960530599,317.197787179195,51.6966666666667,25.96" Description="text" Label="Name" />
+    <Node Id="Review_Description" Category="Field" Bounds="414.005031941732,86.1059865596235,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Review_Id" Category="Field Primary" Bounds="334.004943847656,86.1059865596235,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Review_PlannedDate" Category="Field" Bounds="334.005113678024,142.066086559624,87.52,25.96" Description="text" Label="PlannedDate" />
+    <Node Id="Review_RealizedDate" Category="Field Optional" Bounds="451.525113678024,142.066086559624,88.6566666666666,25.96" Description="text" Label="RealizedDate" />
+    <Node Id="Review_ReviewTypeId" Category="Field Foreign" Bounds="334.005178222656,198.026230602592,91.73,25.96" Description="bigint" Label="ReviewTypeId" />
+  </Nodes>
+  <Links>
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_DescriptionId" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_HiveId" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_Id" Category="Contains" />
+    <Link Source="DescriptionHiveReview" Target="DescriptionHiveReview_ReviewId" Category="Contains" />
+    <Link Source="DescriptionHiveReview_DescriptionId" Target="Descriptions_Id" Category="Foreign Key" Label="FK_DescriptionHiveReview_2_0" />
+    <Link Source="DescriptionHiveReview_ReviewId" Target="Review_Id" Category="Foreign Key" Label="FK_DescriptionHiveReview_0_0" />
+    <Link Source="Descriptions" Target="Descriptions_Id" Category="Contains" />
+    <Link Source="Descriptions" Target="Descriptions_Text" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_Description" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_Id" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_IsActivated" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_LocalNotificationId" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_NotifyTime" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_ReviewId" Category="Contains" />
+    <Link Source="Notifications" Target="Notifications_Title" Category="Contains" />
+    <Link Source="Notifications_ReviewId" Target="Review_Id" Category="Foreign Key" Label="FK_Notifications_0_0" />
+    <Link Source="Photos" Target="Photos_DateTaken" Category="Contains" />
+    <Link Source="Photos" Target="Photos_DescriptionId" Category="Contains" />
+    <Link Source="Photos" Target="Photos_Id" Category="Contains" />
+    <Link Source="Photos" Target="Photos_ImageData" Category="Contains" />
+    <Link Source="Photos_DescriptionId" Target="Descriptions_Id" Category="Foreign Key" Label="FK_Photos_0_0" />
+    <Link Source="Review" Target="Review_Description" Category="Contains" />
+    <Link Source="Review" Target="Review_Id" Category="Contains" />
+    <Link Source="Review" Target="Review_PlannedDate" Category="Contains" />
+    <Link Source="Review" Target="Review_RealizedDate" Category="Contains" />
+    <Link Source="Review" Target="Review_ReviewTypeId" Category="Contains" />
+    <Link Source="Review1" Target="DescriptionHiveReview" Category="Contains" />
+    <Link Source="Review1" Target="Descriptions" Category="Contains" />
+    <Link Source="Review1" Target="Notifications" Category="Contains" />
+    <Link Source="Review1" Target="Photos" Category="Contains" />
+    <Link Source="Review1" Target="Review" Category="Contains" />
+    <Link Source="Review1" Target="ReviewTypes" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Description" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Id" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_IsVisible" Category="Contains" />
+    <Link Source="ReviewTypes" Target="ReviewTypes_Name" Category="Contains" />
+    <Link Source="Review_ReviewTypeId" Target="ReviewTypes_Id" Category="Foreign Key" Label="FK_Review_0_0" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

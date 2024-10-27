@@ -23,6 +23,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp.Utilities", "Util
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp.Core", "MobileApp.Core\MobileApp.Core.csproj", "{4E70E53C-3375-41BA-BD4F-C617E8936E4F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbSchema", "DbSchema", "{9DB58FFE-9D24-468B-8C20-7B3108719FEA}"
+	ProjectSection(SolutionItems) = preProject
+		DbSchema\bdschema.dgml = DbSchema\bdschema.dgml
+		DbSchema\bdschemaDetails.dgml = DbSchema\bdschemaDetails.dgml
+		DbSchema\bdschemaDetails_1.dgml = DbSchema\bdschemaDetails_1.dgml
+		DbSchema\bdschemaDetails_2.dgml = DbSchema\bdschemaDetails_2.dgml
+		DbSchema\bdschemaDetails_3.dgml = DbSchema\bdschemaDetails_3.dgml
+		DbSchema\bdschemaDetails_4.dgml = DbSchema\bdschemaDetails_4.dgml
+		DbSchema\bdschema_1.dgml = DbSchema\bdschema_1.dgml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +206,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DB58FFE-9D24-468B-8C20-7B3108719FEA} = {ECA3C762-D409-49F0-B49F-9001B7FCB6BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C998286-14B9-4C52-B0C5-FDA19B06AE11}

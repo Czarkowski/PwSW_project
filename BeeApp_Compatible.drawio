@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net">
+   <diagram name="BeeApp Database">
+      <mxGraphModel dx="1425" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+         <root>
+            <mxCell id="0"/>
+            <mxCell id="1" parent="0"/>
+            <mxCell id="Database" value="BeeApp.db" style="shape=database;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+               <mxGeometry x="10" y="10" width="100" height="40" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen" value="BeeQueen" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#FFC0C0C0" vertex="1" parent="1">
+               <mxGeometry x="10" y="80" width="120" height="60" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen_Field0" value="Id: bigint" style="text;align=left;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="BeeQueen">
+               <mxGeometry x="10" y="30" width="100" height="20" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen_Field1" value="BirthDate: text" style="text;align=left;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="BeeQueen">
+               <mxGeometry x="10" y="50" width="100" height="20" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen_Field2" value="DeathDate: text" style="text;align=left;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="BeeQueen">
+               <mxGeometry x="10" y="70" width="100" height="20" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen_Field3" value="Description: text" style="text;align=left;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="BeeQueen">
+               <mxGeometry x="10" y="90" width="100" height="20" as_="geometry"/>
+            </mxCell>
+            <mxCell id="BeeQueen_Field4" value="RaceId: bigint" style="text;align=left;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="BeeQueen">
+               <mxGeometry x="10" y="110" width="100" height="20" as_="geometry"/>
+            </mxCell>
+         </root>
+      </mxGraphModel>
+   </diagram>
+</mxfile>

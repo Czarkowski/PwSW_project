@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="BeeQueen" Category="Table" Bounds="67.04,267.88,216.196666666667,197.88" Group="Expanded" Label="BeeQueen" />
+    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="87.04,363.84,69.6800000000001,25.96" Description="text" Label="BirthDate" />
+    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="186.72,363.84,76.5166666666667,25.96" Description="text" Label="DeathDate" />
+    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="87.04,419.8,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="87.04,307.88,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="167.04,307.88,55.3633333333332,25.96" Description="bigint" Label="RaceId" />
+    <Node Id="Hive" Category="Table" Bounds="33.0033333333333,40,284.27,197.88" Group="Expanded" Label="Hive" />
+    <Node Id="Hive1" Bounds="0,0,350.276666666667,769.6" Group="Expanded" Label="Hive" />
+    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Bounds="53.0033333333333,191.92,121.35,25.96" Description="text" Label="AddBeeQueenDate" />
+    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Bounds="163.256666666667,135.96,84.8733333333334,25.96" Description="bigint" Label="BeeQueenId" />
+    <Node Id="Hive_Description" Category="Field" Bounds="53.0033333333333,135.96,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Hive_Id" Category="Field Primary" Bounds="53.0033333333333,80,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Hive_IsNucleus" Category="Field" Bounds="226.61,80,70.6633333333334,25.96" Description="bigint" Label="IsNucleus" />
+    <Node Id="Hive_Number" Category="Field" Bounds="133.003333333333,80,63.6066666666666,25.96" Description="bigint" Label="Number" />
+    <Node Id="Races" Category="Table" Bounds="20,495.76,310.276666666667,253.84" Group="Expanded" Label="Races" />
+    <Node Id="Races_Description" Category="Field" Bounds="40,647.68,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Races_Higienicznosc" Category="Field" Bounds="150.253333333333,647.68,92.8,25.96" Description="bigint" Label="Higienicznosc" />
+    <Node Id="Races_Id" Category="Field Primary" Bounds="40,535.76,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Races_IsVisible" Category="Field" Bounds="201.696666666667,535.76,62.8833333333333,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="Races_Lagodnosc" Category="Field" Bounds="232.9,591.72,77.3766666666667,25.96" Description="bigint" Label="Lagodnosc" />
+    <Node Id="Races_Licznosc" Category="Field" Bounds="40,591.72,63.9833333333333,25.96" Description="bigint" Label="Licznosc" />
+    <Node Id="Races_Name" Category="Field" Bounds="120,535.76,51.6966666666667,25.96" Description="text" Label="Name" />
+    <Node Id="Races_Produktywnosc" Category="Field" Bounds="40,703.64,100.746666666667,25.96" Description="bigint" Label="Produktywnosc" />
+    <Node Id="Races_Rojliwosc" Category="Field" Bounds="133.983333333333,591.72,68.9166666666667,25.96" Description="bigint" Label="Rojliwosc" />
+  </Nodes>
+  <Links>
+    <Link Source="BeeQueen" Target="BeeQueen_BirthDate" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_DeathDate" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_Description" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_Id" Category="Contains" />
+    <Link Source="BeeQueen" Target="BeeQueen_RaceId" Category="Contains" />
+    <Link Source="BeeQueen_RaceId" Target="Races_Id" Category="Foreign Key" Label="FK_BeeQueen_0_0" />
+    <Link Source="Hive" Target="Hive_AddBeeQueenDate" Category="Contains" />
+    <Link Source="Hive" Target="Hive_BeeQueenId" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Description" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Id" Category="Contains" />
+    <Link Source="Hive" Target="Hive_IsNucleus" Category="Contains" />
+    <Link Source="Hive" Target="Hive_Number" Category="Contains" />
+    <Link Source="Hive1" Target="BeeQueen" Category="Contains" />
+    <Link Source="Hive1" Target="Hive" Category="Contains" />
+    <Link Source="Hive1" Target="Races" Category="Contains" />
+    <Link Source="Hive_BeeQueenId" Target="BeeQueen_Id" Category="Foreign Key" Label="FK_Hive_0_0" />
+    <Link Source="Races" Target="Races_Description" Category="Contains" />
+    <Link Source="Races" Target="Races_Higienicznosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Id" Category="Contains" />
+    <Link Source="Races" Target="Races_IsVisible" Category="Contains" />
+    <Link Source="Races" Target="Races_Lagodnosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Licznosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Name" Category="Contains" />
+    <Link Source="Races" Target="Races_Produktywnosc" Category="Contains" />
+    <Link Source="Races" Target="Races_Rojliwosc" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

@@ -6,7 +6,8 @@
               x:Class="MobileApp.Pages.Review.List.Templates.ReviewListDataTemplateCompleted"
               x:DataType="vm:ReviewListItemVM">
 
-    <VerticalStackLayout Margin="1" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" Padding="2,2,2,2" InputTransparent="True">
+    <VerticalStackLayout Margin="1" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" 
+                         Padding="2,2,2,2">
         <Grid BackgroundColor="DarkGreen" HorizontalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*" />

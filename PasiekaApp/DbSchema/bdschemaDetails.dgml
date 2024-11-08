@@ -1,82 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="BeeQueen" Category="Table" Bounds="-605.068500133172,1349.59869518227,216.196840413411,197.880427050781" Group="Expanded" Label="BeeQueen" UseManualLocation="True" />
-    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="-585.068385768362,1445.55893922524,69.6800000000001,25.96" Description="text" Label="BirthDate" />
-    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="-485.38833042982,1445.55893922524,76.5166666666667,25.96" Description="text" Label="DeathDate" />
-    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="-585.0684008237,1501.51902223305,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="-585.068534694143,1389.59879518227,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="-505.068530218231,1389.59879518227,55.3633333333332,25.96" Description="bigint" Label="RaceId" />
-    <Node Id="DescriptionHiveReview" Category="Table" Bounds="-609.244019181709,1685.70422206668,227.480070597331,141.920405078125" Group="Expanded" Label="DescriptionHiveReview" />
-    <Node Id="DescriptionHiveReview_DescriptionId" Category="Field Foreign" Bounds="-492.277281917711,1781.6645271448,90.5133333333334,25.96" Description="bigint" Label="DescriptionId" />
-    <Node Id="DescriptionHiveReview_HiveId" Category="Field Foreign" Bounds="-509.244015824775,1725.70432206668,53.7099999999999,25.96" Description="bigint" Label="HiveId" />
-    <Node Id="DescriptionHiveReview_Id" Category="Field Primary" Bounds="-589.244019181709,1725.70432206668,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="DescriptionHiveReview_ReviewId" Category="Field Foreign" Bounds="-589.243954077542,1781.6645271448,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
-    <Node Id="Descriptions" Category="Table" Bounds="-282.9927461918,1885.17226282186,105.346666666667,141.9203" Group="Expanded" Label="Descriptions" UseManualLocation="True" />
-    <Node Id="Descriptions_Id" Category="Field Primary" Bounds="-255.319412858466,1925.1723396448,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Descriptions_Text" Category="Field" Bounds="-255.319412858466,1981.1323005823,50,25.9599999999998" Description="text" Label="Text" />
-    <Node Id="Hive" Category="Table" Bounds="-921.166879039422,1348.2035535807,284.270377604167,197.88061015625" Group="Expanded" Label="Hive" UseManualLocation="True" />
-    <Node Id="Hive1" Bounds="-941.166879039422,1264.60262350258,876.634968770345,317.7644161133" Group="Expanded" Label="Hive" UseManualLocation="True" />
-    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Bounds="-901.166569362112,1500.12406373695,121.35,25.96" Description="text" Label="AddBeeQueenDate" />
-    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Bounds="-790.912977239716,1444.16385865883,84.8733333333333,25.96" Description="bigint" Label="BeeQueenId" />
-    <Node Id="Hive_Description" Category="Field" Bounds="-901.166331731903,1444.16385865883,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="Hive_Id" Category="Field Primary" Bounds="-901.166923366018,1388.2036535807,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Hive_IsNucleus" Category="Field" Bounds="-727.559838811981,1388.2036535807,70.6633333333333,25.96" Description="bigint" Label="IsNucleus" />
-    <Node Id="Hive_Number" Category="Field" Bounds="-821.166484726695,1388.2036535807,63.6066666666667,25.96" Description="bigint" Label="Number" />
-    <Node Id="Notifications" Category="Table" Bounds="-912.127177751044,1657.72424159793,269.836888834635,197.88061015625" Group="Expanded" Label="Notifications" />
-    <Node Id="Notifications_Description" Category="Field" Bounds="-892.127170833727,1809.64475175418,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="Notifications_Id" Category="Field Primary" Bounds="-892.127060563545,1697.72434159793,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Notifications_IsActivated" Category="Field" Bounds="-892.127165137112,1753.68454667605,77.8066666666666,25.96" Description="bigint" Label="IsActivated" />
-    <Node Id="Notifications_LocalNotificationId" Category="Field" Bounds="-781.873622249743,1809.64475175418,119.583333333333,25.96" Description="bigint" Label="LocalNotificationId" />
-    <Node Id="Notifications_NotifyTime" Category="Field" Bounds="-784.32052369831,1753.68454667605,78.3499999999999,25.96" Description="text" Label="NotifyTime" />
-    <Node Id="Notifications_ReviewId" Category="Field Foreign" Bounds="-732.127056494534,1697.72434159793,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
-    <Node Id="Notifications_Title" Category="Field" Bounds="-812.127060563545,1697.72434159793,50,25.96" Description="text" Label="Title" />
-    <Node Id="Photos" Category="Table" Bounds="-351.597394222399,1685.70459446248,238.186625569661,141.9203" Group="Expanded" Label="Photos" />
-    <Node Id="Photos_DateTaken" Category="Field" Bounds="-251.597274186592,1725.70481034793,74.9400000000001,25.96" Description="text" Label="DateTaken" />
-    <Node Id="Photos_DescriptionId" Category="Field Foreign" Bounds="-223.924101986071,1781.66477128542,90.5133333333333,25.9599999999998" Description="bigint" Label="DescriptionId" />
-    <Node Id="Photos_Id" Category="Field Primary" Bounds="-331.597214372138,1725.70481034793,50,25.9599999999998" Description="bigint" Label="Id" />
-    <Node Id="Photos_ImageData" Category="Field" Bounds="-331.597394222399,1781.66477128543,77.6733333333334,25.9599999999998" Description="image" Label="ImageData" />
-    <Node Id="Production" Bounds="-941.724731445312,970.527697335243,646.320071818034,264.14057578125" Group="Expanded" UseManualLocation="True" />
-    <Node Id="ProductionHives" Category="Table" Bounds="-921.724731445312,1044.05697213993,173.710133056641,141.923273730469" Group="Expanded" Label="ProductionHives" UseManualLocation="True" />
-    <Node Id="ProductionHives_HiveId" Category="Field Foreign" Bounds="-821.724598388671,1084.05707213993,53.7099999999999,25.96" Description="bigint" Label="HiveId" />
-    <Node Id="ProductionHives_Id" Category="Field Primary" Bounds="-901.724731445312,1084.05707213993,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="ProductionHives_ProductionId" Category="Field Foreign" Bounds="-901.723581136067,1140.0201458704,88.3766666666667,25.96" Description="bigint" Label="ProductionId" />
-    <Node Id="ProductionTypes" Category="Table" Bounds="-528.541428629557,1010.52779733524,213.136769002279,204.14037578125" Group="Expanded" Label="ProductionTypes" UseManualLocation="True" />
-    <Node Id="ProductionTypes_Description" Category="Field" Bounds="-415.657992960611,1168.70807311649,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
-    <Node Id="ProductionTypes_Id" Category="Field Primary" Bounds="-488.241714477539,1106.55450866337,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
-    <Node Id="ProductionTypes_IsVisible" Category="Field" Bounds="-508.541428629557,1168.65460631962,62.8833333333333,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
-    <Node Id="ProductionTypes_Name" Category="Field" Bounds="-392.957128499349,1106.48810241337,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
-    <Node Id="ProductionTypes_ProductionTypeId" Category="Field Foreign" Bounds="-489.009697265625,1050.52789733524,113.14,25.96" Description="bigint" Label="ProductionTypeId" UseManualLocation="True" />
-    <Node Id="Productions" Category="Table" Bounds="-711.993065185547,1043.99404489384,153.14,141.920466113281" Group="Expanded" Label="Productions" UseManualLocation="True" />
-    <Node Id="Productions_Id" Category="Field Primary" Bounds="-691.992431640625,1083.99414489384,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Productions_ProductionTypeId" Category="Field Foreign" Bounds="-691.993065185547,1139.95441100712,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
-    <Node Id="Races" Category="Table" Bounds="-354.732467621779,1304.60272350258,270.200557352702,257.7642161133" Group="Expanded" Label="Races" UseManualLocation="True" />
-    <Node Id="Races_Description" Category="Field" Bounds="-330.801326238739,1460.44675660805,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
-    <Node Id="Races_Higienicznosc" Category="Field" Bounds="-220.547987208791,1460.18522096352,92.8,25.96" Description="bigint" Label="Higienicznosc" UseManualLocation="True" />
-    <Node Id="Races_Id" Category="Field Primary" Bounds="-332.543449244924,1348.52659059242,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Races_IsVisible" Category="Field" Bounds="-167.415261175263,1347.2202551432,62.8833333333333,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
-    <Node Id="Races_Lagodnosc" Category="Field" Bounds="-203.985826157359,1516.14536500649,77.3766666666667,25.96" Description="bigint" Label="Lagodnosc" UseManualLocation="True" />
-    <Node Id="Races_Licznosc" Category="Field" Bounds="-329.903798772919,1404.48667360024,63.9833333333333,25.96" Description="bigint" Label="Licznosc" UseManualLocation="True" />
-    <Node Id="Races_Name" Category="Field" Bounds="-252.543210800914,1344.60282350258,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
-    <Node Id="Races_Produktywnosc" Category="Field" Bounds="-334.732486923961,1516.40683961586,100.746666666667,25.96" Description="bigint" Label="Produktywnosc" UseManualLocation="True" />
-    <Node Id="Races_Rojliwosc" Category="Field" Bounds="-235.920437973765,1403.18039918617,68.9166666666667,25.96" Description="bigint" Label="Rojliwosc" UseManualLocation="True" />
-    <Node Id="Review" Category="Table" Bounds="-611.054589182252,1867.07470546511,246.17677564833,197.881281542968" Group="Expanded" Label="Review" UseManualLocation="True" />
-    <Node Id="Review1" Bounds="-932.127177751044,1617.72414159793,838.716424662272,467.231945410155" Group="Expanded" Label="Review" UseManualLocation="True" />
-    <Node Id="ReviewTypes" Category="Table" Bounds="-883.734394141018,1898.53198085574,213.136666666667,141.920283007813" Group="Expanded" Label="ReviewTypes" UseManualLocation="True" />
-    <Node Id="ReviewTypes_Description" Category="Field" Bounds="-770.851063045641,1994.49216386355,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="ReviewTypes_Id" Category="Field Primary" Bounds="-863.734207780341,1938.53208085574,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="ReviewTypes_IsVisible" Category="Field" Bounds="-863.734391903063,1994.49216386355,62.8833333333334,25.96" Description="bigint" Label="IsVisible" />
-    <Node Id="ReviewTypes_Name" Category="Field" Bounds="-783.734213476956,1938.53208085574,51.6966666666667,25.96" Description="text" Label="Name" />
-    <Node Id="Review_Description" Category="Field" Bounds="-511.054409298082,1907.07480546511,80.2533333333334,25.96" Description="text" Label="Description" />
-    <Node Id="Review_Id" Category="Field Primary" Bounds="-591.054474503974,1907.07480546511,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Review_PlannedDate" Category="Field" Bounds="-591.054563920478,1963.03501054324,87.52,25.96" Description="text" Label="PlannedDate" />
-    <Node Id="Review_RealizedDate" Category="Field Optional" Bounds="-473.534480200589,1963.03501054324,88.6566666666666,25.96" Description="text" Label="RealizedDate" />
-    <Node Id="Review_ReviewTypeId" Category="Field Foreign" Bounds="-591.054591081123,2018.99588700808,91.7299999999999,25.9599999999998" Description="bigint" Label="ReviewTypeId" />
-    <Node Id="StockAvailabilities" Category="Table" Bounds="-262.548854454575,1051.19963872607,187.276666666667,141.92" Group="Expanded" Label="StockAvailabilities" UseManualLocation="True" />
-    <Node Id="StockAvailabilities_Id" Category="Field Primary" Bounds="-242.548854454575,1091.19980825732,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="StockAvailabilities_Name" Category="Field" Bounds="-242.548852521795,1147.15976919482,51.6966666666667,25.96" Description="text" Label="Name" />
-    <Node Id="StockAvailabilities_Quantity" Category="Field" Bounds="-160.852186821519,1147.15976919482,65.58,25.96" Description="real" Label="Quantity" />
-    <Node Id="StockAvailabilities_Unit" Category="Field" Bounds="-162.548854454575,1091.19980825732,50,25.96" Description="text" Label="Unit" />
+    <Node Id="BeeQueen" Category="Table" Bounds="-644.203979492188,1700.27794650666,216.197008260091,197.880549121094" Group="Expanded" Label="BeeQueen" UseManualLocation="True" />
+    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="-624.203616943359,1796.23819054963,69.6800000000001,25.96" Description="text" Label="BirthDate" />
+    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="-524.523637898763,1796.23819054963,76.5166666666666,25.96" Description="text" Label="DeathDate" />
+    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="-624.203845621745,1852.19839562776,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="-624.203979492188,1740.27804650666,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="-544.203929239909,1740.27804650666,55.3633333333332,25.96" Description="bigint" Label="RaceId" />
+    <Node Id="DescriptionHiveReview" Category="Table" Bounds="-648.77595950906,1229.37521585519,227.480118509928,141.920405078125" Group="Expanded" Label="DescriptionHiveReview" />
+    <Node Id="DescriptionHiveReview_DescriptionId" Category="Field Foreign" Bounds="-531.809174332465,1325.33552093331,90.5133333333334,25.96" Description="bigint" Label="DescriptionId" />
+    <Node Id="DescriptionHiveReview_HiveId" Category="Field Foreign" Bounds="-548.775961645291,1269.37531585519,53.7099999999999,25.96" Description="bigint" Label="HiveId" />
+    <Node Id="DescriptionHiveReview_Id" Category="Field Primary" Bounds="-628.77595737283,1269.37531585519,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="DescriptionHiveReview_ReviewId" Category="Field Foreign" Bounds="-628.775831233507,1325.33552093331,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
+    <Node Id="Descriptions" Category="Table" Bounds="-322.524638606554,1428.84310286691,105.346666666667,141.9203" Group="Expanded" Label="Descriptions" UseManualLocation="True" />
+    <Node Id="Descriptions_Id" Category="Field Primary" Bounds="-294.851305273221,1468.843211363,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Descriptions_Text" Category="Field" Bounds="-294.851305273221,1524.80329437081,50,25.96" Description="text" Label="Text" />
+    <Node Id="Hive" Category="Table" Bounds="-961.852355957031,1706.8847580301,284.270753580729,197.88061015625" Group="Expanded" Label="Hive" UseManualLocation="True" />
+    <Node Id="Hive1" Bounds="-981.852355957031,1660.27784650666,816.982089640299,264.487621679687" Group="Expanded" Label="Hive" UseManualLocation="True" />
+    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Bounds="-941.852001953125,1858.80526818635,121.35,25.96" Description="text" Label="AddBeeQueenDate" />
+    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Bounds="-831.59840983073,1802.84506310823,84.8733333333334,25.96" Description="bigint" Label="BeeQueenId" />
+    <Node Id="Hive_Description" Category="Field" Bounds="-941.851764322917,1802.84506310823,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Hive_Id" Category="Field Primary" Bounds="-941.852355957032,1746.8848580301,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Hive_IsNucleus" Category="Field" Bounds="-768.244935709636,1746.8848580301,70.6633333333334,25.96" Description="bigint" Label="IsNucleus" />
+    <Node Id="Hive_Number" Category="Field" Bounds="-861.851917317709,1746.8848580301,63.6066666666666,25.96" Description="bigint" Label="Number" />
+    <Node Id="Notifications" Category="Table" Bounds="-951.659124283637,1201.39523538644,269.837034505208,197.88061015625" Group="Expanded" Label="Notifications" />
+    <Node Id="Notifications_Description" Category="Field" Bounds="-931.659124283637,1353.31574554269,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Notifications_Id" Category="Field Primary" Bounds="-931.659014013455,1241.39533538644,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Notifications_IsActivated" Category="Field" Bounds="-931.658965999132,1297.35554046456,77.8066666666666,25.96" Description="bigint" Label="IsActivated" />
+    <Node Id="Notifications_LocalNotificationId" Category="Field" Bounds="-821.405423111762,1353.31574554269,119.583333333333,25.96" Description="bigint" Label="LocalNotificationId" />
+    <Node Id="Notifications_NotifyTime" Category="Field" Bounds="-823.85232456033,1297.35554046456,78.3499999999999,25.96" Description="text" Label="NotifyTime" />
+    <Node Id="Notifications_ReviewId" Category="Field Foreign" Bounds="-771.659009944445,1241.39533538644,66.9666666666667,25.96" Description="bigint" Label="ReviewId" />
+    <Node Id="Notifications_Title" Category="Field" Bounds="-851.659014013455,1241.39533538644,50,25.96" Description="text" Label="Title" />
+    <Node Id="Photos" Category="Table" Bounds="-391.129289892361,1229.37544470285,238.186644083659,141.920308496094" Group="Expanded" Label="Photos" />
+    <Node Id="Photos_DateTaken" Category="Field" Bounds="-291.129166601346,1269.37555999581,74.9400000000001,25.96" Description="text" Label="DateTaken" />
+    <Node Id="Photos_DescriptionId" Category="Field Foreign" Bounds="-263.455979142036,1325.33564300363,90.5133333333333,25.96" Description="bigint" Label="DescriptionId" />
+    <Node Id="Photos_Id" Category="Field Primary" Bounds="-371.129289892361,1269.37555999581,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Photos_ImageData" Category="Field" Bounds="-371.129286637153,1325.33564300363,77.6733333333334,25.96" Description="image" Label="ImageData" />
+    <Node Id="Production" Bounds="-978.672274665183,1959.51516132812,646.320010782878,264.140575781251" Group="Expanded" UseManualLocation="True" />
+    <Node Id="ProductionHives" Category="Table" Bounds="-958.672274665183,2033.04455820312,173.710133056641,141.92260234375" Group="Expanded" Label="ProductionHives" UseManualLocation="True" />
+    <Node Id="ProductionHives_HiveId" Category="Field Foreign" Bounds="-858.672141608543,2073.04465820312,53.71,25.96" Description="bigint" Label="HiveId" />
+    <Node Id="ProductionHives_Id" Category="Field Primary" Bounds="-938.672274665183,2073.04465820312,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ProductionHives_ProductionId" Category="Field Foreign" Bounds="-938.671124355938,2129.00706054687,88.3766666666666,25.96" Description="bigint" Label="ProductionId" />
+    <Node Id="ProductionTypes" Category="Table" Bounds="-565.489032884584,1999.51526132812,213.136769002279,204.14037578125" Group="Expanded" Label="ProductionTypes" UseManualLocation="True" />
+    <Node Id="ProductionTypes_Description" Category="Field" Bounds="-452.605597215639,2157.69553710937,80.2533333333333,25.96" Description="text" Label="Description" UseManualLocation="True" />
+    <Node Id="ProductionTypes_Id" Category="Field Primary" Bounds="-525.189059333152,2095.54221679687,50,25.96" Description="bigint" Label="Id" UseManualLocation="True" />
+    <Node Id="ProductionTypes_IsVisible" Category="Field" Bounds="-545.489032884584,2157.64231445312,62.8833333333333,25.96" Description="bigint" Label="IsVisible" UseManualLocation="True" />
+    <Node Id="ProductionTypes_Name" Category="Field" Bounds="-429.904732754376,2095.47581054687,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="ProductionTypes_ProductionTypeId" Category="Field Foreign" Bounds="-525.957301520652,2039.51536132812,113.14,25.96" Description="bigint" Label="ProductionTypeId" UseManualLocation="True" />
+    <Node Id="Productions" Category="Table" Bounds="-748.940608405418,2032.98108164062,153.14,141.9211375" Group="Expanded" Label="Productions" UseManualLocation="True" />
+    <Node Id="Productions_Id" Category="Field Primary" Bounds="-728.939974860496,2072.98118164062,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Productions_ProductionTypeId" Category="Field Foreign" Bounds="-728.940608405418,2128.94211914062,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
+    <Node Id="Races" Category="Table" Bounds="-398.006959025065,1711.54180148713,213.136692708333,141.920405078125" Group="Expanded" Label="Races" UseManualLocation="True" />
+    <Node Id="Races_Description" Category="Field" Bounds="-285.123599650066,1807.50210656526,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Races_Id" Category="Field Primary" Bounds="-378.006958007813,1751.54190148713,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Races_IsVisible" Category="Field" Bounds="-378.006959025066,1807.5020455301,62.8833333333333,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="Races_Name" Category="Field" Bounds="-298.006956075033,1751.54196252229,51.6966666666667,25.96" Description="text" Label="Name" />
+    <Node Id="Review" Category="Table" Bounds="-650.586626318142,1410.74557888253,246.176905110677,197.881281542968" Group="Expanded" Label="Review" UseManualLocation="True" />
+    <Node Id="Review1" Bounds="-971.659124283637,1161.39512858956,838.716490580241,467.231823339844" Group="Expanded" Label="Review" UseManualLocation="True" />
+    <Node Id="ReviewTypes" Category="Table" Bounds="-923.26627204297,1442.20285257394,213.136666666667,141.920405078125" Group="Expanded" Label="ReviewTypes" UseManualLocation="True" />
+    <Node Id="ReviewTypes_Description" Category="Field" Bounds="-810.382940201606,1538.16315765206,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="ReviewTypes_Id" Category="Field Primary" Bounds="-903.266008642361,1482.20295257394,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ReviewTypes_IsVisible" Category="Field" Bounds="-903.266269059028,1538.16315765206,62.8833333333334,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="ReviewTypes_Name" Category="Field" Bounds="-823.266014338976,1482.20295257394,51.6966666666667,25.96" Description="text" Label="Name" />
+    <Node Id="Review_Description" Category="Field" Bounds="-550.586385636176,1450.74567718331,80.2533333333332,25.96" Description="text" Label="Description" />
+    <Node Id="Review_Id" Category="Field Primary" Bounds="-630.586626318142,1450.74567718331,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Review_PlannedDate" Category="Field" Bounds="-630.586494482205,1506.70588226144,87.52,25.96" Description="text" Label="PlannedDate" />
+    <Node Id="Review_RealizedDate" Category="Field Optional" Bounds="-513.066387874132,1506.70588226144,88.6566666666666,25.96" Description="text" Label="RealizedDate" />
+    <Node Id="Review_ReviewTypeId" Category="Field Foreign" Bounds="-630.586391943142,1562.66675872628,91.73,25.96" Description="bigint" Label="ReviewTypeId" />
+    <Node Id="StockAvailabilities" Category="Table" Bounds="-302.352263882306,1966.64873671875,187.276686706543,141.9203" Group="Expanded" Label="StockAvailabilities" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Id" Category="Field Primary" Bounds="-282.352263882306,2006.64883671875,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="StockAvailabilities_Name" Category="Field" Bounds="-282.352261949526,2062.60893671875,51.6966666666667,25.96" Description="text" Label="Name" />
+    <Node Id="StockAvailabilities_Quantity" Category="Field" Bounds="-200.655577175763,2062.60893671875,65.58,25.96" Description="real" Label="Quantity" />
+    <Node Id="StockAvailabilities_Unit" Category="Field" Bounds="-202.352248623517,2006.64883671875,50,25.96" Description="text" Label="Unit" />
   </Nodes>
   <Links>
     <Link Source="BeeQueen" Target="BeeQueen_BirthDate" Category="Contains" />
@@ -130,19 +125,14 @@
     <Link Source="ProductionTypes" Target="ProductionTypes_IsVisible" Category="Contains" />
     <Link Source="ProductionTypes" Target="ProductionTypes_Name" Category="Contains" />
     <Link Source="ProductionTypes" Target="ProductionTypes_ProductionTypeId" Category="Contains" />
-    <Link Source="ProductionTypes_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="-451.769733106346,1076.48789733524,12.1939593596879,22.1799181818501" Label="FK_ProductionTypes_0_0" LabelBounds="-443.920154949552,1088.5413908462,128.673333333333,15.96" />
+    <Link Source="ProductionTypes_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="-488.717211702665,2065.47536132812,12.1939248931498,22.1801389305142" Label="FK_ProductionTypes_0_0" LabelBounds="-480.867645580926,2077.52895575819,128.673333333333,15.96" />
     <Link Source="Productions" Target="Productions_Id" Category="Contains" />
     <Link Source="Productions" Target="Productions_ProductionTypeId" Category="Contains" />
     <Link Source="Productions_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="-607.985969238281,1151.74290385499,87.0358080388141,5.95171708306043" Label="FK_Productions_0_0" />
     <Link Source="Races" Target="Races_Description" Category="Contains" />
-    <Link Source="Races" Target="Races_Higienicznosc" Category="Contains" />
     <Link Source="Races" Target="Races_Id" Category="Contains" />
     <Link Source="Races" Target="Races_IsVisible" Category="Contains" />
-    <Link Source="Races" Target="Races_Lagodnosc" Category="Contains" />
-    <Link Source="Races" Target="Races_Licznosc" Category="Contains" />
     <Link Source="Races" Target="Races_Name" Category="Contains" />
-    <Link Source="Races" Target="Races_Produktywnosc" Category="Contains" />
-    <Link Source="Races" Target="Races_Rojliwosc" Category="Contains" />
     <Link Source="Review" Target="Review_Description" Category="Contains" />
     <Link Source="Review" Target="Review_Id" Category="Contains" />
     <Link Source="Review" Target="Review_PlannedDate" Category="Contains" />

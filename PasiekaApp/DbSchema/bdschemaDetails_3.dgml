@@ -1,30 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="BeeQueen" Category="Table" Bounds="67.04,267.88,216.196666666667,197.88" Group="Expanded" Label="BeeQueen" />
-    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="87.04,363.84,69.6800000000001,25.96" Description="text" Label="BirthDate" />
-    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="186.72,363.84,76.5166666666667,25.96" Description="text" Label="DeathDate" />
-    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="87.04,419.8,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="87.04,307.88,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="167.04,307.88,55.3633333333332,25.96" Description="bigint" Label="RaceId" />
-    <Node Id="Hive" Category="Table" Bounds="33.0033333333333,40,284.27,197.88" Group="Expanded" Label="Hive" />
-    <Node Id="Hive1" Bounds="0,0,350.276666666667,769.6" Group="Expanded" Label="Hive" />
-    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Bounds="53.0033333333333,191.92,121.35,25.96" Description="text" Label="AddBeeQueenDate" />
-    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Bounds="163.256666666667,135.96,84.8733333333334,25.96" Description="bigint" Label="BeeQueenId" />
-    <Node Id="Hive_Description" Category="Field" Bounds="53.0033333333333,135.96,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="Hive_Id" Category="Field Primary" Bounds="53.0033333333333,80,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Hive_IsNucleus" Category="Field" Bounds="226.61,80,70.6633333333334,25.96" Description="bigint" Label="IsNucleus" />
-    <Node Id="Hive_Number" Category="Field" Bounds="133.003333333333,80,63.6066666666666,25.96" Description="bigint" Label="Number" />
-    <Node Id="Races" Category="Table" Bounds="20,495.76,310.276666666667,253.84" Group="Expanded" Label="Races" />
-    <Node Id="Races_Description" Category="Field" Bounds="40,647.68,80.2533333333333,25.96" Description="text" Label="Description" />
-    <Node Id="Races_Higienicznosc" Category="Field" Bounds="150.253333333333,647.68,92.8,25.96" Description="bigint" Label="Higienicznosc" />
-    <Node Id="Races_Id" Category="Field Primary" Bounds="40,535.76,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Races_IsVisible" Category="Field" Bounds="201.696666666667,535.76,62.8833333333333,25.96" Description="bigint" Label="IsVisible" />
-    <Node Id="Races_Lagodnosc" Category="Field" Bounds="232.9,591.72,77.3766666666667,25.96" Description="bigint" Label="Lagodnosc" />
-    <Node Id="Races_Licznosc" Category="Field" Bounds="40,591.72,63.9833333333333,25.96" Description="bigint" Label="Licznosc" />
-    <Node Id="Races_Name" Category="Field" Bounds="120,535.76,51.6966666666667,25.96" Description="text" Label="Name" />
-    <Node Id="Races_Produktywnosc" Category="Field" Bounds="40,703.64,100.746666666667,25.96" Description="bigint" Label="Produktywnosc" />
-    <Node Id="Races_Rojliwosc" Category="Field" Bounds="133.983333333333,591.72,68.9166666666667,25.96" Description="bigint" Label="Rojliwosc" />
+    <Node Id="BeeQueen" Category="Table" Bounds="67.0399998216014,292.144795311687,216.196669692993,197.880454272461" Group="Expanded" Label="BeeQueen" />
+    <Node Id="BeeQueen_BirthDate" Category="Field" Bounds="87.0400037888865,388.065515527583,69.6800000000002,25.96" Description="text" Label="BirthDate" />
+    <Node Id="BeeQueen_DeathDate" Category="Field Optional" Bounds="186.720001906969,388.065515527583,76.5166666666667,25.96" Description="text" Label="DeathDate" />
+    <Node Id="BeeQueen_Description" Category="Field Optional" Bounds="87.0400039923371,444.025552759028,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="BeeQueen_Id" Category="Field Primary" Bounds="87.0399998216014,332.105524072505,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="BeeQueen_RaceId" Category="Field Foreign" Bounds="167.040000482816,332.105539331294,55.3633333333332,25.96" Description="bigint" Label="RaceId" />
+    <Node Id="Hive" Category="Table" Bounds="33.0033333086216,6.52557558266496,284.270006663005,197.8804" Group="Expanded" Label="Hive" />
+    <Node Id="Hive1" Bounds="13.0033333086216,-33.4744244173351,324.270006663005,756.19781197595" Group="Expanded" Label="Hive" />
+    <Node Id="Hive_AddBeeQueenDate" Category="Field Optional" Bounds="53.0033333086216,158.357647948855,121.35,25.96" Description="text" Label="AddBeeQueenDate" />
+    <Node Id="Hive_BeeQueenId" Category="Field Foreign" Bounds="163.256669846301,102.397633605594,84.8733333333334,25.96" Description="bigint" Label="BeeQueenId" />
+    <Node Id="Hive_Description" Category="Field" Bounds="53.0033344275995,102.397633605594,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Hive_Id" Category="Field Primary" Bounds="53.0033340715611,46.4376154476346,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Hive_IsNucleus" Category="Field" Bounds="226.610006638293,46.4376154476346,70.6633333333334,25.96" Description="bigint" Label="IsNucleus" />
+    <Node Id="Hive_Number" Category="Field" Bounds="133.003330206001,46.4376154476346,63.6066666666666,25.96" Description="bigint" Label="Number" />
+    <Node Id="Races" Category="Table" Bounds="68.570000203111,560.803387558615,213.136666666667,141.92" Group="Expanded" Label="Races" />
+    <Node Id="Races_Description" Category="Field" Bounds="181.453333452715,656.858630511787,80.2533333333333,25.96" Description="text" Label="Description" />
+    <Node Id="Races_Id" Category="Field Primary" Bounds="88.5700001193822,600.898608040082,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Races_IsVisible" Category="Field" Bounds="88.5700001193822,656.858649263282,62.8833333333333,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="Races_Name" Category="Field" Bounds="168.570000119382,600.898572341027,51.6966666666667,25.96" Description="text" Label="Name" />
   </Nodes>
   <Links>
     <Link Source="BeeQueen" Target="BeeQueen_BirthDate" Category="Contains" />
@@ -44,14 +39,9 @@
     <Link Source="Hive1" Target="Races" Category="Contains" />
     <Link Source="Hive_BeeQueenId" Target="BeeQueen_Id" Category="Foreign Key" Label="FK_Hive_0_0" />
     <Link Source="Races" Target="Races_Description" Category="Contains" />
-    <Link Source="Races" Target="Races_Higienicznosc" Category="Contains" />
     <Link Source="Races" Target="Races_Id" Category="Contains" />
     <Link Source="Races" Target="Races_IsVisible" Category="Contains" />
-    <Link Source="Races" Target="Races_Lagodnosc" Category="Contains" />
-    <Link Source="Races" Target="Races_Licznosc" Category="Contains" />
     <Link Source="Races" Target="Races_Name" Category="Contains" />
-    <Link Source="Races" Target="Races_Produktywnosc" Category="Contains" />
-    <Link Source="Races" Target="Races_Rojliwosc" Category="Contains" />
   </Links>
   <Categories>
     <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />

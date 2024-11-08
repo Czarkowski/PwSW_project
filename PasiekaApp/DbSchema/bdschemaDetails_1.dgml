@@ -1,20 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="Production" Bounds="-121.999985758464,10.9999162055796,342.939963378906,619.801199207853" Group="Expanded" Label="Production" UseManualLocation="True" />
-    <Node Id="ProductionHives" Category="Table" Bounds="-35.3850333658854,51.0001,173.710020345052,141.9203" Group="Expanded" Label="ProductionHives" />
-    <Node Id="ProductionHives_HiveId" Category="Field Foreign" Bounds="64.6150012207031,91.0006060791015,53.71,25.96" Description="bigint" Label="HiveId" />
-    <Node Id="ProductionHives_Id" Category="Field Primary" Bounds="-15.385009765625,91.0006060791015,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="ProductionHives_ProductionId" Category="Field Foreign" Bounds="-15.3850191243489,146.960628051758,88.3766666666666,25.96" Description="bigint" Label="ProductionId" />
-    <Node Id="ProductionTypes" Category="Table" Bounds="-101.999985758463,394.840815413433,302.939963378906,215.9602" Group="Expanded" Label="ProductionTypes" />
-    <Node Id="ProductionTypes_Description" Category="Field" Bounds="10.8833125813803,562.720561523437,80.2533333333331,25.96" Description="text" Label="Description" />
-    <Node Id="ProductionTypes_Id" Category="Field Primary" Bounds="21.67333984375,506.760585327148,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="ProductionTypes_IsVisible" Category="Field" Bounds="-81.9999857584635,562.720561523437,62.8833333333332,25.96" Description="bigint" Label="IsVisible" />
-    <Node Id="ProductionTypes_Name" Category="Field" Bounds="129.243310953776,564.840617675781,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
-    <Node Id="ProductionTypes_ProductionTypeId" Category="Field Foreign" Bounds="-9.89669067382806,434.840617675781,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
-    <Node Id="Productions" Category="Table" Bounds="-25.1000435384115,222.920421972656,153.14,141.92029751243" Group="Expanded" Label="Productions" />
-    <Node Id="Productions_Id" Category="Field Primary" Bounds="-5.0999755859375,262.920604248047,50,25.96" Description="bigint" Label="Id" />
-    <Node Id="Productions_ProductionTypeId" Category="Field Foreign" Bounds="-5.10002929687494,318.880626220703,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
+    <Node Id="Production" Bounds="-122.751256713077,-45.3467266290618,342.939963378906,709.914197650816" Group="Expanded" Label="Production" UseManualLocation="True" />
+    <Node Id="ProductionHives" Category="Table" Bounds="-35.7562097331618,-5.34672662906173,173.710021298726,141.9203" Group="Expanded" Label="ProductionHives" />
+    <Node Id="ProductionHives_HiveId" Category="Field Foreign" Bounds="64.2438115655646,34.6534666501179,53.71,25.96" Description="bigint" Label="HiveId" />
+    <Node Id="ProductionHives_Id" Category="Field Primary" Bounds="-15.7561994207636,34.6534666501179,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ProductionHives_ProductionId" Category="Field Foreign" Bounds="-15.7562097331618,90.6134962521687,88.3766666666666,25.96" Description="bigint" Label="ProductionId" />
+    <Node Id="ProductionTypes" Category="Table" Bounds="-102.751256713077,428.607147218043,302.939962425232,215.960217778691" Group="Expanded" Label="ProductionTypes" />
+    <Node Id="ProductionTypes_Description" Category="Field" Bounds="10.132038765744,596.48720884439,80.2533333333331,25.96" Description="text" Label="Description" />
+    <Node Id="ProductionTypes_Id" Category="Field Primary" Bounds="20.9220679354623,540.527125836578,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="ProductionTypes_IsVisible" Category="Field" Bounds="-82.7512567130769,596.48720884439,62.8833333333332,25.96" Description="bigint" Label="IsVisible" />
+    <Node Id="ProductionTypes_Name" Category="Field" Bounds="128.492039045488,598.607264996734,51.6966666666667,25.96" Description="text" Label="Name" UseManualLocation="True" />
+    <Node Id="ProductionTypes_ProductionTypeId" Category="Field Foreign" Bounds="-10.6479625821158,468.607173444,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
+    <Node Id="Productions" Category="Table" Bounds="-71.7675698433933,210.860876395271,248.72,141.920268165277" Group="Expanded" Label="Productions" UseManualLocation="True" />
+    <Node Id="Productions_Id" Category="Field Primary" Bounds="-45.7149905676263,250.860961552736,50,25.96" Description="bigint" Label="Id" />
+    <Node Id="Productions_ProductionTypeId" Category="Field Foreign" Bounds="43.8124310784919,306.821044560548,113.14,25.96" Description="bigint" Label="ProductionTypeId" />
+    <Node Id="StockAvailabilities_Name" Category="Field" Bounds="-51.7675698433934,306.821056714097,65.58,25.96" Description="text" Label="Quantity" UseManualLocation="True" />
+    <Node Id="StockAvailabilities_Unit" Category="Field" Bounds="36.0631809716803,250.861022587892,50,25.96" Description="text" Label="Unit" UseManualLocation="True" />
   </Nodes>
   <Links>
     <Link Source="Production" Target="ProductionHives" Category="Contains" />
@@ -29,9 +31,11 @@
     <Link Source="ProductionTypes" Target="ProductionTypes_IsVisible" Category="Contains" />
     <Link Source="ProductionTypes" Target="ProductionTypes_Name" Category="Contains" />
     <Link Source="ProductionTypes" Target="ProductionTypes_ProductionTypeId" Category="Contains" />
-    <Link Source="ProductionTypes_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="46.6733148339353,460.800915413433,1.56831091189247E-05,36.9599676513679" Label="FK_ProductionTypes_0_0" LabelBounds="50.6733226754898,471.300898390463,128.673333333333,15.96" />
+    <Link Source="ProductionTypes_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="45.9220429256487,494.567173444,1.56831059712204E-05,36.9599523925789" Label="FK_ProductionTypes_0_0" LabelBounds="49.9220507672017,505.067148791635,128.673333333333,15.96" />
     <Link Source="Productions" Target="Productions_Id" Category="Contains" />
     <Link Source="Productions" Target="Productions_ProductionTypeId" Category="Contains" />
+    <Link Source="Productions" Target="StockAvailabilities_Name" Category="Contains" />
+    <Link Source="Productions" Target="StockAvailabilities_Unit" Category="Contains" />
     <Link Source="Productions_ProductionTypeId" Target="ProductionTypes_Id" Category="Foreign Key" Bounds="47.2344200022874,344.840626220703,3.90416799144336,152.923188483689" Label="FK_Productions_0_0" />
   </Links>
   <Categories>

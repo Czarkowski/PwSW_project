@@ -33,13 +33,13 @@ public partial class EditQueenPage : ContentPage
         InitializeComponent();
     }
 
-    public void InitializeData(BeeQueen matkaPszczela)
+    public void InitializeData(int beeQueenId)
     {
-        _queen = matkaPszczela;
+        _queen = _beeService.GetQueenById(beeQueenId);
         var availableHives = _beeService.GetAllHiveWithoutQueens();
         availableHives.Add(_queen.Hive);
         AvailableHives = availableHives;
-        BindingContext = QueenDetailsVM = _viewModelsFactory.CreateQueenDetailsVM(matkaPszczela);
+        BindingContext = QueenDetailsVM = _viewModelsFactory.CreateQueenDetailsVM(_queen);
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)

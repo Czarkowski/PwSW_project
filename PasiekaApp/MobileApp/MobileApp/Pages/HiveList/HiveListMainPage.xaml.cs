@@ -14,6 +14,7 @@ namespace MobileApp.Pages;
 
 public partial class HiveListMainPage : ContentPage
 {
+    public static bool RequieredRefresh { get; set; }
     private HiveListMainVM _hiveListMainVM;
     public HiveListMainVM HiveListMainVM
     {
@@ -40,8 +41,9 @@ public partial class HiveListMainPage : ContentPage
 
     protected override void OnAppearing()
     {
-        if (HiveListMainVM == null)
+        if (HiveListMainVM == null || RequieredRefresh)
         {
+            RequieredRefresh = false;
             LoadData();
         }
     }

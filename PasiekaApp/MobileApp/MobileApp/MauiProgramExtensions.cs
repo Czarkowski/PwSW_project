@@ -65,7 +65,7 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterRepositories(this MauiAppBuilder builder)
         {
-            builder.Services.AddDbContext<BeeDbContext>(ServiceLifetime.Transient);
+            builder.Services.AddDbContext<BeeDbContext>();
             builder.Services.AddTransient<IHiveRepository, HiveRepository>();
             builder.Services.AddTransient<IBeeQueenRepository, BeeQueenRepository>();
             builder.Services.AddTransient<IRaceRepository, RaceRepostory>();
@@ -82,7 +82,7 @@ namespace MobileApp
 
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
-            builder.Services.AddTransient<IBeeService, BeeService>();
+            builder.Services.AddSingleton<IBeeService, BeeService>();
             return builder;
         }
 

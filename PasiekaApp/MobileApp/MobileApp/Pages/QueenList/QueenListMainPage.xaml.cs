@@ -52,13 +52,14 @@ public partial class QueenListMainPage : ContentPage
         int? id = (e.CurrentSelection.ElementAt(0) as QueenListVM)?.Id;
         if (!id.HasValue)
             return;
-        page.InitializeData(_beeService.GetQueenById(id.Value));
+        page.InitializeData(id.Value);
         page.OnSave += (s, e) => RefreshList();
         await Navigation.PushAsync(page);
     }
 
     public void RefreshList()
     {
+        HiveListMainPage.RequieredRefresh = true;
         LoadData();
     }
 

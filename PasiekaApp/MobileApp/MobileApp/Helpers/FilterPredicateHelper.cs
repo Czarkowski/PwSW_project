@@ -36,7 +36,7 @@ namespace MobileApp.Helpers
             }
             if (reviewListFilterVM.Uncompleted.HasValue && reviewListFilterVM.Uncompleted.Value)
             {
-                predicate.AddPredicate(null, x => x.RealizedDate, (x, y) => x.HasValue, ConcatType.And);
+                predicate.AddPredicate(null, x => x.RealizedDate, (x, y) => !x.HasValue, ConcatType.And);
             }
             return predicate;
         }

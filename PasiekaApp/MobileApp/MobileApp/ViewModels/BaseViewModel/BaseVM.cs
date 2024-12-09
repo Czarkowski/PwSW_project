@@ -6,33 +6,30 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.ViewModels.BaseViewModel
+namespace MobileApp.ViewModels.BaseViewModel;
+
+public abstract class BaseVM : INotifyPropertyChanged
 {
-    public abstract class BaseVM : INotifyPropertyChanged
+    public readonly int? Id = default;
+    public BaseVM(int? id)
     {
-        public readonly int? Id = default;
-        public BaseVM(int? id)
-        {
-            Id = id;
-        }
-        public BaseVM()
-        {
-        }
+        Id = id;
+    }
+    public BaseVM()
+    {
+    }
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(storage, value))
+            return false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(storage, value))
-                return false;
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-            return true;
-        }
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        storage = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

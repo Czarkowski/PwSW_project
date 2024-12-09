@@ -22,7 +22,6 @@
         <CollectionView x:Name="ReviewListCV" ItemsSource="{Binding ReviewListItemVMs}" 
                         ItemTemplate="{StaticResource ReviewListDataTemplateSelector}" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" SelectionChanged="OnItemSelected">
         </CollectionView>
-
         <!-- Stały footer -->
         <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Padding="10" VerticalOptions="End">
             <Button Text="{loc:Translate txt_CreateReview}" Clicked="OnReviewCreateClick" />

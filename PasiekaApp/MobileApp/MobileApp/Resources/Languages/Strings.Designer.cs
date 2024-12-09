@@ -61,6 +61,24 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Add {
+            get {
+                return ResourceManager.GetString("txt_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_AddHive {
+            get {
+                return ResourceManager.GetString("txt_AddHive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodaj nową królową .
         /// </summary>
         internal static string txt_AddNewQueen {
@@ -79,11 +97,119 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_AddStock {
+            get {
+                return ResourceManager.GetString("txt_AddStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wszystkie.
         /// </summary>
         internal static string txt_All {
             get {
                 return ResourceManager.GetString("txt_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryDataNavigationTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryDataNavigationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryDataProdutionsMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryDataProdutionsMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryDataRacesMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryDataRacesMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryDataReviewsMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryDataReviewsMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryNavigationTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryNavigationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryProductionCreatorMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryProductionCreatorMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryProductionNavigationTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryProductionNavigationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryProductionSummaryMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryProductionSummaryMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryToolsNavigationTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryToolsNavigationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ApiaryToolSyrupCalculatorMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ApiaryToolSyrupCalculatorMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to txt_AppName.
+        /// </summary>
+        internal static string txt_AppName {
+            get {
+                return ResourceManager.GetString("txt_AppName", resourceCulture);
             }
         }
         
@@ -97,6 +223,24 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Calculate {
+            get {
+                return ResourceManager.GetString("txt_Calculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_CalculationTargetType {
+            get {
+                return ResourceManager.GetString("txt_CalculationTargetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string txt_Cancel {
@@ -106,11 +250,56 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Clear {
+            get {
+                return ResourceManager.GetString("txt_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ClearDataBase {
+            get {
+                return ResourceManager.GetString("txt_ClearDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ClearDataBaseConfirmationText {
+            get {
+                return ResourceManager.GetString("txt_ClearDataBaseConfirmationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to txt_CountableUnit.
+        /// </summary>
+        internal static string txt_CountableUnit {
+            get {
+                return ResourceManager.GetString("txt_CountableUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Review.
         /// </summary>
         internal static string txt_CreateReview {
             get {
                 return ResourceManager.GetString("txt_CreateReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_DataSettingsMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_DataSettingsMainPageTitle", resourceCulture);
             }
         }
         
@@ -133,6 +322,15 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_DescriptionPlaceholder {
+            get {
+                return ResourceManager.GetString("txt_DescriptionPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details Review.
         /// </summary>
         internal static string txt_DetailsReview {
@@ -142,11 +340,38 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ForSugar {
+            get {
+                return ResourceManager.GetString("txt_ForSugar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ForSyrup {
+            get {
+                return ResourceManager.GetString("txt_ForSyrup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From Date.
         /// </summary>
         internal static string txt_FromDate {
             get {
                 return ResourceManager.GetString("txt_FromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_HiveListMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_HiveListMainPageTitle", resourceCulture);
             }
         }
         
@@ -196,6 +421,15 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ItemQuantity {
+            get {
+                return ResourceManager.GetString("txt_ItemQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item Unit.
         /// </summary>
         internal static string txt_ItemUnit {
@@ -205,11 +439,74 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_LanguageSettingsMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_LanguageSettingsMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_MainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_MainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to txt_MassUnit.
+        /// </summary>
+        internal static string txt_MassUnit {
+            get {
+                return ResourceManager.GetString("txt_MassUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         internal static string txt_Modify {
             get {
                 return ResourceManager.GetString("txt_Modify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Name {
+            get {
+                return ResourceManager.GetString("txt_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_NewQueen {
+            get {
+                return ResourceManager.GetString("txt_NewQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_NewRace {
+            get {
+                return ResourceManager.GetString("txt_NewRace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_No {
+            get {
+                return ResourceManager.GetString("txt_No", resourceCulture);
             }
         }
         
@@ -241,11 +538,38 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_OneToOne {
+            get {
+                return ResourceManager.GetString("txt_OneToOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_PhotoList {
+            get {
+                return ResourceManager.GetString("txt_PhotoList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Planned:.
         /// </summary>
         internal static string txt_Planned {
             get {
                 return ResourceManager.GetString("txt_Planned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_PlannedDate {
+            get {
+                return ResourceManager.GetString("txt_PlannedDate", resourceCulture);
             }
         }
         
@@ -259,11 +583,38 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ProductionTypeNamePlaceholder {
+            get {
+                return ResourceManager.GetString("txt_ProductionTypeNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_QueenListMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_QueenListMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Race.
         /// </summary>
         internal static string txt_Race {
             get {
                 return ResourceManager.GetString("txt_Race", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_RaceNamePlaceholder {
+            get {
+                return ResourceManager.GetString("txt_RaceNamePlaceholder", resourceCulture);
             }
         }
         
@@ -291,6 +642,69 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_RemoveQueen {
             get {
                 return ResourceManager.GetString("txt_RemoveQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Result {
+            get {
+                return ResourceManager.GetString("txt_Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewDetailsMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ReviewDetailsMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewHistoryMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ReviewHistoryMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewListMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_ReviewListMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewNamePlaceholder {
+            get {
+                return ResourceManager.GetString("txt_ReviewNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewNotificationDescription {
+            get {
+                return ResourceManager.GetString("txt_ReviewNotificationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ReviewNotificationTitle {
+            get {
+                return ResourceManager.GetString("txt_ReviewNotificationTitle", resourceCulture);
             }
         }
         
@@ -331,11 +745,92 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SelectCalculationTargetType {
+            get {
+                return ResourceManager.GetString("txt_SelectCalculationTargetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SelectProduct {
+            get {
+                return ResourceManager.GetString("txt_SelectProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SelectRatio {
+            get {
+                return ResourceManager.GetString("txt_SelectRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SelectUnit {
+            get {
+                return ResourceManager.GetString("txt_SelectUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SettingsNavigationTitle {
+            get {
+                return ResourceManager.GetString("txt_SettingsNavigationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Soon.
         /// </summary>
         internal static string txt_Soon {
             get {
                 return ResourceManager.GetString("txt_Soon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Sugar {
+            get {
+                return ResourceManager.GetString("txt_Sugar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SugarToWaterRatio {
+            get {
+                return ResourceManager.GetString("txt_SugarToWaterRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Syrup {
+            get {
+                return ResourceManager.GetString("txt_Syrup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_TakePhoto {
+            get {
+                return ResourceManager.GetString("txt_TakePhoto", resourceCulture);
             }
         }
         
@@ -349,11 +844,38 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ThreeToTwo {
+            get {
+                return ResourceManager.GetString("txt_ThreeToTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To Date.
         /// </summary>
         internal static string txt_ToDate {
             get {
                 return ResourceManager.GetString("txt_ToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_TwoToOne {
+            get {
+                return ResourceManager.GetString("txt_TwoToOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_TypeValue {
+            get {
+                return ResourceManager.GetString("txt_TypeValue", resourceCulture);
             }
         }
         
@@ -372,6 +894,60 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_Uncopleted {
             get {
                 return ResourceManager.GetString("txt_Uncopleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ValueEdit {
+            get {
+                return ResourceManager.GetString("txt_ValueEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_ValuePlaceholder {
+            get {
+                return ResourceManager.GetString("txt_ValuePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to txt_VolumeUnit.
+        /// </summary>
+        internal static string txt_VolumeUnit {
+            get {
+                return ResourceManager.GetString("txt_VolumeUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_WarehouseMainPageTitle {
+            get {
+                return ResourceManager.GetString("txt_WarehouseMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Water {
+            get {
+                return ResourceManager.GetString("txt_Water", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Yes {
+            get {
+                return ResourceManager.GetString("txt_Yes", resourceCulture);
             }
         }
     }

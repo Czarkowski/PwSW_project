@@ -5,19 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileApp.Localizations
+namespace MobileApp.Localizations;
+
+[ContentProperty(nameof(Key))] 
+public class TranslateExtension : IMarkupExtension
 {
-    [ContentProperty(nameof(Key))] 
-    public class TranslateExtension : IMarkupExtension
+    public string Key { get; set; }
+
+    public object ProvideValue(IServiceProvider serviceProvider)
     {
-        public string Key { get; set; }
+        if (Key == null)
+            return string.Empty;
 
-        public object ProvideValue(IServiceProvider serviceProvider)
-        {
-            if (Key == null)
-                return string.Empty;
-
-            return LocalizeManager.Translate(Key);
-        }
+        return LocalizeManager.Translate(Key);
     }
 }

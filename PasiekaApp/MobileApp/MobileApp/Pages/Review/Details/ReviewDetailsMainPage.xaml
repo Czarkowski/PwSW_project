@@ -48,8 +48,6 @@
             </StackLayout>
             <Button Text=">" Command="{Binding OnRight, Source={x:Reference this}}" CommandParameter="{Binding SelectedItem}" HorizontalOptions="End" />
         </StackLayout>
-        
-        
         <Button Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" />
     </StackLayout>
         

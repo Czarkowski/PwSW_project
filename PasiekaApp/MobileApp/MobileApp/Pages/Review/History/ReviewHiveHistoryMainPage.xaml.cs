@@ -77,7 +77,10 @@ public partial class ReviewHiveHistoryMainPage : ContentPage
 
     private void OnItemSelected(object sender, SelectionChangedEventArgs e)
     {
-        ReviewHistoryVM.DescriptionHiveReviewVM = _viewModelsFactory.CreateDescriptionHiveReviewVM(
-            ReviewHistoryVM.ReviewHistoryListVM.SelectedItem.DescriptionHiveReview);
+        if (ReviewHistoryVM.ReviewHistoryListVM.SelectedItem != null)
+        {
+            ReviewHistoryVM.DescriptionHiveReviewVM = _viewModelsFactory.CreateDescriptionHiveReviewVM(
+                ReviewHistoryVM.ReviewHistoryListVM.SelectedItem.DescriptionHiveReview);
+        }
     }
 }

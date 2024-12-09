@@ -403,4 +403,16 @@ Ta operacja jest nieodwracalna!</value>
   <data name="txt_AppName" xml:space="preserve">
     <value>Pszczela Enklawa</value>
   </data>
+  <data name="txt_TakePhoto" xml:space="preserve">
+    <value>Zrób Zdjęcie</value>
+  </data>
+  <data name="txt_PhotoList" xml:space="preserve">
+    <value>ListaZdjęć</value>
+  </data>
+  <data name="txt_ReviewHistoryMainPageTitle" xml:space="preserve">
+    <value>Historia przeglądów</value>
+  </data>
+  <data name="txt_ReviewDetailsMainPageTitle" xml:space="preserve">
+    <value>Szczegóły przeglądów</value>
+  </data>
 </root>

@@ -46,7 +46,7 @@ namespace MobileApp.Helpers
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert(LocalizeManager.Translate("txt_Error"), LocalizeManager.TranslateWitFormat("txt_Error", ex.Message), LocalizeManager.Translate("txt_OK"));
+                await Application.Current.MainPage.DisplayAlert(LocalizeManager.Translate("txt_Error"), LocalizeManager.TranslateWithFormat("txt_Error", ex.Message), LocalizeManager.Translate("txt_OK"));
             }
             return null;
         }

@@ -20,7 +20,7 @@ namespace MobileApp.Pages.Review.List.Templates
                 {
                     return Completed;
                 }
-                else if (review.PlannedDate < (DateTime.Now.Date.AddDays(-1)))
+                else if (review.PlannedDate.AddDays(0) < (DateTime.Now.Date.AddDays(+2)))
                 {
                     return Soon;
                 }

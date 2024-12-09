@@ -8,25 +8,62 @@
              x:Class="MobileApp.Pages.EditQueenPage"
              x:DataType="vm:QueenDetailsVM"
              x:Name="this">
-    
+
     <ContentPage.Content>
-        <StackLayout Padding="20">
+        <StackLayout Padding="20" BackgroundColor="{DynamicResource BackgroundColor}">
+            <!-- Pierwsza sekcja -->
             <StackLayout IsEnabled="False" Opacity="0.9">
-                <Label Text="{loc:Translate txt_Race}" FontSize="24" FontAttributes="Bold" />
-                <Label Text="{Binding Race.Name}" FontAttributes="Bold" />
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                    <!-- Etykieta tytułowa -->
+                    <Label Text="{loc:Translate txt_Race}" 
+           FontSize="24" 
+           FontAttributes="Bold" 
+           TextColor="White" 
+           VerticalOptions="Center" />
+
+                    <!-- Wartość rasy -->
+                    <Label Text="{Binding Race.Name}" 
+           FontAttributes="Bold" 
+           FontSize="24" 
+           TextColor="White" 
+           VerticalOptions="Center" />
+                </HorizontalStackLayout>
                 <!--<cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
-                                 OptionList="{Binding RaceOptions}" DisplayProperty="Name" />-->
-                <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding BirthDate, Mode=TwoWay}"/>
+                             OptionList="{Binding RaceOptions}" DisplayProperty="Name" />-->
+                <cc:CustomDatePicker x:Name="DatePicker" 
+                                 LabelText="{loc:Translate txt_BirthDate}" 
+                                 SelectedDate="{Binding BirthDate, Mode=TwoWay}" 
+                                 BackgroundColor="{DynamicResource BackgroundColor}"/>
             </StackLayout>
 
-            <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description, Mode=TwoWay}" />
-            <cc:CustomPicker LabelText="Ul:" SelectedItem="{Binding Hive, Mode=TwoWay}" OptionList="{Binding AvailableHives, Source={x:Reference this}}" DisplayProperty="Number" />
+            <!-- Opis -->
+            <cc:LabelEntry LabelText="{loc:Translate txt_Description}" 
+                       EntryText="{Binding Description, Mode=TwoWay}" 
+                       BackgroundColor="{DynamicResource BackgroundColor}"/>
 
+            <!-- Picker -->
+            <cc:CustomPicker LabelText="Ul:" 
+                         SelectedItem="{Binding Hive, Mode=TwoWay}" 
+                         OptionList="{Binding AvailableHives, Source={x:Reference this}}" 
+                         DisplayProperty="Number" 
+                         BackgroundColor="{DynamicResource BackgroundColor}"/>
+
+            <!-- Przycisk Akcji -->
             <StackLayout Orientation="Horizontal" Spacing="10">
-                <Button Text="{loc:Translate txt_Save}" Clicked="OnSaveClicked" />
-                <Button Text="{loc:Translate txt_Delete}" Clicked="OnDeleteClicked" />
-                <Button Text="{loc:Translate txt_Cancel}" Clicked="OnCancelClicked" />
+                <Button Text="{loc:Translate txt_Save}" 
+                    Clicked="OnSaveClicked" 
+                    BackgroundColor="{DynamicResource BackgroundColor}" 
+                    TextColor="White"/>
+                <Button Text="{loc:Translate txt_Delete}" 
+                    Clicked="OnDeleteClicked" 
+                    BackgroundColor="{DynamicResource BackgroundColor}" 
+                    TextColor="White"/>
+                <Button Text="{loc:Translate txt_Cancel}" 
+                    Clicked="OnCancelClicked" 
+                    BackgroundColor="{DynamicResource BackgroundColor}" 
+                    TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

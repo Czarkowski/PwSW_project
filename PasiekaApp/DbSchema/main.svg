@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg stroke-linecap="round" font-size="12" font-family="Segoe UI" width="642.5766666666666" height="345" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs />
+  <rect width="642.5766666666666" height="345" fill="#1E1E1E" />
+  <g transform="translate(20,20)">
+    <g id="Database">
+      <rect rx="5" ry="5" width="602.5766666666666" height="305" fill="#FFFFFF" stroke="#A5A6A9" stroke-width="1" />
+      <text x="272" y="17.950000000000003" fill="#000000">BeeApp.db</text>
+      <rect x="5" y="27.96" width="592.5766666666666" height="272.04" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      <g id="BeeQueen-&gt;Races">
+        <path d="M 225.986666666667,175 L 225.986666666667,196" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 225.986666666667,205 L 229.986666666667,195 C 227.32,196 224.653333333333,196 221.986666666667,195 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="DescriptionHiveReview-&gt;Descriptions">
+        <path d="M 359.532121212121,65 L 350.040712225355,86.7511455946733" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 346.441212121212,95 L 354.106814194849,87.434384040367 C 351.262764729847,87.2844048693611 348.818659720862,86.2178863199855 346.774499167892,84.2348283922403 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="DescriptionHiveReview-&gt;Hive">
+        <path d="M 333.395757575758,65 L 263.842712378425,92.5209891068585" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 255.474023692216,95.8323407452864 L 266.244278516194,95.8724783409037 C 264.333282991525,93.7607948381487 263.352141765324,91.2811833755682 263.300854837591,88.4336439531625 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="DescriptionHiveReview-&gt;Review">
+        <path d="M 387.259393939394,65 L 432.865485641477,90.5952555470875" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 440.713939393939,95 L 433.951099425831,86.617637829003 C 433.518040375242,89.4325216578339 432.212930907712,91.7579894363411 430.035771023242,93.5940411645249 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="Hive-&gt;BeeQueen">
+        <path d="M 225.986666666667,120 L 225.986666666667,141" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 225.986666666667,150 L 229.986666666667,140 C 227.32,141 224.653333333333,141 221.986666666667,140 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="Notifications-&gt;Review">
+        <path d="M 513.986666666667,65 L 484.900658183043,89.2383404030197" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 477.986666666667,95 L 488.229617061298,91.6710411217447 C 485.754237382596,90.2626354424829 484.04707898349,88.2140453635566 483.108141863982,85.5252708849657 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="Photos-&gt;Descriptions">
+        <path d="M 244.395757575758,65 L 304.339740465771,91.3753524716058" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 312.577575757576,95 L 305.035379890412,87.3113537276487 C 304.876725284792,90.1549324283754 303.802755646749,92.5957725148361 301.813470976284,94.6338739870308 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="ProductionHives-&gt;Productions">
+        <path d="M 83.9866666666666,65 L 83.9866666666666,86" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 83.9866666666666,95 L 87.9866666666666,85 C 85.32,86 82.6533333333333,86 79.9866666666666,85 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="ProductionHives-&gt;Hive">
+        <path d="M 116.259393939394,65 L 187.880828873285,92.7406966293239" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 196.273299763304,95.9913015515147 L 188.393045406478,88.649531242405 C 188.362399972868,91.4973676085802 187.399257773701,93.9840256500676 185.503618808975,96.109505366867 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="Productions-&gt;ProductionTypes">
+        <path d="M 83.9866666666666,120 L 83.9866666666666,141" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 83.9866666666666,150 L 87.9866666666666,140 C 85.32,141 82.6533333333333,141 79.9866666666666,140 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="Review-&gt;ReviewTypes">
+        <path d="M 462.986666666667,120 L 462.986666666667,141" fill="none" stroke="#A0A0A0" stroke-width="1" />
+        <path d="M 462.986666666667,150 L 466.986666666667,140 C 464.32,141 461.653333333333,141 458.986666666667,140 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+      </g>
+      <g id="BeeQueen">
+        <rect x="178.67999999999995" y="150" rx="5" ry="5" width="94.613333333333344" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="198.67999999999995" y="167.95" fill="#000000">BeeQueen</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="DescriptionHiveReview">
+        <rect x="284.78166666666652" y="40" rx="5" ry="5" width="160.41000000000003" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="304.78166666666652" y="57.95" fill="#000000">DescriptionHiveReview</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Descriptions">
+        <rect x="288.31333333333322" y="95" rx="5" ry="5" width="105.34666666666664" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="307.31333333333322" y="112.95" fill="#000000">Descriptions</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Hive">
+        <rect x="194.26166666666654" y="95" rx="5" ry="5" width="63.449999999999989" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="213.26166666666654" y="112.95" fill="#000000">Hive</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Notifications">
+        <rect x="475.39666666666653" y="40" rx="5" ry="5" width="107.18000000000006" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="495.39666666666653" y="57.95" fill="#000000">Notifications</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Photos">
+        <rect x="177.62166666666661" y="40" rx="5" ry="5" width="76.730000000000018" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="197.62166666666661" y="57.95" fill="#000000">Photos</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="ProductionHives">
+        <rect x="20.656666666666645" y="40" rx="5" ry="5" width="126.66000000000003" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="40.656666666666645" y="57.95" fill="#000000">ProductionHives</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Productions">
+        <rect x="32.381666666666604" y="95" rx="5" ry="5" width="103.21000000000001" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="52.381666666666604" y="112.95" fill="#000000">Productions</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="ProductionTypes">
+        <rect x="19.99999999999995" y="150" rx="5" ry="5" width="127.97333333333336" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="39.99999999999995" y="167.95" fill="#000000">ProductionTypes</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Races">
+        <rect x="190.88833333333321" y="205" rx="5" ry="5" width="70.196666666666658" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="209.88833333333321" y="222.95" fill="#000000">Races</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Review">
+        <rect x="424.63333333333327" y="95" rx="5" ry="5" width="76.706666666666649" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="443.63333333333327" y="112.95" fill="#000000">Review</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="ReviewTypes">
+        <rect x="409.70499999999993" y="150" rx="5" ry="5" width="106.56333333333328" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="428.70499999999993" y="167.95" fill="#000000">ReviewTypes</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="StockAvailabilities">
+        <rect x="118.88" y="260" rx="5" ry="5" width="133.98666666666668" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="138.88" y="277.95" fill="#000000">StockAvailabilities</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+      <g id="Users">
+        <rect x="20" y="260" rx="5" ry="5" width="68.88" height="25" fill="#C0C0C0" stroke="#A5A6A9" stroke-width="1" />
+        <text x="39" y="277.95" fill="#000000">Users</text>
+        <rect x="INF" y="INF" width="-INF" height="-INF" fill="#1E1E1E" stroke="#A5A6A9" stroke-width="1" />
+      </g>
+    </g>
+  </g>
+</svg>

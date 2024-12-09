@@ -9,20 +9,33 @@
              x:Name="this"
              BindingContext="{Binding ReviewHistoryVM, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ReviewHistoryMainPageTitle}">
-    <StackLayout Orientation="Vertical">
-        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewHistoryListFilterVM}" >
-            <views:ReviewHiveHistoryListFilterView OnSearch="{Binding OnSearch,Source={x:Reference this}}"/>
+    <StackLayout Orientation="Vertical" BackgroundColor="#121212">
+
+        <!-- Filtr -->
+        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewHistoryListFilterVM}">
+            <views:ReviewHiveHistoryListFilterView OnSearch="{Binding OnSearch, Source={x:Reference this}}"/>
         </StackLayout>
+
         <!-- Główna zawartość strony -->
-        <CollectionView x:Name="ReviewListCV" ItemsSource="{Binding ReviewHistoryListVM.FiltratedReviewHistoryListItemVMs}" 
-                        ItemTemplate="{StaticResource ReviewHiveHistortListDataTemplateSelector}" SelectionMode="Single" SelectedItem="{Binding ReviewHistoryListVM.SelectedItem}" 
-                        SelectionChanged="OnItemSelected">
+        <CollectionView x:Name="ReviewListCV" 
+                    ItemsSource="{Binding ReviewHistoryListVM.FiltratedReviewHistoryListItemVMs}" 
+                    ItemTemplate="{StaticResource ReviewHiveHistortListDataTemplateSelector}" 
+                    SelectionMode="Single" 
+                    SelectedItem="{Binding ReviewHistoryListVM.SelectedItem}" 
+                    SelectionChanged="OnItemSelected"
+                    BackgroundColor="#333333">
         </CollectionView>
 
+        <!-- Opis recenzji -->
         <StackLayout IsVisible="{Binding DescriptionHiveReviewVM, Converter={StaticResource NullToBooleanConverter}}"
-            Orientation="Horizontal"
-            HorizontalOptions="FillAndExpand">
-            <Label Text="{Binding DescriptionHiveReviewVM.Description}" /> 
+                 Orientation="Horizontal"
+                 HorizontalOptions="FillAndExpand"
+                 BackgroundColor="#333333">
+            <Label Text="{Binding DescriptionHiveReviewVM.Description}" 
+               TextColor="White" 
+               Margin="10, 0" />
         </StackLayout>
-        </StackLayout>
+
+    </StackLayout>
+
 </ContentPage>

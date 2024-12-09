@@ -12,20 +12,38 @@
              x:Name="this"
              BindingContext="{Binding ReviewListVM, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ReviewListMainPageTitle}">
-    
-    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-        <!--Filtr-->
-        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}" HorizontalOptions="FillAndExpand" >
-            <views:ReviewListFilterView OnSearch="{Binding OnSearch,Source={x:Reference this}}"/>
+
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource BackgroundColor}">
+        <!-- Filtr -->
+        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewListFilterVM}" 
+                     HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource CardBackgroundColor}" 
+                     Padding="15">
+            <views:ReviewListFilterView OnSearch="{Binding OnSearch, Source={x:Reference this}}" />
         </StackLayout>
+
         <!-- Główna zawartość strony -->
         <CollectionView x:Name="ReviewListCV" ItemsSource="{Binding ReviewListItemVMs}" 
-                        ItemTemplate="{StaticResource ReviewListDataTemplateSelector}" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" SelectionChanged="OnItemSelected">
+                    ItemTemplate="{StaticResource ReviewListDataTemplateSelector}" 
+                    SelectionMode="Single" 
+                    SelectedItem="{Binding SelectedItem}" 
+                    SelectionChanged="OnItemSelected" 
+                    BackgroundColor="{DynamicResource BackgroundColor}">
         </CollectionView>
+
         <!-- Stały footer -->
-        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Padding="10" VerticalOptions="End">
-            <Button Text="{loc:Translate txt_CreateReview}" Clicked="OnReviewCreateClick" />
-            <Button Text="{loc:Translate txt_DetailsReview}" Command="{Binding OnDetails, Source={x:Reference this}}" CommandParameter="{Binding SelectedItem}" HorizontalOptions="EndAndExpand" />
+        <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource FooterBackgroundColor}" Padding="10" VerticalOptions="End">
+            <Button Text="{loc:Translate txt_CreateReview}" 
+                Clicked="OnReviewCreateClick" 
+                TextColor="{DynamicResource ButtonTextColor}" 
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                Margin="0,0,10,0"/>
+            <Button Text="{loc:Translate txt_DetailsReview}" 
+                Command="{Binding OnDetails, Source={x:Reference this}}" 
+                CommandParameter="{Binding SelectedItem}" 
+                HorizontalOptions="EndAndExpand" 
+                TextColor="{DynamicResource ButtonTextColor}" 
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
         </StackLayout>
     </StackLayout>
+
 </ContentPage>

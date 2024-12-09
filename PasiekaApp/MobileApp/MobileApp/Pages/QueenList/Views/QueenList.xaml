@@ -9,10 +9,10 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
-        <CollectionView x:Name="listVMs" ItemsLayout="VerticalList" SelectionMode="Single" SelectionChanged="OnItemSelected" >
+        <CollectionView BackgroundColor="{DynamicResource BackgroundColor}" x:Name="listVMs" ItemsLayout="VerticalList" SelectionMode="Single" SelectionChanged="OnItemSelected" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="5" Padding="10" BorderColor="LightGray">
+                    <Frame Margin="5" Padding="10" BorderColor="LightGray" BackgroundColor="{DynamicResource BackgroundColor}">
                         <StackLayout Orientation="Horizontal" Spacing="20">
                             <Label Text="{Binding Id}" FontAttributes="Bold" />
                             <Label Text="{Binding Race}" FontAttributes="Bold" />

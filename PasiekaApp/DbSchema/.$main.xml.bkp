@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+  <root>
+    <!-- Draw.io default layers -->
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- Nodes -->
+    <mxCell id="Database" value="BeeApp.db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+      <mxGeometry x="100" y="50" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="BeeQueen" value="BeeQueen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c0c0c0;" vertex="1" parent="1">
+      <mxGeometry x="100" y="150" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="BeeQueen_Id" value="Id: bigint" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008000;" vertex="1" parent="1">
+      <mxGeometry x="250" y="150" width="120" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Add other nodes and their relationships based on the DGML -->
+
+    <!-- Relationships -->
+    <mxCell id="link1" edge="1" source="Database" target="BeeQueen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;strokeColor=#000000;">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="link2" edge="1" source="BeeQueen" target="BeeQueen_Id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;strokeColor=#000000;">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Add other relationships based on the DGML -->
+  </root>
+</mxGraphModel>

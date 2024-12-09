@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbSchema", "DbSchema", "{9D
 		DbSchema\bdschemaDetails_3.dgml = DbSchema\bdschemaDetails_3.dgml
 		DbSchema\bdschemaDetails_4.dgml = DbSchema\bdschemaDetails_4.dgml
 		DbSchema\bdschema_1.dgml = DbSchema\bdschema_1.dgml
+		DbSchema\main.dgml = DbSchema\main.dgml
 	EndProjectSection
 EndProject
 Global

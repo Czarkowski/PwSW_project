@@ -11,6 +11,6 @@ namespace Data.Core.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsVisible { get; set; } = true;
-        public virtual List<ProductionType> ProductionTypes { get; set; }
+        public virtual List<Production> Productions { get; set; }
     }
 }

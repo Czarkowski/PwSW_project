@@ -5,20 +5,25 @@
              x:Class="MobileApp.Controls.CompositeControls.LabelEntry"
              x:DataType="local:LabelEntry"
              x:Name="this">
-    
-    <StackLayout Orientation="Vertical" Spacing="5">
-        <!--<Label Text="{Binding LabelText, Source={RelativeSource AncestorType={x:Type local:LabelEntry}}}" 
-               VerticalOptions="Center" />
-        <Entry Text="{Binding EntryText, Source={RelativeSource AncestorType={x:Type local:LabelEntry}}}"
-               VerticalOptions="Center" />-->
-        <!--Text="{Binding EntryText}"
-               Text="{Binding LabelText}"-->
 
+    <StackLayout Orientation="Vertical" Spacing="8" Padding="5" BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}">
+        <!-- Etykieta -->
         <Label x:Name="Label" 
-               Text="{Binding LabelText, Source={x:Reference this}}"
-               HorizontalOptions="Start" />
-        <Entry  x:Name="Entry"
-                Text="{Binding EntryText, Source={x:Reference this}}"
-               VerticalOptions="StartAndExpand" />
+           Text="{Binding LabelText, Source={x:Reference this}}"
+           HorizontalOptions="Start"
+           TextColor="White"
+           FontAttributes="Bold"
+           FontSize="Medium" />
+
+        <!-- Pole tekstowe -->
+        <Entry x:Name="Entry"
+           Text="{Binding EntryText, Source={x:Reference this}}"
+           VerticalOptions="StartAndExpand"
+           TextColor="White"
+           BackgroundColor="#1E1E1E"
+           PlaceholderColor="Gray"
+           FontSize="Small"
+           Margin="0,5,0,0"
+           HeightRequest="40" />
     </StackLayout>
 </ContentView>

@@ -11,82 +11,160 @@
              x:DataType="vm:HiveListMainVM"
              BindingContext="{Binding HiveListMainVM, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_HiveListMainPageTitle}">
-    <Grid>
+    <Grid BackgroundColor="{DynamicResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Przycisk dodawania ula -->
+        <Button Text="{loc:Translate txt_AddHive}" 
+            Clicked="OnAddItemClicked" 
+            Grid.Row="0" 
+            BackgroundColor="{DynamicResource BackgroundColor}" 
+            TextColor="White"/>
 
-        <Button Text="{loc:Translate txt_AddHive}" Clicked="OnAddItemClicked" Grid.Row="0"/>
-
-        <CollectionView x:Name="UlListModel" ItemsSource="{Binding HiveListVM.HiveListItemVMs}" SelectedItem="{Binding HiveListVM.SelectedItem}" 
-                        ItemsLayout="VerticalList" SelectionMode="Single" SelectionChanged="OnItemSelected" Grid.Row="1" BackgroundColor="Black">
+        <!-- Lista uli -->
+        <CollectionView x:Name="UlListModel" 
+                    ItemsSource="{Binding HiveListVM.HiveListItemVMs}" 
+                    SelectedItem="{Binding HiveListVM.SelectedItem}" 
+                    ItemsLayout="VerticalList" 
+                    SelectionMode="Single" 
+                    SelectionChanged="OnItemSelected" 
+                    Grid.Row="1" 
+                    BackgroundColor="{DynamicResource BackgroundColor}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:HiveListItemVM">
-                    <Frame Margin="5" Padding="5" BackgroundColor="Black" BorderColor="LightGray" HorizontalOptions="FillAndExpand" MinimumHeightRequest="50" InputTransparent="True">
-                        <!--<Grid ColumnDefinitions="Auto,Auto,*" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
-                            <Label Text="{Binding Number}" TextColor="White" FontAttributes="Bold" Grid.Column="0" VerticalOptions="Center" InputTransparent="True"/>
-                            <Label Text="{Binding Race}" TextColor="White" Grid.Column="1" VerticalOptions="Center" InputTransparent="True"/>
-                            <Label Text="{Binding Description}" TextColor="White" Grid.Column="2" VerticalOptions="Center" InputTransparent="True"/>
-                        </Grid>-->
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="{Binding Number}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
-                            <Label Text="{Binding Race}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
-                            <Label Text="{Binding Description}" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Margin="3"/>
+                    <Frame Margin="5" Padding="5" 
+                       BackgroundColor="{DynamicResource BackgroundColor}" 
+                       BorderColor="LightGray" 
+                       HorizontalOptions="FillAndExpand" 
+                       MinimumHeightRequest="50" 
+                       InputTransparent="True">
+                        <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding Number}" 
+                               TextColor="White" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center" 
+                               Margin="3"/>
+                            <Label Text="{Binding Race}" 
+                               TextColor="White" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center" 
+                               Margin="3"/>
+                            <Label Text="{Binding Description}" 
+                               TextColor="White" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center" 
+                               Margin="3"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <StackLayout IsVisible="{Binding HiveDetailsVM, Converter={StaticResource NullToBooleanConverter}, TargetNullValue='false'}" Grid.Row="2">
+        <!-- Szczegóły ula -->
+        <StackLayout IsVisible="{Binding HiveDetailsVM, Converter={StaticResource NullToBooleanConverter}, TargetNullValue='false'}" 
+                 Grid.Row="2" BackgroundColor="{DynamicResource BackgroundColor}">
 
-            <StackLayout x:Name="UlDetailsModel" x:DataType="vm:HiveDetailsVM" BindingContext="{Binding HiveDetailsVM}"  Padding="10" Spacing="10">
-                <Label Text="Szczegóły" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout x:Name="UlDetailsModel" 
+                     x:DataType="vm:HiveDetailsVM" 
+                     BindingContext="{Binding HiveDetailsVM}"  
+                     Padding="10" 
+                     Spacing="10">
+                <Label Text="Szczegóły" 
+                   FontAttributes="Bold" 
+                   FontSize="Medium" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand" 
+                   TextColor="White"/>
 
+                <!-- Numer ula -->
                 <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Label Text="Numer:" VerticalOptions="Center" />
-                    <cc:IntegerEntry Text="{Binding Number}" IsEnabled="True" Unfocused="OnEntryUnfocused"/>
+                    <Label Text="Numer:" VerticalOptions="Center" TextColor="White"/>
+                    <cc:IntegerEntry Text="{Binding Number}" 
+                                 IsEnabled="True" 
+                                 Unfocused="OnEntryUnfocused" />
                 </StackLayout>
 
-
-                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5">
-                    <Label Text="Opis Ula:" VerticalOptions="Center" />
-                    <Entry Text="{Binding Description}" IsEnabled="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Unfocused="OnEntryUnfocused"/>
+                <!-- Opis ula -->
+                <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="FillAndExpand" 
+                         HorizontalOptions="FillAndExpand" 
+                         Spacing="5">
+                    <Label Text="Opis Ula:" VerticalOptions="Center" TextColor="White"/>
+                    <Entry Text="{Binding Description}" 
+                       IsEnabled="True" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" 
+                       Unfocused="OnEntryUnfocused"/>
                 </StackLayout>
 
+                <!-- Przycisk operacji na ulu -->
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="{loc:Translate txt_AddQueen}" IsVisible="{Binding HasQueen_N}" Clicked="OnAddQueenClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
-                    <Button Text="{loc:Translate txt_RemoveQueen}" IsVisible="{Binding HasQueen}" Clicked="OnRemoveQueenClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
-                    <Button Text="{loc:Translate txt_RemoveHive}" IsVisible="{Binding HasQueen_N}" Clicked="OnRemoveHiveClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
-                    <Button Text="{loc:Translate txt_HiveReviewHistory}" IsVisible="True" Clicked="OnHiveReviewHistoryClicked" HorizontalOptions="FillAndExpand" Margin="5"/>
+                    <Button Text="{loc:Translate txt_AddQueen}" 
+                        IsVisible="{Binding HasQueen_N}" 
+                        Clicked="OnAddQueenClicked" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="5" 
+                        BackgroundColor="{DynamicResource BackgroundColor}" 
+                        TextColor="White"/>
+                    <Button Text="{loc:Translate txt_RemoveQueen}" 
+                        IsVisible="{Binding HasQueen}" 
+                        Clicked="OnRemoveQueenClicked" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="5" 
+                        BackgroundColor="{DynamicResource BackgroundColor}" 
+                        TextColor="White"/>
+                    <Button Text="{loc:Translate txt_RemoveHive}" 
+                        IsVisible="{Binding HasQueen_N}" 
+                        Clicked="OnRemoveHiveClicked" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="5" 
+                        BackgroundColor="{DynamicResource BackgroundColor}" 
+                        TextColor="White"/>
+                    <Button Text="{loc:Translate txt_HiveReviewHistory}" 
+                        IsVisible="True" 
+                        Clicked="OnHiveReviewHistoryClicked" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="5" 
+                        BackgroundColor="{DynamicResource BackgroundColor}" 
+                        TextColor="White"/>
                 </StackLayout>
 
+                <!-- Szczegóły Matki -->
                 <StackLayout IsVisible="{Binding HasQueen}">
-
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
                         <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Data Poddania Matki:" VerticalOptions="Fill" />
-                        <DatePicker Date="{Binding QueenAddDate}" IsEnabled="True" VerticalOptions="Fill"/>
+                        <Label Text="Data Poddania Matki:" VerticalOptions="Fill" TextColor="White"/>
+                        <DatePicker Date="{Binding QueenAddDate}" 
+                                IsEnabled="True" 
+                                VerticalOptions="Fill"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Wiek Matki:" VerticalOptions="Center" />
-                        <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" VerticalOptions="Center" />
+                        <Label Text="Wiek Matki:" VerticalOptions="Center" TextColor="White"/>
+                        <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" 
+                           VerticalOptions="Center" 
+                           TextColor="White"/>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" Spacing="5" >
-                        <Label Text="Opis Matki:" VerticalOptions="Center" />
-                        <Entry Text="{Binding QueenDescription}" VerticalOptions="Fill" IsEnabled="False" />
+                    <StackLayout Orientation="Horizontal" Spacing="5">
+                        <Label Text="Opis Matki:" VerticalOptions="Center" TextColor="White"/>
+                        <Entry Text="{Binding QueenDescription}" 
+                           VerticalOptions="Fill" 
+                           IsEnabled="False" />
                     </StackLayout>
-
                 </StackLayout>
             </StackLayout>
         </StackLayout>
     </Grid>
+
 </ContentPage>

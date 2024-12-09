@@ -32,12 +32,12 @@
         </CollectionView>
 
         <!-- Formularz do dodawania/modyfikowania rasy -->
-        <Frame Padding="10" BackgroundColor="LightGray">
+        <Frame Padding="10" BackgroundColor="DimGray">
             <StackLayout Spacing="10">
 
                 <!-- Pole do wpisania nazwy rasy -->
-                <Entry Text="{Binding AddReviewTypeVM.Name}" Placeholder="{loc:Translate txt_ReviewNamePlaceholder}" TextColor="Black"/>
-                <Entry Text="{Binding AddReviewTypeVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" TextColor="Black" />
+                <Entry Text="{Binding AddReviewTypeVM.Name}" Placeholder="{loc:Translate txt_ReviewNamePlaceholder}" TextColor="White"/>
+                <Entry Text="{Binding AddReviewTypeVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" TextColor="White" />
 
                 <!-- Przyciski -->
                 <HorizontalStackLayout Spacing="10">

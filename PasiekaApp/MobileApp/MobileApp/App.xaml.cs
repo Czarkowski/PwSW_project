@@ -31,12 +31,38 @@ namespace MobileApp
             ServicesProvider = serviceProvider;
             ServiceScopeFactory = serviceScopeFactory;
 
+            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+            TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
+
             InitializeComponent();
 
             InitializeData();
 
             InitializeMainPage();
 
+        }
+
+        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            LogException(e.ExceptionObject as Exception, "Unhandled Exception");
+        }
+
+        private void OnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            LogException(e.Exception, "Unobserved Task Exception");
+            e.SetObserved();
+        }
+
+
+        private void LogException(Exception ex, string exceptionType)
+        {
+#if DEBUG
+            if (ex != null)
+            {
+                string filePath = @"E:\BeeApp\error_log.txt";
+                File.AppendAllText(filePath, $"{DateTime.Now}: [{exceptionType}] {ex.Message}\n{ex.StackTrace}\n\n");
+            }
+#endif
         }
 
         public void ResetScope()

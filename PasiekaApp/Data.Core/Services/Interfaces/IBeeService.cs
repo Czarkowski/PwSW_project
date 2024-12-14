@@ -17,7 +17,7 @@ namespace Data.Core.Services.Interfaces
         bool DeleteHive(Hive hive);
         Race GetRaceByBeeQueenId(int id);
         BeeQueen GetQueenById(int beeQueenId);
-        List<BeeQueen> GetAllQueens();
+        List<BeeQueen> GetAllLiveQueens();
         List<Race> GetAllRaces(bool isVisible = true);
         BeeQueen AddQueen(BeeQueen beeQueen);
         BeeQueen UpdateQueen(BeeQueen beeQueen);

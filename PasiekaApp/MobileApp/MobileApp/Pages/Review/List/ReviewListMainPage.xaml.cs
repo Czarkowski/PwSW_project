@@ -67,6 +67,7 @@ public partial class ReviewListMainPage : ContentPage
         ReviewListFilterVM filterVM = _viewModelsFactory.CreateReviewListFilterVM();
         var reviews = _filterDataHelper.GetFiltratedReviews(filterVM);
         ReviewListVM = _viewModelsFactory.CreateReviewListVM(reviews, filterVM);
+        ReviewListVM.ReviewListFilterVM.ReviewType = ReviewListVM.ReviewListFilterVM.ReviewTypes.Last();
     }
 
     private async void OnReviewCreateClick(object sender, EventArgs e)

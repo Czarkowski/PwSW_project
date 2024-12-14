@@ -84,9 +84,9 @@ namespace Data.Core.Services
             return _beeQueenRepository.Delete(matkaPszczela);
         }
 
-        public List<BeeQueen> GetAllQueens()
+        public List<BeeQueen> GetAllLiveQueens()
         {
-            return _beeQueenRepository.GetAll();
+            return [.. _db.BeeQueens.Where(x => x.DeathDate == null)];
         }
 
         public List<Race> GetAllRaces(bool isVisible)

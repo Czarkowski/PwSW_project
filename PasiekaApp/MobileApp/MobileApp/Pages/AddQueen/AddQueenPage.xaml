@@ -18,8 +18,10 @@
             <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_BirthDate}" SelectedDate="{Binding QueenDetailsVM.BirthDate, Mode=TwoWay}"/>
 
             <StackLayout Orientation="Horizontal" Spacing="10">
-                <Button Text="{loc:Translate txt_Save}" Clicked="OnSaveClicked" IsEnabled="{Binding QueenDetailsVM.Race, Converter={StaticResource NullToBooleanConverter}}" />
-                <Button Text="{loc:Translate txt_Cancel}" Clicked="OnCancelClicked" />
+                <Button Text="{loc:Translate txt_Save}" Clicked="OnSaveClicked" IsEnabled="{Binding QueenDetailsVM.Race, Converter={StaticResource NullToBooleanConverter}}"
+                        BackgroundColor="{StaticResource ButtonSaveBackgroundColor}"   CornerRadius="5"/>
+                <Button Text="{loc:Translate txt_Cancel}" Clicked="OnCancelClicked"
+                        BackgroundColor="{StaticResource ButtonCancelBackgroundColor}"   CornerRadius="5"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

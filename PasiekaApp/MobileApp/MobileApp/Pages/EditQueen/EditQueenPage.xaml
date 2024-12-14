@@ -18,14 +18,14 @@
                     <Label Text="{loc:Translate txt_Race}" 
            FontSize="24" 
            FontAttributes="Bold" 
-           TextColor="White" 
+             
            VerticalOptions="Center" />
 
                     <!-- Wartość rasy -->
                     <Label Text="{Binding Race.Name}" 
            FontAttributes="Bold" 
            FontSize="24" 
-           TextColor="White" 
+             
            VerticalOptions="Center" />
                 </HorizontalStackLayout>
                 <!--<cc:CustomPicker LabelText="{loc:Translate txt_Race}" SelectedItem="{Binding Race, Mode=TwoWay}" 
@@ -53,15 +53,15 @@
                 <Button Text="{loc:Translate txt_Save}" 
                     Clicked="OnSaveClicked" 
                     BackgroundColor="{DynamicResource BackgroundColor}" 
-                    TextColor="White"/>
-                <Button Text="{loc:Translate txt_Delete}" 
+                     />
+                <Button Text="{loc:Translate txt_Dead}" 
                     Clicked="OnDeleteClicked" 
                     BackgroundColor="{DynamicResource BackgroundColor}" 
-                    TextColor="White"/>
+                     />
                 <Button Text="{loc:Translate txt_Cancel}" 
                     Clicked="OnCancelClicked" 
                     BackgroundColor="{DynamicResource BackgroundColor}" 
-                    TextColor="White"/>
+                     />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

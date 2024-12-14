@@ -53,7 +53,9 @@ public partial class EditQueenPage : ContentPage
 
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
-        _beeService.DeleteQueen(_queen);
+        //_beeService.DeleteQueen(_queen);
+        _queen.DeathDate = DateTime.Now;
+        _beeService.UpdateQueen(_queen);
         OnSave?.Invoke(this, EventArgs.Empty);
         await Navigation.PopAsync();
     }

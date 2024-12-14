@@ -1,0 +1,11 @@
+INSERT INTO Descriptions (Text)
+VALUES
+('Stan rodzin pszczelich stabilny, bez oznak nastroju rojowego.'),
+('Obecnoœæ m³odej matki, brak problemów.'),
+('Rodzina w dobrej kondycji, sprawdzono zapasy.'),
+('Brak oznak chorób, rodzina rozwija siê prawid³owo.'),
+('Sprawdzono wêzê, brak uszkodzeñ.'),
+('Rodzina wymaga dodatkowego dokarmiania.'),
+('Silna rodzina, obecnoœæ m³odego czerwiu.'),
+('Wykryto niewielk¹ liczbê warrozy, zastosowano leczenie.'),
+('Matka pszczela w dobrej kondycji, sprawdzono ramki.');

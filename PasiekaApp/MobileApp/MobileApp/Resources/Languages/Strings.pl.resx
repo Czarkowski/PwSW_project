@@ -407,12 +407,21 @@ Ta operacja jest nieodwracalna!</value>
     <value>Zrób Zdjęcie</value>
   </data>
   <data name="txt_PhotoList" xml:space="preserve">
-    <value>ListaZdjęć</value>
+    <value>Lista Zdjęć:</value>
   </data>
   <data name="txt_ReviewHistoryMainPageTitle" xml:space="preserve">
     <value>Historia przeglądów</value>
   </data>
   <data name="txt_ReviewDetailsMainPageTitle" xml:space="preserve">
     <value>Szczegóły przeglądów</value>
+  </data>
+  <data name="txt_DoubleValue" xml:space="preserve">
+    <value>Wartość</value>
+  </data>
+  <data name="txt_Dead" xml:space="preserve">
+    <value>Martwa</value>
+  </data>
+  <data name="txt_RequestValue" xml:space="preserve">
+    <value>Żądana wartość </value>
   </data>
 </root>

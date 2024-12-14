@@ -80,7 +80,8 @@ public partial class HiveListMainPage : ContentPage
 
     private void UpdateCurrentHive()
     {
-        if (HiveListMainVM.HiveDetailsVM.IsNull())
+        if (HiveListMainVM.HiveDetailsVM.IsNull() 
+            || !UpdateIsNeeded())
             return;
         //var hive = _beeService.GetHiveById(HiveListMainVM.HiveDetailsVM.Hive.Id);
         var hive = HiveListMainVM.HiveDetailsVM.Hive;
@@ -94,6 +95,13 @@ public partial class HiveListMainPage : ContentPage
 
         RefreshHiveList();
         SetSelectDetails(hive);
+    }
+
+    private bool UpdateIsNeeded()
+    {
+        var oldHive = HiveListMainVM.HiveDetailsVM.Hive;
+        var newHive = HiveListMainVM.HiveDetailsVM;
+        return newHive.Number != oldHive.Number || newHive.Description != oldHive.Description;
     }
 
     private void RefreshHiveList()

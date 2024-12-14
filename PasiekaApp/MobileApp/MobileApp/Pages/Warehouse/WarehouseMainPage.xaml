@@ -10,79 +10,89 @@
              x:Name="this"
              BindingContext="{Binding WarehouseVM, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_WarehouseMainPageTitle}">
-    <StackLayout Orientation="Vertical" Padding="10" Spacing="10" BackgroundColor="{DynamicResource BackgroundColor}">
-        <!-- Pole wyszukiwania -->
-        <cc:LabelEntry x:Name="SearchPhraseLE" 
+    <Grid Padding="10" BackgroundColor="{DynamicResource BackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <!-- Pole wyszukiwania -->
+            <cc:LabelEntry Grid.Row="0" x:Name="SearchPhraseLE" 
                    LabelText="{loc:Translate txt_SearchPhrase}" 
                    EntryText="{Binding SearchPhrase}" 
                    BackgroundColor="#1E1E1E"
                    Margin="5" />
 
-        <!-- Lista magazynowa -->
-        <CollectionView ItemsSource="{Binding FiltratedWarehouseListItemVMs}" 
-                    SelectedItem="{Binding SelectedItem}" 
-                    SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="vm:WarehouseListItemVM">
-                    <Frame Padding="10" Margin="5" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" BorderColor="Gray">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <!-- Informacje o elemencie -->
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                                <Label Text="{Binding ItemName}" Margin="2,0,5,0" TextColor="White" FontAttributes="Bold" />
-                                <Label Text="{Binding Quantity}" Margin="0,0,1,0" TextColor="White" />
-                                <Label Text="{Binding Unit}" TextColor="Gray" />
-                            </StackLayout>
+            <!-- Lista magazynowa -->
+            <ScrollView Grid.Row="1">
 
-                            <!-- Przyciski akcji -->
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                                <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" 
-                                    CommandParameter="{Binding .}" Margin="3"
-                                    BackgroundColor="#2A2A2A" TextColor="White" />
-                                <Button Text="{loc:Translate txt_Delete}" Command="{Binding OnDelete, Source={x:Reference this}}" 
-                                    CommandParameter="{Binding .}" Margin="3"
-                                    BackgroundColor="DarkRed" TextColor="White" />
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                <CollectionView
+                            ItemsSource="{Binding FiltratedWarehouseListItemVMs}" 
+                            SelectedItem="{Binding SelectedItem}" 
+                            SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:WarehouseListItemVM">
+                            <Frame Padding="10" Margin="5" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" BorderColor="Gray">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <!-- Informacje o elemencie -->
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding ItemName}" Margin="2,0,5,0"  FontAttributes="Bold" />
+                                        <Label Text="{Binding Quantity}" Margin="0,0,1,0"   />
+                                        <Label Text="{Binding Unit}" TextColor="Gray" />
+                                    </StackLayout>
 
-        <!-- Formularz dodawania nowego elementu -->
-        <StackLayout Orientation="Horizontal" BindingContext="{Binding NewWarehouseItemVM}" x:DataType="vm:WarehouseItemVM" Spacing="10">
-            <!-- LabelEntry: Nazwa przedmiotu -->
-            <cc:LabelEntry LabelText="{loc:Translate txt_ItemName}" EntryText="{Binding Name}" 
-                   BackgroundColor="{DynamicResource BackgroundColor}" 
-                   WidthRequest="150" />
+                                    <!-- Przyciski akcji -->
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                        <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" 
+                                            CommandParameter="{Binding .}" Margin="3"
+                                            BackgroundColor="#2A2A2A"   />
+                                        <Button Text="{loc:Translate txt_Delete}" Command="{Binding OnDelete, Source={x:Reference this}}" 
+                                            CommandParameter="{Binding .}" Margin="3"
+                                            BackgroundColor="DarkRed"   />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
 
-            <!-- LabelEntry: Jednostka -->
-            <cc:LabelEntry LabelText="{loc:Translate txt_ItemUnit}" EntryText="{Binding Unit}" 
-                   BackgroundColor="{DynamicResource BackgroundColor}" 
-                   WidthRequest="150" />
+            <!-- Formularz dodawania nowego elementu -->
+            <StackLayout Grid.Row="2" Orientation="Horizontal" BindingContext="{Binding NewWarehouseItemVM}" x:DataType="vm:WarehouseItemVM" Spacing="10">
+                <!-- LabelEntry: Nazwa przedmiotu -->
+                <cc:LabelEntry LabelText="{loc:Translate txt_ItemName}" EntryText="{Binding Name}" 
+                           BackgroundColor="{DynamicResource BackgroundColor}" 
+                           WidthRequest="150" />
 
-            <!-- Ilość przedmiotu -->
-            <VerticalStackLayout Spacing="8" Padding="5" WidthRequest="150">
-                <Label Text="{loc:Translate txt_ItemQuantity}" 
-               TextColor="White" FontAttributes="Bold" 
-                        FontSize="Medium"
-               HorizontalOptions="Start" />
-                <Entry Text="{Binding Quantity, Converter={StaticResource DoubleToStringConverter}}" 
-               HeightRequest="40" 
-           Margin="0,5,0,0"
-                        FontSize="Small"
-               TextColor="White" BackgroundColor="{DynamicResource BackgroundColor}" 
-               HorizontalOptions="FillAndExpand">
-                    <Entry.Behaviors>
-                        <behaviors:DoubleValidationBehavior />
-                    </Entry.Behaviors>
-                </Entry>
-            </VerticalStackLayout>
-        </StackLayout>
+                <!-- LabelEntry: Jednostka -->
+                <cc:LabelEntry LabelText="{loc:Translate txt_ItemUnit}" EntryText="{Binding Unit}" 
+                           BackgroundColor="{DynamicResource BackgroundColor}" 
+                           WidthRequest="150" />
 
+                <!-- Ilość przedmiotu -->
+                <VerticalStackLayout Spacing="8" Padding="5" WidthRequest="150">
+                    <Label Text="{loc:Translate txt_ItemQuantity}" 
+                         FontAttributes="Bold" 
+                                FontSize="Medium"
+                       HorizontalOptions="Start" />
+                    <Entry Text="{Binding Quantity, Converter={StaticResource DoubleToStringConverter}}" 
+                       HeightRequest="40" 
+                   Margin="0,5,0,0"
+                                FontSize="Small"
+                         BackgroundColor="{DynamicResource BackgroundColor}" 
+                       HorizontalOptions="FillAndExpand">
+                        <Entry.Behaviors>
+                            <behaviors:DoubleValidationBehavior />
+                        </Entry.Behaviors>
+                    </Entry>
+                </VerticalStackLayout>
 
-        <!-- Przycisk dodawania -->
-        <Button Text="{loc:Translate txt_AddStock}" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" 
-            BackgroundColor="#007ACC" TextColor="White" CornerRadius="5" />
-    </StackLayout>
+                <!-- Przycisk dodawania -->
+                <Button Margin="18" Text="{loc:Translate txt_AddStock}" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"   CornerRadius="5" />
+            </StackLayout>
+
+        </Grid>
 
 </ContentPage>

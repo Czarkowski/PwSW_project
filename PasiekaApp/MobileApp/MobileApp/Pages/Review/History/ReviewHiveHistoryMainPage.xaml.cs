@@ -22,6 +22,16 @@ public partial class ReviewHiveHistoryMainPage : ContentPage
             OnPropertyChanged();
         }
     }
+    private string _hiveName;
+    public string HiveName
+    {
+        get => _hiveName;
+        set
+        {
+            _hiveName = value;
+            OnPropertyChanged();
+        }
+    }
     public ICommand _onSearch;
     public ICommand OnSearch { get => _onSearch; set { _onSearch = value; OnPropertyChanged(nameof(OnSearch)); } }
     public ICommand _onDetails;
@@ -66,12 +76,14 @@ public partial class ReviewHiveHistoryMainPage : ContentPage
     public void InitializeData(Hive hive)
     {
         _hive = hive;
+        HiveName = $"{_hive.Number} - {_hive.BeeQueen.Race}";
         LoadData();
     }
 
     public void LoadData()
     {
         ReviewHistoryVM = _viewModelsFactory.CreateReviewHistoryVM(_hive);
+        ReviewHistoryVM.ReviewHistoryListFilterVM.ReviewType = ReviewHistoryVM.ReviewHistoryListFilterVM.ReviewTypes.Last();
         FilterList();
     }
 

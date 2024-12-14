@@ -16,24 +16,32 @@
                     <Color x:Key="EntryBackgroundColor">#3C3C3C</Color>
                     <Color x:Key="ButtonBackgroundColor">#007ACC</Color>
                     <Color x:Key="FooterBackgroundColor">#3C3C3C</Color>
+                    <Color x:Key="ButtonCancelBackgroundColor">#eedd00</Color>
+                    <Color x:Key="ButtonSaveBackgroundColor">#009900</Color>
+                    <Color x:Key="ButtonDeleteBackgroundColor">#aa0000</Color>
+                    <Color x:Key="ButtonDetailsBackgroundColor">#00dddd</Color>
+                    <Color x:Key="ButtonSearchBackgroundColor">#880088</Color>
                     <!-- Kolory tekstu -->
-                    <Color x:Key="PrimaryTextColor">#FFFFFF</Color>
+                    <Color x:Key="PrimaryTextColor">Wheat</Color>
                     <Color x:Key="SecondaryTextColor">#C8C8C8</Color>
                     <Color x:Key="EntryTextColor">#FFFFFF</Color>
-                    <Color x:Key="ButtonTextColor">#FFFFFF</Color>
+                    <Color x:Key="ButtonTextColor">Wheat</Color>
 
                     <!-- Style globalne -->
                     <Style TargetType="Label">
-                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="FontSize" Value="Medium"/>
+                        <Setter Property="TextColor" Value="Wheat"/>
                     </Style>
                     <Style TargetType="Button">
-                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontSize" Value="Medium"/>
                         <Setter Property="CornerRadius" Value="8"/>
                         <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="TextColor" Value="Wheat"/>
                     </Style>
                     <Style TargetType="Entry">
-                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontSize" Value="Medium"/>
                         <Setter Property="HeightRequest" Value="40"/>
+                        <Setter Property="TextColor" Value="Wheat"/>
                     </Style>
 
                     <Style TargetType="CollectionView">
@@ -41,6 +49,23 @@
                     </Style>
                     <Style TargetType="StackLayout">
                         <Setter Property="Spacing" Value="10"/>
+                    </Style>
+                    <Style x:Key="shellTitleStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="Medium" />
+                    </Style>
+                    <Style TargetType="Shell">
+                        <Setter Property="TitleColor" Value="Wheat" />
+                    </Style>
+                    <Style TargetType="DatePicker">
+                        <Setter Property="TextColor" Value="Wheat"/>
+                    </Style>
+                    <Style TargetType="CheckBox">
+                        <Setter Property="Color" Value="Wheat"/>
+                    </Style>
+                    <Style TargetType="Picker">
+                        <Setter Property="TextColor" Value="Wheat"/>
+                        <Setter Property="TitleColor" Value="Wheat"/>
+                        <Setter Property="FontSize" Value="Medium"/>
                     </Style>
                 </ResourceDictionary>
 

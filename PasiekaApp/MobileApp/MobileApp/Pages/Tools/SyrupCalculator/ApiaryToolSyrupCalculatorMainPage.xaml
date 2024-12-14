@@ -16,50 +16,51 @@
     <VerticalStackLayout Padding="20" BackgroundColor="#121212">
 
         <!-- Proporcja cukru do wody -->
-        <Label Text="{loc:Translate txt_SugarToWaterRatio}" FontAttributes="Bold" TextColor="White"/>
+        <Label Text="{loc:Translate txt_SugarToWaterRatio}" FontAttributes="Bold"  />
         <Picker Title="{loc:Translate txt_SelectRatio}" 
             ItemsSource="{Binding CalculationRatioListVM.ItemList}" 
             SelectedItem="{Binding CalculationRatioListVM.SelectedItem}"
-            BackgroundColor="#333333" TextColor="White" />
+            BackgroundColor="#333333"   />
 
         <!-- Typ kalkulacji -->
-        <Label Text="{loc:Translate txt_CalculationTargetType}" FontAttributes="Bold" Margin="0,20,0,0" TextColor="White"/>
+        <Label Text="{loc:Translate txt_CalculationTargetType}" FontAttributes="Bold" Margin="0,20,0,0"  />
         <Picker Title="{loc:Translate txt_SelectCalculationTargetType}" 
             SelectedIndexChanged="CalculateType_SelectedIndexChanged"
             ItemsSource="{Binding CalculationTypeListVM.ItemList}" 
             SelectedItem="{Binding CalculationTypeListVM.SelectedItem}"
-            BackgroundColor="#333333" TextColor="White" />
+            BackgroundColor="#333333"   />
 
         <!-- Pole na wpisanie wartości -->
-        <Label Text="{loc:Translate txt_TypeValue}" FontAttributes="Bold" Margin="0,20,0,0" TextColor="White"/>
+        <Label Text="{loc:Translate txt_RequestValue}" FontAttributes="Bold" Margin="0,20,0,0"  />
         <Entry Keyboard="Numeric" 
+               Placeholder="{loc:Translate txt_TypeValue}"
            Text="{Binding InputValue}" 
-           BackgroundColor="#333333" TextColor="White" PlaceholderColor="Gray"/>
+           BackgroundColor="#333333"   PlaceholderColor="Gray"/>
 
         <!-- Przycisk do obliczeń -->
         <Button Text="{loc:Translate txt_Calculate}" 
             Clicked="Calculate_Clicked"
             Margin="0,20,0,0"
-            BackgroundColor="#6200EE" TextColor="White"/>
+            BackgroundColor="#6200EE"  />
 
         <!-- Wynik -->
-        <StackLayout>
-            <Label Text="{loc:Translate txt_Result}" 
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <!--<Label Text="{loc:Translate txt_Result}" 
                IsVisible="{Binding SyrupCalculatorResultsVM.ResultWater, Converter={StaticResource NullToBooleanConverter}}" 
-               TextColor="White"/>
-            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultWater, Converter={StaticResource NullToBooleanConverter}}">
-                <Label Text="{loc:Translate txt_Water}" FontAttributes="Bold" Margin="0,20,0,0" TextColor="White"/>
-                <Label Text="{Binding SyrupCalculatorResultsVM.ResultWater, StringFormat='{}{0:F2}'}" TextColor="White"/>
+                />-->
+            <StackLayout Margin="10" IsVisible="{Binding SyrupCalculatorResultsVM.ResultWater, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Water}" FontAttributes="Bold" Margin="0,20,0,0"  />
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultWater, StringFormat='{}{0:F2}'}"  />
             </StackLayout>
 
-            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultSugar, Converter={StaticResource NullToBooleanConverter}}">
-                <Label Text="{loc:Translate txt_Sugar}" FontAttributes="Bold" Margin="0,20,0,0" TextColor="White"/>
-                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSugar, StringFormat='{}{0:F2}'}" TextColor="White"/>
+            <StackLayout Margin="10" IsVisible="{Binding SyrupCalculatorResultsVM.ResultSugar, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Sugar}" FontAttributes="Bold" Margin="0,20,0,0"  />
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSugar, StringFormat='{}{0:F2}'}"  />
             </StackLayout>
 
-            <StackLayout IsVisible="{Binding SyrupCalculatorResultsVM.ResultSyrup, Converter={StaticResource NullToBooleanConverter}}">
-                <Label Text="{loc:Translate txt_Syrup}" FontAttributes="Bold" Margin="0,20,0,0" TextColor="White"/>
-                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSyrup, StringFormat='{}{0:F2}'}" TextColor="White"/>
+            <StackLayout Margin="10" IsVisible="{Binding SyrupCalculatorResultsVM.ResultSyrup, Converter={StaticResource NullToBooleanConverter}}">
+                <Label Text="{loc:Translate txt_Syrup}" FontAttributes="Bold" Margin="0,20,0,0"  />
+                <Label Text="{Binding SyrupCalculatorResultsVM.ResultSyrup, StringFormat='{}{0:F2}'}"  />
             </StackLayout>
         </StackLayout>
 

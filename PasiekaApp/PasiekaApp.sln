@@ -35,7 +35,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbSchema", "DbSchema", "{9D
 		DbSchema\main.dgml = DbSchema\main.dgml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeAppValidation", "BeeAppValidation\BeeAppValidation.csproj", "{1E68AE2F-380D-4702-9E88-8AB956216731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeAppValidation", "BeeAppValidation\BeeAppValidation.csproj", "{1E68AE2F-380D-4702-9E88-8AB956216731}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlInserts", "SqlInserts", "{F2C17D4B-20CF-439B-B177-C2994C490FF4}"
+	ProjectSection(SolutionItems) = preProject
+		BeeQueens.txt = BeeQueens.txt
+		DescriptionHiveReviews.txt = DescriptionHiveReviews.txt
+		Descriptions.txt = Descriptions.txt
+		Hives.txt = Hives.txt
+		Review.txt = Review.txt
+		StackAvailabilities.txt = StackAvailabilities.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -228,6 +238,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9DB58FFE-9D24-468B-8C20-7B3108719FEA} = {ECA3C762-D409-49F0-B49F-9001B7FCB6BB}
+		{F2C17D4B-20CF-439B-B177-C2994C490FF4} = {ECA3C762-D409-49F0-B49F-9001B7FCB6BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C998286-14B9-4C52-B0C5-FDA19B06AE11}

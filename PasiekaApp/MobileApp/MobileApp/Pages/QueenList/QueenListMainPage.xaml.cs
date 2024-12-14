@@ -27,7 +27,7 @@ public partial class QueenListMainPage : ContentPage
 
     private void LoadData()
     {
-        List<Data.Core.Models.BeeQueen> matkaPszczelas = _beeService.GetAllQueens();
+        List<Data.Core.Models.BeeQueen> matkaPszczelas = _beeService.GetAllLiveQueens();
         QueenListVMs = _viewModelsFactories.CreateQueenListVM(matkaPszczelas);
         QueenListView.QueenListVMs = QueenListVMs;
 

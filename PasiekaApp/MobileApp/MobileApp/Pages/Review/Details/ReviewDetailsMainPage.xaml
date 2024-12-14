@@ -9,62 +9,92 @@
              x:Name="this"
              Title="{loc:Translate txt_ReviewDetailsMainPageTitle}">
 
-    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" BackgroundColor="{DynamicResource BackgroundColor}">
-        <Label Text="{Binding ReviewTypeName}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}" />
-        <Label Text="{Binding Description}" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryTextColor}"/>
-        <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" 
+    <Grid BackgroundColor="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+
+            <Label Text="{Binding ReviewTypeName}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}" />
+            <Label Text="{Binding Description}" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryTextColor}"/>
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="1">
+
+            <CollectionView x:Name="ReviewDetailsCV" ItemsSource="{Binding DescriptionHiveReviewVMs}" 
                     SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
                     SelectionMode="Single" SelectionChanged="ReviewDetailsCV_SelectionChanged" 
                     BackgroundColor="{DynamicResource CardBackgroundColor}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="vm:DescriptionHiveReviewVM">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:DescriptionHiveReviewVM">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" 
                              BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}">
-                        <Label Text="{Binding HiveName}" TextColor="{DynamicResource PrimaryTextColor}" />
-                        <Label Text="{Binding Description}" Margin="10,0,0,0" TextColor="{DynamicResource SecondaryTextColor}"/>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                            <Label Text="{Binding HiveName}" TextColor="{DynamicResource PrimaryTextColor}" />
+                            <Label Text="{Binding Description}" MaximumHeightRequest="30" Margin="10,0,0,0" TextColor="{DynamicResource SecondaryTextColor}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" 
+                     BackgroundColor="{DynamicResource CardBackgroundColor}" Margin="10">
             <Button Text="&lt;" Command="{Binding OnLeft, Source={x:Reference this}}" 
                 CommandParameter="{Binding SelectedItem}" HorizontalOptions="Start" 
                 TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonBackgroundColor}"/>
-            <StackLayout Orientation="Vertical" Padding="10" HorizontalOptions="FillAndExpand">
-                <Label Text="{loc:Translate txt_Description}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}"/>
-                <Entry Text="{Binding SelectedItem.Description}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
-                   BackgroundColor="{DynamicResource EntryBackgroundColor}" TextColor="{DynamicResource EntryTextColor}"/>
-                <Label Text="{loc:Translate txt_PhotoList}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}"/>
-                <CollectionView x:Name="PhotoCV" ItemsSource="{Binding SelectedItem.Photos}" 
-                            BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <!--<StackLayout Orientation="Vertical" Padding="2" HorizontalOptions="FillAndExpand">-->
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <VerticalStackLayout Grid.Row="0">
+
+                    <Label Text="{Binding SelectedItem.HiveName}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <!--<Label Text="{loc:Translate txt_Description}" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}"/>-->
+
+                    <Editor HeightRequest="100" MinimumHeightRequest="50" MaximumHeightRequest="400" FontSize="Medium" Text="{Binding SelectedItem.Description}" HorizontalOptions="Fill" VerticalOptions="Fill" HorizontalTextAlignment="Center"
+                            BackgroundColor="{DynamicResource EntryBackgroundColor}" TextColor="{DynamicResource EntryTextColor}"
+                            />
+                    <Label Text="{loc:Translate txt_PhotoList}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}"/>
+                </VerticalStackLayout>
+                <!--<ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand">-->
+                <CollectionView Grid.Row="1" HeightRequest="350" x:Name="PhotoCV" ItemsSource="{Binding SelectedItem.Photos}" 
+                            BackgroundColor="{DynamicResource CardBackgroundColor}"
+                                ItemsLayout="HorizontalList"
+                                HorizontalScrollBarVisibility="Always">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="vm:PhotoVM">
-                            <Grid Padding="5">
+                            <Grid Padding="1"  HeightRequest="350">
                                 <!-- Zdjęcie -->
-                                <Image Source="{Binding ImageData, Converter={StaticResource ByteArrayToImageSourceConverter}}" 
+                                <Image Grid.Row="0" Source="{Binding ImageData, Converter={StaticResource ByteArrayToImageSourceConverter}}" 
                                    HeightRequest="300" />
 
                                 <!-- Przycisk do usunięcia zdjęcia -->
-                                <Button Text="{loc:Translate txt_Delete}"
+                                <Button Margin="30,10,30,0" WidthRequest="100" Grid.Row="1" Text="{loc:Translate txt_Delete}"
                                     Command="{Binding DeletePhotoCommand, Source={x:Reference this}}"
                                     CommandParameter="{Binding .}"
-                                    HorizontalOptions="End"
+                                    VerticalOptions="End"
                                     TextColor="{DynamicResource ButtonTextColor}" 
-                                    BackgroundColor="{DynamicResource ButtonBackgroundColor}"/>
+                                    BackgroundColor="{DynamicResource ButtonDeleteBackgroundColor}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Button Text="{loc:Translate txt_TakePhoto}" Command="{Binding TakePhotoCommand, Source={x:Reference this}}" 
-                    TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
-            </StackLayout>
+                <!--</ScrollView>-->
+                <Button Grid.Row="2" Text="{loc:Translate txt_TakePhoto}" Command="{Binding TakePhotoCommand, Source={x:Reference this}}" 
+                    TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonDetailsBackgroundColor}" VerticalOptions="EndAndExpand" />
+            </Grid>
+            <!--</StackLayout>-->
             <Button Text=">" Command="{Binding OnRight, Source={x:Reference this}}" 
-                CommandParameter="{Binding SelectedItem}" HorizontalOptions="End" 
+                CommandParameter="{Binding SelectedItem}" HorizontalOptions="End"
                 TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
         </StackLayout>
-        <Button Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" 
-            TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
-    </StackLayout>
+        <Button Grid.Row="3" Margin="5" VerticalOptions="EndAndExpand" Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" 
+            TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonSaveBackgroundColor}" />
+    </Grid>
 
 
 </ContentPage>

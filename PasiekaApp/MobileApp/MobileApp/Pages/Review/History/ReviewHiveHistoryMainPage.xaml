@@ -10,10 +10,13 @@
              BindingContext="{Binding ReviewHistoryVM, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ReviewHistoryMainPageTitle}">
     <StackLayout Orientation="Vertical" BackgroundColor="#121212">
-
         <!-- Filtr -->
-        <StackLayout x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewHistoryListFilterVM}">
-            <views:ReviewHiveHistoryListFilterView OnSearch="{Binding OnSearch, Source={x:Reference this}}"/>
+        <StackLayout HorizontalOptions="Center" x:Name="FilterSL" Orientation="Vertical" BindingContext="{Binding ReviewHistoryListFilterVM}">
+            <Label FontAttributes="Bold" HorizontalOptions="Center" Text="{Binding HiveName, Source={x:Reference this}}"/>
+            <ScrollView Orientation="Horizontal">
+                
+            <views:ReviewHiveHistoryListFilterView Margin="5" OnSearch="{Binding OnSearch, Source={x:Reference this}}"/>
+            </ScrollView>
         </StackLayout>
 
         <!-- Główna zawartość strony -->
@@ -32,7 +35,7 @@
                  HorizontalOptions="FillAndExpand"
                  BackgroundColor="#333333">
             <Label Text="{Binding DescriptionHiveReviewVM.Description}" 
-               TextColor="White" 
+                 
                Margin="10, 0" />
         </StackLayout>
 

@@ -8,14 +8,29 @@
     xmlns:loc="clr-namespace:MobileApp.Localizations"
     xmlns:route="clr-namespace:MobileApp.Keys"
     Title="MobileApp">
-    
+    <Shell.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+            <!--<Style TargetType="Shell">
+                <Setter Property="Size" Value="Medium"></Setter>
+            </Style>-->
+        </ResourceDictionary>
+    </Shell.Resources>
     <Shell.FlyoutHeader>
         <StackLayout>
             <Image Source="logo.png" />
         </StackLayout>
     </Shell.FlyoutHeader>
-    <FlyoutItem Title="{loc:Translate txt_ApiaryNavigationTitle}">
-        <ShellContent Title="{loc:Translate txt_MainPageTitle}" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
+    <Shell.TitleColor>
+        <Color>Wheat</Color>
+    </Shell.TitleColor>
+    <Shell.FlyoutContent>
+        <Color>Wheat</Color>
+    </Shell.FlyoutContent>
+    <FlyoutItem Title="{loc:Translate txt_ApiaryNavigationTitle}" >
+        <ShellContent Title="{loc:Translate txt_MainPageTitle}" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" >
+        </ShellContent>
         <ShellContent Title="{loc:Translate txt_HiveListMainPageTitle}" ContentTemplate="{DataTemplate pages:HiveListMainPage}" Route="HiveListMainPage" />
         <ShellContent Title="{loc:Translate txt_QueenListMainPageTitle}" ContentTemplate="{DataTemplate pages:QueenListMainPage}" Route="QueenListMainPage" />
         <ShellContent Title="{loc:Translate txt_ReviewListMainPageTitle}" ContentTemplate="{DataTemplate pages:ReviewListMainPage}" Route="ReviewListMainPage" />
@@ -37,9 +52,10 @@
         <ShellContent Title="{loc:Translate txt_DataSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:DataSettingsMainPage}" Route="DataSettingsMainPage" />
         <ShellContent Title="{loc:Translate txt_LanguageSettingsMainPageTitle}" ContentTemplate="{DataTemplate pages:LanguageSettingsMainPage}" Route="LanguageSettingsMainPage" />
     </FlyoutItem>
+
     <Shell.FlyoutFooter>
         <StackLayout>
-            <Label Text="Version 1.0" HorizontalOptions="Center" />
+            <Label Text="Version 1.0" TextColor="Wheat" HorizontalOptions="Center" />
         </StackLayout>
     </Shell.FlyoutFooter>
 </Shell>

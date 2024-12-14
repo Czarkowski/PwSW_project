@@ -131,7 +131,13 @@ public partial class CustomPicker : ContentView
     }
 
     public static readonly BindableProperty SelectedItemProperty =
-        BindableProperty.Create(nameof(SelectedItem), typeof(object), typeof(CustomPicker), null, BindingMode.TwoWay);
+        BindableProperty.Create(nameof(SelectedItem), typeof(object), typeof(CustomPicker), null, BindingMode.TwoWay, propertyChanged: OnSelectedItemChanged);
+
+    private static void OnSelectedItemChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var @this = (CustomPicker)bindable;
+
+    }
 
     public object SelectedItem
     {

@@ -304,6 +304,15 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Dead {
+            get {
+                return ResourceManager.GetString("txt_Dead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string txt_Delete {
@@ -336,6 +345,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_DetailsReview {
             get {
                 return ResourceManager.GetString("txt_DetailsReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_DoubleValue {
+            get {
+                return ResourceManager.GetString("txt_DoubleValue", resourceCulture);
             }
         }
         
@@ -642,6 +660,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_RemoveQueen {
             get {
                 return ResourceManager.GetString("txt_RemoveQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_RequestValue {
+            get {
+                return ResourceManager.GetString("txt_RequestValue", resourceCulture);
             }
         }
         

@@ -30,8 +30,9 @@
             </ScrollView>
 
             <!-- Stałe przyciski na dole strony -->
-            <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Button Text="{loc:Translate txt_NewQueen}" Clicked="OnAddQueenClicked" />
+            <StackLayout Grid.Row="2" Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="5">
+                <Button Text="{loc:Translate txt_NewQueen}" Clicked="OnAddQueenClicked" 
+                        BackgroundColor="{StaticResource ButtonBackgroundColor}"   CornerRadius="10"/>
             </StackLayout>
         </Grid>
         

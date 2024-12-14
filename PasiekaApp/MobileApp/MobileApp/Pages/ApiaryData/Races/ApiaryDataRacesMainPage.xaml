@@ -23,7 +23,7 @@
                     <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
                         <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
                         <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
-                                  CheckedChanged="IsVisible_CheckedChanged"/>
+                                  CheckedChanged="IsVisible_CheckedChanged" Margin="10"/>
                         <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" Grid.Column="2" 
                                 CommandParameter="{Binding .}" />
                     </Grid>
@@ -36,8 +36,8 @@
             <StackLayout Spacing="10">
 
                 <!-- Pole do wpisania nazwy rasy -->
-                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}" TextColor="White" />
-                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}" TextColor="White" />
+                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}"   />
+                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}"   />
 
                 <!-- Przyciski -->
                 <HorizontalStackLayout Spacing="10">

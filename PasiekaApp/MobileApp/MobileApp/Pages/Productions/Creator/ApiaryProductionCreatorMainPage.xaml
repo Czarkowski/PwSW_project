@@ -14,16 +14,23 @@
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ApiaryProductionCreatorMainPageTitle}">
     
-    <VerticalStackLayout Padding="20">
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
+        <VerticalStackLayout Grid.Row="0">
+            
         <!-- Wybór zasobu (np. miód, pyłek, itp.) -->
-        <Label Text="{loc:Translate txt_SelectProduct}" />
+        <!--<Label Text="{loc:Translate txt_SelectProduct}" />-->
         <Picker Title="{loc:Translate txt_SelectProduct}"
                 ItemsSource="{Binding ProductionTypePickerVM.ItemList}" 
                 SelectedItem="{Binding ProductionTypePickerVM.SelectedItem}" />
 
         <!-- Wybór jednostki (np. kilogramy, litry, itp.) -->
-        <Label Text="{loc:Translate txt_SelectUnit}" Margin="0,10,0,0"/>
+        <!--<Label Text="{loc:Translate txt_SelectUnit}" Margin="0,10,0,0"/>-->
         <Picker Title="{loc:Translate txt_SelectUnit}"
                 ItemsSource="{Binding UnitTypePickerVM.ItemList}" 
                 SelectedItem="{Binding UnitTypePickerVM.SelectedItem}" />
@@ -36,6 +43,10 @@
 
         <!-- Wybór uli, które uczestniczyły w produkcji -->
         <Label Text="Wybierz ule, które brały udział:" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            
         <CollectionView ItemsSource="{Binding HiveListVM.ItemList}"
                   SelectionMode="Multiple"
                   SelectionChanged="CollectionView_SelectionChanged">
@@ -46,11 +57,12 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </ScrollView>
 
         <!-- Przyciski akcji -->
-        <Button Text="Zapisz produkcję"
+        <Button Grid.Row="2" Text="Zapisz produkcję"
                 Clicked="Button_Clicked" 
                 Margin="0,20,0,0" />
 
-    </VerticalStackLayout>
+    </Grid>
 </core:BaseContentPage>

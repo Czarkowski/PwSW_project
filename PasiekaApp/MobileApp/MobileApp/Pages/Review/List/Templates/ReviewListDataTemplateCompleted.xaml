@@ -8,21 +8,21 @@
 
     <VerticalStackLayout Margin="1" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedToColorConverter}}" 
                          Padding="2,2,2,2">
-        <Grid BackgroundColor="DarkGreen" HorizontalOptions="FillAndExpand">
+        <Grid BackgroundColor="DarkGreen" HorizontalOptions="FillAndExpand" >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <Label InputTransparent="True" Grid.Column="0" Text="{Binding ReviewType.Name}" FontAttributes="Bold" />
-            <Label Grid.Column="1" Text="{loc:Translate txt_Planned}" />
-            <Label Grid.Column="2" Text="{Binding PlannedDate, StringFormat='{0:dd-MM-yyyy}'}" />
-            <Label Grid.Column="3" Text="{Binding ReviewDescription}" />
-            <Label Grid.Column="4" Text="{loc:Translate txt_Realized}" />
-            <Label Grid.Column="5" Text="{Binding RealizedDate, StringFormat='{0:dd-MM-yyyy}'}" />
+            <Label Margin="5,0,5,0" InputTransparent="True" Grid.Column="0" Text="{Binding ReviewType.Name}" FontAttributes="Bold" />
+            <Label Margin="5,0,5,0"  Grid.Column="1" Text="{loc:Translate txt_Planned}" />
+            <Label Margin="5,0,5,0"  Grid.Column="2" Text="{Binding PlannedDate, StringFormat='{0:dd-MM-yyyy}'}" />
+            <Label Margin="5,0,5,0"  Grid.Column="3" Text="{Binding ReviewDescription}" />
+            <Label Margin="5,0,5,0"  Grid.Column="4" Text="{loc:Translate txt_Realized}" />
+            <Label Margin="5,0,5,0"  Grid.Column="5" Text="{Binding RealizedDate, StringFormat='{0:dd-MM-yyyy}'}" />
         </Grid>
     </VerticalStackLayout>
 

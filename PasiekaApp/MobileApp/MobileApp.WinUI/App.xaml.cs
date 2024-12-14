@@ -17,6 +17,7 @@ namespace MobileApp.WinUI
         public App()
         {
             this.InitializeComponent();
+            this.UnhandledException += (sender, e) => MobileApp.App.OnUnhandledUiException(sender, e.Exception);
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();

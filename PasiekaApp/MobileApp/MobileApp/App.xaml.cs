@@ -1,17 +1,11 @@
 ﻿using Data.Core;
-using Data.Core.Services;
 using Data.Core.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using Microsoft.Maui.Hosting;
-using MobileApp.Factories.Interfaces;
 using MobileApp.Helpers.Interfaces;
 using MobileApp.Localizations;
 using MobileApp.UserPreferences;
-using MobileApp.Pages;
-using System.Globalization;
 using System.Resources;
-using static System.Formats.Asn1.AsnWriter;
+using Data.Core.Models;
+
 
 namespace MobileApp
 {
@@ -32,29 +26,39 @@ namespace MobileApp
             ServiceScopeFactory = serviceScopeFactory;
 
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
-            TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
+            TaskScheduler.UnobservedTaskException += OnUnobservedTaskException!;
 
+            if (true)
+            {
+
+            }
             InitializeComponent();
 
             InitializeData();
 
             InitializeMainPage();
 
+            //SelectAndSaveImage();
         }
 
-        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        public void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             LogException(e.ExceptionObject as Exception, "Unhandled Exception");
         }
 
+        public static void OnUnhandledUiException(object sender, Exception e)
+        {
+            LogException(e, "Unhandled Ui Exception");
+        }
+
         private void OnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
-            LogException(e.Exception, "Unobserved Task Exception");
+            LogException(e.Exception.InnerException ?? e.Exception, "Unobserved Task Exception");
             e.SetObserved();
         }
 
 
-        private void LogException(Exception ex, string exceptionType)
+        private static void LogException(Exception ex, string exceptionType)
         {
 #if DEBUG
             if (ex != null)
@@ -127,6 +131,46 @@ namespace MobileApp
                 Resources.MergedDictionaries.Add(_staticResourcesServices.ResourceDictionary);
             }
             _staticResourcesServices.InitializeResources();
+        }
+
+
+        public async Task SelectAndSaveImage()
+        {
+            throw new NotImplementedException();
+            // Wybierz plik obrazu
+            //var result = await FilePicker.PickAsync(new PickOptions
+            //{
+            //    FileTypes = FilePickerFileType.Images // Tylko obrazy
+            //});
+
+            //if (result != null)
+            //{
+            //    // Ścieżka do pliku
+            //    string filePath = result.FullPath;
+
+            //    // Zapisz obraz w bazie danych
+            //    await SaveImageToDatabase(filePath);
+            //}
+            //await SaveImageToDatabase(@"E:\ProgramingUTP\PwSW\Photos\IMG_2643.JPG");
+            //await SaveImageToDatabase(@"E:\ProgramingUTP\PwSW\Photos\IMG_2647.JPG");
+            //await SaveImageToDatabase(@"E:\ProgramingUTP\PwSW\Photos\IMG_2649.JPG");
+            //await SaveImageToDatabase(@"E:\ProgramingUTP\PwSW\Photos\IMG_2654.JPG");
+            //await SaveImageToDatabase(@"E:\ProgramingUTP\PwSW\Photos\IMG_2658.JPG");
+        }
+        public async Task SaveImageToDatabase(string filePath)
+        {
+            // Wczytaj obraz z pliku
+            byte[] imageBytes = await File.ReadAllBytesAsync(filePath);
+
+            // Utwórz nowy obiekt ImageData
+            var imageData = new Photo
+            { 
+                DateTaken = DateTime.Now,
+                DescriptionId = 13,
+                ImageData = imageBytes
+            };
+
+            _beeService.AddPhoto(imageData);
         }
     }
 }

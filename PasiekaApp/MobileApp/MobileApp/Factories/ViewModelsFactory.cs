@@ -154,7 +154,7 @@ namespace MobileApp.Factories
             {
                 FromDate = DateTime.Now.Date.AddDays(-7),
                 ToDate = DateTime.Now.Date.AddDays(14),
-                ReviewType = null,
+                ReviewType = reviewTypes.Last(),
                 Uncompleted = true,
                 ReviewTypes = reviewTypes,
             };

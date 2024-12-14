@@ -11,7 +11,7 @@
         <Label x:Name="Label" 
            Text="{Binding LabelText, Source={x:Reference this}}"
            HorizontalOptions="Start"
-           TextColor="White"
+            
            FontAttributes="Bold"
            FontSize="Medium" />
 
@@ -19,7 +19,7 @@
         <Entry x:Name="Entry"
            Text="{Binding EntryText, Source={x:Reference this}}"
            VerticalOptions="StartAndExpand"
-           TextColor="White"
+            
            BackgroundColor="#1E1E1E"
            PlaceholderColor="Gray"
            FontSize="Small"

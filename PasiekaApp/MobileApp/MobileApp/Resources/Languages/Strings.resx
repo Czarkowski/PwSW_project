@@ -414,4 +414,13 @@
   <data name="txt_ReviewDetailsMainPageTitle" xml:space="preserve">
     <value />
   </data>
+  <data name="txt_DoubleValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_Dead" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txt_RequestValue" xml:space="preserve">
+    <value />
+  </data>
 </root>

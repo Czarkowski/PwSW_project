@@ -22,8 +22,8 @@
         <Button Text="{loc:Translate txt_AddHive}" 
             Clicked="OnAddItemClicked" 
             Grid.Row="0" 
-            BackgroundColor="{DynamicResource BackgroundColor}" 
-            TextColor="White"/>
+            BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+             />
 
         <!-- Lista uli -->
         <CollectionView x:Name="UlListModel" 
@@ -46,18 +46,15 @@
                                  HorizontalOptions="FillAndExpand" 
                                  VerticalOptions="FillAndExpand">
                             <Label Text="{Binding Number}" 
-                               TextColor="White" 
                                FontAttributes="Bold" 
                                HorizontalOptions="Start" 
                                VerticalOptions="Center" 
                                Margin="3"/>
                             <Label Text="{Binding Race}" 
-                               TextColor="White" 
                                HorizontalOptions="Start" 
                                VerticalOptions="Center" 
                                Margin="3"/>
                             <Label Text="{Binding Description}" 
-                               TextColor="White" 
                                HorizontalOptions="Start" 
                                VerticalOptions="Center" 
                                Margin="3"/>
@@ -80,15 +77,15 @@
                    FontAttributes="Bold" 
                    FontSize="Medium" 
                    HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="FillAndExpand" 
-                   TextColor="White"/>
+                   VerticalOptions="FillAndExpand" />
 
                 <!-- Numer ula -->
                 <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Label Text="Numer:" VerticalOptions="Center" TextColor="White"/>
+                    <Label Text="Numer:" VerticalOptions="Center" />
                     <cc:IntegerEntry Text="{Binding Number}" 
                                  IsEnabled="True" 
-                                 Unfocused="OnEntryUnfocused" />
+                                 Unfocused="OnEntryUnfocused"
+                                     FontSize="Medium"/>
                 </StackLayout>
 
                 <!-- Opis ula -->
@@ -96,7 +93,7 @@
                          VerticalOptions="FillAndExpand" 
                          HorizontalOptions="FillAndExpand" 
                          Spacing="5">
-                    <Label Text="Opis Ula:" VerticalOptions="Center" TextColor="White"/>
+                    <Label Text="Opis Ula:" VerticalOptions="Center"/>
                     <Entry Text="{Binding Description}" 
                        IsEnabled="True" 
                        HorizontalOptions="FillAndExpand" 
@@ -111,54 +108,55 @@
                         Clicked="OnAddQueenClicked" 
                         HorizontalOptions="FillAndExpand" 
                         Margin="5" 
-                        BackgroundColor="{DynamicResource BackgroundColor}" 
-                        TextColor="White"/>
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                         />
                     <Button Text="{loc:Translate txt_RemoveQueen}" 
                         IsVisible="{Binding HasQueen}" 
                         Clicked="OnRemoveQueenClicked" 
                         HorizontalOptions="FillAndExpand" 
                         Margin="5" 
-                        BackgroundColor="{DynamicResource BackgroundColor}" 
-                        TextColor="White"/>
+                        BackgroundColor="{DynamicResource ButtonDeleteBackgroundColor}" 
+                         />
                     <Button Text="{loc:Translate txt_RemoveHive}" 
                         IsVisible="{Binding HasQueen_N}" 
                         Clicked="OnRemoveHiveClicked" 
                         HorizontalOptions="FillAndExpand" 
                         Margin="5" 
-                        BackgroundColor="{DynamicResource BackgroundColor}" 
-                        TextColor="White"/>
+                        BackgroundColor="{DynamicResource ButtonDeleteBackgroundColor}" 
+                         />
                     <Button Text="{loc:Translate txt_HiveReviewHistory}" 
                         IsVisible="True" 
                         Clicked="OnHiveReviewHistoryClicked" 
                         HorizontalOptions="FillAndExpand" 
                         Margin="5" 
-                        BackgroundColor="{DynamicResource BackgroundColor}" 
-                        TextColor="White"/>
+                        BackgroundColor="{DynamicResource ButtonDetailsBackgroundColor}" />
                 </StackLayout>
 
                 <!-- Szczegóły Matki -->
                 <StackLayout IsVisible="{Binding HasQueen}">
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />
+                        <Label Text="Rasa:" FontAttributes="Bold"/>
+                        <Label Text="{Binding BeeQueen.Race.Name}" />
+                        <!--<cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />-->
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Data Poddania Matki:" VerticalOptions="Fill" TextColor="White"/>
-                        <DatePicker Date="{Binding QueenAddDate}" 
+                        <Label Text="Data Poddania Matki:" FontAttributes="Bold" VerticalOptions="Fill"/>
+                        <Label Text="{Binding QueenAddDate, StringFormat='{0:yyyy-MM-dd}'}" />
+                        <!--<DatePicker Date="{Binding QueenAddDate}" 
                                 IsEnabled="True" 
-                                VerticalOptions="Fill"/>
+                                VerticalOptions="Fill"/>-->
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Wiek Matki:" VerticalOptions="Center" TextColor="White"/>
+                        <Label Text="Wiek Matki:" FontAttributes="Bold" VerticalOptions="Center" />
                         <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" 
-                           VerticalOptions="Center" 
-                           TextColor="White"/>
+                           VerticalOptions="Center"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="5">
-                        <Label Text="Opis Matki:" VerticalOptions="Center" TextColor="White"/>
-                        <Entry Text="{Binding QueenDescription}" 
+                        <Label Text="Opis Matki:" FontAttributes="Bold" VerticalOptions="Center"  />
+                        <Label Text="{Binding QueenDescription}" 
                            VerticalOptions="Fill" 
                            IsEnabled="False" />
                     </StackLayout>

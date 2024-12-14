@@ -15,18 +15,18 @@
             <VerticalStackLayout>
                 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" >
-                <cc:CustomDatePicker LabelText="{loc:Translate txt_FromDate}" SelectedDate="{Binding FromDate}" 
+                    <cc:CustomDatePicker LabelText="{loc:Translate txt_FromDate}" SelectedDate="{Binding FromDate}" WidthRequest="350"
                                  HorizontalOptions="FillAndExpand"/>
                 <cc:CustomDatePicker LabelText="{loc:Translate txt_ToDate}" SelectedDate="{Binding ToDate}"  
                                  HorizontalOptions="FillAndExpand"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5">
                     <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" SelectedItem="{Binding ReviewType}" 
-                                 OptionList="{Binding ReviewTypes}" DisplayProperty="Name"/>
+                                 OptionList="{Binding ReviewTypes}" DisplayProperty="Name" WidthRequest="350"/>
                         <cc:CustomChackBox LabelText="{loc:Translate txt_Uncopleted}" IsChecked="{Binding Uncompleted}"/>
             </HorizontalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
-        <Button Margin="0,0,0,0" Text="{loc:Translate txt_Search}" Command="{Binding OnSearch, Source={x:Reference this}}"/>
+        <Button Margin="0,0,0,0" Text="{loc:Translate txt_Search}" BackgroundColor="{StaticResource ButtonSearchBackgroundColor}" Command="{Binding OnSearch, Source={x:Reference this}}"/>
     </VerticalStackLayout>
 </ContentView>

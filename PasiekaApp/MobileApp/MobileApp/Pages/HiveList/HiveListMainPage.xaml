@@ -36,7 +36,7 @@
                     BackgroundColor="{DynamicResource BackgroundColor}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:HiveListItemVM">
-                    <Frame Margin="5" Padding="5" 
+                    <Frame Margin="5,2,5,0" Padding="5" 
                        BackgroundColor="{DynamicResource BackgroundColor}" 
                        BorderColor="LightGray" 
                        HorizontalOptions="FillAndExpand" 
@@ -71,21 +71,23 @@
             <StackLayout x:Name="UlDetailsModel" 
                      x:DataType="vm:HiveDetailsVM" 
                      BindingContext="{Binding HiveDetailsVM}"  
-                     Padding="10" 
+                     Padding="0" 
                      Spacing="10">
-                <Label Text="Szczegóły" 
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Label HorizontalOptions="CenterAndExpand" Text="Szczegóły" 
                    FontAttributes="Bold" 
                    FontSize="Medium" 
-                   HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="FillAndExpand" />
+                       VerticalOptions="Center"/>
 
-                <!-- Numer ula -->
-                <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Label Text="Numer:" VerticalOptions="Center" />
-                    <cc:IntegerEntry Text="{Binding Number}" 
+                    <!-- Numer ula -->
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+
+                        <Label Text="Numer:" VerticalOptions="Center" />
+                        <cc:IntegerEntry Text="{Binding Number}" 
                                  IsEnabled="True" 
                                  Unfocused="OnEntryUnfocused"
                                      FontSize="Medium"/>
+                    </HorizontalStackLayout>
                 </StackLayout>
 
                 <!-- Opis ula -->
@@ -134,27 +136,30 @@
 
                 <!-- Szczegóły Matki -->
                 <StackLayout IsVisible="{Binding HasQueen}">
-                    <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Rasa:" FontAttributes="Bold"/>
-                        <Label Text="{Binding BeeQueen.Race.Name}" />
-                        <!--<cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />-->
-                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
 
-                    <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Data Poddania Matki:" FontAttributes="Bold" VerticalOptions="Fill"/>
-                        <Label Text="{Binding QueenAddDate, StringFormat='{0:yyyy-MM-dd}'}" />
-                        <!--<DatePicker Date="{Binding QueenAddDate}" 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                            <Label Text="Rasa:" FontAttributes="Bold"/>
+                            <Label Text="{Binding BeeQueen.Race.Name}" />
+                            <!--<cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />-->
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                            <Label Text="Data Poddania Matki:" FontAttributes="Bold" VerticalOptions="Fill"/>
+                            <Label Text="{Binding QueenAddDate, StringFormat='{0:yyyy-MM-dd}'}" />
+                            <!--<DatePicker Date="{Binding QueenAddDate}" 
                                 IsEnabled="True" 
                                 VerticalOptions="Fill"/>-->
-                    </StackLayout>
+                        </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" Spacing="5" IsEnabled="False">
-                        <Label Text="Wiek Matki:" FontAttributes="Bold" VerticalOptions="Center" />
-                        <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                            <Label Text="Wiek Matki:" FontAttributes="Bold" VerticalOptions="Center" />
+                            <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" 
                            VerticalOptions="Center"/>
+                        </StackLayout>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" Spacing="5">
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="5">
                         <Label Text="Opis Matki:" FontAttributes="Bold" VerticalOptions="Center"  />
                         <Label Text="{Binding QueenDescription}" 
                            VerticalOptions="Fill" 

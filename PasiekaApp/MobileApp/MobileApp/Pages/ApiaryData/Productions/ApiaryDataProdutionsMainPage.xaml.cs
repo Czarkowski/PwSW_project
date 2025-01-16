@@ -21,7 +21,7 @@ public partial class ApiaryDataProdutionsMainPage : BaseContentPage<ApiaryDataPr
         _dataToSaveFactory = dataToSaveFactory;
         InitializeComponent();
         LoadData();
-
+        InitializeCommands();
     }
 
     protected override void LoadData()

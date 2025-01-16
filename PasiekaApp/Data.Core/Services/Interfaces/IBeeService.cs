@@ -43,5 +43,7 @@ namespace Data.Core.Services.Interfaces
         ProductionType UpdateProductionType(ProductionType productionType);
         ProductionType AddProductionType(ProductionType productionType);
         Photo AddPhoto(Photo photo);
+        Production AddProduction(Production production);
+        List<Production> GetProductions();
     }
 }

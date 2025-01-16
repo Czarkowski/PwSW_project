@@ -41,7 +41,7 @@ namespace MobileApp.Factories.Interfaces
         ApiaryToolSyrupCalculatorMainVM CreateApiaryToolSyrupCalculatorMainVM(
             PickerItemListVM<SyrupCalculationBaseType> syrupCalculationBaseTypes,
             PickerItemListVM<SyrupCalculationRatioType> syrupCalculationRatioTypes);
-        ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM();
+        ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM(List<Production> productions);
 
         PhotoVM CreatePhotoVM(Photo photo);
     }

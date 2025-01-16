@@ -135,6 +135,11 @@ namespace Data.Core
                 .WithMany(d => d.Photos)
                 .HasForeignKey(p => p.DescriptionId);
 
+            modelBuilder.Entity<Production>()
+                .HasOne(p => p.ProductionType)
+                .WithMany(pt => pt.Productions)
+                .HasForeignKey(p => p.ProductionTypeId);
+
             //modelBuilder.Entity<PhotoDescription>()
             //    .HasOne(pd => pd.Description)
             //    .WithMany(d => d.PhotoDescriptions)

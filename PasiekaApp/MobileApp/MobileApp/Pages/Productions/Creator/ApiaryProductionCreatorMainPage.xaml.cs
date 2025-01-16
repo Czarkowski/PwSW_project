@@ -44,7 +44,9 @@ public partial class ApiaryProductionCreatorMainPage : BaseContentPage<ApiaryPro
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-
+        Production production = _dataToSaveFactory.CreateProduction(ViewModel);
+        _beeService.AddProduction(production);
+        LoadData();
     }
 
     protected override async void OnAppearing()

@@ -1,4 +1,5 @@
 ﻿using Data.Core.Models;
+using MobileApp.Localizations;
 using MobileApp.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace MobileApp.ViewModels
 
         public override string ToString()
         {
-            return $"{Hive.Number} - {Hive.BeeQueen?.Race?.Name ?? "Without Queen!"}";  
+            return $"{Hive.Number} - {Hive.BeeQueen?.Race?.Name ?? LocalizeManager.Translate("txt_NoQueen")}";  
         }
     }
 }

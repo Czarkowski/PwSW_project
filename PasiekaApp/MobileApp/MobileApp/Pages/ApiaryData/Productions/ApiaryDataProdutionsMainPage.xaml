@@ -14,25 +14,32 @@
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
             Title="{loc:Translate txt_ApiaryDataProdutionsMainPageTitle}">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
+    <Grid BackgroundColor="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <!-- Lista dostępnych ras z checkboxami -->
-        <CollectionView ItemsSource="{Binding ProductionTypeListVM.ObservableItemCollection}" SelectionMode="Single" 
+        <ScrollView Grid.Row="0">
+
+            <CollectionView  ItemsSource="{Binding ProductionTypeListVM.ObservableItemCollection}" SelectionMode="Single" 
                         SelectedItem="{Binding ProductionTypeListVM.SelectedItem}" SelectionChanged="CollectionView_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="vm:RaceListItemVM">
-                    <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
-                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
-                        <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:RaceListItemVM">
+                        <Grid Padding="5" ColumnDefinitions="*, Auto, Auto" InputTransparent="False">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0"/>
+                            <CheckBox IsChecked="{Binding IsVisible}" VerticalOptions="Center" Grid.Column="1" 
                                   CheckedChanged="IsVisible_CheckedChanged" Margin="10"/>
-                        <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" Grid.Column="2" 
+                            <Button Text="{loc:Translate txt_Modify}" Command="{Binding OnEdit, Source={x:Reference this}}" Grid.Column="2" 
                                 CommandParameter="{Binding .}" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
 
         <!-- Formularz do dodawania/modyfikowania rasy -->
-        <Frame Padding="10" BackgroundColor="DimGray">
+        <Frame Grid.Row="1" Padding="10" BackgroundColor="DimGray">
             <StackLayout Spacing="10">
 
                 <!-- Pole do wpisania nazwy rasy -->
@@ -47,6 +54,5 @@
                 </HorizontalStackLayout>
             </StackLayout>
         </Frame>
-
-    </VerticalStackLayout>
+    </Grid>
 </core:BaseContentPage>

@@ -8,6 +8,7 @@ using MobileApp.Helpers.StaticResources;
 using MobileApp.Localizations;
 using MobileApp.Productions;
 using MobileApp.Resources.Languages;
+using MobileApp.Utilities.StaticExtensions;
 using MobileApp.ViewModels;
 using MobileApp.ViewModels.BaseViewModel;
 using System;
@@ -367,16 +368,27 @@ namespace MobileApp.Factories
             };
         }
 
-        public ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM()
-        {
-            throw new NotImplementedException();
-        }
 
         public PhotoVM CreatePhotoVM(Photo photo)
         {
             return new PhotoVM(photo)
             {
                 ImageData = photo.ImageData,
+            };
+        }
+
+        public ApiaryProductionSummaryMainVM CreateApiaryProductionSummaryMainVM(List<Production> productions)
+        {
+            return new ApiaryProductionSummaryMainVM()
+            {
+                ApiaryProductionSummaryListItemVMs = productions.Select(x => new ApiaryProductionSummaryListItemVM()
+                {
+                    Date = x.Date,
+                    ProductionType = x.ProductionType.Name,
+                    Value = x.Value,
+                    Unit = ((UnitType)x.Unit).GetDescription(),
+                    HiveNumbers = x.ProductionHives.Select(y => y.Hive.Number).ToList(),
+                }).ToList(),
             };
         }
     }

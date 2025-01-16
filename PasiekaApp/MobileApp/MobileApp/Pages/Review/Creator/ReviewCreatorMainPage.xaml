@@ -33,7 +33,7 @@
                 <cc:LabelEntry LabelText="{loc:Translate txt_Description}" EntryText="{Binding Description}" />
             </StackLayout>
         </ScrollView>
-        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" BackgroundColor="LightGray">
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" BackgroundColor="{DynamicResource ButtonBackgroundColor}">
             <Button Text="{loc:Translate txt_CreateReview}" Clicked="OnCreateReviewClicked" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </Grid>

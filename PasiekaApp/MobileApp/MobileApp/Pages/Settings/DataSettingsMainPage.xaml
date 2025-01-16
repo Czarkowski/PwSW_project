@@ -10,7 +10,7 @@
              x:Name="this"
              BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_DataSettingsMainPageTitle}">
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical" Margin="10">
         <Label Text="{loc:Translate txt_ClearDataBase}" />
         <Button Text="{loc:Translate txt_Clear}" Clicked="OnClearDataBasesClicked"/>
     </StackLayout>

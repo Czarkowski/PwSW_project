@@ -39,7 +39,12 @@ namespace MobileApp.Helpers
             beeQueen.Description = queenDetailsVM.Description;
             beeQueen.Race = queenDetailsVM.Race;
             beeQueen.BirthDate = queenDetailsVM.BirthDate;
-            beeQueen.Hive = queenDetailsVM.Hive;
+            if (beeQueen.Hive != queenDetailsVM.Hive)
+            {
+                queenDetailsVM.Hive.AddBeeQueenDate = DateTime.Now.Date;
+                beeQueen.Hive = queenDetailsVM.Hive;
+            }
+            
             return ref beeQueen;
         }
 

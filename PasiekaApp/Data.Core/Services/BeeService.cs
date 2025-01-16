@@ -136,7 +136,7 @@ namespace Data.Core.Services
 
         public List<BeeQueen> GetAllQueensWithoutHive()
         {
-            return _beeQueenRepository.GetAll().Where(x => x.Hive == null).ToList();
+            return _beeQueenRepository.GetAll().Where(x => x.Hive == null && x.DeathDate == null).ToList();
         }
 
         public List<ReviewType> GetAllReviewType(bool isVisible)
@@ -279,6 +279,16 @@ namespace Data.Core.Services
         public void Dispose()
         {
             _db.Dispose();
+        }
+
+        public Production AddProduction(Production production)
+        {
+            return _productionRepository.Add(production);
+        }
+
+        public List<Production> GetProductions()
+        {
+            return _productionRepository.GetAll();
         }
     }
 }

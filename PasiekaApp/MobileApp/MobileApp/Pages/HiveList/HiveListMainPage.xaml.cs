@@ -101,7 +101,7 @@ public partial class HiveListMainPage : ContentPage
     {
         var oldHive = HiveListMainVM.HiveDetailsVM.Hive;
         var newHive = HiveListMainVM.HiveDetailsVM;
-        return newHive.Number != oldHive.Number || newHive.Description != oldHive.Description;
+        return newHive.Number != oldHive.Number || newHive.Description != oldHive.Description || newHive.BeeQueen != oldHive.BeeQueen;
     }
 
     private void RefreshHiveList()

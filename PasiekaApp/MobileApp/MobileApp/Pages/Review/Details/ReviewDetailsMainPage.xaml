@@ -84,7 +84,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <!--</ScrollView>-->
-                <Button Grid.Row="2" Text="{loc:Translate txt_TakePhoto}" Command="{Binding TakePhotoCommand, Source={x:Reference this}}" 
+                <Button Grid.Row="2" Text="{loc:Translate txt_TakePhoto}" IsVisible="{Binding IsNoComplete}" IsEnabled="{Binding IsNoComplete}" Command="{Binding TakePhotoCommand, Source={x:Reference this}}" 
                     TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonDetailsBackgroundColor}" VerticalOptions="EndAndExpand" />
             </Grid>
             <!--</StackLayout>-->
@@ -92,8 +92,8 @@
                 CommandParameter="{Binding SelectedItem}" HorizontalOptions="End"
                 TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
         </StackLayout>
-        <Button Grid.Row="3" Margin="5" VerticalOptions="EndAndExpand" Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" 
-            TextColor="{DynamicResource ButtonTextColor}" BackgroundColor="{DynamicResource ButtonSaveBackgroundColor}" />
+        <Button Grid.Row="3" Margin="5" IsVisible="{Binding IsNoComplete}" VerticalOptions="EndAndExpand" Text="{loc:Translate txt_Save}" Command="{Binding OnSave, Source={x:Reference this}}" 
+            TextColor="{DynamicResource ButtonTextColor}" IsEnabled="{Binding IsNoComplete}" BackgroundColor="{DynamicResource ButtonSaveBackgroundColor}" />
     </Grid>
 
 

@@ -48,5 +48,6 @@ namespace MobileApp.ViewModels
             get => _descriptionHiveReviewVMs;
             set => SetProperty(ref _descriptionHiveReviewVMs, value);
         }
+        public bool IsNoComplete => !RealizedDate.HasValue;
     }
 }

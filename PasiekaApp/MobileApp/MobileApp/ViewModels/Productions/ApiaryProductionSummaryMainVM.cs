@@ -9,5 +9,6 @@ namespace MobileApp.ViewModels
 {
     public class ApiaryProductionSummaryMainVM : BaseVM
     {
+        public List<ApiaryProductionSummaryListItemVM> ApiaryProductionSummaryListItemVMs { get; set; }
     }
 }

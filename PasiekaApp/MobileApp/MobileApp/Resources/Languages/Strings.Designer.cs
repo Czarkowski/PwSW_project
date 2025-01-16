@@ -252,6 +252,15 @@ namespace MobileApp.Resources.Languages {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        internal static string txt_ChooseLanguage {
+            get {
+                return ResourceManager.GetString("txt_ChooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         internal static string txt_Clear {
             get {
                 return ResourceManager.GetString("txt_Clear", resourceCulture);
@@ -300,6 +309,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_DataSettingsMainPageTitle {
             get {
                 return ResourceManager.GetString("txt_DataSettingsMainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_Date {
+            get {
+                return ResourceManager.GetString("txt_Date", resourceCulture);
             }
         }
         
@@ -786,6 +804,15 @@ namespace MobileApp.Resources.Languages {
         internal static string txt_SelectProduct {
             get {
                 return ResourceManager.GetString("txt_SelectProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_SelectQueen {
+            get {
+                return ResourceManager.GetString("txt_SelectQueen", resourceCulture);
             }
         }
         

@@ -424,4 +424,13 @@ Ta operacja jest nieodwracalna!</value>
   <data name="txt_RequestValue" xml:space="preserve">
     <value>Żądana wartość </value>
   </data>
+  <data name="txt_ChooseLanguage" xml:space="preserve">
+    <value>Wybierz język</value>
+  </data>
+  <data name="txt_SelectQueen" xml:space="preserve">
+    <value>Wybierz matke</value>
+  </data>
+  <data name="txt_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
 </root>

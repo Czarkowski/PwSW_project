@@ -18,5 +18,6 @@ namespace MobileApp.Factories.Interfaces
         Race CreateRace(AddRaceMainVM addRaceMainVM);
         ReviewType CreateReviewType(AddReviewTypeVM addReviewTypeVM);
         ProductionType CreateProductionType(ProductionTypeDetailsVM productionTypeDetailsVM);
+        Production CreateProduction(ApiaryProductionCreatorMainVM apiaryProductionCreatorMainVM);
     }
 }

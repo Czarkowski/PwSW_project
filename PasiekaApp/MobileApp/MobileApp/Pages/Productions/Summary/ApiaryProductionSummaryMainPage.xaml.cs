@@ -26,6 +26,11 @@ public partial class ApiaryProductionSummaryMainPage : BaseContentPage<ApiaryPro
 
     protected override void LoadData()
     {
-        ViewModel = _viewModelsFactory.CreateApiaryProductionSummaryMainVM();
+        var productions = _beeService.GetProductions();
+        ViewModel = _viewModelsFactory.CreateApiaryProductionSummaryMainVM(productions);
+    }
+    protected override void OnAppearing()
+    {
+        LoadData();
     }
 }

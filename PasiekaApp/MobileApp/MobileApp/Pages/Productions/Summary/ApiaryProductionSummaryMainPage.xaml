@@ -1,21 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <core:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pages="clr-namespace:MobileApp.Pages"
-            xmlns:converters="clr-namespace:MobileApp.Converters"
-            xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
-            xmlns:core="clr-namespace:MobileApp.Core.BasePages;assembly=MobileApp.Core"
-            xmlns:loc="clr-namespace:MobileApp.Localizations"
-            xmlns:vm="using:MobileApp.ViewModels"   
-            x:Class="MobileApp.Pages.ApiaryProductionSummaryMainPage"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:pages="clr-namespace:MobileApp.Pages"
+                      xmlns:converters="clr-namespace:MobileApp.Converters"
+                      xmlns:cc="clr-namespace:MobileApp.Controls.CompositeControls"
+                      xmlns:core="clr-namespace:MobileApp.Core.BasePages;assembly=MobileApp.Core"
+                      xmlns:loc="clr-namespace:MobileApp.Localizations"
+                      xmlns:vm="using:MobileApp.ViewModels"   
+                      x:Class="MobileApp.Pages.ApiaryProductionSummaryMainPage"
                       x:TypeArguments="vm:ApiaryProductionSummaryMainVM"
-            x:DataType="vm:ApiaryProductionSummaryMainVM"
-             x:Name="this"
-             Title="{loc:Translate txt_ApiaryProductionSummaryMainPageTitle}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+                      x:DataType="vm:ApiaryProductionSummaryMainVM"
+                      x:Name="this"
+                      BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
+                      Title="{loc:Translate txt_ApiaryProductionSummaryMainPageTitle}">
+    <Grid BackgroundColor="{DynamicResource BackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Tytuł strony -->
+            <Label Grid.Row="0"
+            Text="{loc:Translate txt_ApiaryProductionSummaryMainPageTitle}" 
+            FontSize="24" 
+            FontAttributes="Bold" 
+            HorizontalOptions="Center" 
+            Margin="0,10" />
+
+            <!-- Lista podsumowań produkcji -->
+            <!--<ScrollView Grid.Row="1">-->
+
+                <CollectionView Margin="10" Grid.Row="1" ItemsSource="{Binding ApiaryProductionSummaryListItemVMs}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ApiaryProductionSummaryListItemVM">
+                            <Frame BorderColor="{DynamicResource BorderColor}" 
+                           CornerRadius="10" 
+                           Padding="10" 
+                           Margin="5"
+                           BackgroundColor="{DynamicResource CardBackgroundColor}">
+                                <VerticalStackLayout>
+                                    <!-- Typ produkcji -->
+                                    <Label Text="{Binding ProductionType}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="18" 
+                                   TextColor="{DynamicResource PrimaryTextColor}" />
+
+                                    <!-- Data i jednostka -->
+                                    <HorizontalStackLayout>
+                                        <Label Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" 
+                                       FontSize="14" 
+                                       TextColor="{DynamicResource PrimaryTextColor}" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <!-- Wartość produkcji -->
+                                        <Label Text="{Binding Value, StringFormat='{0:F2}'}" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold" 
+                                   TextColor="{DynamicResource HighlightTextColor}" />
+
+                                        <Label Text="{Binding TranslateUnit}" 
+                                       Margin="5,0,0,0"
+                                       FontSize="16" 
+                                        FontAttributes="Bold" 
+                                       TextColor="{DynamicResource PrimaryTextColor}" >
+                                        </Label>
+                                    </HorizontalStackLayout>
+
+                                    <Label Text="{Binding HiveNumbersString, StringFormat='Ule: {0}'}" 
+                                   FontSize="14" 
+                                   TextColor="{DynamicResource SecondaryTextColor}" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            <!--</ScrollView>-->
+        </Grid>
 </core:BaseContentPage>

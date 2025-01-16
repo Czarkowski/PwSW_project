@@ -23,14 +23,16 @@ namespace MobileApp.Factories
 
         public Description CreateDescription(DescriptionHiveReviewVM descriptionHiveReviewVM)
         {
-            return new Description() {
+            return new Description()
+            {
                 Text = descriptionHiveReviewVM.Description,
                 DescriptionHiveReview = descriptionHiveReviewVM.DescriptionHiveReview,
-                Photos = descriptionHiveReviewVM.Photos.Select(x => 
-                    new Photo() {
+                Photos = descriptionHiveReviewVM.Photos.Select(x =>
+                    new Photo()
+                    {
                         DateTaken = DateTime.Now,
                         ImageData = x.ImageData
-                }).ToList(),
+                    }).ToList(),
             };
         }
 
@@ -39,6 +41,23 @@ namespace MobileApp.Factories
             return new Hive()
             {
                 Description = string.Empty,
+            };
+        }
+
+
+
+        public Production CreateProduction(ApiaryProductionCreatorMainVM apiaryProductionCreatorMainVM)
+        {
+            return new Production()
+            {
+                ProductionHives = apiaryProductionCreatorMainVM.HiveListVM.SelectedItems.Select(x =>
+                    new ProductionHive()
+                    {
+                        Hive = x.Hive,
+                    }).ToList(),
+                ProductionType = apiaryProductionCreatorMainVM.ProductionTypePickerVM.SelectedItem.Value,
+                Value = apiaryProductionCreatorMainVM.InputValue,
+                Unit = (int)apiaryProductionCreatorMainVM.UnitTypePickerVM.SelectedItem.Value,
             };
         }
 
@@ -74,7 +93,7 @@ namespace MobileApp.Factories
                 Description = reviewCreatorVM.Description,
                 PlannedDate = reviewCreatorVM.Date.Date,
                 ReviewType = reviewCreatorVM.ReviewType,
-                DescriptionHiveReviews= descriptionHiveReviewList,
+                DescriptionHiveReviews = descriptionHiveReviewList,
             };
         }
 

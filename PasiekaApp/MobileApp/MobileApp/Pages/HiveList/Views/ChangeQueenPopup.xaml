@@ -5,19 +5,21 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:local="clr-namespace:MobileApp.Pages.HiveList.Views"
     xmlns:cc="using:MobileApp.Controls.CompositeControls"
+    xmlns:loc="clr-namespace:MobileApp.Localizations"
     x:Class="MobileApp.Pages.HiveList.Views.ChangeQueenPopup"
     x:DataType="local:ChangeQueenPopup"
-    x:Name="this">
+    x:Name="this"
+    Color="DarkBlue">
     <VerticalStackLayout Padding="20" BackgroundColor="DarkGreen" 
-                         WidthRequest="400" HeightRequest="300"
+                         WidthRequest="600" HeightRequest="300"
                          HorizontalOptions="Center" VerticalOptions="Center">
-        <cc:CustomPicker x:Name="QueenPicker" LabelText="Select Queen" SelectedItem="{Binding BeeQueen, Source={x:Reference this}}" 
+        <cc:CustomPicker x:Name="QueenPicker" LabelText="{loc:Translate txt_SelectQueen}" SelectedItem="{Binding BeeQueen, Source={x:Reference this}}" 
                          OptionList="{Binding AvailableQueens, Source={x:Reference this}}" ItemDisplayConverter="{StaticResource BeeQueenNameConverter}"/>
-        <cc:CustomDatePicker x:Name="DatePicker" LabelText="Add Date" SelectedDate="{Binding Date, Source={x:Reference this}}"/> 
+        <cc:CustomDatePicker x:Name="DatePicker" LabelText="{loc:Translate txt_Date}" SelectedDate="{Binding Date, Source={x:Reference this}}"/> 
 
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-            <Button Text="OK" Clicked="OnOkClicked" BackgroundColor="GreenYellow" />
-            <Button Text="Cancel" Clicked="OnCancelClicked" BackgroundColor="GreenYellow" />
+            <Button Text="OK" TextColor="{DynamicResource PrimaryTextColor}" Clicked="OnOkClicked" BackgroundColor="{DynamicResource ButtonSaveBackgroundColor}" />
+            <Button Text="Cancel" TextColor="{DynamicResource PrimaryDarkText}" Clicked="OnCancelClicked" BackgroundColor="{DynamicResource ButtonCancelBackgroundColor}" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>

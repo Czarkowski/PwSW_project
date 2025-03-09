@@ -31,8 +31,8 @@
 
                 <CollectionView Margin="10" Grid.Row="1" ItemsSource="{Binding ApiaryProductionSummaryListItemVMs}">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="vm:ApiaryProductionSummaryListItemVM">
-                            <Frame BorderColor="{DynamicResource BorderColor}" 
+                <DataTemplate x:DataType="vm:ApiaryProductionSummaryListItemVM">
+                    <Frame BorderColor="{DynamicResource BorderColor}" 
                            CornerRadius="10" 
                            Padding="10" 
                            Margin="5"

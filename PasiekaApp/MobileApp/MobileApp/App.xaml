@@ -26,8 +26,17 @@
                     <Color x:Key="SecondaryTextColor">#C8C8C8</Color>
                     <Color x:Key="EntryTextColor">#FFFFFF</Color>
                     <Color x:Key="ButtonTextColor">Wheat</Color>
-
+        
                     <!-- Style globalne -->
+                    <Style TargetType="NavigationPage">
+                        <Setter Property="BackgroundColor" Value="Black"/>
+                    </Style>
+                    <Style TargetType="VerticalStackLayout">
+                        <Setter Property="BackgroundColor" Value="Black"/>
+                    </Style>
+                    <Style TargetType="HorizontalStackLayout">
+                        <Setter Property="BackgroundColor" Value="Black"/>
+                    </Style>
                     <Style TargetType="Label">
                         <Setter Property="FontSize" Value="Medium"/>
                         <Setter Property="TextColor" Value="Wheat"/>
@@ -49,12 +58,14 @@
                     </Style>
                     <Style TargetType="StackLayout">
                         <Setter Property="Spacing" Value="10"/>
+                        <Setter Property="BackgroundColor" Value="Black"/>
                     </Style>
                     <Style x:Key="shellTitleStyle" TargetType="Label">
                         <Setter Property="FontSize" Value="Medium" />
                     </Style>
                     <Style TargetType="Shell">
                         <Setter Property="TitleColor" Value="Wheat" />
+                        <Setter Property="BackgroundColor" Value="Black"/>
                     </Style>
                     <Style TargetType="DatePicker">
                         <Setter Property="TextColor" Value="Wheat"/>

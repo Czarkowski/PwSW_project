@@ -94,8 +94,28 @@ namespace MobileApp
         {
             ResetScope();
             EnsureDbInitialized();
+            InitializeBaseRaces();
             InitializeStaticResources();
             InitializeLocalizer();
+
+        }
+
+        private void InitializeBaseRaces()
+        {
+            List<Race> races = _beeService.GetAllRaces();
+            if (races is not { Count: > 0})
+            {
+                _beeService.AddRace(new Race
+                {
+                    Name = "Krainka",
+                    Description = "Krainka jest jedną z najpopularniejszych ras pszczół miodnych. Jest znana ze swojej łagodności i wysokiej produktywności.",
+                });
+                _beeService.AddRace(new Race
+                {
+                    Name = "Kaukaska",
+                    Description = "Kaukaska pszczoła jest znana ze swojej odporności na choroby i wysokiej wydajności miodowej. Jest to rasa pszczół, która dobrze przystosowuje się do różnych warunków klimatycznych.",
+                });
+            }
         }
 
         public void InitializeMainPage()

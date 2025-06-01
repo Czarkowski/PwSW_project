@@ -161,7 +161,7 @@ namespace Data.Core
             else if (platform == DevicePlatform.WinUI)
             {
 #if DEBUG
-                dbPath = @"E:\BeeApp\BeeApp.db";
+                dbPath = @"F:\BeeApp\BeeApp.db";
 #else
                 dbPath = Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + appDataDir + dbFileName);
 #endif

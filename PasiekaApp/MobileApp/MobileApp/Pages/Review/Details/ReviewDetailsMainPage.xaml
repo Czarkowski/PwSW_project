@@ -16,7 +16,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <VerticalStackLayout Grid.Row="0">
+        <VerticalStackLayout BackgroundColor="{DynamicResource BackgroundColor}" Grid.Row="0">
 
             <Label Text="{Binding ReviewTypeName}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}" />
             <Label Text="{Binding Description}" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryTextColor}"/>
@@ -50,7 +50,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <VerticalStackLayout Grid.Row="0">
+                <VerticalStackLayout Grid.Row="0" BackgroundColor="{DynamicResource BackgroundColor}">
 
                     <Label Text="{Binding SelectedItem.HiveName}" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryTextColor}" />
                     <!--<Label Text="{loc:Translate txt_Description}" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}"/>-->

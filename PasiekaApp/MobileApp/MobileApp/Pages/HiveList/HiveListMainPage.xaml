@@ -72,15 +72,16 @@
                      x:DataType="vm:HiveDetailsVM" 
                      BindingContext="{Binding HiveDetailsVM}"  
                      Padding="0" 
+                         BackgroundColor="{DynamicResource BackgroundColor}"
                      Spacing="10">
-                <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Label HorizontalOptions="CenterAndExpand" Text="Szczegóły" 
+                <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" Orientation="Horizontal" Spacing="5">
+                    <Label BackgroundColor="{DynamicResource BackgroundColor}" HorizontalOptions="CenterAndExpand" Text="Szczegóły" 
                    FontAttributes="Bold" 
                    FontSize="Medium" 
                        VerticalOptions="Center"/>
 
                     <!-- Numer ula -->
-                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <HorizontalStackLayout BackgroundColor="{DynamicResource BackgroundColor}" HorizontalOptions="CenterAndExpand">
 
                         <Label Text="Numer:" VerticalOptions="Center" />
                         <cc:IntegerEntry Text="{Binding Number}" 
@@ -93,6 +94,7 @@
                 <!-- Opis ula -->
                 <StackLayout Orientation="Horizontal" 
                          VerticalOptions="FillAndExpand" 
+                             BackgroundColor="{DynamicResource BackgroundColor}"
                          HorizontalOptions="FillAndExpand" 
                          Spacing="5">
                     <Label Text="Opis Ula:" VerticalOptions="Center"/>
@@ -100,11 +102,12 @@
                        IsEnabled="True" 
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="FillAndExpand" 
+                           BackgroundColor="{DynamicResource BackgroundColor}"
                        Unfocused="OnEntryUnfocused"/>
                 </StackLayout>
 
                 <!-- Przycisk operacji na ulu -->
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource BackgroundColor}">
                     <Button Text="{loc:Translate txt_AddQueen}" 
                         IsVisible="{Binding HasQueen_N}" 
                         Clicked="OnAddQueenClicked" 
@@ -135,16 +138,16 @@
                 </StackLayout>
 
                 <!-- Szczegóły Matki -->
-                <StackLayout IsVisible="{Binding HasQueen}">
-                    <StackLayout Orientation="Horizontal" >
+                <StackLayout IsVisible="{Binding HasQueen}" BackgroundColor="{DynamicResource BackgroundColor}">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource BackgroundColor}">
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                        <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
                             <Label Text="Rasa:" FontAttributes="Bold"/>
                             <Label Text="{Binding BeeQueen.Race.Name}" />
                             <!--<cc:LabelEntry LabelText="Rasa:" EntryText="{Binding BeeQueen.Race.Name}" />-->
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                        <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
                             <Label Text="Data Poddania Matki:" FontAttributes="Bold" VerticalOptions="Fill"/>
                             <Label Text="{Binding QueenAddDate, StringFormat='{0:yyyy-MM-dd}'}" />
                             <!--<DatePicker Date="{Binding QueenAddDate}" 
@@ -152,14 +155,14 @@
                                 VerticalOptions="Fill"/>-->
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
+                        <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" IsEnabled="False">
                             <Label Text="Wiek Matki:" FontAttributes="Bold" VerticalOptions="Center" />
                             <Label Text="{Binding QueenAge, Converter={StaticResource QueenAgeConverter}}" 
                            VerticalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="5">
+                    <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" HorizontalOptions="Center" Orientation="Horizontal" Spacing="5">
                         <Label Text="Opis Matki:" FontAttributes="Bold" VerticalOptions="Center"  />
                         <Label Text="{Binding QueenDescription}" 
                            VerticalOptions="Fill" 

@@ -7,7 +7,10 @@
     xmlns:pages="clr-namespace:MobileApp.Pages"
     xmlns:loc="clr-namespace:MobileApp.Localizations"
     xmlns:route="clr-namespace:MobileApp.Keys"
-    Title="MobileApp">
+    Title="MobileApp" 
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    FlyoutBackgroundColor="{DynamicResource BackgroundColor}"
+    >
     <Shell.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

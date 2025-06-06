@@ -37,7 +37,7 @@ public partial class QueenListMainPage : ContentPage
     {
         if (_beeService.GetAllRaces().Count == 0)
         {
-            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRace"), LocalizeManager.Translate("Txt_Ok"));
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRace"), LocalizeManager.Translate("txt_OK"));
             await Shell.Current.GoToAsync(RouteKeys.ApiaryDataRacesMainPage_Path);
             return;
         }

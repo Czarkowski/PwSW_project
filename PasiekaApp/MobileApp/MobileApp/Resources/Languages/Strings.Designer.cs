@@ -547,6 +547,15 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_NoApiaryData {
+            get {
+                return ResourceManager.GetString("txt_NoApiaryData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Date.
         /// </summary>
         internal static string txt_NoDate {
@@ -556,11 +565,29 @@ namespace MobileApp.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_NoProductionType {
+            get {
+                return ResourceManager.GetString("txt_NoProductionType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Queen.
         /// </summary>
         internal static string txt_NoQueen {
             get {
                 return ResourceManager.GetString("txt_NoQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string txt_NoReviewType {
+            get {
+                return ResourceManager.GetString("txt_NoReviewType", resourceCulture);
             }
         }
         

@@ -6,7 +6,8 @@
              x:DataType="local:CustomPicker"
              x:Name="this">
 
-    <StackLayout Orientation="Horizontal" Spacing="5" Padding="10" HeightRequest="60">
+    <StackLayout Orientation="Horizontal" Spacing="5" Padding="10" HeightRequest="60"
+                 BackgroundColor="{DynamicResource BackgroundColor}">
         <Label x:Name="Label" 
            VerticalTextAlignment="Center"
                Text="{Binding LabelText, Source={x:Reference this}}" 

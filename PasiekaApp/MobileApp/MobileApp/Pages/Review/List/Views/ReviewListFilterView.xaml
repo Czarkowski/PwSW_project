@@ -13,16 +13,16 @@
     <VerticalStackLayout>
         <ScrollView Orientation="Horizontal">
             <VerticalStackLayout>
-                
-            <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" >
-                    <cc:CustomDatePicker LabelText="{loc:Translate txt_FromDate}" SelectedDate="{Binding FromDate}" WidthRequest="350"
+
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" BackgroundColor="{DynamicResource BackgroundColor}" >
+                    <cc:CustomDatePicker BackgroundColor="{DynamicResource BackgroundColor}" LabelText="{loc:Translate txt_FromDate}" SelectedDate="{Binding FromDate}" 
                                  HorizontalOptions="FillAndExpand"/>
                 <cc:CustomDatePicker LabelText="{loc:Translate txt_ToDate}" SelectedDate="{Binding ToDate}"  
                                  HorizontalOptions="FillAndExpand"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" BackgroundColor="{DynamicResource BackgroundColor}">
                     <cc:CustomPicker LabelText="{loc:Translate txt_ReviewType}" SelectedItem="{Binding ReviewType}" 
-                                 OptionList="{Binding ReviewTypes}" DisplayProperty="Name" WidthRequest="350"/>
+                                 OptionList="{Binding ReviewTypes}" DisplayProperty="Name"/>
                         <cc:CustomChackBox LabelText="{loc:Translate txt_Uncopleted}" IsChecked="{Binding Uncompleted}"/>
             </HorizontalStackLayout>
             </VerticalStackLayout>

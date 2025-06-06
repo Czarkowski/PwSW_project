@@ -6,6 +6,7 @@
              x:DataType="local:CustomChackBox"
              x:Name="this">
     <StackLayout Orientation="Horizontal" HeightRequest="60" 
+                 BackgroundColor="{DynamicResource BackgroundColor}"
                  Spacing="1" Padding="5">
         <Label x:Name="Label" VerticalTextAlignment="Center" 
                FontAttributes="Bold"

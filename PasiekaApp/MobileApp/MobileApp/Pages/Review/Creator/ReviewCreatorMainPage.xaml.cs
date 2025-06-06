@@ -14,7 +14,12 @@ public partial class ReviewCreatorMainPage : ContentPage
  //   private ObservableCollection<HiveListToCreateReviewVM> _hiveList;
 	//public ObservableCollection<HiveListToCreateReviewVM> HiveList { get => _hiveList; set {_hiveList = value; OnPropertyChanged(nameof(HiveList)); } }
 
-    public ReviewCreatorVM ReviewCreatorVM { get; set; }
+    private ReviewCreatorVM _viewModel;
+    public ReviewCreatorVM ReviewCreatorVM
+    {
+        get { return _viewModel; }
+        set { _viewModel = value; OnPropertyChanged(); }
+    }
 
     private readonly IBeeService _beeService;
     private readonly IViewModelsFactory _viewModelsFactory;
@@ -46,7 +51,7 @@ public partial class ReviewCreatorMainPage : ContentPage
 
         if (ReviewCreatorVM?.ReviewTypeList.Count == 0)
         {
-            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoReviewType"), LocalizeManager.Translate("Txt_Ok"));
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoReviewType"), LocalizeManager.Translate("txt_OK"));
             await Navigation.PopAsync();
             await Shell.Current.GoToAsync(RouteKeys.ApiaryDataReviewsMainPage_Path);
         }

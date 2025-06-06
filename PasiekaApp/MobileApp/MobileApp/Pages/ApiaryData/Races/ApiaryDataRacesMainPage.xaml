@@ -13,7 +13,7 @@
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
             Title="{loc:Translate txt_ApiaryDataRacesMainPageTitle}">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
+    <VerticalStackLayout Padding="10" Spacing="10" BackgroundColor="{DynamicResource BackgroundColor}">
 
         <!-- Lista dostępnych ras z checkboxami -->
         <CollectionView ItemsSource="{Binding RacesListVM.ObservableItemCollection}" SelectionMode="Single" 
@@ -36,11 +36,11 @@
             <StackLayout Spacing="10">
 
                 <!-- Pole do wpisania nazwy rasy -->
-                <Entry Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}"   />
-                <Entry Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}"   />
+                <Entry BackgroundColor="{DynamicResource BackgroundColor}" Text="{Binding AddRaceMainVM.Name}" Placeholder="{loc:Translate txt_RaceNamePlaceholder}"   />
+                <Entry BackgroundColor="{DynamicResource BackgroundColor}" Text="{Binding AddRaceMainVM.Description}" Placeholder="{loc:Translate txt_DescriptionPlaceholder}"   />
 
                 <!-- Przyciski -->
-                <HorizontalStackLayout Spacing="10">
+                <HorizontalStackLayout Spacing="10" BackgroundColor="{DynamicResource BackgroundColor}">
                     <Button Text="{loc:Translate txt_Add}" Clicked="AddRace_Clicked" />
                     <Button Text="{loc:Translate txt_Modify}" Clicked="ModifyRace_Clicked" 
                             IsEnabled="{Binding RacesListVM.SelectedItem, Converter={StaticResource NullToBooleanConverter}}"/>

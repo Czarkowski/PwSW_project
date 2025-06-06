@@ -13,15 +13,15 @@
              x:Name="this"
             BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_ApiaryProductionCreatorMainPageTitle}">
-    
-    <Grid Padding="20">
+
+    <Grid Padding="20" BackgroundColor="{DynamicResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="0">
+        <VerticalStackLayout BackgroundColor="{DynamicResource BackgroundColor}" Grid.Row="0">
             
         <!-- Wybór zasobu (np. miód, pyłek, itp.) -->
         <!--<Label Text="{loc:Translate txt_SelectProduct}" />-->

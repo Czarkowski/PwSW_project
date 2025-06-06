@@ -59,19 +59,19 @@
             </ScrollView>
 
             <!-- Formularz dodawania nowego elementu -->
-            <StackLayout Grid.Row="2" Orientation="Horizontal" BindingContext="{Binding NewWarehouseItemVM}" x:DataType="vm:WarehouseItemVM" Spacing="10">
+        <StackLayout Grid.Row="2" Orientation="Horizontal" BindingContext="{Binding NewWarehouseItemVM}" x:DataType="vm:WarehouseItemVM" Spacing="10" BackgroundColor="{DynamicResource BackgroundColor}">
                 <!-- LabelEntry: Nazwa przedmiotu -->
                 <cc:LabelEntry LabelText="{loc:Translate txt_ItemName}" EntryText="{Binding Name}" 
-                           BackgroundColor="{DynamicResource BackgroundColor}" 
                            WidthRequest="150" />
+                           <!--BackgroundColor="{DynamicResource BackgroundColor}"--> 
 
                 <!-- LabelEntry: Jednostka -->
                 <cc:LabelEntry LabelText="{loc:Translate txt_ItemUnit}" EntryText="{Binding Unit}" 
-                           BackgroundColor="{DynamicResource BackgroundColor}" 
                            WidthRequest="150" />
+                           <!--BackgroundColor="{DynamicResource BackgroundColor}"--> 
 
                 <!-- Ilość przedmiotu -->
-                <VerticalStackLayout Spacing="8" Padding="5" WidthRequest="150">
+            <VerticalStackLayout Spacing="8" Padding="5" WidthRequest="150" BackgroundColor="{DynamicResource BackgroundColor}">
                     <Label Text="{loc:Translate txt_ItemQuantity}" 
                          FontAttributes="Bold" 
                                 FontSize="Medium"
@@ -80,8 +80,8 @@
                        HeightRequest="40" 
                    Margin="0,5,0,0"
                                 FontSize="Small"
-                         BackgroundColor="{DynamicResource BackgroundColor}" 
                        HorizontalOptions="FillAndExpand">
+                         <!--BackgroundColor="{DynamicResource BackgroundColor}"--> 
                         <Entry.Behaviors>
                             <behaviors:DoubleValidationBehavior />
                         </Entry.Behaviors>

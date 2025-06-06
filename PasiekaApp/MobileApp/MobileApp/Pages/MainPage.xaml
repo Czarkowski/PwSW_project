@@ -6,8 +6,8 @@
              x:Class="MobileApp.Pages.MainPage">
 
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal" BackgroundColor="Black" VerticalOptions="Fill" HorizontalOptions="Fill">
-            <Image Source="logo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Aspect="AspectFit" />
+        <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" Orientation="Horizontal" VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Image Source="logo.png" BackgroundColor="{DynamicResource BackgroundColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Aspect="AspectFit" />
         </StackLayout>
     </ContentPage.Content>
 

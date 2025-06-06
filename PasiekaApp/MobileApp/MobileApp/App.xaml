@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
                 <ResourceDictionary>
                     <!-- Kolory tła -->
-                    <Color x:Key="BackgroundColor">#1E1E1E</Color>
+                    <Color x:Key="BackgroundColor">#814111</Color>
                     <Color x:Key="CardBackgroundColor">#2D2D30</Color>
                     <Color x:Key="EntryBackgroundColor">#3C3C3C</Color>
                     <Color x:Key="ButtonBackgroundColor">#007ACC</Color>
@@ -19,7 +19,7 @@
                     <Color x:Key="ButtonCancelBackgroundColor">#eedd00</Color>
                     <Color x:Key="ButtonSaveBackgroundColor">#009900</Color>
                     <Color x:Key="ButtonDeleteBackgroundColor">#aa0000</Color>
-                    <Color x:Key="ButtonDetailsBackgroundColor">#00dddd</Color>
+                    <Color x:Key="ButtonDetailsBackgroundColor">#008888</Color>
                     <Color x:Key="ButtonSearchBackgroundColor">#880088</Color>
                     <!-- Kolory tekstu -->
                     <Color x:Key="PrimaryTextColor">Wheat</Color>
@@ -29,13 +29,13 @@
         
                     <!-- Style globalne -->
                     <Style TargetType="NavigationPage">
-                        <Setter Property="BackgroundColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="#814111"/>
                     </Style>
                     <Style TargetType="VerticalStackLayout">
-                        <Setter Property="BackgroundColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="#814111"/>
                     </Style>
                     <Style TargetType="HorizontalStackLayout">
-                        <Setter Property="BackgroundColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="#814111"/>
                     </Style>
                     <Style TargetType="Label">
                         <Setter Property="FontSize" Value="Medium"/>
@@ -58,14 +58,14 @@
                     </Style>
                     <Style TargetType="StackLayout">
                         <Setter Property="Spacing" Value="10"/>
-                        <Setter Property="BackgroundColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="#814111"/>
                     </Style>
                     <Style x:Key="shellTitleStyle" TargetType="Label">
                         <Setter Property="FontSize" Value="Medium" />
                     </Style>
                     <Style TargetType="Shell">
                         <Setter Property="TitleColor" Value="Wheat" />
-                        <Setter Property="BackgroundColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="#814111"/>
                     </Style>
                     <Style TargetType="DatePicker">
                         <Setter Property="TextColor" Value="Wheat"/>

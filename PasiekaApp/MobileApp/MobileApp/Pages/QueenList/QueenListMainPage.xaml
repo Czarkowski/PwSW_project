@@ -23,7 +23,7 @@
             </StackLayout>
             
             <ScrollView Grid.Row="1">
-                <StackLayout>
+                <StackLayout BackgroundColor="{DynamicResource BackgroundColor}">
                     <!-- Lista, która może być przewijana -->
                     <views:QueenList x:Name="QueenListView" SelectionChanged="OnQueenSelectionChanged"/>
                 </StackLayout>

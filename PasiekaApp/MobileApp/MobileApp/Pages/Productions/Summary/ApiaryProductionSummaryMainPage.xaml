@@ -37,7 +37,7 @@
                            Padding="10" 
                            Margin="5"
                            BackgroundColor="{DynamicResource CardBackgroundColor}">
-                                <VerticalStackLayout>
+                        <VerticalStackLayout BackgroundColor="{DynamicResource BackgroundColor}">
                                     <!-- Typ produkcji -->
                                     <Label Text="{Binding ProductionType}" 
                                    FontAttributes="Bold" 
@@ -45,12 +45,12 @@
                                    TextColor="{DynamicResource PrimaryTextColor}" />
 
                                     <!-- Data i jednostka -->
-                                    <HorizontalStackLayout>
+                            <HorizontalStackLayout BackgroundColor="{DynamicResource BackgroundColor}">
                                         <Label Text="{Binding Date, StringFormat='{0:yyyy-MM-dd}'}" 
                                        FontSize="14" 
                                        TextColor="{DynamicResource PrimaryTextColor}" />
                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout>
+                            <HorizontalStackLayout BackgroundColor="{DynamicResource BackgroundColor}">
                                         <!-- Wartość produkcji -->
                                         <Label Text="{Binding Value, StringFormat='{0:F2}'}" 
                                    FontSize="16" 

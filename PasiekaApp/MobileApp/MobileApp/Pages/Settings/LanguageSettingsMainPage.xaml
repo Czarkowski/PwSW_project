@@ -10,7 +10,7 @@
              x:Name="this"
              BindingContext="{Binding ViewModel, Source={RelativeSource Self}}"
              Title="{loc:Translate txt_LanguageSettingsMainPageTitle}">
-    <StackLayout Orientation="Vertical" Margin="10">
+    <StackLayout Orientation="Vertical" Margin="10" BackgroundColor="{DynamicResource BackgroundColor}">
         <Label Text="{loc:Translate txt_ChooseLanguage}" />
         <Picker x:Name="LanguagePicker" ItemsSource="{Binding LanguageListVM.ItemList}" SelectedItem="{Binding LanguageListVM.SelectedItem}">
         </Picker>

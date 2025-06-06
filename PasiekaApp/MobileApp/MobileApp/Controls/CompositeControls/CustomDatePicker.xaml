@@ -6,6 +6,7 @@
              x:DataType="local:CustomDatePicker"
              x:Name="this">
     <StackLayout Orientation="Horizontal"
+                 BackgroundColor="{DynamicResource BackgroundColor}"
              Padding="5" 
              VerticalOptions="Center"
              HorizontalOptions="FillAndExpand"

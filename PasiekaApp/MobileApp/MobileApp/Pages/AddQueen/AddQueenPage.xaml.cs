@@ -47,7 +47,7 @@ public partial class AddQueenPage : ContentPage
     {
         if ((AddQueenVM?.Races.Count ?? 0) == 0)
         {
-            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRaces"), LocalizeManager.Translate("Txt_Ok"));
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoRaces"), LocalizeManager.Translate("txt_OK"));
             await Navigation.PopAsync();
             await Shell.Current.GoToAsync(RouteKeys.ApiaryDataProdutionsMainPage_Path);
         }

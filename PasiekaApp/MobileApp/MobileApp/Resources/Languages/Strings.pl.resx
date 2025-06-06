@@ -433,4 +433,13 @@ Ta operacja jest nieodwracalna!</value>
   <data name="txt_Date" xml:space="preserve">
     <value>Data</value>
   </data>
+  <data name="txt_NoApiaryData" xml:space="preserve">
+    <value>Brak danych pasieki</value>
+  </data>
+  <data name="txt_NoProductionType" xml:space="preserve">
+    <value>Brak danych produkcji</value>
+  </data>
+  <data name="txt_NoReviewType" xml:space="preserve">
+    <value>Brak danych przeglądu</value>
+  </data>
 </root>

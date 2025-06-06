@@ -53,7 +53,7 @@ public partial class ApiaryProductionCreatorMainPage : BaseContentPage<ApiaryPro
     {
         if ((ViewModel?.ProductionTypePickerVM.ItemList.Count ?? 0) == 0)
         {
-            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoProductionType"), LocalizeManager.Translate("Txt_Ok"));
+            await DisplayAlert(LocalizeManager.Translate("txt_NoApiaryData"), LocalizeManager.Translate("txt_NoProductionType"), LocalizeManager.Translate("txt_OK"));
             await Shell.Current.GoToAsync(RouteKeys.ApiaryDataProdutionsMainPage_Path);
         }
     }
